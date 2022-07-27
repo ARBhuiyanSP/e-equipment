@@ -44,7 +44,12 @@
                 <th>SL No</th>
                 <th>Item Description</th>
                 <th>Purpose of Purchase</th>
-                <th width="10%">Quantity</th>
+                <th>Quantity</th>
+                <th>Estimated Price</th>
+                <?php if(is_super_admin($currentUserId)){ ?>
+                <th>Supplier</th>
+                <th>Remarks</th>
+                <?php } ?>
                 <th>Action</th>
             </tr>
         </thead>
@@ -54,7 +59,12 @@
                 <td><textarea class="form-control" id="" name="description[]" rows="1" required></textarea></td>
                 <td><input type="text" class="form-control" id="" name="purpose[]" value="" size=""  required /></td>
                 <td><input type="text" class="form-control" id="" name="quantity[]" value="" size=""  required /></td>
-                <td><a class="btn btn-xs" data-id=""></a></td>
+                <td><input type="text" class="form-control" id="" name="estimatedPrice[]" value="" size=""  /></td>
+                <?php if(is_super_admin($currentUserId)){ ?>
+                <td><input type="text" class="form-control" id="" name="supplier[]" value="" size=""/></td>
+                <td><input type="text" class="form-control" id="" name="details_remarks[]" value="" size=""/></td>
+                <?php } ?>
+                <td><a class="btn btn-xs" data-id=""><i class="glyphicon glyphicon-trash"></i></a></td>
             </tr>
         </tbody>
     </table>
@@ -91,6 +101,11 @@
             <td><textarea class="form-control" id="" name="description[]" rows="1" required></textarea></td>
             <td><input type="text" class="form-control" id="" name="purpose[]" value="" size=""  required /></td>
             <td><input type="text" class="form-control" id="" name="quantity[]" value="" size=""  required /></td>
+            <td><input type="text" class="form-control" id="" name="estimatedPrice[]" value="" size="" /></td>
+		 <?php if(is_super_admin($currentUserId)){ ?>
+			<td><input type="text" class="form-control" id="" name="supplier[]" value="" size=""/></td>
+			<td><input type="text" class="form-control" id="" name="details_remarks[]" value="" size=""/></td>
+		 <?php } ?>
             <td><a class="btn btn-xs delete-record" data-id="0"><i class="glyphicon glyphicon-trash"></i></a></td>
         </tr>
     </table>

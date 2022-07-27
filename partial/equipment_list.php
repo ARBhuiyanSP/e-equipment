@@ -25,6 +25,8 @@ if (isset($rrrListData) && !empty($rrrListData)) {
                     <th>Brand</th>
                     <th>Model</th>
                     <th>Project</th>
+                    <th>Present Location</th>
+                    <th>Present Condition</th>
                     <th style="background-color: #3C8DBC;color: #fff;" width="25%">Action</th>
                 </tr>
             </thead>
@@ -97,6 +99,12 @@ if (isset($rrrListData) && !empty($rrrListData)) {
 									echo (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : '');
 							?></b></center>
 						</td>
+						<td>
+							<center><b><?php echo (isset($adata->present_location) && !empty($adata->present_location) ? $adata->present_location : 'No data'); ?></b></center>
+						</td>
+						<td>
+							<center><b><?php echo (isset($adata->present_condition) && !empty($adata->present_condition) ? $adata->present_condition : 'No data'); ?></b></center>
+						</td>
 						
 						
                         
@@ -108,8 +116,14 @@ if (isset($rrrListData) && !empty($rrrListData)) {
                             <?php } ?>
 							
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
-                            <a title="Details View" class="btn btn-sm btn-success" href="rrr_view.php?rrr_id=<?php echo $adata->id; ?>">
+                            <a title="Details View" class="btn btn-sm btn-success" href="equipment_view.php?id=<?php echo $adata->id; ?>">
                                 <span class="fa fa-crosshairs"> <b>Details</b></span>
+                            </a>
+                            <?php } ?>
+							
+							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
+                            <a title="Details View" class="btn btn-sm btn-info" href="equipment_shifting.php?id=<?php echo $adata->id; ?>">
+                                <span class="fa fa-exchange"> <b>Shifting</b></span>
                             </a>
                             <?php } ?>
 							

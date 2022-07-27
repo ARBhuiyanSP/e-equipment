@@ -7,42 +7,56 @@
         <div class="col-sm-2">
             <div class="form-group">
                 <label for="exampleId">Date</label>
-                <input name="date" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
+                <input name="commissioning_date" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
             </div>
         </div>
 		<div class="col-sm-2">
             <div class="form-group">
 				<label for="division/company">Project:</label>
-                <select class="all_emplyees form-control" id="project_id" name="project_id" required >
-					<option value="">Please select</option>
-					<option value="management">Management</option>
-					<option value="non-management">Non-management</option>
-					<option value="contractual">Contractual</option>
-					<option value="temporary">Temporary</option>
+				<select class="all_emplyees form-control" id="project_id" name="project_id" required >
+					<option value="">Select Project</option>
+					<?php
+					$tableName = 'projects';
+					$column = 'project_name';
+					$order = 'asc';
+					$dataType = 'obj';
+					$projectsData = getTableDataByTableName($tableName, $order, $column, $dataType);
+					if (isset($projectsData) && !empty($projectsData)) {
+						foreach ($projectsData as $data) {
+							?>
+							<option value="<?php echo $data->id; ?>"><?php echo $data->project_name; ?></option>
+							<?php
+						}
+					}
+					?>
 				</select>
 			</div>
         </div>
 		<div class="col-sm-2">
             <div class="form-group">
 				<label for="division/company">Sub Project:</label>
-                <select class="all_emplyees form-control" id="sub_project_id" name="sub_project_id" required >
-					<option value="">Please select</option>
-					<option value="management">Management</option>
-					<option value="non-management">Non-management</option>
-					<option value="contractual">Contractual</option>
-					<option value="temporary">Temporary</option>
+                <select class="all_emplyees form-control" id="sub_project_id" name="sub_project_id" >
+					<option value="">Select Sub Project</option>
+					<?php
+					$tableName = 'sub_projects';
+					$column = 'name';
+					$order = 'asc';
+					$dataType = 'obj';
+					$projectsData = getTableDataByTableName($tableName, $order, $column, $dataType);
+					if (isset($projectsData) && !empty($projectsData)) {
+						foreach ($projectsData as $data) {
+							?>
+							<option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
+							<?php
+						}
+					}
+					?>
 				</select>
 			</div>
         </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="exampleId">Name</label>
-                <input name="name" type="text" class="form-control" id="name" value="" autocomplete="off" required />
-            </div>
-        </div>
 		<div class="col-sm-2">
             <div class="form-group">
-				<label for="division/company">Type:</label>
+				<label for="exampleId">Type:</label>
                 <div class="radio">
                     <label><input type="radio" name="equipment_type" value="1" checked > <span class="label label-success">OWN</span> </label>
                     <label><input type="radio" name="equipment_type" value="2"> <span class="label label-danger">RENTAL</span> </label>
@@ -51,17 +65,37 @@
         </div>
         <div class="col-sm-2">
             <div class="form-group">
+                <label for="exampleId">Name</label>
+                <input name="name" type="text" class="form-control" id="name" value="" autocomplete="off" required />
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
                 <label for="exampleId">EEL Code</label>
                 <input name="eel_code" type="text" class="form-control" id="eel_code" value="" autocomplete="off" required />
             </div>
         </div>
+	</div>
+	<div class="row">
 		<div class="col-sm-2">
             <div class="form-group">
 				<label for="division/company">Country Origin:</label>
                 <select class="all_emplyees form-control" id="origin" name="origin" required >
-					<option value="">Please select</option>
-					<option value="China">China</option>
-					<option value="Germany">Germany</option>
+					<option value="">Select</option>
+					<?php
+					$tableName = 'country';
+					$column = 'nicename';
+					$order = 'asc';
+					$dataType = 'obj';
+					$projectsData = getTableDataByTableName($tableName, $order, $column, $dataType);
+					if (isset($projectsData) && !empty($projectsData)) {
+						foreach ($projectsData as $data) {
+							?>
+							<option value="<?php echo $data->id; ?>"><?php echo $data->nicename; ?></option>
+							<?php
+						}
+					}
+					?>
 				</select>
 			</div>
         </div>
@@ -89,13 +123,43 @@
                 <input name="year_manufacture" type="text" class="form-control" id="year_manufacture" value="" autocomplete="off" required />
             </div>
         </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="exampleId">Inventory SL No</label>
+                <input name="inventory_sl_no" type="text" class="form-control" id="inventory_sl_no" value="" autocomplete="off" required />
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="exampleId">Engine Model</label>
+                <input name="engine_model" type="text" class="form-control" id="engine_model" value="" autocomplete="off" required />
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="exampleId">Engine SL No</label>
+                <input name="engine_sl_no" type="text" class="form-control" id="engine_sl_no" value="" autocomplete="off" required />
+            </div>
+        </div>
 		<div class="col-sm-2">
             <div class="form-group">
 				<label for="division/company">Present Location:</label>
                 <select class="all_emplyees form-control" id="present_location" name="present_location" required >
-					<option value="">Please select</option>
-					<option value="China">China</option>
-					<option value="Germany">Germany</option>
+					<option value="">Select Project</option>
+					<?php
+					$tableName = 'projects';
+					$column = 'project_name';
+					$order = 'asc';
+					$dataType = 'obj';
+					$projectsData = getTableDataByTableName($tableName, $order, $column, $dataType);
+					if (isset($projectsData) && !empty($projectsData)) {
+						foreach ($projectsData as $data) {
+							?>
+							<option value="<?php echo $data->id; ?>"><?php echo $data->project_name; ?></option>
+							<?php
+						}
+					}
+					?>
 				</select>
 			</div>
         </div>
@@ -103,13 +167,25 @@
             <div class="form-group">
 				<label for="division/company">Present Condition:</label>
                 <select class="all_emplyees form-control" id="present_condition" name="present_condition" required >
-					<option value="">Please select</option>
-					<option value="China">China</option>
-					<option value="Germany">Germany</option>
+					<option value="">Select</option>
+					<?php
+					$tableName = 'present_condition';
+					$column = 'name';
+					$order = 'asc';
+					$dataType = 'obj';
+					$projectsData = getTableDataByTableName($tableName, $order, $column, $dataType);
+					if (isset($projectsData) && !empty($projectsData)) {
+						foreach ($projectsData as $data) {
+							?>
+							<option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
+							<?php
+						}
+					}
+					?>
 				</select>
 			</div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="exampleId">Remarks:</label>
                 <textarea class="form-control" id="" name="remarks" rows="1"></textarea>
@@ -118,7 +194,7 @@
     </div>
     <div class="row" style="padding-top:5px;">
         <div class="col-sm-12">
-            <input type="submit" name="rrr_create" id="submit" class="btn btn-block btn-primary" value="Save Equipment Data" />
+            <input type="submit" name="equipment_entry" id="submit" class="btn btn-block btn-primary" value="Save Equipment Data" />
         </div>
     </div>
 </form>
