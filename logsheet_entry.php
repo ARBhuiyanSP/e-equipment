@@ -10,43 +10,38 @@
     <section class="content-header">
         <?php include 'operation_message.php'; ?>
         <h1>
-            Home
-            <small>Equipment List</small>
+            E-Equipment
+            <small>Log Sheet Entry Form</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Equipment List</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> E-Equipment</a></li>
+            <li class="active">Daily log sheet Entry Form</li>
         </ol>
     </section>
-	
+
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
+            <!-- left column -->
+            <div class="col-md-12">
+				<div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"></h3>
                         <div class="box-tools">
                             <ul class="pagination pagination-sm no-margin pull-right">
-                                <?php if(hasAccessPermission($user_id_session, 'crlp', 'view_access')){ ?>
-                                <li><a href="equipment_entry.php"><i class="fa fa-user-plus"></i> Create</a></li>
-                                <?php } ?>
+                                <li><a href="logsheet-list.php"><i class="fa fa-user-plus"></i> Logsheet List</a></li>
                             </ul>
                         </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <?php include 'partial/equipment_list_2.php'; ?>
+                        <?php include 'partial/logsheet_entry_form.php'; ?>
                     </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
-
     </section>
     <!-- /.content -->
 </div>

@@ -11,14 +11,14 @@
         <?php include 'operation_message.php'; ?>
         <h1>
             Home
-            <small>Equipment List</small>
+            <small>RLP Info</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Equipment List</li>
+            <li class="active">RLP Info</li>
         </ol>
     </section>
-	
+
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
@@ -30,15 +30,32 @@
                         <div class="box-tools">
                             <ul class="pagination pagination-sm no-margin pull-right">
                                 <?php if(hasAccessPermission($user_id_session, 'crlp', 'view_access')){ ?>
-                                <li><a href="equipment_entry.php"><i class="fa fa-user-plus"></i> Create</a></li>
+                                <li><a href="logsheet_entry.php"><i class="fa fa-user-plus"></i> Create</a></li>
                                 <?php } ?>
                             </ul>
                         </div>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
-                        <?php include 'partial/equipment_list_2.php'; ?>
-                    </div>
+                     <div class="box-body">
+		 <!--logsheet_list_table  reference footer.php-->
+            <table id="logsheet_list_table" class="table table-striped table-bordered  list-table-custom-style" style="width:100%">
+				<thead>
+					<tr class="tr_header">	
+						<th>slno</th>					
+						<th>Date</th>
+						<th>Equipment Name</th>
+						<th>Project Name</th>
+						<th>work Details</th>
+						<th>Run HR/KM</th>
+						<th>Close HR/KM</th>
+						<th>Total HR/KM</th>
+						
+
+						<th style="min-width: 190px">Action</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->

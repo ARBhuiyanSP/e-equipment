@@ -48,24 +48,34 @@ $user_id_session = $_SESSION['logged']['user_id'];
             } ?>"><a href="candidates_create.php"><i class="fa fa-window-restore"></i> <span>Candidates</span></a></li> --->
 			
 			
-                <li class="<?php if ($page_name == "import_system.php") {
+               <!-- <li class="<?php if ($page_name == "import_system.php") {
                 echo "active";
-            } ?>"><a href="import_system.php"><i class="fa fa-upload" aria-hidden="true"></i> <span>Import</span></a></li>
+            } ?>"><a href="import_system.php"><i class="fa fa-upload" aria-hidden="true"></i> <span>Import</span></a></li>--->
 			<li class="<?php if ($page_name == "import_system.php") {
                 echo "active";
             } ?>"><a href="backup_system.php"><i class="fa fa-download" aria-hidden="true"></i> <span>Data Backup</span></a></li>
 <?php } ?>
-            <li class="header">User Page</li>
+            <li class="header">Operation</li>
             <?php if (hasAccessPermission($user_id_session, 'rlp_list', 'view_access')) { ?>
 				<li class="<?php if ($page_name == "rlp_list.php") {
                 echo "active";
             } ?>">
                     <a href="rlp_list.php"><i class="fa fa-file-text-o"></i> <span>RLP</span></a>
                 </li>
+				<li class="<?php if ($page_name == "notesheet.php") {
+                echo "active";
+            } ?>">
+                    <a href="#"><i class="fa fa-file-text-o"></i> <span>Notesheet</span></a>
+                </li>
 				<li class="<?php if ($page_name == "equipment_list.php") {
                 echo "active";
             } ?>">
                     <a href="equipment_list.php"><i class="fa fa-file-text-o"></i> <span>Equipment</span></a>
+                </li>
+				<li class="<?php if ($page_name == "equipment_list.php") {
+                echo "active";
+            } ?>">
+                    <a href="logsheet.php"><i class="fa fa-file-text-o"></i> <span>Log Sheet</span></a>
                 </li>
 				<!-- <li class="<?php if ($page_name == "rrr_create.php") {
                 echo "active";
@@ -82,27 +92,47 @@ $user_id_session = $_SESSION['logged']['user_id'];
             } ?>">
                     <a href="evaluation.php"><i class="fa fa-file-text-o"></i> <span>Evaluation</span></a>
                 </li>  --->
-				<li class="<?php if ($page_name == "notesheet.php") {
+<?php } ?>
+			<li class="header">Maintenance</li>
+			<li class="<?php if ($page_name == "rlp_list.php") {
                 echo "active";
             } ?>">
-                    <a href="#"><i class="fa fa-file-text-o"></i> <span>Notesheet</span></a>
+                    <a href="#"><i class="fa fa-file-text-o"></i> <span>Schedule</span></a>
                 </li>
-<?php } ?>
+				<li class="<?php if ($page_name == "inspection.php") {
+                echo "active";
+            } ?>">
+                    <a href="inspection.php"><i class="fa fa-file-text-o"></i> <span>Inspection</span></a>
+                </li>
+			<li class="<?php if ($page_name == "rlp_list.php") {
+                echo "active";
+            } ?>">
+                    <a href="#"><i class="fa fa-file-text-o"></i> <span>Repair</span></a>
+                </li>
+			<li class="<?php if ($page_name == "rlp_list.php") {
+                echo "active";
+            } ?>">
+                    <a href="#"><i class="fa fa-file-text-o"></i> <span>Maintenance Cost</span></a>
+                </li>
+				
+			<li class="<?php if ($page_name == "rlp_list.php") {
+                echo "active";
+            } ?>">
+                    <a href="http://45.249.102.75/cted_inv/" target="blank"><i class="fa fa-file-text-o"></i> <span>Spare Parts</span></a>
+                </li>
+		   
+				
             <li class="header">Report</li>
 <?php if (hasAccessPermission($user_id_session, 'rlp_report', 'view_access')) { ?>
-                <li class="treeview <?php if (in_array($page_name, $settingsPages)) {
-        echo 'active';
-    } ?>">
-                    <a href="#">
-                        <i class="fa fa-file-image-o text-red"></i> <span> RRR Report</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li class="<?php if($page_name == "rlp_report_div_wise.php"){ echo "active"; } ?>"><a href="rlp_report_div_wise.php"><i class="fa fa-circle-o"></i> Division Wise RLP</a></li>
-                        <li class="<?php if($page_name == "rlp_report_mem_wise.php"){ echo "active"; } ?>"><a href="rlp_report_mem_wise.php"><i class="fa fa-circle-o"></i> Member Wise RLP</a></li>
-                    </ul>
+                <li class="<?php if ($page_name == "rlp_list.php") {
+                echo "active";
+            } ?>">
+                    <a href="equipment_list_report.php"><i class="fa fa-file-text-o"></i> <span>Equipment List</span></a>
+                </li>
+				<li class="<?php if ($page_name == "rlp_list.php") {
+                echo "active";
+            } ?>">
+                    <a href="equipment_history_report.php"><i class="fa fa-file-text-o"></i> <span>Equipment History</span></a>
                 </li>
 <?php } ?>
             <!--setActiveMenuClass-->

@@ -82,7 +82,7 @@
 		</div>
 	</div>
 	<h3 style="color:red;">Want To Shift This Equipment To Another Project ?</h3>
-	<form action="movetotransfer.php" method="post">
+	<form action="" method="post">
 		<div class="row">
 			<div class="col-xs-3">
 				<div class="form-group">
@@ -110,7 +110,7 @@
 			<div class="col-xs-3">
 				<div class="form-group">
 					<label>Transfer Date</label>
-					<input name="assign_date" type="text" class="form-control" id="rndate" autocomplete="off" />
+					<input name="assign_date" type="text" class="form-control" id="rlpdate" autocomplete="off" />
 				</div>
 			</div>
 			<div class="col-xs-3">
@@ -122,7 +122,7 @@
 			<div class="col-xs-3">
 				<div class="form-group">
 					<label>Requisition Date</label>
-					<input name="req_date" type="text" class="form-control" id="rqdate" autocomplete="off" />
+					<input name="req_date" type="text" class="form-control" id="date" autocomplete="off" />
 				</div>
 			</div>
 		</div>
@@ -134,10 +134,10 @@
 				</div>
 			</div>
 		</div>
-		<button class="btn btn-success btn-block" type="submit" name="submit"> Transfer/Shift This Equipment</i></button>
 		<input type="hidden" name="id" value="<?php echo $row2['id'] ?>" />
-		<input type="hidden" name="eel_code" value="<?php echo $row['eel_code'];?>" />
-		<input type="hidden" name="equipment_type" value="<?php echo $row['equipment_type'];?>" />
+		<input type="hidden" name="eel_code" value="<?php echo $equipment_info->eel_code;?>" />
+		<input type="hidden" name="equipment_type" value="<?php echo $equipment_info->equipment_type;?>" />
+		<button class="btn btn-success btn-block" type="submit" name="equipment_shift"> Transfer/Shift This Equipment</i></button>
 	</form>
     <!-- /.row -->
 </section>

@@ -84,6 +84,118 @@ function execute_equipment_table(){
     return $response;
 }
 
+/// equipment shifting process
+if (isset($_POST['equipment_shift'])){
+    /******************************assets table operation******************** */
+    $eel_code 		= $_POST['eel_code'];
+	$project_id 	= $_POST['project_id'];
+	$equipment_type	= $_POST['equipment_type'];
+	$assign_date 	= $_POST['assign_date'];
+	$remarks 		= $_POST['remarks'];
+	$id 			= $_POST['id'];
+
+	$sql	=	"insert into `equipment_assign` values('','$eel_code','$project_id','','$equipment_type','$assign_date','','$remarks')";
+	$response	=	mysqli_query($conn, $sql);
+
+    $sql2	=	"UPDATE `equipment_assign` set `refund_date`='$assign_date' where `id`='$id'";
+    $response2	=	mysqli_query($conn, $sql2);
+	
+	if(isset($response)){
+        $_SESSION['success']    =   "Your request have been successfully procced.";
+    }else{
+        $_SESSION['error']    =   "Failed to save data";
+    }
+    header("location: equipment_list.php");
+    exit();
+    
+	/* $shifting_info_response  =   execute_assign_table();
+    if(isset($shifting_info_response) && $shifting_info_response['status'] == "success"){
+        $_SESSION['success']    =   "Your request have been successfully procced.";
+    }else{
+        $_SESSION['error']    =   "Failed to save data";
+    } 
+    header("location: equipment_list.php");
+    exit(); */
+}
+function execute_assign_table(){
+    global $conn;
+    $commissioning_date		= (isset($_POST['commissioning_date']) && !empty($_POST['commissioning_date']) ? trim(mysqli_real_escape_string($conn,$_POST['commissioning_date'])) : date("Y-m-d"));
+	
+    $project_id		= (isset($_POST['project_id']) && !empty($_POST['project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['project_id'])) : "");
+	
+    $sub_project_id		= (isset($_POST['sub_project_id']) && !empty($_POST['sub_project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['sub_project_id'])) : "");
+	
+    $name		= (isset($_POST['name']) && !empty($_POST['name']) ? trim(mysqli_real_escape_string($conn,$_POST['name'])) : "");
+	
+    $remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
+	/*--------------------------*/
+    
+    /*
+     * *****************************rrr_info table operation********************
+     */
+    $table_sql     =   "equipments";
+    $dataParam     =   [
+        //'id'                    =>  get_table_next_primary_id($table_sql),
+        //'rrr_no'                =>  get_rrr_no(),
+        //'rrr_user_id'           =>  $_SESSION['logged']['user_id'],
+        //'rrr_user_office_id'    =>  $_SESSION['logged']['office_id'],
+        'eel_code'           	=>  $eel_code,
+        'project_id'    	=>  $project_id,
+        'equipment_type'      	=>  $equipment_type,
+        'assign_date'          	=>  $assign_date,
+        'date_from'          	=>  date('Y-m-d h:i:s', strtotime($commissioning_date)),
+        'assign_status'       	=>  'assigned',
+        'remarks'          		=>  $remarks,
+        'status'          		=>  $status,
+		
+		$eel_code 		= $_POST['eel_code'],
+		$project_id 	= $_POST['project_id'],
+		$equipment_type	= $_POST['equipment_type'],
+		$assign_date 	= $_POST['assign_date'],
+		$remarks 		= $_POST['remarks'],
+		$id 			= $_POST['id'],
+		
+		/*--------------------------*/
+        //'created_by'            	=>  $_SESSION['logged']['user_id'],
+        'created_at'            	=>  date('Y-m-d h:i:s')
+    ];
+    $where		=	"id=$id";	
+    $response   =   saveData("equipment_assign", $dataParam);
+	$response2 	=	updateData('equipment_assign', $dataParam, $where);
+    return $response;
+    return $response2;
+}
+
+//////inspection
+
+if (isset($_POST['ins_submit'])){
+    /******************************assets table operation******************** */
+    	$id 			= $_POST['id'];
+	$product_id 	= $_POST['product_id'];
+	$ins_date 		= $_POST['ins_date'];
+	$status 		= $_POST['status'];
+	$remarks 		= $_POST['remarks'];
+
+
+
+	$sql	=	"insert into `inspaction` values('','$product_id','$ins_date','$status','$remarks')";
+	$response	=	mysqli_query($conn, $sql);
+	
+    $sql2	=	"UPDATE `equipments`  set `inspaction_date`='$ins_date',`status`='$status' where `eel_code`='$product_id'";
+    $response2	=	mysqli_query($conn, $sql2);
+
+	
+	
+	if(isset($response)){
+        $_SESSION['success']    =   "Your request have been successfully procced.";
+    }else{
+        $_SESSION['error']    =   "Failed to save data";
+    }
+    header("location: inspection.php");
+    exit();
+    
+}
+
 if(isset($_GET['request_type']) && $_GET['request_type'] == "requested_by_info"){
     session_start();
 

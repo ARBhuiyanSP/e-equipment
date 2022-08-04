@@ -89,6 +89,109 @@ jQuery( document ).ready(function( $ ) {
 <?php include 'modal/notesheet_details_quick_view.php'; ?>
 <?php include 'modal/candidate_add_form_ajax.php'; ?>
 <script>
+$(function () {    
+  get_logsheet_data_table();
+})
+
+function get_logsheet_data_table(){
+
+  let division_id   = '';
+  let department_id   = '';
+    //getDataTablelogsheetList call from  grid_management.php
+    var url       =   baseUrl + "function/grid_management.php?process_type=getDataTablelogsheetList";
+//logsheet_list_table  reference logsheet-list.php
+    var userListDataTable   =   $('#logsheet_list_table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                url:url,
+                type:'POST',
+                dataType:'json',
+                data: {
+                    division_id     : division_id,
+                    department_id   : department_id
+                }
+            },
+            "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [ -1, 2, 3 ] }
+            ],
+            "lengthMenu": [[10, 100, 250, 500, -1], [10,100, 250, 500, "All"]]
+        });
+
+
+}
+
+ 
+</script>
+<script>
+$(function () {    
+  get_equipment_data_table();
+})
+
+function get_equipment_data_table(){
+
+  let project_id   = '';
+  let sub_project_id   = '';
+    //getDataTablelogsheetList call from  grid_management.php
+    var url       =   baseUrl + "function/grid_management.php?process_type=getDataTableequipmentList";
+//logsheet_list_table  reference logsheet-list.php
+    var userListDataTable   =   $('#equipment_list_table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                url:url,
+                type:'POST',
+                dataType:'json',
+                data: {
+                    project_id     : project_id,
+                    sub_project_id   : sub_project_id
+                }
+            },
+            "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [ -1, 2, 3 ] }
+            ],
+            "lengthMenu": [[10, 100, 250, 500, -1], [10,100, 250, 500, "All"]]
+        });
+
+
+}
+</script>
+<script>
+$(function () {    
+  get_ins_data_table();
+})
+
+function get_ins_data_table(){
+
+  let division_id   = '';
+  let department_id   = '';
+    //getDataTablelogsheetList call from  grid_management.php
+    var url       =   baseUrl + "function/grid_management.php?process_type=getDataTableinsList";
+//logsheet_list_table  reference logsheet-list.php
+    var userListDataTable   =   $('#ins_list_table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                url:url,
+                type:'POST',
+                dataType:'json',
+                data: {
+                    division_id     : division_id,
+                    department_id   : department_id
+                }
+            },
+            "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [ -1, 2, 3 ] }
+            ],
+            "lengthMenu": [[10, 100, 250, 500, -1], [10,100, 250, 500, "All"]]
+        });
+
+
+}
+
+ 
+</script>
+<script>
   $(function () {
     //Initialize Select2 Elements
     $('.select2').select2();

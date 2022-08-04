@@ -36,6 +36,23 @@ if (isset($rrrListData) && !empty($rrrListData)) {
                 $delUrl =   "function/equipment_processing.php?process_type=rrr_delete";
 				
 				$role       =   get_role_group_short_name();
+				if(is_super_admin($currentUserId)){
+					//include 'rrr_update_view_sa.php';
+					$approveUrl =   "function/equipment_processing.php?process_type=rrr_dh_update_execute";
+				}elseif($role    ==  "member"){
+					//include 'rrr_update_view_member.php';
+					$approveUrl =   "function/equipment_processing.php?process_type=rrr_dh_update_execute";
+				}elseif($role    ==  "dh"){
+					//include 'rrr_update_view_dh.php';
+					$approveUrl =   "function/equipment_processing.php?process_type=rrr_dh_update_execute";
+				}elseif($role    ==  "ab"){
+					//include 'rrr_update_view_ab.php';
+					$approveUrl =   "function/equipment_processing.php?process_type=rrr_ab_update_execute";
+				}else{
+					//include 'rrr_update_view_dh.php';
+					$approveUrl =   "function/equipment_processing.php?process_type=rrr_dh_update_execute";
+				}
+				
                 foreach ($rrrListData as $adata) {
                     ?>
                     <tr id="row_id_<?php echo $adata->id; ?>">
@@ -111,8 +128,8 @@ if (isset($rrrListData) && !empty($rrrListData)) {
                             <?php } ?>
 							
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
-                            <a title="Details View" class="btn btn-sm btn-success" href="history.php?id=<?php echo $adata->eel_code; ?>">
-                                <span class="fa fa-crosshairs"> <b>History</b></span>
+                            <a title="Inspection" class="btn btn-sm btn-primary" onclick="rrr_quick_view('<?php echo $adata->id ?>');">
+                                <span class="fa fa-comments"> Inspection</span>
                             </a>
                             <?php } ?>
 							

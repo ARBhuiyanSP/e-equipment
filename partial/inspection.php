@@ -91,37 +91,16 @@ if (isset($rrrListData) && !empty($rrrListData)) {
 						
 						
                         
-                        <td style="text-align:right">
-                            <?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
-                            <a title="Edit Equipment Data" class="btn btn-sm btn-warning" href="#">
-                                <span class="fa fa-edit"> <b>Edit</b></span>
-                            </a>
-                            <?php } ?>
-							
-							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
-                            <a title="Details View" class="btn btn-sm btn-success" href="equipment_view.php?id=<?php echo $adata->id; ?>">
-                                <span class="fa fa-crosshairs"> <b>Details</b></span>
-                            </a>
-                            <?php } ?>
+                        <td style="text-align:center">
+                            
 							
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Details View" class="btn btn-sm btn-info" href="equipment_shifting.php?id=<?php echo $adata->id; ?>">
-                                <span class="fa fa-exchange"> <b>Shifting</b></span>
-                            </a>
-                            <?php } ?>
-							
-							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
-                            <a title="Details View" class="btn btn-sm btn-success" href="history.php?id=<?php echo $adata->eel_code; ?>">
-                                <span class="fa fa-crosshairs"> <b>History</b></span>
+                                <span class="fa fa-exchange"> <b>Take Action</b></span>
                             </a>
                             <?php } ?>
 							
 							
-							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
-                            <a title="Approve RRR" class="btn btn-sm btn-danger" href="#">
-                                <span class="fa fa-times-circle"></span>
-                            </a>
-                            <?php } ?>
 
 							<!-- <?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Print RLP" class="btn btn-sm btn-info bg-blue" href="javascript:void(0)">
