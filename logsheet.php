@@ -30,6 +30,7 @@
                         <div class="box-tools">
                             <ul class="pagination pagination-sm no-margin pull-right">
                                 <?php if(hasAccessPermission($user_id_session, 'crlp', 'view_access')){ ?>
+								<li><button class="btn btn-success" onclick="location.href='logsheet_report.php';">Search Logsheet Report</button></li>
                                 <?php } ?>
                             </ul>
                         </div>
@@ -40,7 +41,7 @@
 							<div class="col-sm-12">
 								<form action="" method="post">
 									<div class="row">
-										<div class="col-sm-3">
+										<div class="col-sm-6">
 											<div class="form-group">
 												<label>Equipment</label>
 												<select class="form-control select2" id="project_id" name="eel_code">
@@ -57,21 +58,26 @@
 												</select>
 											</div>
 										</div>
-										<div class="col-sm-1">
+										<div class="col-sm-2">
 											<div class="form-group">
 												<label></label>
-												<input type="submit" name="submit" id="submit" class="btn btn-block btn-primary" value="GO" />
+												<input type="submit" name="submit" id="submit" class="btn btn-block btn-primary" value="NEXT" />
 											</div>
 										</div>
 									</div>
 								</form>
 							</div>
-							<?php
+							<?php    
 								if(isset($_POST['submit'])){ 
 									$eel_code = $_POST['eel_code'];
 									$sql	=	"select * from `equipments` where `eel_code`='$eel_code'";
 									$result = mysqli_query($conn, $sql);
 									$row=mysqli_fetch_array($result);
+									
+									$id			= $row['eel_code'];
+									$log_details    =   getLogDetailsData($id);   
+									$log_info       =   $log_details['tb_logsheet'];
+									$log_details    =   $log_details['tb_logsheet'];
 							?>
 							
 							<form action="" method="post">
@@ -79,7 +85,7 @@
 									<div class="col-sm-2">
 										<div class="form-group">
 											<label for="exampleId">Date</label>
-											<input name="commissioning_date" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
+											<input name="d_date" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
 										</div>
 									</div>
 									
@@ -101,35 +107,35 @@
 									<div class="col-sm-2">
 										<div class="form-group">
 											<label for="exampleId">Project</label>
-											<input name="equipment_Name" type="text" class="form-control" id="equipment_Name" value="<?php $dataresult =   getDataRowByTableAndId('projects', $row['project_id']); echo (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : ''); ?>" autocomplete="off" readonly />
+											<input name="" type="text" class="form-control" id="" value="<?php $dataresult =   getDataRowByTableAndId('projects', $row['project_id']); echo (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : ''); ?>" autocomplete="off" readonly />
 										</div>
 									</div>
-								   
+									<input name="project_id" type="hidden" class="form-control" id="project_id" value="<?php echo $row['project_id']; ?>" autocomplete="off" />
 									
 									
 								   <div class="col-md-4">
 										<div class="form-group">
 											<label for="exampleId">Work Narration</label>
-											<textarea class="form-control" id="" name="remarks" rows="1"></textarea>
+											<textarea class="form-control" id="" name="workdetails" rows="1"></textarea>
 										</div>
 									</div>
 									
 									<div class="col-sm-2">
 										<div class="form-group">
 											<label for="exampleId">Running (Hr/KM)</label>
-											<input name="runhrkm" type="text" class="form-control" id="runhrkm" value="" autocomplete="off" required />
+											<input name="runninghrkm" type="text" class="form-control" id="runninghrkm" value="<?php if(isset($log_info->closehrkm)){echo $log_info->closehrkm;} ?>" onkeyup="sum()" required />
 										</div>
 									</div>
 									<div class="col-sm-2">
 										<div class="form-group">
 											<label for="exampleId">Close (Hr/KM)</label>
-											<input name="closehrkm" type="text" class="form-control" id="closehrkm" value="" autocomplete="off" required />
+											<input name="closehrkm" type="number" class="form-control" id="closehrkm" onkeyup="sum()" autocomplete="off" min="<?php if(isset($log_info->closehrkm)){echo $log_info->closehrkm;} ?>" required />
 										</div>
 									</div>
 									<div class="col-sm-2">
 										<div class="form-group">
 											<label for="exampleId">Total hour(Hr/KM)</label>
-											<input name="year_manufacture" type="text" class="form-control" id="year_manufacture" value="" autocomplete="off" required />
+											<input name="totalhrkm" type="text" class="form-control" id="sumhrkm" value="" autocomplete="off" readonly />
 										</div>
 									</div>
 									<div class="col-sm-2">
@@ -169,7 +175,7 @@
 									
 									
 									<div class="col-sm-12">
-										<input type="submit" name="logsheet_entry" id="submit" class="btn btn-block btn-primary" value="Save Daily Logsheet Data" />
+										<input type="submit" name="logsheet_entry" id="submit" class="btn btn-block btn-primary" value="Save Data" />
 									</div>
 								</div>
 							</form>
@@ -188,5 +194,18 @@
     </section>
     <!-- /.content -->
 </div>
+<script>
+function sum() {
+            var runninghrkm = document.getElementById('runninghrkm').value;
+            var closehrkm = document.getElementById('closehrkm').value;
+
+ 
+
+            var result =  parseInt(closehrkm) - parseInt(runninghrkm);
+            if (!isNaN(result)) {
+                document.getElementById('sumhrkm').value = result;
+            }
+        }
+</script>
 <!-- /.content-wrapper -->
 <?php include 'footer.php'; ?>

@@ -442,6 +442,36 @@ function getEquipmentDetailsData($id){
     return $feedbackData;
 }
 
+function getLogDetailsData($id){
+    $table      =   "tb_logsheet WHERE `equipment_code`='$id' ORDER BY `slno` desc";
+    $log_info   = getDataRowIdAndTable($table);
+    
+   /*  $order = 'asc';
+    $column='id';
+    $table         =   "rrr_info WHERE rrr_info_id=$rrr_id";
+    $rlp_details   = getTableDataByTableName($table, $order, $column);
+     */
+    $feedbackData   =   [
+        'tb_logsheet'      =>  $log_info,
+        //'rrr_details'   =>  $rrr_details
+    ];
+    return $feedbackData;
+}
+function getSMDetailsData($id){
+    $table      =   "maintenance WHERE `equipment_id`='$id' ORDER BY `id` desc";
+    $sm_info   = getDataRowIdAndTable($table);
+    
+   /*  $order = 'asc';
+    $column='id';
+    $table         =   "rrr_info WHERE rrr_info_id=$rrr_id";
+    $rlp_details   = getTableDataByTableName($table, $order, $column);
+     */
+    $feedbackData   =   [
+        'maintenance'      =>  $sm_info,
+        //'rrr_details'   =>  $rrr_details
+    ];
+    return $feedbackData;
+}
 if(isset($_GET['process_type']) && $_GET['process_type'] == "rrr_quick_view"){
     date_default_timezone_set("Asia/Dhaka");
     include '../connection/connect.php';
@@ -718,4 +748,138 @@ function save_equipment_remarks(){
 
         saveData('rrr_remarks_history', $dataParam);
     }
+}
+
+
+//// logsheet process
+
+if (isset($_POST['logsheet_entry']) && !empty($_POST['logsheet_entry'])){
+    /******************************assets table operation******************** */
+    
+    $rrr_info_response  =   execute_logsheet_table();
+    if(isset($rrr_info_response) && $rrr_info_response['status'] == "success"){
+        $_SESSION['success']    =   "Your request have been successfully procced.";
+    }else{
+        $_SESSION['error']    =   "Failed to save data";
+    }
+    header("location: logsheet.php");
+    exit();
+}
+
+
+function execute_logsheet_table(){
+    global $conn;
+    $d_date		= (isset($_POST['d_date']) && !empty($_POST['d_date']) ? trim(mysqli_real_escape_string($conn,$_POST['d_date'])) : date("Y-m-d"));
+	
+    $equipment_code		= (isset($_POST['equipment_code']) && !empty($_POST['equipment_code']) ? trim(mysqli_real_escape_string($conn,$_POST['equipment_code'])) : "");
+	
+    $project_id		= (isset($_POST['project_id']) && !empty($_POST['project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['project_id'])) : "");
+	
+    $workdetails		= (isset($_POST['workdetails']) && !empty($_POST['workdetails']) ? trim(mysqli_real_escape_string($conn,$_POST['workdetails'])) : "");
+	
+    $runninghrkm		= (isset($_POST['runninghrkm']) && !empty($_POST['runninghrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['runninghrkm'])) : "");
+	
+    $closehrkm		= (isset($_POST['closehrkm']) && !empty($_POST['closehrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['closehrkm'])) : "");
+	
+    $totalhrkm		= (isset($_POST['totalhrkm']) && !empty($_POST['totalhrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['totalhrkm'])) : "");
+	/*--------------------------*/
+    
+    /*
+     * *****************************logsheet table operation********************
+     */
+    $table_sql     =   "tb_logsheet";
+    $dataParam     =   [
+        //'rrr_user_id'           =>  $_SESSION['logged']['user_id'],
+        //'rrr_user_office_id'    =>  $_SESSION['logged']['office_id'],
+        'd_date'          	=>  date('Y-m-d h:i:s', strtotime($d_date)),
+        'equipment_code'	=>  $equipment_code,
+        'project_id' 		=>  $project_id,
+        'workdetails' 		=>  $workdetails,
+        'runninghrkm' 		=>  $runninghrkm,
+        'closehrkm' 		=>  $closehrkm,
+        'totalhrkm' 		=>  $totalhrkm,
+		
+		/*--------------------------*/
+        //'created_by'            	=>  $_SESSION['logged']['user_id'],
+        //'created_at'            	=>  date('Y-m-d h:i:s')
+    ];
+    
+    $response   =   saveData("tb_logsheet", $dataParam);
+    return $response;
+}
+
+//// schedule maintenance process
+
+if (isset($_POST['sm_entry']) && !empty($_POST['sm_entry'])){
+    /******************************assets table operation******************** */
+    
+    $rrr_info_response  =   execute_sm_table();
+    if(isset($rrr_info_response) && $rrr_info_response['status'] == "success"){
+        $_SESSION['success']    =   "Your request have been successfully procced.";
+    }else{
+        $_SESSION['error']    =   "Failed to save data";
+    }
+    header("location: schedulemaintenance.php");
+    exit();
+}
+
+
+function execute_sm_table(){
+    global $conn;
+	
+	
+    $project_id		= (isset($_POST['project_id']) && !empty($_POST['project_id']) ? trim(mysqli_real_escape_string($conn,$_POST['project_id'])) : "");
+	
+    $equipment_id		= (isset($_POST['equipment_id']) && !empty($_POST['equipment_id']) ? trim(mysqli_real_escape_string($conn,$_POST['equipment_id'])) : "");
+	
+    $lastseervice_date		= (isset($_POST['lastseervice_date']) && !empty($_POST['lastseervice_date']) ? trim(mysqli_real_escape_string($conn,$_POST['lastseervice_date'])) : date("Y-m-d"));
+	
+    $lastservice_hrkm		= (isset($_POST['lastservice_hrkm']) && !empty($_POST['lastservice_hrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['lastservice_hrkm'])) : "");
+	
+    $schedule_hrkm		= (isset($_POST['schedule_hrkm']) && !empty($_POST['schedule_hrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['schedule_hrkm'])) : "");
+	
+    $present_hrkm		= (isset($_POST['present_hrkm']) && !empty($_POST['present_hrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['present_hrkm'])) : "");
+	
+    $nextservice_date		= (isset($_POST['nextservice_date']) && !empty($_POST['nextservice_date']) ? trim(mysqli_real_escape_string($conn,$_POST['nextservice_date'])) : date("Y-m-d"));
+	
+    $nextservice_hrkm		= (isset($_POST['nextservice_hrkm']) && !empty($_POST['nextservice_hrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['nextservice_hrkm'])) : "");
+	
+    $dueforservice_hrkm		= (isset($_POST['dueforservice_hrkm']) && !empty($_POST['dueforservice_hrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['dueforservice_hrkm'])) : "");
+	
+    $typeofservice_hrkm		= (isset($_POST['typeofservice_hrkm']) && !empty($_POST['typeofservice_hrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['typeofservice_hrkm'])) : "");
+	
+    $detailsofmaintenance		= (isset($_POST['detailsofmaintenance']) && !empty($_POST['detailsofmaintenance']) ? trim(mysqli_real_escape_string($conn,$_POST['detailsofmaintenance'])) : "");
+	
+    $remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
+	
+    
+	/*--------------------------*/
+    
+    /*
+     * *****************************maintenance table operation********************
+     */
+    $table_sql     =   "maintenance";
+    $dataParam     =   [
+        //'rrr_user_id'           =>  $_SESSION['logged']['user_id'],
+        //'rrr_user_office_id'    =>  $_SESSION['logged']['office_id'],
+        'project_id' 			=>  $project_id,
+        'equipment_id' 			=>  $equipment_id,
+        'lastseervice_date' 	=>  date('Y-m-d h:i:s', strtotime($lastseervice_date)),
+        'lastservice_hrkm' 		=>  $lastservice_hrkm,
+        'schedule_hrkm' 		=>  $schedule_hrkm,
+        'present_hrkm' 			=>  $present_hrkm,
+        'nextservice_date' 		=>  date('Y-m-d h:i:s', strtotime($nextservice_date)),
+        'nextservice_hrkm' 		=>  $nextservice_hrkm,
+        'dueforservice_hrkm' 	=>  $dueforservice_hrkm,
+        'typeofservice_hrkm' 	=>  $typeofservice_hrkm,
+        'detailsofmaintenance' 	=>  $detailsofmaintenance,
+        'remarks' 				=>  $remarks,
+		
+		/*--------------------------*/
+        //'created_by'            	=>  $_SESSION['logged']['user_id'],
+        //'created_at'            	=>  date('Y-m-d h:i:s')
+    ];
+    
+    $response   =   saveData("maintenance", $dataParam);
+    return $response;
 }

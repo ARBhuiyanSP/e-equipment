@@ -94,10 +94,10 @@ $user_id_session = $_SESSION['logged']['user_id'];
                 </li>  --->
 <?php } ?>
 			<li class="header">Maintenance</li>
-			<li class="<?php if ($page_name == "rlp_list.php") {
+			<li class="<?php if ($page_name == "schedulemaintenance.php") {
                 echo "active";
             } ?>">
-                    <a href="#"><i class="fa fa-file-text-o"></i> <span>Schedule</span></a>
+                    <a href="schedulemaintenance.php"><i class="fa fa-file-text-o"></i> <span>Schedule</span></a>
                 </li>
 				<li class="<?php if ($page_name == "inspection.php") {
                 echo "active";

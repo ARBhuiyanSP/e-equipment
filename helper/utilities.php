@@ -633,6 +633,7 @@ function get_rrr_no($prefix="RRR", $formater_length=4){
     
     return $prefix."-".$year."-".$month."-".$divName.'-'.$depName.'-'.$finalRLPNo;
 }
+
 function replace_dashes($string) {
     $string = str_replace("-", " ", $string);
     return $string;
