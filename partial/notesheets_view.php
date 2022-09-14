@@ -32,7 +32,8 @@
     <!-- Table row -->
         <div class="row">
 			<div class="col-xs-12 table-responsive">
-                <table class="table table-striped table-bordered">
+                <p><?php echo $rlp_info->remarks ?></p>
+				<table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>S/N</th>
@@ -41,7 +42,6 @@
                             <th width="10%">Quantity</th>
                             <th width="10%">Unit Price</th>
                             <th width="10%">Total</th>
-                            <th>Remarks</th>
                         </tr>
                     </thead>
                     <tbody id="tbl_posts_body">
@@ -60,7 +60,6 @@
                             <td><?php echo $data->quantity; ?></td>
                             <td><?php echo $data->unit_price; ?></td>
                             <td><?php echo $data->total; ?></td>
-                            <td><?php echo $data->remarks; ?></td>
                         </tr>                        
                             <?php } ?>
 						<tr id="rec-1">
@@ -68,7 +67,6 @@
                             <td><?php echo $totalQty; ?></td>
                             <td></td>
                             <td><?php echo $total; ?></td>
-                            <td></td>
                         </tr>
 						<tr id="rec-1">
                             <td colspan="7" style="text-align:left"><b>In word: <?php echo convertNumberToWords($total); ?></b></td>
@@ -78,7 +76,7 @@
             </div>
 			<div class="col-xs-12 table-responsive">
 				<p>This is for your kind approval.</p>
-				<p>Other terms and conditions</p>
+				<p style="text-decoration:underline;"><b>Other terms and conditions</b></p>
 				<ul>
 					<li> Date of Commencement</li>
 					<li> Delivery of Goods: Within 03(Three) days after receiving the work order.</li>

@@ -105,11 +105,11 @@
                             <td><?php echo $sl++; ?></td>
                             <td><input type="text" class="form-control" name="item[]" id="" value="<?php echo (isset($data->item_des) && !empty($data->item_des) ? $data->item_des : ""); ?>" readonly ></td>
                             <td><?php echo $data->purpose; ?></td>
-                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>"></td>
-                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value=""></td>
+                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
+                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value="" required ></td>
                             <td>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="total[]" id="total_<?php echo $data->id; ?>" value="" readonly >
+                                    <input type="text" class="form-control total_amount" name="total[]" id="total_<?php echo $data->id; ?>" value="" readonly >
                                 </div>
                             </td>
                             <td>
@@ -120,8 +120,33 @@
                             </td>
                         </tr>                        
                             <?php } ?>
-                        <?php if(is_super_admin($currentUserId)){ ?>
-                        <tr>
+							
+                        <?php if(is_super_admin($currentUserId)){ ?>                       
+					   <tr>
+                            <td colspan="5" style="text-align:right">Total : </td>
+							<td>
+								<input type="text" class="form-control" id="allcur" />
+                            </td>
+                            <td></td>
+                        </tr>
+						<tr>
+                            <td colspan="3" style="text-align:right">VAT [%] : </td>
+							<td colspan="2">
+								<input type="text" class="form-control" id="vat" required /><small style="color:red">Type '0' If Not Applicable</small>
+                            </td>
+							<td>
+								<input type="text" class="form-control" id="vatamount" readonly />
+                            </td>
+                            <td></td>
+                        </tr>
+						<tr>
+                            <td colspan="5" style="text-align:right">Grand Total : </td>
+							<td>
+								<input type="text" class="form-control" id="subtotal" readonly />
+                            </td>
+                            <td></td>
+                        </tr>
+					   <tr>
                             <td colspan="7">
 								<input type="submit" class="btn btn-primary btn-block" name="create_notesheet" value="Generate Note Sheet">
                             </td>
@@ -142,9 +167,54 @@ function  caltotal(id){
 	let quantity = parseFloat($('#quantity_'+id).val());
     let unit_price = parseFloat($('#unit_price_'+id).val());
 	
-	let myResult = parseFloat(quantity * unit_price);
+	let myResult = parseFloat(quantity * unit_price).toFixed(2);
 
     $('#total_'+id).val(myResult);
+	
+	 calculate_total_buy_amount();
 }
+
+function calculate_total_buy_amount() {
+        let subTotalAmount     =   $(".total_amount");
+        let subBuyTotal     =   0;
+
+        for(let mySubValue = 0;  mySubValue < subTotalAmount.length; mySubValue++){
+            subBuyTotal+= parseFloat($("#" + subTotalAmount[mySubValue].id).val());
+        }
+        
+        document.getElementById('allcur').value = subBuyTotal.toFixed(2);
+                
+    }
+	
+
+$(function(){
+    
+    $('#allcur').on('input', function() {
+      calculate();
+    });
+    $('#vat').on('input', function() {
+     calculate();
+    });
+    function calculate(){
+        var pPos = parseFloat($('#allcur').val()).toFixed(2); 
+        var pEarned = parseFloat($('#vat').val()).toFixed(2);
+        var perc="";
+        if(isNaN(pPos) || isNaN(pEarned)){
+            perc=" ";
+           }else{
+           perc = ((pPos*pEarned)/ 100).toFixed(2);
+           }
+        
+        $('#vatamount').val(perc);
+		var pVat = parseFloat($('#vatamount').val()).toFixed(2);
+		
+		let subTotal = parseFloat(pPos - pVat).toFixed(2);
+
+		$('#subtotal').val(subTotal).toFixed(2);
+    }
+
+});
+
+
 
 </script>
