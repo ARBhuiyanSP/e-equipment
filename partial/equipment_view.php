@@ -27,20 +27,28 @@
     <!-- Table row -->
     <div class="row">
         <div class="col-sm-12 table-responsive">
-            <table class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>EEL Code</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbl_posts_body">
-                        <tr id="rec-1">
-                            <td><?php echo $equipment_info->name; ?></td>
-                            <td><?php echo $equipment_info->eel_code; ?></td>
-                        </tr>           
-                    </tbody>
-                </table>
+            <table style="" class="table table-bordered">
+				<tr>
+					<th>EEL Code:</th>
+					<td><?php echo $equipment_info->eel_code; ?></td>
+				</tr>
+				<tr>
+					<th>Name:</th>
+					<td><?php echo $equipment_info->name; ?></td>
+				</tr>
+				<tr>
+					<th>Model:</th>
+					<td><?php echo $equipment_info->model;?></td>
+				</tr>
+				<tr>
+					<th>Country Origin:</th>
+					<td><?php echo $equipment_info->origin; ?></td>
+				</tr>
+				<tr>
+					<th>Manufacture Year:</th>
+					<td><?php echo $equipment_info->year_manufacture;?></td>
+				</tr>
+			</table>
         </div>
         <!-- /.col -->
     </div>

@@ -11,17 +11,17 @@
         <?php include 'operation_message.php'; ?>
         <h1>
             Home
-            <small>Equipment Inspection</small>
+            <small>RLP Info</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Equipment Inspection</li>
+            <li class="active">RLP Info</li>
         </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-        <!-- Small boxes (Start box) -->
+        <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
@@ -29,32 +29,16 @@
                         <h3 class="box-title"></h3>
                         <div class="box-tools">
                             <ul class="pagination pagination-sm no-margin pull-right">
-                                
+                                <?php if(hasAccessPermission($user_id_session, 'crlp', 'view_access')){ ?>
+                                <li><a href="rlp_create.php"><i class="fa fa-user-plus"></i> Create</a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </div>
                     <!-- /.box-header -->
-                     <div class="box-body">
-		 <!--logsheet_list_table  reference footer.php-->
-            <table id="ins_list_table" class="table table-striped table-bordered  list-table-custom-style" style="width:100%">
-				<thead>
-					<tr class="tr_header">	
-						<th>#</th>
-                    <!-- <th>Requisition No</th> -->
-                    <th>Name</th>
-                    <th>EEL Code</th>
-                    <th>Capacity</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Project</th>
-                    <th>Present Condition</th>
-						
-
-						<th style="min-width: 190px">Action</th>
-					</tr>
-				</thead>
-			</table>
-		</div>
+                    <div class="box-body">
+                        <?php include 'partial/rlp_list.php'; ?>
+                    </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->

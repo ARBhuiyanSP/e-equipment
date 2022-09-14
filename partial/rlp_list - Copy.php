@@ -55,13 +55,6 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                             </a>
                             <?php } ?>  
 							
-							
-							<?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access') && get_status_name($adata->rlp_status)=='Approve'){ ?>
-                            <a title="Make Notesheet" class="btn btn-sm btn-info" href="rlp_notesheet.php?rlp_id=<?php echo $adata->id; ?>">
-                                <span class="fa fa-sticky-note-o"></span>
-                            </a>
-                            <?php } ?>
-							
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Print RLP History" class="btn btn-sm btn-info bg-olive" href="rlp_view.php?rlp_id=<?php echo $adata->id; ?>">
                                 <span class="fa fa-print"></span>

@@ -41,6 +41,8 @@ function execute_equipment_table(){
     $present_location		= (isset($_POST['present_location']) && !empty($_POST['present_location']) ? trim(mysqli_real_escape_string($conn,$_POST['present_location'])) : "");
 	
     $present_condition		= (isset($_POST['present_condition']) && !empty($_POST['present_condition']) ? trim(mysqli_real_escape_string($conn,$_POST['present_condition'])) : "");
+
+    $price		= (isset($_POST['price']) && !empty($_POST['price']) ? trim(mysqli_real_escape_string($conn,$_POST['price'])) : "");
 	
     $remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
 	/*--------------------------*/
@@ -71,6 +73,7 @@ function execute_equipment_table(){
         'engine_sl_no'      	=>  $engine_sl_no,
         'present_location'  	=>  $present_location,
         'present_condition'   	=>  $present_condition,
+        'price'  	            =>  $price,
         'assign_status'       	=>  'assigned',
         'remarks'          		=>  $remarks,
         'status'          		=>  $status,

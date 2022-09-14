@@ -141,26 +141,32 @@
 									<div class="col-sm-2">
 										<div class="form-group">
 											<label for="exampleId">Stand By</label>
-											<input name="standby" type="text" class="form-control" id="standby" value="" autocomplete="off" required />
+											
+											<select class="form-control select2"  name="standby">
+												<option value="">Select</option>
+												<option value="Running">Running</option>
+												<option value="Stand By">Stand By</option>
+												<option value="Breakdown">Breakdown</option>
+											</select>
 										</div>
 									</div>
 									<div class="col-sm-2">
 										<div class="form-group">
-											<label for="exampleId">Hydrolic (Ltr)</label>
-											<input name="hydrolicltr" type="text" class="form-control" id="hydrolicltr" value="" autocomplete="off" required />
+											<label for="exampleId">Hydraulic (Ltr)</label>
+											<input name="hydrolicltr" type="text" class="form-control" id="hydrolicltr" value="" autocomplete="off"  />
 										</div>
 									</div>
 									<div class="col-sm-2">
 										<div class="form-group">
-											<label for="exampleId">Diseal (Ltr)</label>
-											<input name="disealltr" type="text" class="form-control" id="disealltr" value="" autocomplete="off" required />
+											<label for="exampleId">Diesel (Ltr)</label>
+											<input name="disealltr" type="text" class="form-control" id="disealltr" value="" autocomplete="off"  />
 										</div>
 									</div>
 									
 									 <div class="col-sm-2">
 										<div class="form-group">
 											<label for="exampleId">Engine oil</label>
-											<input name="engineoil" type="text" class="form-control" id="engineoil" value="" autocomplete="off" required />
+											<input name="engineoil" type="text" class="form-control" id="engineoil" value="" autocomplete="off"  />
 										</div>
 									</div>
 									
@@ -168,8 +174,8 @@
 									
 											 <div class="col-sm-2">
 										<div class="form-group">
-											<label for="exampleId">Gresing Hour servicing</label>
-											<input name="engineoil" type="text" class="form-control" id="engineoil" value="" autocomplete="off" required />
+											<label for="exampleId">Greasing Hour Servicing</label>
+											<input name="engineoil" type="text" class="form-control" id="engineoil" value="" autocomplete="off"  />
 										</div>
 									</div>
 									

@@ -11,7 +11,7 @@
         <?php include 'operation_message.php'; ?>
         <h1>
             Schedule Maintenance
-            <small></small>
+            <small> </small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> E-Equipment</a></li>

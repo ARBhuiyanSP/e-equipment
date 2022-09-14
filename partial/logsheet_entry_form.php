@@ -113,6 +113,12 @@
             <div class="form-group">
                 <label for="exampleId">Stand By</label>
                 <input name="standby" type="text" class="form-control" id="standby" value="" autocomplete="off" required />
+				<select calss="form-control select2">
+					<option value="">Select</option>
+					<option value="Running">Running</option>
+					<option value="Stand By">Stand By</option>
+					<option value="Breakdown">Breakdown</option>
+				</select>
             </div>
         </div>
         <div class="col-sm-2">

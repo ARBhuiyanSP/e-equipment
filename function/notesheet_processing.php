@@ -1,5 +1,69 @@
 <?php
+if (isset($_POST['create_notesheet']) && !empty($_POST['create_notesheet'])){
 
+    //$date		= (isset($_POST['date']) && !empty($_POST['date']) ? trim(mysqli_real_escape_string($conn,$_POST['date'])) : date("Y-m-d"));
+    $notesheet_no		= (isset($_POST['notesheet_no']) && !empty($_POST['notesheet_no']) ? trim(mysqli_real_escape_string($conn,$_POST['notesheet_no'])) : "");
+    $rlp_no		= (isset($_POST['rlp_no']) && !empty($_POST['rlp_no']) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_no'])) : "");
+    $remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
+    
+    /*
+     * *****************************rrr_info table operation********************
+     */    
+    $notesheets_info_response  =   execute_notesheets_table();
+    if(isset($notesheets_info_response) && $notesheets_info_response['status'] == "success"){
+        
+        $_SESSION['success']    =   "Your request have been successfully procced.";
+    }else{
+        //$_SESSION['error']    =   "Failed to save data";
+		$_SESSION['success']    =   "Your request have been successfully procced.";
+    }
+    header("location: notesheets_list.php");
+    exit();
+}
+function execute_notesheets_table(){
+    global $conn;
+    /*
+     * *****************************rrr_details table operation********************
+     */
+    for($count 		= 0; $count<count($_POST['item']); $count++){
+        $notesheet_no		= (isset($_POST['notesheet_no']) && !empty($_POST['notesheet_no']) ? trim(mysqli_real_escape_string($conn,$_POST['notesheet_no'])) : "");
+		$rlp_no		= (isset($_POST['rlp_no']) && !empty($_POST['rlp_no']) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_no'])) : "");
+		$subject		= (isset($_POST['subject']) && !empty($_POST['subject']) ? trim(mysqli_real_escape_string($conn,$_POST['subject'])) : "");
+		$supplier_name		= (isset($_POST['supplier_name']) && !empty($_POST['supplier_name']) ? trim(mysqli_real_escape_string($conn,$_POST['supplier_name'])) : "");
+		$address		= (isset($_POST['address']) && !empty($_POST['address']) ? trim(mysqli_real_escape_string($conn,$_POST['address'])) : "");
+		$concern_person		= (isset($_POST['concern_person']) && !empty($_POST['concern_person']) ? trim(mysqli_real_escape_string($conn,$_POST['concern_person'])) : "");
+		$cell_number		= (isset($_POST['cell_number']) && !empty($_POST['cell_number']) ? trim(mysqli_real_escape_string($conn,$_POST['cell_number'])) : "");
+		$email		= (isset($_POST['email']) && !empty($_POST['email']) ? trim(mysqli_real_escape_string($conn,$_POST['email'])) : "");
+		$remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
+        $item	= (isset($_POST['item'][$count]) && !empty($_POST['item'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['item'][$count])) : '');
+        $quantity	= (isset($_POST['quantity'][$count]) && !empty($_POST['quantity'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['quantity'][$count])) : '');
+        $unit_price	= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : '');
+        $total	= (isset($_POST['total'][$count]) && !empty($_POST['total'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['total'][$count])) : '');        
+        $remarks= (isset($_POST['remarks'][$count]) && !empty($_POST['remarks'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'][$count])) : '');        
+        $dataParam     =   [
+            //'id'                =>  get_table_next_primary_id('rlp_details'),
+            'notesheet_no'	=>  $notesheet_no,
+            'rlp_no'       	=>  $rlp_no,
+            'subject'	=>  $subject,
+            'supplier_name'	=>  $supplier_name,
+            'address' 		=>  $address,
+            'concern_person' =>  $concern_person,
+            'cell_number'   =>  $cell_number,
+            'email'       	=>  $email,
+            'item'       	=>  $item,
+            'unit'			=>  'Pics',
+            'quantity'	 	=>  $quantity,
+            'unit_price' 	=>  $unit_price,
+            'total' 	 	=>  $total,
+            'remarks'		=>  $remarks,
+            'status'		=>  'Created',
+			'created_at'	=>  date('Y-m-d h:i:s'),
+			'created_by'	=>  $_SESSION['logged']['user_id']
+        ];
+    
+        saveData("notesheets", $dataParam);
+    }
+}
 //Create User:
 if (isset($_POST['notesheet_create']) && !empty($_POST['notesheet_create'])){
 
@@ -429,6 +493,22 @@ function getNotesheetDetailsData($rrr_id){
     $feedbackData   =   [
         'rrr_info'      =>  $rrr_info,
         //'rrr_details'   =>  $rrr_details
+    ];
+    return $feedbackData;
+}
+
+function getNotesheetsDetailsData($rlp_id){
+    $table      =   "`notesheets` WHERE `notesheet_no`='$rlp_id'";
+    $rlp_info   = getDataRowIdAndTable($table);
+    
+    $order = 'asc';
+    $column='id';
+    $table         =   "`notesheets` WHERE `notesheet_no`='$rlp_id'";
+    $rlp_details   = getTableDataByTableName($table, $order, $column);
+    
+    $feedbackData   =   [
+        'rlp_info'      =>  $rlp_info,
+        'rlp_details'   =>  $rlp_details
     ];
     return $feedbackData;
 }

@@ -11,7 +11,7 @@ if(!isset($_SESSION['logged']['status'])){
 include 'connection/connect.php';
 
 include 'function/class_loader.php';
-include 'function/global_connection.php';
+//include 'function/global_connection.php';
 
 include 'helper/utilities.php';
 include 'function/user_management.php';

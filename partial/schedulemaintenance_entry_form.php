@@ -105,16 +105,22 @@
 						<input name="present_hrkm" type="text" class="form-control" id="presenthrkm" value="" autocomplete="off" onkeyup="cal()" required />
 					</div>
 				</div>
-				<div class="col-sm-2">
+				<div class="col-sm-1">
 					<div class="form-group">
-						<label for="exampleId"> Due for Service</label>
+						<label for="exampleId"> Due</label>
 						<input name="dueforservice_hrkm" type="text" class="form-control" id="dueforservicehrkm" value="" autocomplete="off" readonly />
 					</div>
 				</div>
 				<div class="col-sm-2">
 					<div class="form-group">
-						<label for="exampleId"> Type of  Service(HR/KM)</label>
-						<input name="typeofservice_hrkm" type="text" class="form-control" id="typeofservicehrkm" value="" autocomplete="off" onkeyup="cal()" required />
+						<label for="exampleId"> Type of Service</label>
+						<input name="typeofservice_hrkm" type="text" class="form-control" id="" value="" autocomplete="off" />
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="form-group">
+						<label for="exampleId"> Added (HR/KM) for Next Service</label>
+						<input name="" type="text" class="form-control" id="typeofservicehrkm" value="" autocomplete="off" onkeyup="cal()" required />
 					</div>
 				</div>
 				<div class="col-sm-2">

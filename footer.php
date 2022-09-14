@@ -125,6 +125,39 @@ function get_logsheet_data_table(){
 </script>
 <script>
 $(function () {    
+  get_notesheets_data_table();
+})
+
+function get_notesheets_data_table(){
+
+  let project_id   = '';
+  let sub_project_id   = '';
+    //getDataTablelogsheetList call from  grid_management.php
+    var url       =   baseUrl + "function/grid_management.php?process_type=getDataTablenotesheetsList";
+//logsheet_list_table  reference logsheet-list.php
+    var userListDataTable   =   $('#notesheets_list_table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                url:url,
+                type:'POST',
+                dataType:'json',
+                data: {
+                    project_id		: project_id,
+                    sub_project_id	: sub_project_id
+                }
+            },
+            "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [ -1, 2, 3 ] }
+            ],
+            "lengthMenu": [[10, 100, 250, -1], [10,100, 250,"All"]]
+        });
+
+
+}
+</script>
+<script>
+$(function () {    
   get_equipment_data_table();
 })
 
@@ -143,14 +176,14 @@ function get_equipment_data_table(){
                 type:'POST',
                 dataType:'json',
                 data: {
-                    project_id     : project_id,
-                    sub_project_id   : sub_project_id
+                    project_id		: project_id,
+                    sub_project_id	: sub_project_id
                 }
             },
             "aoColumnDefs": [
                 { "bSortable": false, "aTargets": [ -1, 2, 3 ] }
             ],
-            "lengthMenu": [[10, 100, 250, 500, -1], [10,100, 250, 500, "All"]]
+            "lengthMenu": [[10, 100, 250, -1], [10,100, 250,"All"]]
         });
 
 
@@ -211,3 +244,4 @@ function get_ins_data_table(){
 		$('#example2').DataTable();
 	});
 </script>
+

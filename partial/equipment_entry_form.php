@@ -129,13 +129,13 @@
                 <input name="inventory_sl_no" type="text" class="form-control" id="inventory_sl_no" value="" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label for="exampleId">Engine Model</label>
                 <input name="engine_model" type="text" class="form-control" id="engine_model" value="" autocomplete="off" required />
             </div>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <div class="form-group">
                 <label for="exampleId">Engine SL No</label>
                 <input name="engine_sl_no" type="text" class="form-control" id="engine_sl_no" value="" autocomplete="off" required />
@@ -185,7 +185,13 @@
 				</select>
 			</div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="exampleId">Price</label>
+                <input name="price" type="text" class="form-control" id="price" value="" autocomplete="off" required />
+            </div>
+        </div>
+        <div class="col-md-12">
             <div class="form-group">
                 <label for="exampleId">Remarks:</label>
                 <textarea class="form-control" id="" name="remarks" rows="1"></textarea>

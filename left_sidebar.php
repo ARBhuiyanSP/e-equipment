@@ -1,6 +1,17 @@
 <?php
 $user_id_session = $_SESSION['logged']['user_id'];
 ?>
+<style>
+.sidebar-menu li.header{
+	padding:5px 25px 5px 15px;
+}
+.sidebar-menu>li>a {
+	padding:5px 5px 5px 15px;
+}
+.sidebar-menu>li{
+	border-bottom:1px solid #1A2226;
+}
+</style>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -65,14 +76,14 @@ $user_id_session = $_SESSION['logged']['user_id'];
 				<li class="<?php if ($page_name == "notesheet.php") {
                 echo "active";
             } ?>">
-                    <a href="#"><i class="fa fa-file-text-o"></i> <span>Notesheet</span></a>
+                    <a href="notesheets_list.php"><i class="fa fa-file-text-o"></i> <span>Notesheet</span></a>
                 </li>
 				<li class="<?php if ($page_name == "equipment_list.php") {
                 echo "active";
             } ?>">
                     <a href="equipment_list.php"><i class="fa fa-file-text-o"></i> <span>Equipment</span></a>
                 </li>
-				<li class="<?php if ($page_name == "equipment_list.php") {
+				<li class="<?php if ($page_name == "logsheet.php") {
                 echo "active";
             } ?>">
                     <a href="logsheet.php"><i class="fa fa-file-text-o"></i> <span>Log Sheet</span></a>
