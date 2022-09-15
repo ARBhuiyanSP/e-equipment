@@ -622,7 +622,7 @@ function get_notesheet_no($prefix="NS", $formater_length=4){
     
     $year       =   date("Y");
     $month      =   date("m");
-    $sql        = "SELECT count('id') as total FROM notesheets WHERE YEAR(created_at) = '$year' AND MONTH(created_at) = $month";
+    $sql        = "SELECT count('id') as total FROM notesheets_master WHERE YEAR(created_at) = '$year' AND MONTH(created_at) = $month";
     $result     = $conn->query($sql);
     $total_row  =   $result->fetch_object()->total;
     
@@ -632,6 +632,28 @@ function get_notesheet_no($prefix="NS", $formater_length=4){
     $depName    = replace_dashes(getDepartmentNameById($department_id));
     
     return $prefix."-".$year."-".$month."-".$divName.'-'.$depName.'-'.$finalRLPNo;
+}
+function get_wo_no($prefix="WO", $formater_length=4){
+    global $conn;
+    
+    $division_id    =   $_SESSION['logged']['branch_id'];
+    $department_id  =   $_SESSION['logged']['department_id'];
+    $department_id  =   $_SESSION['logged']['department_id'];
+    $office_id      =   $_SESSION['logged']['office_id'];
+    $user_id        =   $_SESSION['logged']['user_id'];
+    
+    $year       =   date("Y");
+    $month      =   date("m");
+    $sql        = "SELECT count('id') as total FROM workorders_master WHERE YEAR(created_at) = '$year' AND MONTH(created_at) = $month";
+    $result     = $conn->query($sql);
+    $total_row  =   $result->fetch_object()->total;
+    
+    $nextRLP    =   $total_row+1;
+    $finalRLPNo = sprintf('%0' . $formater_length . 'd', $nextRLP);
+    $divName    = replace_dashes(getDivisionNameById($division_id));
+    $depName    = replace_dashes(getDepartmentNameById($department_id));
+    
+    return $year."-".$month."-".$divName.'-'.$prefix.'-'.$finalRLPNo;
 }
 function get_rrr_no($prefix="RRR", $formater_length=4){
     global $conn;
@@ -1247,7 +1269,7 @@ function convertNumberToWords(float $number)
         $no = floor($no / $divider);
         $i += $divider == 10 ? 1 : 2;
         if ($number) {
-            $plural = (($counter = count($str)) && $number > 9) ? 's' : null;
+            $plural = (($counter = count($str)) && $number > 9) ? '' : null;
             $hundred = ($counter == 1 && $str[0]) ? ' and ' : null;
             $str [] = ($number < 21) ? $words[$number].' '. $digits[$counter]. $plural.' '.$hundred:$words[floor($number / 10) * 10].' '.$words[$number % 10]. ' '.$digits[$counter].$plural.' '.$hundred;
         } else $str[] = null;
@@ -1260,7 +1282,7 @@ function convertNumberToWords(float $number)
         $decimal = floor($decimal / $divider);
         $d += $divider == 10 ? 1 : 2;
         if ($decimal_number) {
-            $plurals = (($counter = count($str2)) && $decimal_number > 9) ? 's' : null;
+            $plurals = (($counter = count($str2)) && $decimal_number > 9) ? '' : null;
             $hundreds = ($counter == 1 && $str2[0]) ? ' and ' : null;
             @$str2 [] = ($decimal_number < 21) ? $words[$decimal_number].' '. $digits[$decimal_number]. $plural.' '.$hundred:$words[floor($decimal_number / 10) * 10].' '.$words[$decimal_number % 10]. ' '.$digits[$counter].$plural.' '.$hundred;
         } else $str2[] = null;

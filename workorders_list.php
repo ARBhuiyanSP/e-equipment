@@ -11,11 +11,11 @@
         <?php include 'operation_message.php'; ?>
         <h1>
             Home
-            <small>Note Sheet List</small>
+            <small>Work Orders List</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Note Sheet List</li>
+            <li class="active">Work Orders List</li>
         </ol>
     </section>
 	
@@ -37,7 +37,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <?php include 'partial/notesheets_list.php'; ?>
+                        <?php include 'partial/workorders_list.php'; ?>
                     </div>
                     <!-- /.box-body -->
                 </div>

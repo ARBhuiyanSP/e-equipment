@@ -73,10 +73,15 @@ $user_id_session = $_SESSION['logged']['user_id'];
             } ?>">
                     <a href="rlp_list.php"><i class="fa fa-file-text-o"></i> <span>RLP</span></a>
                 </li>
-				<li class="<?php if ($page_name == "notesheet.php") {
+				<li class="<?php if ($page_name == "notesheets_list.php") {
                 echo "active";
             } ?>">
                     <a href="notesheets_list.php"><i class="fa fa-file-text-o"></i> <span>Notesheet</span></a>
+                </li>
+				<li class="<?php if ($page_name == "workorders_list.php") {
+                echo "active";
+            } ?>">
+                    <a href="workorders_list.php"><i class="fa fa-file-text-o"></i> <span>Workorders</span></a>
                 </li>
 				<li class="<?php if ($page_name == "equipment_list.php") {
                 echo "active";
@@ -86,7 +91,7 @@ $user_id_session = $_SESSION['logged']['user_id'];
 				<li class="<?php if ($page_name == "logsheet.php") {
                 echo "active";
             } ?>">
-                    <a href="logsheet.php"><i class="fa fa-file-text-o"></i> <span>Log Sheet</span></a>
+                    <a href="logsheet.php"><i class="fa fa-file-text-o"></i> <span>Daily Log Sheet</span></a>
                 </li>
 				<!-- <li class="<?php if ($page_name == "rrr_create.php") {
                 echo "active";
@@ -108,22 +113,17 @@ $user_id_session = $_SESSION['logged']['user_id'];
 			<li class="<?php if ($page_name == "schedulemaintenance.php") {
                 echo "active";
             } ?>">
-                    <a href="schedulemaintenance.php"><i class="fa fa-file-text-o"></i> <span>Schedule</span></a>
+                    <a href="schedulemaintenance.php"><i class="fa fa-file-text-o"></i> <span>Schedule Maintenance</span></a>
+                </li>
+			<li class="<?php if ($page_name == "maintenance_cost.php") {
+                echo "active";
+            } ?>">
+                    <a href="maintenance_cost.php"><i class="fa fa-file-text-o"></i> <span>Maintenance Cost</span></a>
                 </li>
 				<li class="<?php if ($page_name == "inspection.php") {
                 echo "active";
             } ?>">
                     <a href="inspection.php"><i class="fa fa-file-text-o"></i> <span>Inspection</span></a>
-                </li>
-			<li class="<?php if ($page_name == "rlp_list.php") {
-                echo "active";
-            } ?>">
-                    <a href="#"><i class="fa fa-file-text-o"></i> <span>Repair</span></a>
-                </li>
-			<li class="<?php if ($page_name == "rlp_list.php") {
-                echo "active";
-            } ?>">
-                    <a href="#"><i class="fa fa-file-text-o"></i> <span>Maintenance Cost</span></a>
                 </li>
 				
 			<li class="<?php if ($page_name == "rlp_list.php") {

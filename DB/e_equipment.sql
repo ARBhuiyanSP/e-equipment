@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2022 at 09:59 AM
+-- Generation Time: Sep 15, 2022 at 06:54 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -169,245 +169,7 @@ CREATE TABLE `country` (
 --
 
 INSERT INTO `country` (`id`, `iso`, `name`, `nicename`, `iso3`, `numcode`, `phonecode`) VALUES
-(1, 'AF', 'AFGHANISTAN', 'Afghanistan', 'AFG', 4, 93),
-(2, 'AL', 'ALBANIA', 'Albania', 'ALB', 8, 355),
-(3, 'DZ', 'ALGERIA', 'Algeria', 'DZA', 12, 213),
-(4, 'AS', 'AMERICAN SAMOA', 'American Samoa', 'ASM', 16, 1684),
-(5, 'AD', 'ANDORRA', 'Andorra', 'AND', 20, 376),
-(6, 'AO', 'ANGOLA', 'Angola', 'AGO', 24, 244),
-(7, 'AI', 'ANGUILLA', 'Anguilla', 'AIA', 660, 1264),
-(8, 'AQ', 'ANTARCTICA', 'Antarctica', NULL, NULL, 0),
-(9, 'AG', 'ANTIGUA AND BARBUDA', 'Antigua and Barbuda', 'ATG', 28, 1268),
-(10, 'AR', 'ARGENTINA', 'Argentina', 'ARG', 32, 54),
-(11, 'AM', 'ARMENIA', 'Armenia', 'ARM', 51, 374),
-(12, 'AW', 'ARUBA', 'Aruba', 'ABW', 533, 297),
-(13, 'AU', 'AUSTRALIA', 'Australia', 'AUS', 36, 61),
-(14, 'AT', 'AUSTRIA', 'Austria', 'AUT', 40, 43),
-(15, 'AZ', 'AZERBAIJAN', 'Azerbaijan', 'AZE', 31, 994),
-(16, 'BS', 'BAHAMAS', 'Bahamas', 'BHS', 44, 1242),
-(17, 'BH', 'BAHRAIN', 'Bahrain', 'BHR', 48, 973),
-(18, 'BD', 'BANGLADESH', 'Bangladesh', 'BGD', 50, 880),
-(19, 'BB', 'BARBADOS', 'Barbados', 'BRB', 52, 1246),
-(20, 'BY', 'BELARUS', 'Belarus', 'BLR', 112, 375),
-(21, 'BE', 'BELGIUM', 'Belgium', 'BEL', 56, 32),
-(22, 'BZ', 'BELIZE', 'Belize', 'BLZ', 84, 501),
-(23, 'BJ', 'BENIN', 'Benin', 'BEN', 204, 229),
-(24, 'BM', 'BERMUDA', 'Bermuda', 'BMU', 60, 1441),
-(25, 'BT', 'BHUTAN', 'Bhutan', 'BTN', 64, 975),
-(26, 'BO', 'BOLIVIA', 'Bolivia', 'BOL', 68, 591),
-(27, 'BA', 'BOSNIA AND HERZEGOVINA', 'Bosnia and Herzegovina', 'BIH', 70, 387),
-(28, 'BW', 'BOTSWANA', 'Botswana', 'BWA', 72, 267),
-(29, 'BV', 'BOUVET ISLAND', 'Bouvet Island', NULL, NULL, 0),
-(30, 'BR', 'BRAZIL', 'Brazil', 'BRA', 76, 55),
-(31, 'IO', 'BRITISH INDIAN OCEAN TERRITORY', 'British Indian Ocean Territory', NULL, NULL, 246),
-(32, 'BN', 'BRUNEI DARUSSALAM', 'Brunei Darussalam', 'BRN', 96, 673),
-(33, 'BG', 'BULGARIA', 'Bulgaria', 'BGR', 100, 359),
-(34, 'BF', 'BURKINA FASO', 'Burkina Faso', 'BFA', 854, 226),
-(35, 'BI', 'BURUNDI', 'Burundi', 'BDI', 108, 257),
-(36, 'KH', 'CAMBODIA', 'Cambodia', 'KHM', 116, 855),
-(37, 'CM', 'CAMEROON', 'Cameroon', 'CMR', 120, 237),
-(38, 'CA', 'CANADA', 'Canada', 'CAN', 124, 1),
-(39, 'CV', 'CAPE VERDE', 'Cape Verde', 'CPV', 132, 238),
-(40, 'KY', 'CAYMAN ISLANDS', 'Cayman Islands', 'CYM', 136, 1345),
-(41, 'CF', 'CENTRAL AFRICAN REPUBLIC', 'Central African Republic', 'CAF', 140, 236),
-(42, 'TD', 'CHAD', 'Chad', 'TCD', 148, 235),
-(43, 'CL', 'CHILE', 'Chile', 'CHL', 152, 56),
-(44, 'CN', 'CHINA', 'China', 'CHN', 156, 86),
-(45, 'CX', 'CHRISTMAS ISLAND', 'Christmas Island', NULL, NULL, 61),
-(46, 'CC', 'COCOS (KEELING) ISLANDS', 'Cocos (Keeling) Islands', NULL, NULL, 672),
-(47, 'CO', 'COLOMBIA', 'Colombia', 'COL', 170, 57),
-(48, 'KM', 'COMOROS', 'Comoros', 'COM', 174, 269),
-(49, 'CG', 'CONGO', 'Congo', 'COG', 178, 242),
-(50, 'CD', 'CONGO, THE DEMOCRATIC REPUBLIC OF THE', 'Congo, the Democratic Republic of the', 'COD', 180, 242),
-(51, 'CK', 'COOK ISLANDS', 'Cook Islands', 'COK', 184, 682),
-(52, 'CR', 'COSTA RICA', 'Costa Rica', 'CRI', 188, 506),
-(53, 'CI', 'COTE D\'IVOIRE', 'Cote D\'Ivoire', 'CIV', 384, 225),
-(54, 'HR', 'CROATIA', 'Croatia', 'HRV', 191, 385),
-(55, 'CU', 'CUBA', 'Cuba', 'CUB', 192, 53),
-(56, 'CY', 'CYPRUS', 'Cyprus', 'CYP', 196, 357),
-(57, 'CZ', 'CZECH REPUBLIC', 'Czech Republic', 'CZE', 203, 420),
-(58, 'DK', 'DENMARK', 'Denmark', 'DNK', 208, 45),
-(59, 'DJ', 'DJIBOUTI', 'Djibouti', 'DJI', 262, 253),
-(60, 'DM', 'DOMINICA', 'Dominica', 'DMA', 212, 1767),
-(61, 'DO', 'DOMINICAN REPUBLIC', 'Dominican Republic', 'DOM', 214, 1809),
-(62, 'EC', 'ECUADOR', 'Ecuador', 'ECU', 218, 593),
-(63, 'EG', 'EGYPT', 'Egypt', 'EGY', 818, 20),
-(64, 'SV', 'EL SALVADOR', 'El Salvador', 'SLV', 222, 503),
-(65, 'GQ', 'EQUATORIAL GUINEA', 'Equatorial Guinea', 'GNQ', 226, 240),
-(66, 'ER', 'ERITREA', 'Eritrea', 'ERI', 232, 291),
-(67, 'EE', 'ESTONIA', 'Estonia', 'EST', 233, 372),
-(68, 'ET', 'ETHIOPIA', 'Ethiopia', 'ETH', 231, 251),
-(69, 'FK', 'FALKLAND ISLANDS (MALVINAS)', 'Falkland Islands (Malvinas)', 'FLK', 238, 500),
-(70, 'FO', 'FAROE ISLANDS', 'Faroe Islands', 'FRO', 234, 298),
-(71, 'FJ', 'FIJI', 'Fiji', 'FJI', 242, 679),
-(72, 'FI', 'FINLAND', 'Finland', 'FIN', 246, 358),
-(73, 'FR', 'FRANCE', 'France', 'FRA', 250, 33),
-(74, 'GF', 'FRENCH GUIANA', 'French Guiana', 'GUF', 254, 594),
-(75, 'PF', 'FRENCH POLYNESIA', 'French Polynesia', 'PYF', 258, 689),
-(76, 'TF', 'FRENCH SOUTHERN TERRITORIES', 'French Southern Territories', NULL, NULL, 0),
-(77, 'GA', 'GABON', 'Gabon', 'GAB', 266, 241),
-(78, 'GM', 'GAMBIA', 'Gambia', 'GMB', 270, 220),
-(79, 'GE', 'GEORGIA', 'Georgia', 'GEO', 268, 995),
-(80, 'DE', 'GERMANY', 'Germany', 'DEU', 276, 49),
-(81, 'GH', 'GHANA', 'Ghana', 'GHA', 288, 233),
-(82, 'GI', 'GIBRALTAR', 'Gibraltar', 'GIB', 292, 350),
-(83, 'GR', 'GREECE', 'Greece', 'GRC', 300, 30),
-(84, 'GL', 'GREENLAND', 'Greenland', 'GRL', 304, 299),
-(85, 'GD', 'GRENADA', 'Grenada', 'GRD', 308, 1473),
-(86, 'GP', 'GUADELOUPE', 'Guadeloupe', 'GLP', 312, 590),
-(87, 'GU', 'GUAM', 'Guam', 'GUM', 316, 1671),
-(88, 'GT', 'GUATEMALA', 'Guatemala', 'GTM', 320, 502),
-(89, 'GN', 'GUINEA', 'Guinea', 'GIN', 324, 224),
-(90, 'GW', 'GUINEA-BISSAU', 'Guinea-Bissau', 'GNB', 624, 245),
-(91, 'GY', 'GUYANA', 'Guyana', 'GUY', 328, 592),
-(92, 'HT', 'HAITI', 'Haiti', 'HTI', 332, 509),
-(93, 'HM', 'HEARD ISLAND AND MCDONALD ISLANDS', 'Heard Island and Mcdonald Islands', NULL, NULL, 0),
-(94, 'VA', 'HOLY SEE (VATICAN CITY STATE)', 'Holy See (Vatican City State)', 'VAT', 336, 39),
-(95, 'HN', 'HONDURAS', 'Honduras', 'HND', 340, 504),
-(96, 'HK', 'HONG KONG', 'Hong Kong', 'HKG', 344, 852),
-(97, 'HU', 'HUNGARY', 'Hungary', 'HUN', 348, 36),
-(98, 'IS', 'ICELAND', 'Iceland', 'ISL', 352, 354),
-(99, 'IN', 'INDIA', 'India', 'IND', 356, 91),
-(100, 'ID', 'INDONESIA', 'Indonesia', 'IDN', 360, 62),
-(101, 'IR', 'IRAN, ISLAMIC REPUBLIC OF', 'Iran, Islamic Republic of', 'IRN', 364, 98),
-(102, 'IQ', 'IRAQ', 'Iraq', 'IRQ', 368, 964),
-(103, 'IE', 'IRELAND', 'Ireland', 'IRL', 372, 353),
-(104, 'IL', 'ISRAEL', 'Israel', 'ISR', 376, 972),
-(105, 'IT', 'ITALY', 'Italy', 'ITA', 380, 39),
-(106, 'JM', 'JAMAICA', 'Jamaica', 'JAM', 388, 1876),
-(107, 'JP', 'JAPAN', 'Japan', 'JPN', 392, 81),
-(108, 'JO', 'JORDAN', 'Jordan', 'JOR', 400, 962),
-(109, 'KZ', 'KAZAKHSTAN', 'Kazakhstan', 'KAZ', 398, 7),
-(110, 'KE', 'KENYA', 'Kenya', 'KEN', 404, 254),
-(111, 'KI', 'KIRIBATI', 'Kiribati', 'KIR', 296, 686),
-(112, 'KP', 'KOREA, DEMOCRATIC PEOPLE\'S REPUBLIC OF', 'Korea, Democratic People\'s Republic of', 'PRK', 408, 850),
-(113, 'KR', 'KOREA, REPUBLIC OF', 'Korea', 'KOR', 410, 82),
-(114, 'KW', 'KUWAIT', 'Kuwait', 'KWT', 414, 965),
-(115, 'KG', 'KYRGYZSTAN', 'Kyrgyzstan', 'KGZ', 417, 996),
-(116, 'LA', 'LAO PEOPLE\'S DEMOCRATIC REPUBLIC', 'Lao People\'s Democratic Republic', 'LAO', 418, 856),
-(117, 'LV', 'LATVIA', 'Latvia', 'LVA', 428, 371),
-(118, 'LB', 'LEBANON', 'Lebanon', 'LBN', 422, 961),
-(119, 'LS', 'LESOTHO', 'Lesotho', 'LSO', 426, 266),
-(120, 'LR', 'LIBERIA', 'Liberia', 'LBR', 430, 231),
-(121, 'LY', 'LIBYAN ARAB JAMAHIRIYA', 'Libyan Arab Jamahiriya', 'LBY', 434, 218),
-(122, 'LI', 'LIECHTENSTEIN', 'Liechtenstein', 'LIE', 438, 423),
-(123, 'LT', 'LITHUANIA', 'Lithuania', 'LTU', 440, 370),
-(124, 'LU', 'LUXEMBOURG', 'Luxembourg', 'LUX', 442, 352),
-(125, 'MO', 'MACAO', 'Macao', 'MAC', 446, 853),
-(126, 'MK', 'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF', 'Macedonia, the Former Yugoslav Republic of', 'MKD', 807, 389),
-(127, 'MG', 'MADAGASCAR', 'Madagascar', 'MDG', 450, 261),
-(128, 'MW', 'MALAWI', 'Malawi', 'MWI', 454, 265),
-(129, 'MY', 'MALAYSIA', 'Malaysia', 'MYS', 458, 60),
-(130, 'MV', 'MALDIVES', 'Maldives', 'MDV', 462, 960),
-(131, 'ML', 'MALI', 'Mali', 'MLI', 466, 223),
-(132, 'MT', 'MALTA', 'Malta', 'MLT', 470, 356),
-(133, 'MH', 'MARSHALL ISLANDS', 'Marshall Islands', 'MHL', 584, 692),
-(134, 'MQ', 'MARTINIQUE', 'Martinique', 'MTQ', 474, 596),
-(135, 'MR', 'MAURITANIA', 'Mauritania', 'MRT', 478, 222),
-(136, 'MU', 'MAURITIUS', 'Mauritius', 'MUS', 480, 230),
-(137, 'YT', 'MAYOTTE', 'Mayotte', NULL, NULL, 269),
-(138, 'MX', 'MEXICO', 'Mexico', 'MEX', 484, 52),
-(139, 'FM', 'MICRONESIA, FEDERATED STATES OF', 'Micronesia, Federated States of', 'FSM', 583, 691),
-(140, 'MD', 'MOLDOVA, REPUBLIC OF', 'Moldova, Republic of', 'MDA', 498, 373),
-(141, 'MC', 'MONACO', 'Monaco', 'MCO', 492, 377),
-(142, 'MN', 'MONGOLIA', 'Mongolia', 'MNG', 496, 976),
-(143, 'MS', 'MONTSERRAT', 'Montserrat', 'MSR', 500, 1664),
-(144, 'MA', 'MOROCCO', 'Morocco', 'MAR', 504, 212),
-(145, 'MZ', 'MOZAMBIQUE', 'Mozambique', 'MOZ', 508, 258),
-(146, 'MM', 'MYANMAR', 'Myanmar', 'MMR', 104, 95),
-(147, 'NA', 'NAMIBIA', 'Namibia', 'NAM', 516, 264),
-(148, 'NR', 'NAURU', 'Nauru', 'NRU', 520, 674),
-(149, 'NP', 'NEPAL', 'Nepal', 'NPL', 524, 977),
-(150, 'NL', 'NETHERLANDS', 'Netherlands', 'NLD', 528, 31),
-(151, 'AN', 'NETHERLANDS ANTILLES', 'Netherlands Antilles', 'ANT', 530, 599),
-(152, 'NC', 'NEW CALEDONIA', 'New Caledonia', 'NCL', 540, 687),
-(153, 'NZ', 'NEW ZEALAND', 'New Zealand', 'NZL', 554, 64),
-(154, 'NI', 'NICARAGUA', 'Nicaragua', 'NIC', 558, 505),
-(155, 'NE', 'NIGER', 'Niger', 'NER', 562, 227),
-(156, 'NG', 'NIGERIA', 'Nigeria', 'NGA', 566, 234),
-(157, 'NU', 'NIUE', 'Niue', 'NIU', 570, 683),
-(158, 'NF', 'NORFOLK ISLAND', 'Norfolk Island', 'NFK', 574, 672),
-(159, 'MP', 'NORTHERN MARIANA ISLANDS', 'Northern Mariana Islands', 'MNP', 580, 1670),
-(160, 'NO', 'NORWAY', 'Norway', 'NOR', 578, 47),
-(161, 'OM', 'OMAN', 'Oman', 'OMN', 512, 968),
-(162, 'PK', 'PAKISTAN', 'Pakistan', 'PAK', 586, 92),
-(163, 'PW', 'PALAU', 'Palau', 'PLW', 585, 680),
-(164, 'PS', 'PALESTINIAN TERRITORY, OCCUPIED', 'Palestinian Territory, Occupied', NULL, NULL, 970),
-(165, 'PA', 'PANAMA', 'Panama', 'PAN', 591, 507),
-(166, 'PG', 'PAPUA NEW GUINEA', 'Papua New Guinea', 'PNG', 598, 675),
-(167, 'PY', 'PARAGUAY', 'Paraguay', 'PRY', 600, 595),
-(168, 'PE', 'PERU', 'Peru', 'PER', 604, 51),
-(169, 'PH', 'PHILIPPINES', 'Philippines', 'PHL', 608, 63),
-(170, 'PN', 'PITCAIRN', 'Pitcairn', 'PCN', 612, 0),
-(171, 'PL', 'POLAND', 'Poland', 'POL', 616, 48),
-(172, 'PT', 'PORTUGAL', 'Portugal', 'PRT', 620, 351),
-(173, 'PR', 'PUERTO RICO', 'Puerto Rico', 'PRI', 630, 1787),
-(174, 'QA', 'QATAR', 'Qatar', 'QAT', 634, 974),
-(175, 'RE', 'REUNION', 'Reunion', 'REU', 638, 262),
-(176, 'RO', 'ROMANIA', 'Romania', 'ROM', 642, 40),
-(177, 'RU', 'RUSSIAN FEDERATION', 'Russian Federation', 'RUS', 643, 70),
-(178, 'RW', 'RWANDA', 'Rwanda', 'RWA', 646, 250),
-(179, 'SH', 'SAINT HELENA', 'Saint Helena', 'SHN', 654, 290),
-(180, 'KN', 'SAINT KITTS AND NEVIS', 'Saint Kitts and Nevis', 'KNA', 659, 1869),
-(181, 'LC', 'SAINT LUCIA', 'Saint Lucia', 'LCA', 662, 1758),
-(182, 'PM', 'SAINT PIERRE AND MIQUELON', 'Saint Pierre and Miquelon', 'SPM', 666, 508),
-(183, 'VC', 'SAINT VINCENT AND THE GRENADINES', 'Saint Vincent and the Grenadines', 'VCT', 670, 1784),
-(184, 'WS', 'SAMOA', 'Samoa', 'WSM', 882, 684),
-(185, 'SM', 'SAN MARINO', 'San Marino', 'SMR', 674, 378),
-(186, 'ST', 'SAO TOME AND PRINCIPE', 'Sao Tome and Principe', 'STP', 678, 239),
-(187, 'SA', 'SAUDI ARABIA', 'Saudi Arabia', 'SAU', 682, 966),
-(188, 'SN', 'SENEGAL', 'Senegal', 'SEN', 686, 221),
-(189, 'CS', 'SERBIA AND MONTENEGRO', 'Serbia and Montenegro', NULL, NULL, 381),
-(190, 'SC', 'SEYCHELLES', 'Seychelles', 'SYC', 690, 248),
-(191, 'SL', 'SIERRA LEONE', 'Sierra Leone', 'SLE', 694, 232),
-(192, 'SG', 'SINGAPORE', 'Singapore', 'SGP', 702, 65),
-(193, 'SK', 'SLOVAKIA', 'Slovakia', 'SVK', 703, 421),
-(194, 'SI', 'SLOVENIA', 'Slovenia', 'SVN', 705, 386),
-(195, 'SB', 'SOLOMON ISLANDS', 'Solomon Islands', 'SLB', 90, 677),
-(196, 'SO', 'SOMALIA', 'Somalia', 'SOM', 706, 252),
-(197, 'ZA', 'SOUTH AFRICA', 'South Africa', 'ZAF', 710, 27),
-(198, 'GS', 'SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS', 'South Georgia and the South Sandwich Islands', NULL, NULL, 0),
-(199, 'ES', 'SPAIN', 'Spain', 'ESP', 724, 34),
-(200, 'LK', 'SRI LANKA', 'Sri Lanka', 'LKA', 144, 94),
-(201, 'SD', 'SUDAN', 'Sudan', 'SDN', 736, 249),
-(202, 'SR', 'SURINAME', 'Suriname', 'SUR', 740, 597),
-(203, 'SJ', 'SVALBARD AND JAN MAYEN', 'Svalbard and Jan Mayen', 'SJM', 744, 47),
-(204, 'SZ', 'SWAZILAND', 'Swaziland', 'SWZ', 748, 268),
-(205, 'SE', 'SWEDEN', 'Sweden', 'SWE', 752, 46),
-(206, 'CH', 'SWITZERLAND', 'Switzerland', 'CHE', 756, 41),
-(207, 'SY', 'SYRIAN ARAB REPUBLIC', 'Syrian Arab Republic', 'SYR', 760, 963),
-(208, 'TW', 'TAIWAN, PROVINCE OF CHINA', 'Taiwan, Province of China', 'TWN', 158, 886),
-(209, 'TJ', 'TAJIKISTAN', 'Tajikistan', 'TJK', 762, 992),
-(210, 'TZ', 'TANZANIA, UNITED REPUBLIC OF', 'Tanzania, United Republic of', 'TZA', 834, 255),
-(211, 'TH', 'THAILAND', 'Thailand', 'THA', 764, 66),
-(212, 'TL', 'TIMOR-LESTE', 'Timor-Leste', NULL, NULL, 670),
-(213, 'TG', 'TOGO', 'Togo', 'TGO', 768, 228),
-(214, 'TK', 'TOKELAU', 'Tokelau', 'TKL', 772, 690),
-(215, 'TO', 'TONGA', 'Tonga', 'TON', 776, 676),
-(216, 'TT', 'TRINIDAD AND TOBAGO', 'Trinidad and Tobago', 'TTO', 780, 1868),
-(217, 'TN', 'TUNISIA', 'Tunisia', 'TUN', 788, 216),
-(218, 'TR', 'TURKEY', 'Turkey', 'TUR', 792, 90),
-(219, 'TM', 'TURKMENISTAN', 'Turkmenistan', 'TKM', 795, 7370),
-(220, 'TC', 'TURKS AND CAICOS ISLANDS', 'Turks and Caicos Islands', 'TCA', 796, 1649),
-(221, 'TV', 'TUVALU', 'Tuvalu', 'TUV', 798, 688),
-(222, 'UG', 'UGANDA', 'Uganda', 'UGA', 800, 256),
-(223, 'UA', 'UKRAINE', 'Ukraine', 'UKR', 804, 380),
-(224, 'AE', 'UNITED ARAB EMIRATES', 'United Arab Emirates', 'ARE', 784, 971),
-(225, 'GB', 'UNITED KINGDOM', 'United Kingdom', 'GBR', 826, 44),
-(226, 'US', 'UNITED STATES', 'United States', 'USA', 840, 1),
-(227, 'UM', 'UNITED STATES MINOR OUTLYING ISLANDS', 'United States Minor Outlying Islands', NULL, NULL, 1),
-(228, 'UY', 'URUGUAY', 'Uruguay', 'URY', 858, 598),
-(229, 'UZ', 'UZBEKISTAN', 'Uzbekistan', 'UZB', 860, 998),
-(230, 'VU', 'VANUATU', 'Vanuatu', 'VUT', 548, 678),
-(231, 'VE', 'VENEZUELA', 'Venezuela', 'VEN', 862, 58),
-(232, 'VN', 'VIET NAM', 'Viet Nam', 'VNM', 704, 84),
-(233, 'VG', 'VIRGIN ISLANDS, BRITISH', 'Virgin Islands, British', 'VGB', 92, 1284),
-(234, 'VI', 'VIRGIN ISLANDS, U.S.', 'Virgin Islands, U.s.', 'VIR', 850, 1340),
-(235, 'WF', 'WALLIS AND FUTUNA', 'Wallis and Futuna', 'WLF', 876, 681),
-(236, 'EH', 'WESTERN SAHARA', 'Western Sahara', 'ESH', 732, 212),
-(237, 'YE', 'YEMEN', 'Yemen', 'YEM', 887, 967),
-(238, 'ZM', 'ZAMBIA', 'Zambia', 'ZMB', 894, 260),
-(239, 'ZW', 'ZIMBABWE', 'Zimbabwe', 'ZWE', 716, 263);
+(1, 'AF', 'AFGHANISTAN', 'Afghané.', '\0\0V', 85, 256);
 
 -- --------------------------------------------------------
 
@@ -1142,6 +904,22 @@ INSERT INTO `equipments` (`id`, `project_id`, `sub_project_id`, `equipment_type`
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `equipments_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `equipments_view` (
+`name` varchar(500)
+,`eel_code` varchar(100)
+,`capacity` varchar(100)
+,`makeby` varchar(100)
+,`model` varchar(100)
+,`project_name` varchar(500)
+,`present_condition` varchar(200)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `equipment_assign`
 --
 
@@ -1437,45 +1215,6 @@ INSERT INTO `equipment_assign` (`id`, `eel_code`, `project_id`, `sub_project_id`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `evaluation_details`
---
-
-CREATE TABLE `evaluation_details` (
-  `id` int(11) NOT NULL,
-  `int_id` varchar(11) NOT NULL,
-  `can_id` int(11) NOT NULL,
-  `education` int(11) NOT NULL,
-  `experience` int(11) NOT NULL,
-  `presentation` int(11) NOT NULL,
-  `know_com_pos` int(11) NOT NULL,
-  `communication` int(11) NOT NULL,
-  `attitude` int(11) NOT NULL,
-  `teamwork` int(11) NOT NULL,
-  `leadership` int(11) NOT NULL,
-  `technical_know` int(11) NOT NULL,
-  `willingness` int(11) NOT NULL,
-  `remarks` longtext NOT NULL,
-  `final_score` int(11) NOT NULL,
-  `salary_expectation` varchar(11) NOT NULL,
-  `other_req` varchar(500) NOT NULL,
-  `notice_period` varchar(50) NOT NULL,
-  `final_recommendation` varchar(50) NOT NULL,
-  `status` int(11) NOT NULL,
-  `created_at` date NOT NULL,
-  `updated_at` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `evaluation_details`
---
-
-INSERT INTO `evaluation_details` (`id`, `int_id`, `can_id`, `education`, `experience`, `presentation`, `know_com_pos`, `communication`, `attitude`, `teamwork`, `leadership`, `technical_know`, `willingness`, `remarks`, `final_score`, `salary_expectation`, `other_req`, `notice_period`, `final_recommendation`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'INT-0002', 24, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '50000', '', '', '1', 0, '2022-06-22', '2022-06-22'),
-(2, 'INT-0002', 25, 4, 5, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '30000', '', '', '2', 0, '2022-06-22', '2022-06-22');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `inspaction`
 --
 
@@ -1497,143 +1236,6 @@ INSERT INTO `inspaction` (`id`, `eel_code`, `ins_date`, `status`, `remarks`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `interviews`
---
-
-CREATE TABLE `interviews` (
-  `id` int(11) NOT NULL,
-  `code` varchar(20) NOT NULL,
-  `date` date NOT NULL,
-  `time` varchar(15) NOT NULL,
-  `location` varchar(100) NOT NULL,
-  `interview_status` tinyint(1) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `created_by` int(11) NOT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `interviews`
---
-
-INSERT INTO `interviews` (`id`, `code`, `date`, `time`, `location`, `interview_status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(17, 'INT-0001', '2022-05-24', '10 am', 'KT', 0, '0000-00-00 00:00:00', 0, NULL, 0),
-(18, 'INT-0002', '2022-05-25', '10 AM', 'KT', 0, '0000-00-00 00:00:00', 0, NULL, 0),
-(19, 'INT-0003', '2022-05-26', '10 AM', 'KT', 0, '0000-00-00 00:00:00', 0, NULL, 0),
-(20, 'INT-0004', '2022-06-26', '10 AM', 'KT', 0, '0000-00-00 00:00:00', 0, NULL, 0),
-(21, 'INT-0005', '2022-06-26', '12', 'vcv', 0, '0000-00-00 00:00:00', 0, NULL, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `interview_bom`
---
-
-CREATE TABLE `interview_bom` (
-  `id` int(11) NOT NULL,
-  `interview_id` varchar(50) NOT NULL,
-  `emp_id` varchar(30) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `created_by` int(11) NOT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `interview_bom`
---
-
-INSERT INTO `interview_bom` (`id`, `interview_id`, `emp_id`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 'INT-0001', 'ENG-000610', '0000-00-00 00:00:00', 0, NULL, 0),
-(2, 'INT-0001', 'SPL-008077', '0000-00-00 00:00:00', 0, NULL, 0),
-(3, 'INT-0003', 'ENG-000610', '0000-00-00 00:00:00', 0, NULL, 0),
-(4, 'INT-0003', 'SPL-008077', '0000-00-00 00:00:00', 0, NULL, 0),
-(5, 'INT-0003', 'SPL-007916', '0000-00-00 00:00:00', 0, NULL, 0),
-(6, 'INT-0004', 'ENG-000610', '0000-00-00 00:00:00', 0, NULL, 0),
-(7, 'INT-0004', 'SPL-008077', '0000-00-00 00:00:00', 0, NULL, 0),
-(8, 'INT-0005', 'ENG-000610', '0000-00-00 00:00:00', 0, NULL, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `interview_candiate`
---
-
-CREATE TABLE `interview_candiate` (
-  `id` int(11) NOT NULL,
-  `interview_id` varchar(20) NOT NULL,
-  `rrr_id` int(11) NOT NULL,
-  `candidate_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `created_by` int(11) NOT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `interview_candiate`
---
-
-INSERT INTO `interview_candiate` (`id`, `interview_id`, `rrr_id`, `candidate_id`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 'INT-0001', 1, 24, '0000-00-00 00:00:00', 0, NULL, 0),
-(2, 'INT-0002', 1, 24, '0000-00-00 00:00:00', 0, NULL, 0),
-(3, 'INT-0002', 0, 25, '0000-00-00 00:00:00', 0, NULL, 0),
-(4, 'INT-0003', 1, 24, '0000-00-00 00:00:00', 0, NULL, 0),
-(5, 'INT-0003', 0, 25, '0000-00-00 00:00:00', 0, NULL, 0),
-(6, 'INT-0004', 4, 24, '0000-00-00 00:00:00', 0, NULL, 0),
-(7, 'INT-0004', 2, 25, '0000-00-00 00:00:00', 0, NULL, 0),
-(8, 'INT-0005', 1, 24, '0000-00-00 00:00:00', 0, NULL, 0),
-(9, 'INT-0005', 0, 25, '0000-00-00 00:00:00', 0, NULL, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `interview_requisition`
---
-
-CREATE TABLE `interview_requisition` (
-  `id` int(11) NOT NULL,
-  `interview_id` varchar(20) NOT NULL,
-  `rrr_id` varchar(20) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `created_by` int(11) NOT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `interview_requisition`
---
-
-INSERT INTO `interview_requisition` (`id`, `interview_id`, `rrr_id`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 'INT-0001', '1', '0000-00-00 00:00:00', 0, NULL, 0),
-(2, 'INT-0002', '1', '0000-00-00 00:00:00', 0, NULL, 0),
-(3, 'INT-0003', '1', '0000-00-00 00:00:00', 0, NULL, 0),
-(4, 'INT-0004', '4', '0000-00-00 00:00:00', 0, NULL, 0),
-(5, 'INT-0004', '2', '0000-00-00 00:00:00', 0, NULL, 0),
-(6, 'INT-0004', '1', '0000-00-00 00:00:00', 0, NULL, 0),
-(7, 'INT-0005', '1', '0000-00-00 00:00:00', 0, NULL, 0);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `int_wise_candidates`
--- (See below for the actual view)
---
-CREATE TABLE `int_wise_candidates` (
-`candidate_id` int(11)
-,`interview_id` varchar(20)
-,`name` varchar(50)
-,`email` varchar(50)
-,`rrr_no` varchar(15)
-,`designation` varchar(50)
-,`phone` varchar(50)
-);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `maintenance`
 --
 
@@ -1641,31 +1243,35 @@ CREATE TABLE `maintenance` (
   `id` int(11) NOT NULL,
   `maintenance_id` varchar(100) NOT NULL,
   `project_id` varchar(100) NOT NULL,
-  `equipment_eel` varchar(100) NOT NULL,
-  `in_time` varchar(100) NOT NULL,
-  `out_time` varchar(100) NOT NULL,
-  `description` longtext NOT NULL,
-  `responsble_mechanic` varchar(100) NOT NULL,
-  `mechanical_incharge` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `equipment_id` varchar(100) NOT NULL,
+  `lastseervice_date` date NOT NULL,
+  `lastservice_hrkm` int(100) NOT NULL,
+  `schedule_hrkm` int(11) NOT NULL,
+  `present_hrkm` int(100) NOT NULL,
+  `nextservice_date` date NOT NULL,
+  `nextservice_hrkm` int(100) NOT NULL,
+  `dueforservice_hrkm` int(100) NOT NULL,
+  `typeofservice_hrkm` int(20) NOT NULL,
+  `detailsofmaintenance` varchar(500) NOT NULL,
+  `remarks` varchar(500) NOT NULL,
+  `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_by` varchar(100) NOT NULL,
+  `updated_by` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `maintenance_item`
+-- Dumping data for table `maintenance`
 --
 
-CREATE TABLE `maintenance_item` (
-  `id` int(11) NOT NULL,
-  `maintenance_id` varchar(100) NOT NULL,
-  `spare_parts` varchar(1000) NOT NULL,
-  `quantity` varchar(100) NOT NULL,
-  `rate` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `maintenance` (`id`, `maintenance_id`, `project_id`, `equipment_id`, `lastseervice_date`, `lastservice_hrkm`, `schedule_hrkm`, `present_hrkm`, `nextservice_date`, `nextservice_hrkm`, `dueforservice_hrkm`, `typeofservice_hrkm`, `detailsofmaintenance`, `remarks`, `created_date`, `updated_date`, `created_by`, `updated_by`) VALUES
+(7, '', '15', 'AC-01', '2022-08-01', 2000, 2250, 2150, '2022-08-10', 2400, 100, 250, 'test', 'test', '2022-08-21 09:05:37', '2022-08-21 09:05:37', '', ''),
+(8, '', '15', 'AC-01', '2022-08-10', 2150, 2400, 2350, '2022-08-20', 2600, 50, 250, 'test', 'test', '2022-08-21 09:07:01', '2022-08-21 09:07:01', '', ''),
+(9, '', '3', 'AC-02', '2022-08-22', 2000, 2250, 2150, '2022-08-22', 2400, 100, 250, 'Test', 'test', '2022-08-22 05:27:16', '2022-08-22 05:27:16', '', ''),
+(10, '', '3', 'AC-04', '2022-08-01', 2000, 2250, 2200, '2022-08-30', 2450, 50, 250, 'tEST', 'TEST', '2022-08-30 04:37:40', '2022-08-30 04:37:40', '', ''),
+(11, '', '3', 'AC-04', '2022-08-30', 2200, 2450, 2350, '2022-08-30', 2600, 100, 250, 'SDFDS', 'SDFDS', '2022-08-30 04:38:25', '2022-08-30 04:38:25', '', ''),
+(12, '', '3', 'AC-04', '2022-08-30', 2350, 2600, 2600, '2022-08-30', 2850, 0, 250, 'ERE', 'DFD', '2022-08-30 04:38:47', '2022-08-30 04:38:47', '', ''),
+(13, '', '15', 'AC-01', '2022-09-12', 2350, 2600, 2500, '2022-09-12', 3000, 100, 250, 'esfsdf', 'sdfsf', '2022-09-12 05:57:22', '2022-09-12 05:57:22', '', '');
 
 -- --------------------------------------------------------
 
@@ -1713,6 +1319,62 @@ INSERT INTO `middle_datas` (`id`, `name`, `data_details`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notesheets`
+--
+
+CREATE TABLE `notesheets` (
+  `id` int(11) NOT NULL,
+  `notesheet_no` varchar(50) NOT NULL,
+  `rlp_no` varchar(100) NOT NULL,
+  `subject` longtext NOT NULL,
+  `supplier_name` varchar(200) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `concern_person` varchar(50) NOT NULL,
+  `cell_number` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `item` varchar(500) NOT NULL,
+  `part_no` varchar(100) NOT NULL,
+  `unit` varchar(15) NOT NULL,
+  `quantity` varchar(20) NOT NULL,
+  `unit_price` varchar(20) NOT NULL,
+  `total` varchar(20) NOT NULL,
+  `remarks` varchar(500) NOT NULL,
+  `status` varchar(15) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notesheets_master`
+--
+
+CREATE TABLE `notesheets_master` (
+  `id` int(11) NOT NULL,
+  `notesheet_no` varchar(100) NOT NULL,
+  `rlp_no` varchar(100) NOT NULL,
+  `subject` varchar(1000) NOT NULL,
+  `ns_info` longtext NOT NULL,
+  `supplier_name` varchar(100) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `concern_person` varchar(100) NOT NULL,
+  `cell_number` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `no_of_item` int(11) NOT NULL,
+  `sub_total` float NOT NULL,
+  `ait` float NOT NULL,
+  `vat` float NOT NULL,
+  `grand_total` float NOT NULL,
+  `remarks` longtext NOT NULL,
+  `status` varchar(15) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `notesheet_remarks_history`
 --
 
@@ -1723,30 +1385,6 @@ CREATE TABLE `notesheet_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `notesheet_remarks_history`
---
-
-INSERT INTO `notesheet_remarks_history` (`id`, `rrr_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(57, 1, 904, 'Recommended', '2022-05-23 11:02:08'),
-(58, 1, 2099, 'Recommended', '2022-05-23 11:23:17'),
-(59, 1, 616, 'Approved', '2022-05-23 11:24:35'),
-(60, 0, 0, 'TEST', '2022-05-24 16:21:10'),
-(61, 0, 0, 'TEST', '2022-05-24 16:21:11'),
-(62, 0, 0, 'TEST', '2022-05-24 16:21:12'),
-(63, 0, 0, 'TEST', '2022-05-24 16:21:12'),
-(64, 0, 0, 'TEST', '2022-05-24 16:21:12'),
-(65, 0, 0, 'TEST', '2022-05-24 16:21:15'),
-(66, 0, 0, 'WEFWE', '2022-05-24 16:22:29'),
-(67, 0, 0, 'WEFWE', '2022-05-24 16:22:34'),
-(68, 0, 0, 'tEST', '2022-05-24 16:22:41'),
-(69, 0, 0, 'tEST', '2022-05-24 16:22:42'),
-(70, 1, 3105, 'test', '2022-05-24 16:32:10'),
-(71, 1, 3105, 'thank you', '2022-05-24 16:33:07'),
-(72, 1, 3105, 'sdfdgfd', '2022-06-26 12:21:08'),
-(73, 2, 3105, 'yu', '2022-06-26 12:23:39'),
-(74, 2, 3105, 'gfgfg', '2022-06-26 12:29:32');
 
 -- --------------------------------------------------------
 
@@ -2097,13 +1735,11 @@ CREATE TABLE `rlp_access_chain` (
 --
 
 INSERT INTO `rlp_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `rlp_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(2, 'default', 13, 117, 0, '{\"732\":\"1\",\"624\":\"3\",\"682\":\"2\",\"616\":\"4\",\"614\":\"5\"}', 632, '2020-06-27 12:05:53', NULL, NULL),
-(3, 'default', 12, 91, 0, '{\"616\":\"1\",\"614\":\"1\",\"792\":\"1\",\"624\":\"1\"}', 1, '2020-06-27 12:26:03', NULL, NULL),
-(4, 'default', 1, 4, 0, '{\"25\":\"1\",\"624\":\"3\",\"59\":\"2\",\"2099\":\"4\",\"616\":\"5\",\"614\":\"6\"}', 1, '2020-06-28 11:00:29', NULL, NULL),
 (5, 'default', 5, 32, 0, '{\"858\":\"1\",\"2099\":\"2\",\"624\":\"3\",\"616\":\"4\",\"614\":\"5\"}', 1, '2020-06-28 11:21:54', NULL, NULL),
 (6, 'default', 6, 52, 0, '{\"749\":\"1\",\"689\":\"2\",\"2741\":\"3\",\"624\":\"4\",\"616\":\"5\",\"614\":\"6\"}', 1, '2020-06-28 11:55:16', NULL, NULL),
-(10, 'default', 1, 24, 0, '\"\"', 1, '2020-11-22 01:05:53', NULL, NULL),
-(12, 'default', 5, 33, 0, '{\"904\":\"1\",\"2099\":\"2\",\"616\":\"3\",\"614\":\"4\"}', 1, '2022-07-25 10:35:32', NULL, NULL);
+(12, 'default', 5, 33, 0, '{\"904\":\"1\",\"2099\":\"2\",\"616\":\"3\",\"614\":\"4\"}', 1, '2022-07-25 10:35:32', NULL, NULL),
+(13, 'default', 0, 0, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-09-11 12:07:46', NULL, NULL),
+(14, 'default', 1, 11, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-09-11 12:08:21', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2123,16 +1759,6 @@ CREATE TABLE `rlp_acknowledgement` (
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rlp_acknowledgement`
---
-
-INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(276, 1, 616, 3, 0, '2022-07-25 09:55:33', NULL, 0, 3105, NULL),
-(277, 1, 614, 4, 0, '2022-07-25 09:55:33', NULL, 0, 3105, NULL),
-(278, 1, 904, 1, 6, '2022-07-25 09:55:34', '2022-07-25 10:03:56', 1, 3105, 904),
-(279, 1, 2099, 2, 0, '2022-07-25 10:03:56', NULL, 1, 3105, NULL);
 
 -- --------------------------------------------------------
 
@@ -2164,13 +1790,6 @@ CREATE TABLE `rlp_details` (
   `details_remarks` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `rlp_details`
---
-
-INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `purpose`, `quantity`, `estimated_price`, `supplier`, `details_remarks`) VALUES
-(1, 1, 'Drump Truck', 'Test', '1', 100000, '', '');
-
 -- --------------------------------------------------------
 
 --
@@ -2200,13 +1819,6 @@ CREATE TABLE `rlp_info` (
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `rlp_info`
---
-
-INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `rlp_status`, `is_viewd`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'RLP-2022-07-Corporate-IT-00000001', 3105, 'SPL-007729', 2, '2022-07-25 12:00:00', 5, 33, 'Atiqur Rahman Bhuiyan', '1', 'SPL-007729', '', 'test', 2, 0, 3105, '2022-07-25 09:55:33', NULL, NULL, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -2220,13 +1832,6 @@ CREATE TABLE `rlp_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rlp_remarks_history`
---
-
-INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(52, 1, 904, 'test', '2022-07-25 10:03:56');
 
 -- --------------------------------------------------------
 
@@ -2313,13 +1918,6 @@ CREATE TABLE `role_access` (
 --
 
 INSERT INTO `role_access` (`id`, `role_id`, `page_id`, `page_name`, `add_access`, `edit_access`, `delete_access`, `view_access`, `print_access`) VALUES
-(99, 1, 1, 'dashboard', 1, 1, 1, 1, 1),
-(100, 1, 2, 'settings', 1, 1, 1, 1, 1),
-(101, 1, 3, 'users', 1, 1, 1, 1, 1),
-(102, 1, 4, 'ra', 1, 1, 1, 1, 1),
-(103, 1, 5, 'crlp', 1, 1, 1, 1, 1),
-(104, 1, 6, 'rlp_list', 1, 1, 1, 1, 1),
-(105, 1, 7, 'rlp_report', 1, 1, 1, 1, 1),
 (113, 18, 1, 'dashboard', 1, 1, 1, 1, 1),
 (114, 18, 2, 'settings', 0, 0, 0, 0, 0),
 (115, 18, 3, 'users', 0, 1, 0, 1, 1),
@@ -2466,141 +2064,14 @@ INSERT INTO `role_access` (`id`, `role_id`, `page_id`, `page_name`, `add_access`
 (326, 21, 4, 'ra', 0, 0, 0, 0, 0),
 (327, 21, 5, 'crlp', 1, 1, 0, 1, 1),
 (328, 21, 6, 'rlp_list', 1, 1, 0, 1, 1),
-(329, 21, 7, 'rlp_report', 0, 0, 0, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rrr_acknowledgement`
---
-
-CREATE TABLE `rrr_acknowledgement` (
-  `id` int(11) NOT NULL,
-  `rrr_info_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `ack_order` int(11) NOT NULL COMMENT 'acknowledge order to show the RLP',
-  `ack_status` tinyint(4) NOT NULL DEFAULT 0,
-  `ack_request_date` datetime NOT NULL,
-  `ack_updated_date` datetime DEFAULT NULL,
-  `is_visible` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=not visible; 1= visible',
-  `created_by` int(11) NOT NULL,
-  `updated_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rrr_acknowledgement`
---
-
-INSERT INTO `rrr_acknowledgement` (`id`, `rrr_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(198, 1, 616, 3, 1, '2022-05-23 11:23:17', '2022-05-23 11:24:35', 1, 3105, 616),
-(199, 1, 614, 4, 0, '2022-05-23 11:24:35', NULL, 1, 3105, NULL),
-(200, 1, 904, 1, 6, '2022-05-23 10:58:27', '2022-05-23 11:02:08', 1, 3105, 904),
-(201, 1, 2099, 2, 6, '2022-05-23 11:02:08', '2022-05-23 11:23:17', 1, 3105, 2099),
-(202, 2, 616, 3, 0, '2022-05-29 16:44:02', NULL, 0, 3105, NULL),
-(203, 2, 614, 4, 0, '2022-05-29 16:44:02', NULL, 0, 3105, NULL),
-(204, 2, 904, 1, 0, '2022-05-29 16:44:02', NULL, 1, 3105, NULL),
-(205, 2, 2099, 2, 0, '2022-05-29 16:44:02', NULL, 0, 3105, NULL),
-(206, 4, 616, 3, 0, '2022-05-30 11:15:44', NULL, 0, 3105, NULL),
-(207, 4, 614, 4, 0, '2022-05-30 11:15:44', NULL, 0, 3105, NULL),
-(208, 4, 904, 1, 0, '2022-05-30 11:15:44', NULL, 1, 3105, NULL),
-(209, 4, 2099, 2, 0, '2022-05-30 11:15:44', NULL, 0, 3105, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rrr_delete_history`
---
-
-CREATE TABLE `rrr_delete_history` (
-  `id` int(11) NOT NULL,
-  `rrr_info_id` int(11) NOT NULL,
-  `deleted_by` int(11) NOT NULL,
-  `deleted_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rrr_info`
---
-
-CREATE TABLE `rrr_info` (
-  `id` int(11) NOT NULL,
-  `rrr_no` varchar(100) NOT NULL,
-  `rrr_user_id` int(11) UNSIGNED NOT NULL,
-  `rrr_user_office_id` varchar(500) NOT NULL,
-  `priority` tinyint(4) NOT NULL,
-  `request_date` datetime NOT NULL,
-  `request_division` int(11) DEFAULT NULL,
-  `request_department` int(11) NOT NULL,
-  `request_person` varchar(650) DEFAULT NULL,
-  `designation` varchar(500) DEFAULT NULL,
-  `user_remarks` text DEFAULT NULL,
-  `req_for` varchar(100) NOT NULL,
-  `emp_type` varchar(100) NOT NULL,
-  `justification_for_rec` longtext NOT NULL,
-  `rem_spe_rec` longtext NOT NULL,
-  `req_for_division` varchar(100) NOT NULL,
-  `req_for_department` varchar(100) NOT NULL,
-  `req_designation` varchar(100) NOT NULL,
-  `req_number` varchar(100) NOT NULL,
-  `req_location_project` varchar(100) NOT NULL,
-  `req_reporting_man` varchar(100) NOT NULL,
-  `req_salary` varchar(100) NOT NULL,
-  `req_responsibilities` varchar(500) NOT NULL,
-  `rrr_status` tinyint(1) NOT NULL,
-  `is_viewd` tinyint(1) NOT NULL DEFAULT 0,
-  `created_by` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_by` int(11) DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `is_delete` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rrr_info`
---
-
-INSERT INTO `rrr_info` (`id`, `rrr_no`, `rrr_user_id`, `rrr_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_person`, `designation`, `user_remarks`, `req_for`, `emp_type`, `justification_for_rec`, `rem_spe_rec`, `req_for_division`, `req_for_department`, `req_designation`, `req_number`, `req_location_project`, `req_reporting_man`, `req_salary`, `req_responsibilities`, `rrr_status`, `is_viewd`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'RRR-2022-05-Corporate-IT-0001', 3105, 'SPL-007729', 4, '2022-05-23 12:00:00', 5, 33, 'Atiqur Rahman Bhuiyan', '1', 'Requester Remarks', 'NewPosition', 'management', 'Justification for Recruitment', 'Remark/Special Requirements', '', '', '35', '1', 'Khawaja Tower', 'SPL-007729', '30000', 'Key Responsibilites', 1, 0, 3105, '2022-05-23 10:58:26', NULL, NULL, 0),
-(2, 'RRR-2022-05-Corporate-IT-0002', 3105, 'SPL-007729', 4, '2022-05-29 12:00:00', 5, 33, 'Atiqur Rahman Bhuiyan', '1', 'Test', 'NewPosition', 'management', 'test', 'test', '', '', '35', '1', 'KT', 'FI', '40000', 'Test', 5, 0, 3105, '2022-05-29 04:44:01', NULL, NULL, 0),
-(3, 'RRR-2022-05-Corporate-IT-0003', 3105, 'SPL-007729', 1, '2022-05-30 12:00:00', 5, 33, 'Atiqur Rahman Bhuiyan', '1', 'Remarks', 'replacement', 'non-management', 'Justification', 'Requirements', '5', '33', '35', '2', 'KT', 'FI', '45000', 'Responsibilites', 7, 0, 3105, '2022-05-30 11:15:32', NULL, NULL, 1),
-(4, 'RRR-2022-05-Corporate-IT-0004', 3105, 'SPL-007729', 1, '2022-05-30 12:00:00', 5, 33, 'Atiqur Rahman Bhuiyan', '1', 'Remarks', 'replacement', 'non-management', 'Justification', 'Requirements', '', '', '35', '2', 'KT', 'FI', '45000', 'Responsibilites', 5, 0, 3105, '2022-05-30 11:15:44', NULL, NULL, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rrr_remarks_history`
---
-
-CREATE TABLE `rrr_remarks_history` (
-  `id` int(11) NOT NULL,
-  `rrr_info_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `remarks` longtext NOT NULL,
-  `remarks_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rrr_remarks_history`
---
-
-INSERT INTO `rrr_remarks_history` (`id`, `rrr_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(57, 1, 904, 'Recommended', '2022-05-23 11:02:08'),
-(58, 1, 2099, 'Recommended', '2022-05-23 11:23:17'),
-(59, 1, 616, 'Approved', '2022-05-23 11:24:35'),
-(60, 0, 0, 'TEST', '2022-05-24 16:21:10'),
-(61, 0, 0, 'TEST', '2022-05-24 16:21:11'),
-(62, 0, 0, 'TEST', '2022-05-24 16:21:12'),
-(63, 0, 0, 'TEST', '2022-05-24 16:21:12'),
-(64, 0, 0, 'TEST', '2022-05-24 16:21:12'),
-(65, 0, 0, 'TEST', '2022-05-24 16:21:15'),
-(66, 0, 0, 'WEFWE', '2022-05-24 16:22:29'),
-(67, 0, 0, 'WEFWE', '2022-05-24 16:22:34'),
-(68, 0, 0, 'tEST', '2022-05-24 16:22:41'),
-(69, 0, 0, 'tEST', '2022-05-24 16:22:42'),
-(70, 1, 3105, 'test', '2022-05-24 16:32:10'),
-(71, 1, 3105, 'thank you', '2022-05-24 16:33:07');
+(329, 21, 7, 'rlp_report', 0, 0, 0, 1, 1),
+(330, 1, 1, 'dashboard', 1, 1, 1, 1, 1),
+(331, 1, 2, 'settings', 1, 1, 1, 1, 1),
+(332, 1, 3, 'users', 1, 1, 1, 1, 1),
+(333, 1, 4, 'ra', 1, 1, 1, 1, 1),
+(334, 1, 5, 'crlp', 1, 1, 1, 1, 1),
+(335, 1, 6, 'rlp_list', 1, 1, 1, 1, 1),
+(336, 1, 7, 'rlp_report', 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -2705,18 +2176,10 @@ CREATE TABLE `tb_logsheet` (
 --
 
 INSERT INTO `tb_logsheet` (`slno`, `d_date`, `equipment_code`, `project_id`, `operator_id`, `monthname`, `workdetails`, `runninghrkm`, `closehrkm`, `totalhrkm`, `standby`, `hydrolicltr`, `disealltr`, `engineoil`, `greasing`) VALUES
-(2, '2022-07-28', '2', 1, 10, 'JULY', 'mobile CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(3, '2022-07-28', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(4, '2022-07-02', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(5, '2022-07-03', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(6, '2022-07-04', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(7, '2022-07-05', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(8, '2022-07-06', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(9, '2022-07-07', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(10, '2022-07-08', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(11, '2022-07-09', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(12, '2022-07-10', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3),
-(13, '2022-07-11', '1', 2, 10, 'JULY', 'wheel CHANGE', 3113, 3114, 1, 0, 0, 145, 100, 3);
+(15, '2022-08-08', 'AC-01', 15, 0, '', 'Engine Oil Change', 1500, 6500, 5000, 0, 0, 0, 0, 0),
+(17, '2022-08-08', 'AC-01', 15, 0, '', 'Test', 6500, 7000, 500, 0, 0, 0, 0, 0),
+(18, '2022-08-08', 'AC-01', 15, 0, '', 'test', 7000, 7500, 500, 0, 0, 0, 0, 0),
+(20, '2022-08-30', 'AC-01', 15, 0, '', 'TRTRT', 7500, 7500, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2775,9 +2238,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `branch_id`, `department_id`, `office_id`, `role_id`, `designation`, `role_name`, `name`, `email`, `contact_number`, `profile_image`, `signature_image`, `password`, `is_password_changed`, `is_status`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(1, 5, 29, 'SA-000001', 1, NULL, 'sa', 'Super Admin', 'sa@rlp.com', NULL, '', NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2020-03-16 21:03:06', 1, '2022-02-12 19:04:49'),
-(2, 0, 0, 'BLC-000012', 2, '1', '', 'Khandokar Ibnul Hassan', '', NULL, NULL, NULL, '75822f23c16fd642b0f6edc7b373e6b6', 0, 1, 0, NULL, NULL, NULL),
-(3, 0, 0, 'BLC-000013', 3, '2', '', 'M Kawser', '', NULL, NULL, NULL, 'bc2b8576d2e17c4d950c88baf97d8c1a', 0, 1, 0, NULL, NULL, NULL),
+(1, 1, 11, 'SA-000001', 1, NULL, 'sa', 'Super Admin', 'sa@rlp.com', NULL, '', NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2020-03-16 21:03:06', 1, '2022-09-10 23:00:26'),
+(2, 0, 0, 'BLC-000012', 2, '1', 'g7', 'Khandokar Ibnul Hassan', '', NULL, NULL, NULL, '75822f23c16fd642b0f6edc7b373e6b6', 0, 1, 0, NULL, 1, '2022-08-22 22:25:44'),
+(3, 0, 0, 'BLC-000013', 3, '2', 'g10', 'M Kawser', '', NULL, NULL, NULL, 'bc2b8576d2e17c4d950c88baf97d8c1a', 0, 1, 0, NULL, 1, '2022-08-22 22:22:27'),
 (4, 0, 0, 'BLC-000015', 2, '1', '', 'Emon Imtiaj', '', NULL, NULL, NULL, 'dc98917d023b635300b0a272b096aef4', 0, 1, 0, NULL, NULL, NULL),
 (5, 0, 0, 'BLC-000016', 2, '3', '', 'Md. Nantu Mallik', '', NULL, NULL, NULL, '6e891c5d931162821d2246701ced8d43', 0, 1, 0, NULL, NULL, NULL),
 (6, 0, 0, 'BLC-000020', 2, '4', '', 'Md. Sofiul Azam', '', NULL, NULL, NULL, 'a2a36fbd438a05e8c1ef9b3c08cbb901', 0, 1, 0, NULL, NULL, NULL),
@@ -2996,7 +2459,7 @@ INSERT INTO `users` (`id`, `branch_id`, `department_id`, `office_id`, `role_id`,
 (219, 1, 4, 'ENG-000254', 6, '9', '', 'Md Mostofa', '', NULL, NULL, NULL, 'ba842a4fc7851d64ba1418d6f5f191d8', 0, 1, 0, NULL, NULL, NULL),
 (220, 1, 9, 'ENG-000255', 10, '29', '', 'Md Sakender Ali', '', NULL, NULL, NULL, '53798cb843486a54e36a4802d12cf76f', 0, 1, 0, NULL, NULL, NULL),
 (221, 1, 4, 'ENG-000256', 3, '2', '', 'Md Mashfiqur Rahman', '', NULL, NULL, NULL, '0c3de05b6c007db3a7afa7624a0e0a84', 0, 1, 0, NULL, NULL, NULL),
-(222, 1, 9, 'ENG-000257', 13, '21', '', 'Alauddin Ahmed', '', NULL, NULL, NULL, '576900c31f9c2aa0a426b750b59d7b08', 0, 1, 0, NULL, NULL, NULL),
+(222, 1, 9, 'ENG-000257', 13, '21', '', 'Alauddin Ahmed', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
 (223, 1, 6, 'ENG-000258', 17, '55', '', 'Major Md Abdur Razzaque', '', NULL, NULL, NULL, '60e20b058863476b28a38d3cd16f3607', 0, 1, 0, NULL, NULL, NULL),
 (224, 1, 7, 'ENG-000259', 6, '38', '', 'Md Momin Ali', '', NULL, NULL, NULL, 'b7be78512d02e3174466f73e4068cd08', 0, 1, 0, NULL, NULL, NULL),
 (225, 1, 8, 'ENG-000260', 6, '63', '', 'Feroz Khan', '', NULL, NULL, NULL, 'c0323d23173a3648ffe4c67aea1888a0', 0, 1, 0, NULL, NULL, NULL),
@@ -6133,16 +5596,75 @@ INSERT INTO `users` (`id`, `branch_id`, `department_id`, `office_id`, `role_id`,
 (3347, 0, 0, 'SPPL-000118', 4, '74', '', 'Mostak Hossen Shawon', '', NULL, NULL, NULL, '128ddd234e50b011b3788dbc8ce97732', 0, 1, 0, NULL, NULL, NULL),
 (3348, 0, 0, 'SPPL-000119', 4, '74', '', 'Shohagi Akhter', '', NULL, NULL, NULL, '950ee9124419502b1ea5c96514025c93', 0, 1, 0, NULL, NULL, NULL),
 (3349, 0, 0, 'SPPL-000120', 9, '237', '', 'Md Rabiul  Islam', '', NULL, NULL, NULL, '55737118ffb0966c65888098e3105ca4', 0, 1, 0, NULL, NULL, NULL),
-(3350, 0, 0, 'SPPL-000121', 4, '74', '', 'Mst Parvin Begum', '', NULL, NULL, NULL, 'c059cd990b68fab40661b1f58e33fa8a', 0, 1, 0, NULL, NULL, NULL);
+(3350, 0, 0, 'SPPL-000121', 4, '74', '', 'Mst Parvin Begum', '', NULL, NULL, NULL, 'c059cd990b68fab40661b1f58e33fa8a', 0, 1, 0, NULL, NULL, NULL),
+(3351, 1, 11, 'ENG-001010', 2, '8', 'g7', 'MD. Nahid Hasan', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-09-11 06:09:55', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `int_wise_candidates`
+-- Table structure for table `workorders`
 --
-DROP TABLE IF EXISTS `int_wise_candidates`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `int_wise_candidates`  AS SELECT `interview_candiate`.`candidate_id` AS `candidate_id`, `interview_candiate`.`interview_id` AS `interview_id`, `candidates`.`name` AS `name`, `candidates`.`email` AS `email`, `candidates`.`rrr_no` AS `rrr_no`, `candidates`.`designation` AS `designation`, `candidates`.`phone` AS `phone` FROM (`candidates` join `interview_candiate` on(`candidates`.`id` = `interview_candiate`.`candidate_id`))  ;
+CREATE TABLE `workorders` (
+  `id` int(11) NOT NULL,
+  `wo_no` varchar(50) NOT NULL,
+  `notesheet_no` varchar(50) NOT NULL,
+  `rlp_no` varchar(100) NOT NULL,
+  `subject` longtext NOT NULL,
+  `supplier_name` varchar(200) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `concern_person` varchar(50) NOT NULL,
+  `cell_number` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `item` varchar(500) NOT NULL,
+  `part_no` varchar(100) NOT NULL,
+  `unit` varchar(15) NOT NULL,
+  `quantity` varchar(20) NOT NULL,
+  `unit_price` varchar(20) NOT NULL,
+  `total` varchar(20) NOT NULL,
+  `remarks` varchar(500) NOT NULL,
+  `status` varchar(15) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `workorders_master`
+--
+
+CREATE TABLE `workorders_master` (
+  `id` int(11) NOT NULL,
+  `wo_no` varchar(50) NOT NULL,
+  `notesheet_no` varchar(100) NOT NULL,
+  `rlp_no` varchar(100) NOT NULL,
+  `subject` varchar(1000) NOT NULL,
+  `ns_info` longtext NOT NULL,
+  `supplier_name` varchar(100) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `concern_person` varchar(100) NOT NULL,
+  `cell_number` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `no_of_item` int(11) NOT NULL,
+  `sub_total` float NOT NULL,
+  `ait` float NOT NULL,
+  `vat` float NOT NULL,
+  `grand_total` float NOT NULL,
+  `remarks` longtext NOT NULL,
+  `status` varchar(15) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `created_by` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `equipments_view`
+--
+DROP TABLE IF EXISTS `equipments_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `equipments_view`  AS SELECT `equipments`.`name` AS `name`, `equipments`.`eel_code` AS `eel_code`, `equipments`.`capacity` AS `capacity`, `equipments`.`makeby` AS `makeby`, `equipments`.`model` AS `model`, `projects`.`project_name` AS `project_name`, `equipments`.`present_condition` AS `present_condition` FROM (`projects` join `equipments` on(`projects`.`id` = `equipments`.`project_id`))  ;
 
 --
 -- Indexes for dumped tables
@@ -6204,51 +5726,15 @@ ALTER TABLE `equipment_assign`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `evaluation_details`
---
-ALTER TABLE `evaluation_details`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `inspaction`
 --
 ALTER TABLE `inspaction`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `interviews`
---
-ALTER TABLE `interviews`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `interview_bom`
---
-ALTER TABLE `interview_bom`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `interview_candiate`
---
-ALTER TABLE `interview_candiate`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `interview_requisition`
---
-ALTER TABLE `interview_requisition`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `maintenance_item`
---
-ALTER TABLE `maintenance_item`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -6261,6 +5747,18 @@ ALTER TABLE `members`
 -- Indexes for table `middle_datas`
 --
 ALTER TABLE `middle_datas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notesheets`
+--
+ALTER TABLE `notesheets`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notesheets_master`
+--
+ALTER TABLE `notesheets_master`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -6378,34 +5876,6 @@ ALTER TABLE `role_access`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `rrr_acknowledgement`
---
-ALTER TABLE `rrr_acknowledgement`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rlp_info_id` (`rrr_info_id`);
-
---
--- Indexes for table `rrr_delete_history`
---
-ALTER TABLE `rrr_delete_history`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rlp_info_id` (`rrr_info_id`);
-
---
--- Indexes for table `rrr_info`
---
-ALTER TABLE `rrr_info`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rlp_user_id` (`rrr_user_id`);
-
---
--- Indexes for table `rrr_remarks_history`
---
-ALTER TABLE `rrr_remarks_history`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `rlp_info_id` (`rrr_info_id`);
-
---
 -- Indexes for table `status_details`
 --
 ALTER TABLE `status_details`
@@ -6439,6 +5909,18 @@ ALTER TABLE `temp_info`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `workorders`
+--
+ALTER TABLE `workorders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `workorders_master`
+--
+ALTER TABLE `workorders_master`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -6500,52 +5982,16 @@ ALTER TABLE `equipment_assign`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=391;
 
 --
--- AUTO_INCREMENT for table `evaluation_details`
---
-ALTER TABLE `evaluation_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT for table `inspaction`
 --
 ALTER TABLE `inspaction`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `interviews`
---
-ALTER TABLE `interviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `interview_bom`
---
-ALTER TABLE `interview_bom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `interview_candiate`
---
-ALTER TABLE `interview_candiate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `interview_requisition`
---
-ALTER TABLE `interview_requisition`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
 -- AUTO_INCREMENT for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `maintenance_item`
---
-ALTER TABLE `maintenance_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `members`
@@ -6558,6 +6004,18 @@ ALTER TABLE `members`
 --
 ALTER TABLE `middle_datas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `notesheets`
+--
+ALTER TABLE `notesheets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `notesheets_master`
+--
+ALTER TABLE `notesheets_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `notesheet_remarks_history`
@@ -6617,13 +6075,13 @@ ALTER TABLE `recruite_requests`
 -- AUTO_INCREMENT for table `rlp_access_chain`
 --
 ALTER TABLE `rlp_access_chain`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=280;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=292;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -6635,7 +6093,7 @@ ALTER TABLE `rlp_delete_history`
 -- AUTO_INCREMENT for table `rlp_details`
 --
 ALTER TABLE `rlp_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `rlp_info`
@@ -6647,7 +6105,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -6665,31 +6123,7 @@ ALTER TABLE `roles_group`
 -- AUTO_INCREMENT for table `role_access`
 --
 ALTER TABLE `role_access`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=330;
-
---
--- AUTO_INCREMENT for table `rrr_acknowledgement`
---
-ALTER TABLE `rrr_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=210;
-
---
--- AUTO_INCREMENT for table `rrr_delete_history`
---
-ALTER TABLE `rrr_delete_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `rrr_info`
---
-ALTER TABLE `rrr_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `rrr_remarks_history`
---
-ALTER TABLE `rrr_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=337;
 
 --
 -- AUTO_INCREMENT for table `status_details`
@@ -6713,7 +6147,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `tb_logsheet`
 --
 ALTER TABLE `tb_logsheet`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `temp_info`
@@ -6725,7 +6159,19 @@ ALTER TABLE `temp_info`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3351;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3352;
+
+--
+-- AUTO_INCREMENT for table `workorders`
+--
+ALTER TABLE `workorders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `workorders_master`
+--
+ALTER TABLE `workorders_master`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

@@ -10,43 +10,41 @@
     <section class="content-header">
         <?php include 'operation_message.php'; ?>
         <h1>
-            Home
-            <small>Note Sheet List</small>
+             Maintenance Cost
+            <small> </small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Note Sheet List</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> E-Equipment</a></li>
+            <li class="active"> Maintenance Cost Entry Form</li>
         </ol>
     </section>
-	
+
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-xs-12">
-                <div class="box">
+            <!-- left column -->
+            <div class="col-md-12">
+				<div class="box">
                     <div class="box-header">
                         <h3 class="box-title"></h3>
                         <div class="box-tools">
                             <ul class="pagination pagination-sm no-margin pull-right">
                                 <?php if(hasAccessPermission($user_id_session, 'crlp', 'view_access')){ ?>
-                                <li></li>
+								<li><button class="btn btn-success" onclick="location.href='maintenance_report.php';">Search Maintenance Cost Report</button></li>
                                 <?php } ?>
                             </ul>
                         </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <?php include 'partial/notesheets_list.php'; ?>
+                        <?php include 'partial/maintenance_cost_entry_form.php'; ?>
                     </div>
                     <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
-
     </section>
     <!-- /.content -->
 </div>

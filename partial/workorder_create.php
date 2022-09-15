@@ -1,44 +1,31 @@
 <?php
     $currentUserId  =   $_SESSION['logged']['user_id'];
-    $rlp_id         =   $_GET['rlp_id'];    
-    $rlp_details    =   getRlpDetailsData($rlp_id);   
+    $rlp_id         =   $_GET['id'];    
+    $rlp_details    =   getNotesheetsDetailsData($rlp_id);   
     $rlp_info       =   $rlp_details['rlp_info'];
     $rlp_details    =   $rlp_details['rlp_details'];
 ?>
 <!-- Main content -->
 <section class="invoice">
     <form action="" method="POST">
-    <!-- title row -->
-    <div class="row">
-        <div class="col-xs-12">
-            <h2 class="page-header">
-                <i class="fa fa-file"></i> RLP Details.
-                <small class="pull-right">Priority: <?php echo getPriorityNameDiv($rlp_info->priority) ?></small>
-            </h2>
-        </div>
-        <!-- /.col -->
-    </div>
     <!-- info row -->
     <div class="row invoice-info">
-        <div class="col-md-4 invoice-col">
-            From
-            <address>
-                <strong>Name:&nbsp;<?php echo $rlp_info->request_person ?></strong><br>
-                Designation:&nbsp;<?php echo getDesignationNameById($rlp_info->designation) ?><br>
-                Division:&nbsp;<?php echo getDivisionNameById($rlp_info->request_division) ?><br>
-                Department:&nbsp;<?php echo getDepartmentNameById($rlp_info->request_department) ?><br>
-            </address>
-        </div>
         <!-- /.col -->
         <div class="col-md-8 invoice-col">
-            <div class="pull-right">
-				<?php $notesheetNo    =   get_notesheet_no(); ?>
-                <b>Notesheet NO: &nbsp;<span class="rlpno_style"><?php echo $notesheetNo; ?></span></b><br>
-                <input type="hidden" name="notesheet_no" value="<?php echo $notesheetNo; ?>">
-				
+            <div class="pull-left">
+                <?php $workorderNo    =   get_wo_no(); ?>
+                <b>Workorder NO: &nbsp;<span class="rlpno_style"><?php echo $workorderNo; ?></span></b><br>
+				<input type="hidden" name="wo_no" value="<?php echo $workorderNo; ?>">
+                <b>Notesheet NO: &nbsp;<span class="rlpno_style"><?php echo $rlp_info->notesheet_no; ?></span></b><br>
+				<input type="hidden" name="notesheet_no" value="<?php echo $rlp_info->notesheet_no; ?>">
                 <b>RLP NO: &nbsp;<span class="rlpno_style"><?php echo $rlp_info->rlp_no ?></span></b><br>
                 <input type="hidden" name="rlp_no" value="<?php echo $rlp_info->rlp_no; ?>">
                 <b>Request Date:</b> <?php echo human_format_date($rlp_info->created_at) ?><br>
+            </div>            
+        </div>
+        <!-- /.col -->
+		<div class="col-md-4s invoice-col">
+            <div class="pull-right">
             </div>            
         </div>
         <!-- /.col -->
@@ -47,16 +34,16 @@
 
     <!-- Table row -->
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-6">
 				<div class="form-group">
 					<label for="exampleId">Subject</label>
-					<input name="subject" type="text" class="form-control" id="subject" value="" autocomplete="off" />
+					<textarea name="subject" class="form-control"></textarea>
 				</div>
 			</div>
-            <div class="col-xs-12">
+            <div class="col-xs-6">
 				<div class="form-group">
 					<label for="exampleId">Ref. Text/ NS Info</label>
-					<input name="ns_info" type="text" class="form-control" id="subject" value="" autocomplete="off" />
+					<textarea name="ns_info" class="form-control"></textarea>
 				</div>
 			</div>
             <div class="col-xs-6">
@@ -95,11 +82,10 @@
                         <tr>
                             <th>#</th>
                             <th>Item Description</th>
-                            <th>Purpose of Purchase</th>
+                            <th>Part No</th>
                             <th width="10%">Quantity</th>
                             <th width="10%">Unit Price</th>
                             <th width="10%">Total</th>
-                            <th>Remarks</th>
                         </tr>
                     </thead>
                     <tbody id="tbl_posts_body">
@@ -109,62 +95,42 @@
                         ?>
                         <tr id="rec-1">
                             <td><?php echo $sl++; ?></td>
-                            <td><input type="text" class="form-control" name="item[]" id="" value="<?php echo (isset($data->item_des) && !empty($data->item_des) ? $data->item_des : ""); ?>" readonly ></td>
-                            <td><?php echo $data->purpose; ?></td>
-                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
-                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value="" required ></td>
-                            <td>
-                                <div class="form-group">
-                                    <input type="text" class="form-control total_amount" name="total[]" id="total_<?php echo $data->id; ?>" value="" readonly >
-                                </div>
-                            </td>
-                            <td>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="remarks[]" value="">
-                                    
-                                </div>
-                            </td>
+                            <td><?php echo (isset($data->item) && !empty($data->item) ? $data->item : ""); ?></td>
+							<input type="hidden" class="form-control" name="item[]" value="<?php echo (isset($data->item) && !empty($data->item) ? $data->item : ""); ?>" >
+                            <td></td>
+                            <td><?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?></td>
+							<input type="hidden" class="form-control" name="quantity[]" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" >
+                            <td><?php echo (isset($data->unit_price) && !empty($data->unit_price) ? $data->unit_price : ""); ?></td>
+							<input type="hidden" class="form-control" name="unit_price[]" value="<?php echo (isset($data->unit_price) && !empty($data->unit_price) ? $data->unit_price : ""); ?>" >
+                            <td><?php echo (isset($data->total) && !empty($data->total) ? $data->total : ""); ?></td>
+							<input type="hidden" class="form-control" name="total[]" value="<?php echo (isset($data->total) && !empty($data->total) ? $data->total : ""); ?>" >
                         </tr>                        
                             <?php } ?>
 							
                         <?php if(is_super_admin($currentUserId)){ ?>                       
 					   <tr>
                             <td colspan="5" style="text-align:right">Sub Total : </td>
-							<td>
-								<input type="text" class="form-control" name="sub_total" onchange="calculate_total_buy_amount()" id="allcur" />
-                            </td>
-                            <td></td>
+							<td><?php echo (isset($rlp_info->sub_total) && !empty($rlp_info->sub_total) ? $rlp_info->sub_total : ""); ?></td>
+							<input type="hidden" class="form-control" name="sub_total" value="<?php echo (isset($rlp_info->sub_total) && !empty($rlp_info->sub_total) ? $rlp_info->sub_total : ""); ?>" >
                         </tr>
 						<tr>
-                            <td colspan="3" style="text-align:right">AIT [%] : </td>
-							<td colspan="2">
-								<input type="text" class="form-control" id="ait" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
-                            </td>
-							<td>
-								<input type="text" class="form-control" name="ait" id="aitamount" readonly />
-                            </td>
-                            <td></td>
+                            <td colspan="5" style="text-align:right">AIT [%] : </td>
+							<td><?php echo (isset($rlp_info->ait) && !empty($rlp_info->ait) ? $rlp_info->ait : ""); ?></td>
+							<input type="hidden" class="form-control" name="ait" value="<?php echo (isset($rlp_info->ait) && !empty($rlp_info->ait) ? $rlp_info->ait : ""); ?>" >
                         </tr>
 						<tr>
-                            <td colspan="3" style="text-align:right">VAT [%] : </td>
-							<td colspan="2">
-								<input type="text" class="form-control" id="vat" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
-                            </td>
-							<td>
-								<input type="text" class="form-control" name="vat" id="vatamount" readonly />
-                            </td>
-                            <td></td>
+                            <td colspan="5" style="text-align:right">VAT [%] : </td>
+							<td><?php echo (isset($rlp_info->vat) && !empty($rlp_info->vat) ? $rlp_info->vat : ""); ?></td>
+							<input type="hidden" class="form-control" name="vat" value="<?php echo (isset($rlp_info->vat) && !empty($rlp_info->vat) ? $rlp_info->vat : ""); ?>" >
                         </tr>
 						<tr>
                             <td colspan="5" style="text-align:right">Grand Total : </td>
-							<td>
-								<input type="text" class="form-control" name="grand_total" id="grandTotal" readonly />
-                            </td>
-                            <td></td>
+							<td><?php echo (isset($rlp_info->grand_total) && !empty($rlp_info->grand_total) ? $rlp_info->grand_total : ""); ?></td>
+							<input type="hidden" class="form-control" name="grand_total" value="<?php echo (isset($rlp_info->grand_total) && !empty($rlp_info->grand_total) ? $rlp_info->grand_total : ""); ?>" >
                         </tr>
 					   <tr>
                             <td colspan="7">
-								<input type="submit" class="btn btn-primary btn-block" name="create_notesheet" value="Generate Note Sheet">
+								<input type="submit" class="btn btn-primary btn-block" name="create_workorder" value="Generate Work Order">
                             </td>
                         </tr>
                         <?php }?>

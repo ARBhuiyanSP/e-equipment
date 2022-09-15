@@ -1,7 +1,7 @@
 <?php
     $currentUserId  =   $_SESSION['logged']['user_id'];
     $rlp_id         =   $_GET['id'];    
-    $rlp_details    =   getNotesheetsDetailsData($rlp_id);   
+    $rlp_details    =   getWorkordersDetailsData($rlp_id);   
     $rlp_info       =   $rlp_details['rlp_info'];
     $rlp_details    =   $rlp_details['rlp_details'];
 ?>
@@ -13,17 +13,18 @@
         <div class="col-md-12">
 			<center>
 				<h5 align="center"><img src="images/spl.png" height="50"></h5>
-				<h2>E-Engineering Limited</h2>
 				<p>Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh</p>
-				<h5><b>Note Sheet - [Req No: <?php echo $rlp_info->rlp_no ?>]</b></h5>
+				<h5><b>Work Order</b></h5>
 			</center>
-			<h5><b>Subject : <?php echo $rlp_info->subject ?></b></h5></br>
+			<h5><b>Ref : <?php echo $rlp_info->wo_no ?></b></h5>
+			<h5><b>Date : <?php echo human_format_date($rlp_info->created_at) ?></b></h5>
 			<h5>
-				<b>Supplier Name : <?php echo $rlp_info->supplier_name ?></b></br>
+				<b>To,</br><?php echo $rlp_info->supplier_name ?></b></br>
 				Address : <?php echo $rlp_info->address ?></br>
 				Concern person : <?php echo $rlp_info->concern_person ?></br>
 				Call : <?php echo $rlp_info->cell_number ?>, E-Mail:  <?php echo $rlp_info->email ?></br>
 			</h5>
+			<h5><b>Subject : <?php echo $rlp_info->subject ?></b></h5>
 		</div>
         <!-- /.col -->
     </div>
@@ -85,37 +86,33 @@
                 </table>
             </div>
 			<div class="col-xs-12 table-responsive">
-				<p>This is for your kind approval.</p>
 				<p style="text-decoration:underline;"><b>Other terms and conditions</b></p>
 				<ul>
-					<li> Date of Commencement</li>
-					<li> Delivery of Goods: Within 03(Three) days after receiving the work order.</li>
-					<li> Mode of payment: After 45 days from the date of bill Submission.</li>
-					<li> Avobe rate is includig VAT, AIT & other Taxes.</li>
-					<li> Transport & Courier cost will be charged by Buyers.</li>
-					<li> Supply Location: Mongla Project Contact Person:Shadat Babu, 01729714503(Manager, mechanical)</li>
+					<li> Commencement of Supply</li>
+					<li> Delivery Status: Delivered at site within 07 days(as per telephonic discussion with managing director Md. Afzal & executive Director Alauddin Ahmed).</li>
+					<li> This price is including VAT & AIT other taxes</li>
+					<li> Mode of payment : After 45 days from the date of bill submission</li>
+					<li> Delivery Location: CWLP Project, Chattogram, Contact : 01784704948</li>
 				</ul>
-            </div>
-			<div class="row">
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>Asst. Manager(Mechanical)</center>
-				</div>
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>Logistic Incharge</center>
-				</div>
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>Head of Accounts</center>
-				</div>
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>ED(Mechanical)</center>
-				</div>
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>Director</center>
-				</div>
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>Chairman</center>
+				<div class="row">
+				<div class="col-sm-4 col-xs-4">
+					Thanking You,</br>
+					<p style="padding-top:30px;">Alauddin Ahmed</br>Executive Director(Mechanical)</br>E-Engineering Ltd.</br>Cell:01324263969,Email: alauddin.ahmed@e-enggltd.com</p>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-sm-4 col-xs-4">
+					Copy To:</br>
+					<ul>
+						<li>BOD, EEL</li>
+						<li>ED, Mechanical, EEL</li>
+						<li>ACC DEPT.EEL</li>
+						<li>PM, CWLP Project</li>
+						<li>Office Copy</li>
+					</ul>
+				</div>
+			</div>
+            </div>
             <!-- /.col -->
         </div>
     </form>

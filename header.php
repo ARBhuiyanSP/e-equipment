@@ -25,6 +25,7 @@ include 'function/interview_register_form_process.php';
 include 'function/evaluation_processing.php';
 include 'function/notesheet_processing.php';
 include 'function/equipment_processing.php';
+include 'function/workorder_processing.php';
 ?>
 <!DOCTYPE html>
 <html>
