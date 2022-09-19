@@ -126,11 +126,11 @@ $user_id_session = $_SESSION['logged']['user_id'];
                     <a href="inspection.php"><i class="fa fa-file-text-o"></i> <span>Inspection</span></a>
                 </li>
 				
-			<li class="<?php if ($page_name == "rlp_list.php") {
+			<!--- <li class="<?php if ($page_name == "rlp_list.php") {
                 echo "active";
             } ?>">
                     <a href="http://45.249.102.75/cted_inv/" target="blank"><i class="fa fa-file-text-o"></i> <span>Spare Parts</span></a>
-                </li>
+                </li> --->
 		   
 				
             <li class="header">Report</li>
