@@ -2,6 +2,12 @@
     $currentUserId  =   $_SESSION['logged']['user_id'];
     if(!empty($_SESSION['logged']['branch_id']) && !empty($_SESSION['logged']['department_id'])){
 ?>
+<style>
+.reqfield{
+	color:red;
+	font-size:10px;
+}
+</style>
 <form action="" method="post">
     <div class="row">
 		<div class="col-sm-12">
@@ -49,6 +55,11 @@
 		
 		<form action="" method="post">
 			<div class="" id="printableArea" style="display:block;">
+				<div class="col-sm-3">
+					<?php $mcslNo    =   get_mcsl_no(); ?>
+					<b>MCSL No: &nbsp;<span class="rlpno_style"><?php echo $mcslNo; ?></span></b><br>
+					<input type="hidden" name="m_cost_id" value="<?php echo $mcslNo; ?>">
+				</div>
 				<div class="col-sm-2">
 					<div class="form-group">
 						<label for="exampleId">Project</label>
@@ -59,7 +70,7 @@
 				<div class="col-sm-2">
 					<div class="form-group">
 						<label for="exampleId">EEL Code</label>
-						<input name="equipment_id" type="text" class="form-control" id="equipment_id" value="<?php echo $row['eel_code']; ?>" autocomplete="off" readonly />
+						<input name="eel_code" type="text" class="form-control" id="eel_code" value="<?php echo $row['eel_code']; ?>" autocomplete="off" readonly />
 					</div>
 				</div>
 				
@@ -78,104 +89,42 @@
 				<div class="col-sm-2">
 					<div class="form-group">
 						<label for="exampleId">Date of in</label>
-						<input name="lastseervice_date" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
+						<input name="in_time" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
 					</div>
 				</div>
 				<div class="col-sm-2">
 					<div class="form-group">
 						<label for="exampleId">Date of Out</label>
-						<input name="lastseervice_date" type="text" class="form-control" id="date" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
+						<input name="out_time" type="text" class="form-control" id="date" value="" size="30" autocomplete="off" />
 					</div>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-sm-12">
 					<div class="form-group">
 						<label for="exampleId">Problem Description</label>
-						<textarea class="form-control"></textarea>
+						<textarea name="problem_details" class="form-control" rows="1"></textarea>
 					</div>
 				</div>
-				<div class="col-sm-6">
-					<div class="form-group">
+			
+					<div class="col-sm-6">
 						<label for="exampleId">List of Spare Parts Used</label>
-						<textarea class="form-control"></textarea>
+						<?php include('partial/cost_items_table.php'); ?>
 					</div>
-				</div>
-				<div class="col-sm-2">
-					<div class="form-group">
-						<label for="exampleId">Scheduled At (HR/KM)</label>
-						<input name="schedule_hrkm" type="text" class="form-control" id="scheduled" value="<?php if(isset($sm_info->nextservice_hrkm)){echo $sm_info->nextservice_hrkm;} ?>" autocomplete="off" required />
+					<div class="col-sm-6">
+						<label for="exampleId">Responsible Mechanic</label>
+						<?php include('partial/cost_mechanics_table.php'); ?>
 					</div>
-				</div>
-				<div class="col-sm-2">
-					<div class="form-group">
-						<label for="exampleId">Present(HR/KM)</label>
-						<input name="present_hrkm" type="text" class="form-control" id="presenthrkm" value="" autocomplete="off" onkeyup="cal()" required />
-					</div>
-				</div>
-				<div class="col-sm-1">
-					<div class="form-group">
-						<label for="exampleId"> Due</label>
-						<input name="dueforservice_hrkm" type="text" class="form-control" id="dueforservicehrkm" value="" autocomplete="off" readonly />
-					</div>
-				</div>
-				<div class="col-sm-2">
-					<div class="form-group">
-						<label for="exampleId"> Type of Service</label>
-						<input name="typeofservice_hrkm" type="text" class="form-control" id="" value="" autocomplete="off" />
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="form-group">
-						<label for="exampleId"> Added (HR/KM) for Next Service</label>
-						<input name="" type="text" class="form-control" id="typeofservicehrkm" value="" autocomplete="off" onkeyup="cal()" required />
-					</div>
-				</div>
-				<div class="col-sm-2">
-					<div class="form-group">
-						<label for="exampleId">Next Service(HR/KM)</label>
-						<input name="nextservice_hrkm" type="text" class="form-control" id="nextservicehrkm" value="" autocomplete="off" readonly />
-					</div>
-				</div>
-				<div class="col-sm-2">
-					<div class="form-group">
-						<label for="exampleId">Next service Date</label>
-						<input name="nextservice_date" type="text" class="form-control" id="fromdate" value="" size="30" autocomplete="off" />
-					</div>
-				</div>
-				<div class="col-md-5">
-					<div class="form-group">
-						<label for="exampleId">Details of Maintenance Carried out:</label>
-						<textarea class="form-control" id="" name="detailsofmaintenance" rows="1"></textarea>
-					</div>
-				</div>
-				<div class="col-md-5">
+				
+				<div class="col-md-12">
 					<div class="form-group">
 						<label for="exampleId">Remarks:</label>
 						<textarea class="form-control" id="" name="remarks" rows="1"></textarea>
 					</div>
 				</div>
 				<div class="col-sm-12">
-					<input type="submit" name="sm_entry" id="submit" class="btn btn-block btn-primary" value="Save Data" />
+					<input type="submit" name="cost_entry" id="submit" class="btn btn-block btn-primary" value="Save Data" />
 				</div>
 			</div>
 		</form>
 	<?php  } }?>
-	
-<script>
-	function cal() {
-		var scheduled = document.getElementById('scheduled').value;
-		var presenthrkm = document.getElementById('presenthrkm').value;
-		var typeofservicehrkm = document.getElementById('typeofservicehrkm').value;
 
-
-
-		var result =  parseInt(scheduled) - parseInt(presenthrkm);
-		if (!isNaN(result)) {
-			document.getElementById('dueforservicehrkm').value = result;
-		}
-		var result2 =  parseInt(presenthrkm) + parseInt(typeofservicehrkm);
-		if (!isNaN(result2)) {
-			document.getElementById('nextservicehrkm').value = result2;
-		}
-	}
-</script>
 		 

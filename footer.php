@@ -46,6 +46,7 @@
 <script src="js/select2.min.js"></script>
  <!--for handling all general js and ajax operation use the following link-->
 <script src="js/general_operation.js"></script>
+
 <!--for handling rlp create form operation use the following link-->
 <script src="js/rlp_create_handle.js"></script>
 
@@ -88,6 +89,8 @@ jQuery( document ).ready(function( $ ) {
 <?php include 'modal/rrr_details_quick_view.php'; ?>
 <?php include 'modal/notesheet_details_quick_view.php'; ?>
 <?php include 'modal/candidate_add_form_ajax.php'; ?>
+
+
 <script>
 $(function () {    
   get_logsheet_data_table();

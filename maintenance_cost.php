@@ -31,7 +31,7 @@
                         <div class="box-tools">
                             <ul class="pagination pagination-sm no-margin pull-right">
                                 <?php if(hasAccessPermission($user_id_session, 'crlp', 'view_access')){ ?>
-								<li><button class="btn btn-success" onclick="location.href='maintenance_report.php';">Search Maintenance Cost Report</button></li>
+								<li><button class="btn btn-success" onclick="location.href='maintenance_cost_report.php';">Search Maintenance Cost Report</button></li>
                                 <?php } ?>
                             </ul>
                         </div>

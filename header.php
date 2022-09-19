@@ -26,6 +26,7 @@ include 'function/evaluation_processing.php';
 include 'function/notesheet_processing.php';
 include 'function/equipment_processing.php';
 include 'function/workorder_processing.php';
+include 'function/maintenance_cost_processing.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -75,6 +76,7 @@ include 'function/workorder_processing.php';
   <!-- Google Font -->
   <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
   <script src="js/site_url.js"></script>
+  <script src="js/site_js.js"></script>
   <!-- jQuery 3 -->
 <script src="vendor/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
