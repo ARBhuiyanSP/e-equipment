@@ -69,7 +69,7 @@
                     </tr>
                         <?php } ?>
 					<tr>
-                        <td colspan="3"><?php echo $data->remarks; ?></td>
+                        <td colspan="3"><?php echo $rlp_info->remarks; ?></td>
                     </tr>
                 </tbody>
             </table>
