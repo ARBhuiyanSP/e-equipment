@@ -75,8 +75,8 @@
 								<div class="col-md-12">
 									<center>
 									<h1 align="center"><img src="images/spl.png" height="50"></h1>
-									<h2>SAIF POWERTEC LIMITED</h2>
-									<p>72,Mohakhali C/A, (8th Floor),Rupayan Center,Dhaka-1212,bangladesh</p>
+									<h2>E-Engineering Limited</h2>
+									<p>Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh</p>
 									<h3>Equipment Daily Logsheet Report</h3>
 									<table class="table" style="width:80%">
 										<tr>
