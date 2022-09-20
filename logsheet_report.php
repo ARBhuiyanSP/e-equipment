@@ -72,8 +72,7 @@
 								?>
 							</div>
 							<div class="row" id="printableArea" style="display:block;">
-								<div class="col-md-1"></div>
-								<div class="col-md-10">
+								<div class="col-md-12">
 									<center>
 									<h1 align="center"><img src="images/spl.png" height="50"></h1>
 									<h2>SAIF POWERTEC LIMITED</h2>
@@ -147,7 +146,6 @@
 									</table>
 								</center>
 								</div>
-								<div class="col-md-1"></div>
 							</div>
 								
 							<center><button class="btn btn-default" onclick="printDiv('printableArea')"><i class="fa fa-print" aria-hidden="true" style="font-size: 17px;"> Print</i></button></center>					
