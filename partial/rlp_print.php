@@ -31,7 +31,7 @@
                 Designation:&nbsp;<?php echo getDesignationNameById($rlp_info->designation) ?><br>
                 Department:&nbsp;<?php echo getNameByIdAndTable("department",$rlp_info->request_department) ?><br>
                 Contact:&nbsp;<?php echo $rlp_info->contact_number ?><br>
-                Email:&nbsp;Email: <?php echo $rlp_info->email ?>
+                Email:&nbsp;<?php echo $rlp_info->email ?>
             </address>
         </div>
         <!-- /.col -->
