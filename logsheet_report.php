@@ -107,6 +107,11 @@
 												<th>Running Hr</th>
 												<th>Close Hr</th>
 												<th>Total Hr</th>
+												<th>Stand By</th>
+												<th>Hydraulic (Ltr)</th>
+												<th>Diesel (Ltr)</th>
+												<th>Engine oil</th>
+												<th>Greasing Hour Servicing</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -131,6 +136,11 @@
 												<td><?php echo $rowh['runninghrkm'] ?></td>
 												<td><?php echo $rowh['closehrkm'] ?></td>
 												<td><?php echo $rowh['totalhrkm'] ?></td>
+												<td><?php echo $rowh['standby'] ?></td>
+												<td><?php echo $rowh['hydrolicltr'] ?></td>
+												<td><?php echo $rowh['disealltr'] ?></td>
+												<td><?php echo $rowh['engineoil'] ?></td>
+												<td><?php echo $rowh['greasing'] ?></td>
 											</tr>
 											<?php } ?>
 										</tbody>

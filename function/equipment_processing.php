@@ -785,6 +785,16 @@ function execute_logsheet_table(){
     $closehrkm		= (isset($_POST['closehrkm']) && !empty($_POST['closehrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['closehrkm'])) : "");
 	
     $totalhrkm		= (isset($_POST['totalhrkm']) && !empty($_POST['totalhrkm']) ? trim(mysqli_real_escape_string($conn,$_POST['totalhrkm'])) : "");
+	
+    $standby		= (isset($_POST['standby']) && !empty($_POST['standby']) ? trim(mysqli_real_escape_string($conn,$_POST['standby'])) : "");
+	
+    $hydrolicltr		= (isset($_POST['hydrolicltr']) && !empty($_POST['hydrolicltr']) ? trim(mysqli_real_escape_string($conn,$_POST['hydrolicltr'])) : "");
+	
+    $disealltr		= (isset($_POST['disealltr']) && !empty($_POST['disealltr']) ? trim(mysqli_real_escape_string($conn,$_POST['disealltr'])) : "");
+	
+    $engineoil		= (isset($_POST['engineoil']) && !empty($_POST['engineoil']) ? trim(mysqli_real_escape_string($conn,$_POST['engineoil'])) : "");
+	
+    $greasing		= (isset($_POST['greasing']) && !empty($_POST['greasing']) ? trim(mysqli_real_escape_string($conn,$_POST['greasing'])) : "");
 	/*--------------------------*/
     
     /*
@@ -801,6 +811,11 @@ function execute_logsheet_table(){
         'runninghrkm' 		=>  $runninghrkm,
         'closehrkm' 		=>  $closehrkm,
         'totalhrkm' 		=>  $totalhrkm,
+        'standby' 		=>  $standby,
+        'hydrolicltr' 		=>  $hydrolicltr,
+        'disealltr' 		=>  $disealltr,
+        'engineoil' 		=>  $engineoil,
+        'greasing' 		=>  $greasing,
 		
 		/*--------------------------*/
         //'created_by'            	=>  $_SESSION['logged']['user_id'],
