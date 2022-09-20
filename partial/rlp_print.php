@@ -30,8 +30,7 @@
                 <strong>Name:&nbsp;<?php echo $rlp_info->request_person ?></strong><br>
                 Designation:&nbsp;<?php echo getDesignationNameById($rlp_info->designation) ?><br>
                 Department:&nbsp;<?php echo getNameByIdAndTable("department",$rlp_info->request_department) ?><br>
-                Contact:&nbsp;<?php echo $rlp_info->contact_number ?><br>
-                Email:&nbsp;<?php echo $rlp_info->email ?>
+                Contact:&nbsp;<?php echo $rlp_info->contact_number ?>
             </address>
         </div>
         <!-- /.col -->
