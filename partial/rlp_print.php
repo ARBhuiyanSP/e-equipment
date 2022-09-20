@@ -54,9 +54,7 @@
                     <tr>
                         <th>#</th>
                         <th>Item Description</th>
-                        <th>Purpose of Purchase</th>
                         <th>Quantity</th>
-                        <th>Estimated Price</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,11 +65,12 @@
                     <tr>
                         <td><?php echo $sl++; ?></td>
                         <td><?php echo $data->item_des; ?></td>
-                        <td><?php echo $data->purpose; ?></td>
                         <td><?php echo $data->quantity; ?></td>
-                        <td><?php echo $data->estimated_price; ?></td>
                     </tr>
                         <?php } ?>
+					<tr>
+                        <td colspan="3"><?php echo $data->remarks; ?></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
