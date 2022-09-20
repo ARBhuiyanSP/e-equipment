@@ -28,7 +28,7 @@
             From
             <address>
                 <strong>Name:&nbsp;<?php echo $rlp_info->request_person ?></strong><br>
-                Designation:&nbsp;<?php echo $rlp_info->designation ?><br>
+                Designation:&nbsp;<?php echo getDesignationNameById($rlp_info->designation) ?><br>
                 Department:&nbsp;<?php echo getNameByIdAndTable("department",$rlp_info->request_department) ?><br>
                 Contact:&nbsp;<?php echo $rlp_info->contact_number ?><br>
                 Email:&nbsp;Email: <?php echo $rlp_info->email ?>
@@ -85,9 +85,6 @@
 		<div class="col-sm-3 col-xs-3"><!--<img src="images/signatures/<?php echo getSignatureByUserId($rlp_info->rlp_user_id); ?>" height="70px"/> --></br></br><span style="border-top: double;"> Verified By</span></div>
 		
 		<div class="col-sm-3 col-xs-3"><!--<img src="images/signatures/<?php echo getSignatureByUserId($rlp_info->rlp_user_id); ?>" height="70px"/> --></br></br><span style="border-top: double;"> Approved By</span></div>
-		
-		
-		
 		
 	</div>
     <!-- /.row -->
