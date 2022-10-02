@@ -51,6 +51,7 @@
 <script src="js/rlp_create_handle.js"></script>
 
 <script src="js/interview.js"></script>
+<script src="js/site_js.js"></script>
 </body>
 </html>
 <script>
