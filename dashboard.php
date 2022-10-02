@@ -38,7 +38,17 @@
             ?>
             <!-- ./col -->
         </div>
-            <?php }else{ ?>
+		<?php
+		$currentUserId  = $_SESSION['logged']['user_id'];
+			if(is_super_admin($currentUserId)){
+				include 'partial/equipment_list.php';
+			}elseif($_SESSION['logged']['role_name']    ==  "member"){
+				
+			}elseif($_SESSION['logged']['role_name']    ==  "dh"){
+				include 'partial/equipment_list.php';
+			}elseif($_SESSION['logged']['role_name']    ==  "ab"){
+				include 'partial/equipment_list.php';
+		}}else{ ?>
             
 			<div class="row">
 				<div class="col-sm-12"><!-- Info Boxes Style 2 -->

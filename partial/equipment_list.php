@@ -27,7 +27,7 @@ if (isset($rrrListData) && !empty($rrrListData)) {
                     <th>Project</th>
                     <th>Present Location</th>
                     <th>Present Condition</th>
-                    <th style="background-color: #3C8DBC;color: #fff;" width="25%">Action</th>
+                    <th style="background-color: #3C8DBC;color: #fff;" width="20%">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -92,11 +92,11 @@ if (isset($rrrListData) && !empty($rrrListData)) {
 						
                         
                         <td style="text-align:right">
-                            <?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
+                            <!--<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Edit Equipment Data" class="btn btn-sm btn-warning" href="#">
                                 <span class="fa fa-edit"> <b>Edit</b></span>
                             </a>
-                            <?php } ?>
+                            <?php } ?> -->
 							
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Details View" class="btn btn-sm btn-success" href="equipment_view.php?id=<?php echo $adata->id; ?>">
@@ -117,13 +117,13 @@ if (isset($rrrListData) && !empty($rrrListData)) {
                             <?php } ?>
 							
 							
-							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
+							<!-- <?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Approve RRR" class="btn btn-sm btn-danger" href="#">
                                 <span class="fa fa-times-circle"></span>
                             </a>
                             <?php } ?>
 
-							<!-- <?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
+							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Print RLP" class="btn btn-sm btn-info bg-blue" href="javascript:void(0)">
                                 <span class="fa fa-print"></span>
                             </a>
