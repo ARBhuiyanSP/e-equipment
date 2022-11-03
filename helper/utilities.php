@@ -581,6 +581,17 @@ function getDepartmentNameById($id){
     }
     return $name;
 }
+function getProjectNameById($id){
+    global $conn;
+    $table  =   "projects";
+    $sql = "SELECT * FROM $table WHERE id=$id";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        $name   =   $result->fetch_object()->project_name;
+    }
+    return $name;
+}
 function get_table_next_primary_id($table){
     global $conn;
     $sql        = "SELECT count('id') as total FROM $table";

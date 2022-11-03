@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2022 at 10:38 AM
+-- Generation Time: Nov 03, 2022 at 12:50 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -655,7 +655,7 @@ CREATE TABLE `equipments` (
 
 INSERT INTO `equipments` (`id`, `project_id`, `project_name`, `sub_project_id`, `equipment_type`, `category`, `date_from`, `date_to`, `name`, `eel_code`, `origin`, `capacity`, `makeby`, `model`, `year_manufacture`, `inventory_sl_no`, `engine_model`, `engine_sl_no`, `present_location`, `present_condition`, `price`, `qr_image`, `assign_status`, `inspaction_date`, `incharge`, `superintend`, `coo_admin`, `remarks`, `status`, `created_at`, `updated_at`) VALUES
 (1, '15', '', '', '1', 'AC-001', '', '', 'Air Compressor', 'AC-01', 'China', '7 bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021439', '48T-C80', '78941393', 'Gohira', 'Running', '', '', 'assigned', '', '', '', '', '', '', '', ''),
-(2, '3', '', '', '1', 'AC-001', '', '', 'Air Compressor', 'AC-02', 'China', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', 'PCT', 'Running', '', '', 'assigned', '', '', '', '', '', '', '', ''),
+(2, '3', '', '', '1', 'AC-001', '', '', 'Air Compressor', 'AC-02', 'China', '7 Bar', 'DENAIR', 'DACY-7.5/7', '2019', 'CZG19021440', '4BT.9-C80', '78941394', 'PCT', 'Running', '', '', 'assigned', '2022-11-03', '', '', '', '', 'ok', '', ''),
 (3, '12', '', '', '1', 'AC-001', '', '', 'Air Compressor', 'AC-03', 'China', '', 'LOCAL', 'YL100L12', '2020', '', '', '', 'CWLP', 'Running', '', '', 'assigned', '', '', '', '', '', '', '', ''),
 (4, '3', '', '', '1', 'AC-001', '', '', 'Air Compressor', 'AC-04', 'China', '', 'LOCAL', '', '2020', '', '', '', 'PCT', 'Running', '', '', 'assigned', '', '', '', '', '', '', '', ''),
 (5, '5', '', '', '1', 'AC-001', '', '', 'Air Compressor', 'AC-05', 'China', '', 'LOCAL', '', '2021', '', '', '', 'Bhashanchar', 'Running', '', '', 'assigned', '', '', '', '', '', '', '', ''),
@@ -1249,6 +1249,13 @@ CREATE TABLE `inspaction` (
   `remarks` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `inspaction`
+--
+
+INSERT INTO `inspaction` (`id`, `eel_code`, `ins_date`, `status`, `remarks`) VALUES
+(8, 'AC-02', '2022-11-03', 'ok', 'ok');
+
 -- --------------------------------------------------------
 
 --
@@ -1428,6 +1435,15 @@ CREATE TABLE `notesheets` (
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `notesheets`
+--
+
+INSERT INTO `notesheets` (`id`, `notesheet_no`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
+(27, 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-10-E Engineering-Mechanical-0001', 'Test Notesheet', 'Test Supplier', 'Supplier Address', 'Concern Person', 'Cell Number', 'Cell Number@email.com', 'Air Compressor', '', 'Pics', '1', '35000', '35000.00', '', 'Created', '2022-11-01 12:50:39', 1),
+(28, 'NS-2022-11-E Engineering-Mechanical-0002', 'RLP-2022-10-E Engineering-Mechanical-0001', 'testdfds', 'aefsdfd', 'wsetrt', 'aefrewr23223', '34232dfs@dfg', 'sdfds@sfvf.coj', 'Air Compressor', '', 'Pics', '1', '2553', '2553.00', '', 'Created', '2022-11-02 11:17:09', 1),
+(29, 'NS-2022-11-E Engineering-Mechanical-0003', 'RLP-2022-11-E Engineering-Mechanical-0001', 'subted', 'Supllasds', 'sefsd', 'efsdf', '34535', 'sdfsd@dfg.dfr', 'Concrete Boom Pump', '', 'Pics', '1', '52400', '52400.00', '', 'Created', '2022-11-02 11:32:52', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -1455,6 +1471,42 @@ CREATE TABLE `notesheets_master` (
   `created_at` datetime NOT NULL,
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notesheets_master`
+--
+
+INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
+(6, 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-10-E Engineering-Mechanical-0001', 'Test Notesheet', 'Ref-NDwk234', 'Test Supplier', 'Supplier Address', 'Concern Person', 'Cell Number', 'Cell Number@email.com', 0, 35000, 0, 2625, 37625, '', 'Created', '2022-11-01 12:50:39', 1),
+(7, 'NS-2022-11-E Engineering-Mechanical-0002', 'RLP-2022-10-E Engineering-Mechanical-0001', 'testdfds', 'setwssee', 'aefsdfd', 'wsetrt', 'aefrewr23223', '34232dfs@dfg', 'sdfds@sfvf.coj', 0, 2553, 0, 0, 2553, '', 'Created', '2022-11-02 11:17:09', 1),
+(8, 'NS-2022-11-E Engineering-Mechanical-0003', 'RLP-2022-11-E Engineering-Mechanical-0001', 'subted', '24e3qrdes', 'Supllasds', 'sefsd', 'efsdf', '34535', 'sdfsd@dfg.dfr', 0, 52400, 0, 3930, 56330, '', 'Created', '2022-11-02 11:32:52', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notesheet_access_chain`
+--
+
+CREATE TABLE `notesheet_access_chain` (
+  `id` int(11) NOT NULL,
+  `chain_type` varchar(150) NOT NULL DEFAULT 'default',
+  `division_id` int(11) NOT NULL,
+  `department_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `notesheet_type` int(11) DEFAULT NULL,
+  `users` longtext NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notesheet_access_chain`
+--
+
+INSERT INTO `notesheet_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `project_id`, `notesheet_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
+(18, 'default', 1, 5, 12, 0, '{\"340\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-11-03 02:51:19', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1820,10 +1872,9 @@ CREATE TABLE `rlp_access_chain` (
 
 INSERT INTO `rlp_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `rlp_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (5, 'default', 5, 32, 0, '{\"858\":\"1\",\"2099\":\"2\",\"624\":\"3\",\"616\":\"4\",\"614\":\"5\"}', 1, '2020-06-28 11:21:54', NULL, NULL),
-(6, 'default', 6, 52, 0, '{\"749\":\"1\",\"689\":\"2\",\"2741\":\"3\",\"624\":\"4\",\"616\":\"5\",\"614\":\"6\"}', 1, '2020-06-28 11:55:16', NULL, NULL),
 (12, 'default', 5, 33, 0, '{\"904\":\"1\",\"2099\":\"2\",\"616\":\"3\",\"614\":\"4\"}', 1, '2022-07-25 10:35:32', NULL, NULL),
 (13, 'default', 0, 0, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-09-11 12:07:46', NULL, NULL),
-(14, 'default', 1, 11, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-09-11 12:08:21', NULL, NULL);
+(15, 'default', 1, 5, 0, '{\"3246\":\"1\",\"616\":\"2\",\"615\":\"3\"}', 1, '2022-11-03 02:50:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1851,7 +1902,10 @@ CREATE TABLE `rlp_acknowledgement` (
 INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
 (295, 1, 222, 1, 6, '2022-10-30 13:35:51', '2022-10-30 14:28:20', 1, 3351, 222),
 (296, 1, 616, 2, 1, '2022-10-30 14:28:20', '2022-10-30 14:28:53', 1, 3351, 616),
-(297, 1, 614, 3, 0, '2022-10-30 14:28:53', NULL, 1, 3351, NULL);
+(297, 1, 614, 3, 0, '2022-10-30 14:28:53', NULL, 1, 3351, NULL),
+(298, 2, 222, 1, 6, '2022-11-02 11:25:14', '2022-11-02 11:27:01', 1, 3351, 222),
+(299, 2, 616, 2, 1, '2022-11-02 11:27:01', '2022-11-02 11:28:37', 1, 3351, 616),
+(300, 2, 614, 3, 0, '2022-11-02 11:28:37', NULL, 1, 3351, NULL);
 
 -- --------------------------------------------------------
 
@@ -1888,7 +1942,10 @@ CREATE TABLE `rlp_details` (
 --
 
 INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `purpose`, `quantity`, `estimated_price`, `supplier`, `details_remarks`) VALUES
-(1, 1, 'Air Compressor', 'Field Opearation', '1', 0, '', '');
+(1, 1, 'Air Compressor', 'Field Opearation', '1', 0, '', ''),
+(2, 2, 'Concrete Boom Pump', 'test', '1', 0, '', ''),
+(3, 3, 'test 1', 'test 1', '2', 0, 'wer', 'wer'),
+(4, 3, 'test 2', 'test 2', '3', 0, 'wer', 'werwrwerw');
 
 -- --------------------------------------------------------
 
@@ -1924,7 +1981,9 @@ CREATE TABLE `rlp_info` (
 --
 
 INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `rlp_status`, `is_viewd`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'RLP-2022-10-E Engineering-Mechanical-0001', 3351, 'ENG-001010', 1, '2022-10-30 12:00:00', 1, 11, 'MD. Nahid Hasan', '8', 'ENG-001010', '', 'test RLP', 1, 0, 3351, '2022-10-30 01:35:50', 616, '0000-00-00 00:00:00', 0);
+(1, 'RLP-2022-10-E Engineering-Mechanical-0001', 3351, 'ENG-001010', 1, '2022-10-30 12:00:00', 1, 11, 'MD. Nahid Hasan', '8', 'ENG-001010', '', 'test RLP', 1, 0, 3351, '2022-10-30 01:35:50', 616, '0000-00-00 00:00:00', 0),
+(2, 'RLP-2022-11-E Engineering-Mechanical-0001', 3351, 'ENG-001010', 0, '2022-11-02 12:00:00', 1, 11, 'MD. Nahid Hasan', '8', 'ENG-001010', '', 'test', 1, 0, 3351, '2022-11-02 11:25:14', 616, '2022-02-11 11:28:37', 0),
+(3, 'RLP-2022-11-E Engineering-Mechanical-0002', 3351, 'ENG-001010', 1, '2022-11-03 12:00:00', 1, 11, 'MD. Nahid Hasan', '8', 'ENG-001010', '', 'test', 2, 1, 3351, '2022-11-03 03:00:31', 1, '2022-03-11 17:11:14', 0);
 
 -- --------------------------------------------------------
 
@@ -1946,7 +2005,9 @@ CREATE TABLE `rlp_remarks_history` (
 
 INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
 (63, 1, 222, 'Go Ahead', '2022-10-30 14:28:20'),
-(64, 1, 616, 'Ok', '2022-10-30 14:28:53');
+(64, 1, 616, 'Ok', '2022-10-30 14:28:53'),
+(65, 2, 222, 'Recommended', '2022-11-02 11:27:01'),
+(66, 2, 616, 'Approved', '2022-11-02 11:28:38');
 
 -- --------------------------------------------------------
 
@@ -5904,6 +5965,12 @@ ALTER TABLE `notesheets_master`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notesheet_access_chain`
+--
+ALTER TABLE `notesheet_access_chain`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `notesheet_remarks_history`
 --
 ALTER TABLE `notesheet_remarks_history`
@@ -6133,7 +6200,7 @@ ALTER TABLE `equipment_assign`
 -- AUTO_INCREMENT for table `inspaction`
 --
 ALTER TABLE `inspaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `inv_item_unit`
@@ -6181,13 +6248,19 @@ ALTER TABLE `middle_datas`
 -- AUTO_INCREMENT for table `notesheets`
 --
 ALTER TABLE `notesheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `notesheets_master`
 --
 ALTER TABLE `notesheets_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `notesheet_access_chain`
+--
+ALTER TABLE `notesheet_access_chain`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `notesheet_remarks_history`
@@ -6247,13 +6320,13 @@ ALTER TABLE `recruite_requests`
 -- AUTO_INCREMENT for table `rlp_access_chain`
 --
 ALTER TABLE `rlp_access_chain`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=298;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=373;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -6277,7 +6350,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `roles`

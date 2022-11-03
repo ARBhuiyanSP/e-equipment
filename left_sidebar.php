@@ -53,6 +53,10 @@ $user_id_session = $_SESSION['logged']['user_id'];
                 echo "active";
             } ?>"><a href="rlp_approve_chain_list.php"><i class="fa fa-recycle"></i> <span>RLP Approval Chain</span></a></li>
 			
+			 <li class="<?php if ($page_name == "notesheet_approve_chain_list.php") {
+                echo "active";
+            } ?>"><a href="notesheet_approve_chain_list.php"><i class="fa fa-recycle"></i> <span>Notesheet Approval Chain</span></a></li>
+			
 			
 			<!-- <li class="<?php if ($page_name == "candidates_create.php") {
                 echo "active";

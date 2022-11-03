@@ -19,6 +19,7 @@ include 'function/candidates_management.php';
 include 'function/role_access_management.php';
 include 'function/rlp_process.php';
 include 'function/rlp_chain_process.php';
+include 'function/notesheet_chain_process.php';
 include 'function/import_processing.php';
 include 'function/rrr_processing.php';
 include 'function/interview_register_form_process.php';
