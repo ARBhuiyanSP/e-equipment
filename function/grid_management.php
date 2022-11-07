@@ -214,20 +214,24 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTablenoteshe
     $col        =   array(
             0   =>  'notesheet_no',
             1   =>  'rlp_no',
-            2   =>  'supplier_name'
+            2   =>  'supplier_name',
+            3   =>  'notesheet_status',
+            4   =>  'id'
         );  
 		//create column like table in database
         //rlp_utilities.php
-    $totalData= getDataRowByTable('notesheets');
+    $totalData= getDataRowByTable('notesheets_master');
     
     $totalFilter=$totalData;
     //Search
-    $sql ="SELECT * FROM notesheets WHERE 1=1 GROUP BY notesheet_no";
+    $sql ="SELECT * FROM notesheets_master WHERE 1=1 GROUP BY notesheet_no";
     //$sql ="SELECT equipments.name,equipments.eel_code,equipments.capacity,equipments.makeby,equipments.model, projects.project_name,equipments.present_condition FROM equipments INNER JOIN projects ON equipments.project_id=projects.id WHERE 1=1";
     if(!empty($request['search']['value'])){
         $sql.=" AND notesheet_no Like '%".$request['search']['value']."%' ";
         $sql.=" OR rlp_no Like '%".$request['search']['value']."%' ";
         $sql.=" OR supplier_name Like '%".$request['search']['value']."%' ";
+        $sql.=" OR notesheet_status Like '%".$request['search']['value']."%' ";
+        $sql.=" OR id Like '%".$request['search']['value']."%' ";
   
     }
 
@@ -253,6 +257,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTablenoteshe
             $subdata[] = (isset($adata->notesheet_no) && !empty($adata->notesheet_no) ? $adata->notesheet_no : 'No data');
             $subdata[] = (isset($adata->rlp_no) && !empty($adata->rlp_no) ? $adata->rlp_no : 'No data');
             $subdata[] = (isset($adata->supplier_name) && !empty($adata->supplier_name) ? $adata->supplier_name : 'No data');
+            //$subdata[] = (isset($adata->notesheet_status) && !empty($adata->notesheet_status) ? $adata->notesheet_status : 'No data');
 
             //$subdata[] = (isset($adata->project_id) && !empty($adata->project_id) ? $adata->project_id : 'No data');
 
@@ -272,18 +277,25 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTablenoteshe
 
 }
 function get_notesheets_list_action_data($data){
-    $edit_url = 'create_workorder.php?id='.$data->notesheet_no;
-    $view_url = 'notesheets_view.php?id='.$data->notesheet_no;
+    $workorder_url = 'create_workorder.php?id='.$data->id;
+    $approve_url = 'notesheet_update.php?id='.$data->id;
+    $view_url = 'notesheets_view.php?id='.$data->id;
     $action = "";
 	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="'.$view_url.'">
                                 <span class="fa fa-eye"> <b> Details</b></span>
                             </a></span>';
-    $action.='<span><a title="Make Work Order" class="btn btn-sm btn-info" href="'.$edit_url.'">
-                                <span class="fa fa-exchange"> <b> Workorder</b></span>
+	$action.='<span><a title="Approval View" class="btn btn-sm btn-warning" href="'.$approve_url.'">
+                                <span class="fa fa-hand"> <b> Approval</b></span>
                             </a></span>';
-
-											
+	if($data->notesheet_status == 1)
+	{
+	$action.='<span><a title="Make Work Order" class="btn btn-sm btn-info" href="'.$workorder_url.'">
+							<span class="fa fa-exchange"> <b> Workorder</b></span>
+						</a></span>';
+	}	 								
     //$action.='<a href="#"><i class="fa fa-trash text-danger"></i></a>';
+	
+	
 
     return $action;
 

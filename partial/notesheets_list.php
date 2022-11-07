@@ -24,4 +24,8 @@ table.list-table-custom-style tr td{
                 </tr>
             </thead>
         </table>
+		<!-- Search at Footer--->
     </div>
+	
+	
+	

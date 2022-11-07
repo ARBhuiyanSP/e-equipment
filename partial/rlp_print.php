@@ -77,13 +77,13 @@
     </div>
     <!-- /.row -->
 	<div class="row">
-		<div class="col-sm-3 col-xs-3"><!--<img src="images/signatures/<?php echo getSignatureByUserId($rlp_info->rlp_user_id); ?>" height="70px"/> --></br></br><span style="border-top: double;">Prepared by </span></div>
+		<div class="col-sm-3 col-xs-3"><img src="images/signatures/<?php echo getSignatureByUserId($rlp_info->rlp_user_id); ?>" height="70px"/></br></br><span style="border-top: double;">Prepared by </span></div>
 		
-		<div class="col-sm-3 col-xs-3"><!--<img src="images/signatures/<?php echo getSignatureByUserId($rlp_info->rlp_user_id); ?>" height="70px"/> --></br></br><span style="border-top: double;">Checked By</span></div>
+		<div class="col-sm-3 col-xs-3"><img src="images/signatures/<?php echo getSignatureByUserId($rlp_info->rlp_user_id); ?>" height="70px"/></br></br><span style="border-top: double;">Checked By</span></div>
 		
-		<div class="col-sm-3 col-xs-3"><!--<img src="images/signatures/<?php echo getSignatureByUserId($rlp_info->rlp_user_id); ?>" height="70px"/> --></br></br><span style="border-top: double;"> Verified By</span></div>
+		<div class="col-sm-3 col-xs-3"><img src="images/signatures/<?php echo getSignatureByUserId($rlp_info->rlp_user_id); ?>" height="70px"/></br></br><span style="border-top: double;"> Verified By</span></div>
 		
-		<div class="col-sm-3 col-xs-3"><!--<img src="images/signatures/<?php echo getSignatureByUserId($rlp_info->rlp_user_id); ?>" height="70px"/> --></br></br><span style="border-top: double;"> Approved By</span></div>
+		<div class="col-sm-3 col-xs-3"><img src="images/signatures/<?php echo getSignatureByUserId($rlp_info->rlp_user_id); ?>" height="70px"/></br></br><span style="border-top: double;"> Approved By</span></div>
 		
 	</div>
     <!-- /.row -->

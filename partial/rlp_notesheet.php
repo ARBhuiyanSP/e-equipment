@@ -162,17 +162,18 @@
                             </td>
                             <td></td>
                         </tr>
-					   <tr>
-                            <td colspan="7">
-								<input type="submit" class="btn btn-primary btn-block" name="create_notesheet" value="Generate Note Sheet">
-                            </td>
-                        </tr>
                         <?php }?>
                     </tbody>
                 </table>
             </div>
             <!-- /.col -->
         </div>
+		<div class="row">
+			<div class="col-md-12">
+				<?php echo get_user_wise_notesheet_chain_for_create(); ?>
+			</div>
+			<input type="submit" class="btn btn-primary btn-block" name="create_notesheet" value="Generate Note Sheet">
+		</div>
     </form>
     <!-- /.row -->
 </section>

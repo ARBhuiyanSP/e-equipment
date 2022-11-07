@@ -122,9 +122,9 @@ function execute_rlp_sa_update_form(form_id, process_type='rlp_sa_update_execute
         }
     });
 }
-function execute_rrr_dh_update_form(form_id, process_type='rrr_dh_update_execute'){
+function execute_notesheet_sa_update_form(form_id, process_type='notesheet_sa_update_execute'){
     $.ajax({
-        url: baseUrl + "function/rrr_processing.php?process_type="+process_type,
+        url: baseUrl + "function/notesheet_processing.php?process_type="+process_type,
         type: 'POST',
         dataType: 'json',
         data: $("#"+form_id).serialize(),
@@ -158,6 +158,43 @@ function execute_notesheet_dh_update_form(form_id, process_type='notesheet_dh_up
         }
     });
 }
+function execute_notesheet_ab_update_form(form_id, process_type='notesheet_ab_update_execute'){
+    $.ajax({
+        url: baseUrl + "function/notesheet_processing.php?process_type="+process_type,
+        type: 'POST',
+        dataType: 'json',
+        data: $("#"+form_id).serialize(),
+        success: function (response) {
+            if(response.status == "success"){
+                swal("Success", response.message, "success");
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);                
+            }else{
+                swal("Failed", response.message, "error");
+            }
+        }
+    });
+}
+function execute_rrr_dh_update_form(form_id, process_type='rrr_dh_update_execute'){
+    $.ajax({
+        url: baseUrl + "function/rrr_processing.php?process_type="+process_type,
+        type: 'POST',
+        dataType: 'json',
+        data: $("#"+form_id).serialize(),
+        success: function (response) {
+            if(response.status == "success"){
+                swal("Success", response.message, "success");
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);                
+            }else{
+                swal("Failed", response.message, "error");
+            }
+        }
+    });
+}
+
 function execute_rrr_sa_update_form(form_id, process_type='rrr_sa_update_execute'){
     $.ajax({
         url: baseUrl + "function/rrr_processing.php?process_type="+process_type,

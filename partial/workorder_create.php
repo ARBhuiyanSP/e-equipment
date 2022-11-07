@@ -1,9 +1,12 @@
 <?php
-    $currentUserId  =   $_SESSION['logged']['user_id'];
-    $rlp_id         =   $_GET['id'];    
-    $rlp_details    =   getNotesheetsDetailsData($rlp_id);   
-    $rlp_info       =   $rlp_details['rlp_info'];
-    $rlp_details    =   $rlp_details['rlp_details'];
+
+	
+	
+	$currentUserId  	=   $_SESSION['logged']['user_id'];
+    $notesheet_id  	 	=   $_GET['id'];    
+    $notesheets    		=   getNotesheetDetailsData($notesheet_id);   
+    $notesheets_master	=   $notesheets['notesheets_master'];
+    $notesheets    		=   $notesheets['notesheets'];
 ?>
 <!-- Main content -->
 <section class="invoice">
@@ -16,11 +19,11 @@
                 <?php $workorderNo    =   get_wo_no(); ?>
                 <b>Workorder NO: &nbsp;<span class="rlpno_style"><?php echo $workorderNo; ?></span></b><br>
 				<input type="hidden" name="wo_no" value="<?php echo $workorderNo; ?>">
-                <b>Notesheet NO: &nbsp;<span class="rlpno_style"><?php echo $rlp_info->notesheet_no; ?></span></b><br>
-				<input type="hidden" name="notesheet_no" value="<?php echo $rlp_info->notesheet_no; ?>">
-                <b>RLP NO: &nbsp;<span class="rlpno_style"><?php echo $rlp_info->rlp_no ?></span></b><br>
-                <input type="hidden" name="rlp_no" value="<?php echo $rlp_info->rlp_no; ?>">
-                <b>Request Date:</b> <?php echo human_format_date($rlp_info->created_at) ?><br>
+                <b>Notesheet NO: &nbsp;<span class="rlpno_style"><?php echo $notesheets_master->notesheet_no; ?></span></b><br>
+				<input type="hidden" name="notesheet_no" value="<?php echo $notesheets_master->notesheet_no; ?>">
+                <b>RLP NO: &nbsp;<span class="rlpno_style"><?php echo $notesheets_master->rlp_no ?></span></b><br>
+                <input type="hidden" name="rlp_no" value="<?php echo $notesheets_master->rlp_no; ?>">
+                <b>Request Date:</b> <?php echo human_format_date($notesheets_master->created_at) ?><br>
             </div>            
         </div>
         <!-- /.col -->
@@ -91,7 +94,7 @@
                     <tbody id="tbl_posts_body">
                         <?php
                         $sl =   1;
-                            foreach($rlp_details as $data){
+                            foreach($notesheets as $data){
                         ?>
                         <tr id="rec-1">
                             <td><?php echo $sl++; ?></td>
@@ -110,23 +113,23 @@
                         <?php if(is_super_admin($currentUserId)){ ?>                       
 					   <tr>
                             <td colspan="5" style="text-align:right">Sub Total : </td>
-							<td><?php echo (isset($rlp_info->sub_total) && !empty($rlp_info->sub_total) ? $rlp_info->sub_total : ""); ?></td>
-							<input type="hidden" class="form-control" name="sub_total" value="<?php echo (isset($rlp_info->sub_total) && !empty($rlp_info->sub_total) ? $rlp_info->sub_total : ""); ?>" >
+							<td><?php echo (isset($notesheets_master->sub_total) && !empty($notesheets_master->sub_total) ? $notesheets_master->sub_total : ""); ?></td>
+							<input type="hidden" class="form-control" name="sub_total" value="<?php echo (isset($notesheets_master->sub_total) && !empty($notesheets_master->sub_total) ? $notesheets_master->sub_total : ""); ?>" >
                         </tr>
 						<tr>
                             <td colspan="5" style="text-align:right">AIT [%] : </td>
-							<td><?php echo (isset($rlp_info->ait) && !empty($rlp_info->ait) ? $rlp_info->ait : ""); ?></td>
-							<input type="hidden" class="form-control" name="ait" value="<?php echo (isset($rlp_info->ait) && !empty($rlp_info->ait) ? $rlp_info->ait : ""); ?>" >
+							<td><?php echo (isset($notesheets_master->ait) && !empty($notesheets_master->ait) ? $notesheets_master->ait : ""); ?></td>
+							<input type="hidden" class="form-control" name="ait" value="<?php echo (isset($notesheets_master->ait) && !empty($notesheets_master->ait) ? $notesheets_master->ait : ""); ?>" >
                         </tr>
 						<tr>
                             <td colspan="5" style="text-align:right">VAT [%] : </td>
-							<td><?php echo (isset($rlp_info->vat) && !empty($rlp_info->vat) ? $rlp_info->vat : ""); ?></td>
-							<input type="hidden" class="form-control" name="vat" value="<?php echo (isset($rlp_info->vat) && !empty($rlp_info->vat) ? $rlp_info->vat : ""); ?>" >
+							<td><?php echo (isset($notesheets_master->vat) && !empty($notesheets_master->vat) ? $notesheets_master->vat : ""); ?></td>
+							<input type="hidden" class="form-control" name="vat" value="<?php echo (isset($notesheets_master->vat) && !empty($notesheets_master->vat) ? $notesheets_master->vat : ""); ?>" >
                         </tr>
 						<tr>
                             <td colspan="5" style="text-align:right">Grand Total : </td>
-							<td><?php echo (isset($rlp_info->grand_total) && !empty($rlp_info->grand_total) ? $rlp_info->grand_total : ""); ?></td>
-							<input type="hidden" class="form-control" name="grand_total" value="<?php echo (isset($rlp_info->grand_total) && !empty($rlp_info->grand_total) ? $rlp_info->grand_total : ""); ?>" >
+							<td><?php echo (isset($notesheets_master->grand_total) && !empty($notesheets_master->grand_total) ? $notesheets_master->grand_total : ""); ?></td>
+							<input type="hidden" class="form-control" name="grand_total" value="<?php echo (isset($notesheets_master->grand_total) && !empty($notesheets_master->grand_total) ? $notesheets_master->grand_total : ""); ?>" >
                         </tr>
 					   <tr>
                             <td colspan="7">

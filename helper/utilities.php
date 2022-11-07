@@ -792,6 +792,17 @@ function has_rlp_approved($rlp_id){
     }
     return $is_approved;
 }
+function has_notesheet_approved($notesheet_id){
+    global $conn;
+    $table  =   "notesheets_master";
+    $sql = "SELECT * FROM $table WHERE id=$notesheet_id";
+    $result = $conn->query($sql);
+    $is_approved   =   false;
+    if ($result->num_rows > 0) {
+        $is_approved   =   ($result->fetch_object()->notesheet_status == 1 ? true : false);
+    }
+    return $is_approved;
+}
 function has_rrr_approved($rrr_id){
     global $conn;
     $table  =   "rrr_info";
@@ -852,6 +863,29 @@ function set_rlp_visible_for_acknowledge($rlp_info_id){
         ];
         updateData($table, $dataParam, $where);
     }
+}
+
+function set_notesheet_visible_for_acknowledge($notesheet_id){
+    $id                 =   get_next_notesheet_visible_user($notesheet_id);
+    if($id){
+        $table          =   "notesheet_acknowledgement";
+        $dataParam      =   [
+            'ack_request_date'  =>  date('Y-m-d H:i:s'),
+            'is_visible'        =>  1
+        ];
+        $where      =   [
+            'id'    =>  $id
+        ];
+        updateData($table, $dataParam, $where);
+    }
+}
+function get_next_notesheet_visible_user($notesheet_id){
+    $table  =   "notesheet_acknowledgement WHERE notesheet_id=$notesheet_id AND ack_status=0 AND is_visible=0 ORDER BY ack_order ASC LIMIT 1";
+    $datas  =    getDataRowIdAndTable($table);
+    if(isset($datas) && !empty($datas)){
+        return $datas->id;
+    }
+    return false;
 }
 
 function get_next_rrr_visible_user($rrr_info_id){
@@ -1212,6 +1246,20 @@ function get_user_department_wise_rlp_chain_for_create(){
     $defaultChain       =   getDataRowIdAndTable($table);
     $defaultChainUsers  =   (isset($defaultChain) && !empty($defaultChain) ? json_decode($defaultChain->users) : "");
     include 'partial/rlp_chain_for_form.php';
+}
+
+function get_user_wise_notesheet_chain_for_create(){
+    $division_id    =   $_SESSION['logged']['branch_id'];
+    $department_id  =   $_SESSION['logged']['department_id'];
+    $project_id  	=   $_SESSION['logged']['project_id'];
+    $table          =   "notesheet_access_chain"
+            . " WHERE chain_type='default'"
+            . " AND division_id=$division_id"
+            . " AND department_id=$department_id"
+            . " AND project_id=$project_id";
+    $defaultChain       =   getDataRowIdAndTable($table);
+    $defaultChainUsers  =   (isset($defaultChain) && !empty($defaultChain) ? json_decode($defaultChain->users) : "");
+    include 'partial/notesheet_chain_for_form.php';
 }
 
 function get_user_department_wise_rrr_chain_for_create(){

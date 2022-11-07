@@ -1,9 +1,10 @@
 <?php
-    $currentUserId  =   $_SESSION['logged']['user_id'];
-    $rlp_id         =   $_GET['id'];    
-    $rlp_details    =   getNotesheetsDetailsData($rlp_id);   
-    $rlp_info       =   $rlp_details['rlp_info'];
-    $rlp_details    =   $rlp_details['rlp_details'];
+
+	$currentUserId  	=   $_SESSION['logged']['user_id'];
+    $notesheet_id  	 	=   $_GET['id'];    
+    $notesheets    		=   getNotesheetDetailsData($notesheet_id);   
+    $notesheets_master	=   $notesheets['notesheets_master'];
+    $notesheets    		=   $notesheets['notesheets'];
 ?>
 <!-- Main content -->
 <section class="invoice" id="printableArea">
@@ -15,14 +16,14 @@
 				<h5 align="center"><img src="images/spl.png" height="50"></h5>
 				<h2>E-Engineering Limited</h2>
 				<p>Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh</p>
-				<h5><b>Note Sheet - [Req No: <?php echo $rlp_info->rlp_no ?>]</b></h5>
+				<h5><b>Note Sheet - [Req No: <?php echo $notesheets_master->notesheet_no ?>]</b></h5>
 			</center>
-			<h5><b>Subject : <?php echo $rlp_info->subject ?></b></h5></br>
+			<h5><b>Subject : <?php echo $notesheets_master->subject ?></b></h5></br>
 			<h5>
-				<b>Supplier Name : <?php echo $rlp_info->supplier_name ?></b></br>
-				Address : <?php echo $rlp_info->address ?></br>
-				Concern person : <?php echo $rlp_info->concern_person ?></br>
-				Call : <?php echo $rlp_info->cell_number ?>, E-Mail:  <?php echo $rlp_info->email ?></br>
+				<b>Supplier Name : <?php echo $notesheets_master->supplier_name ?></b></br>
+				Address : <?php echo $notesheets_master->address ?></br>
+				Concern person : <?php echo $notesheets_master->concern_person ?></br>
+				Call : <?php echo $notesheets_master->cell_number ?>, E-Mail:  <?php echo $notesheets_master->email ?></br>
 			</h5>
 		</div>
         <!-- /.col -->
@@ -32,7 +33,7 @@
     <!-- Table row -->
         <div class="row">
 			<div class="col-xs-12 table-responsive">
-                <p><?php echo $rlp_info->ns_info ?></p>
+                <p><?php echo $notesheets_master->ns_info ?></p>
 				<table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -49,7 +50,7 @@
 							$sl =   1;
 							$total = 0;
 							$totalQty = 0;
-                            foreach($rlp_details as $data){
+                            foreach($notesheets as $data){
 								$total += $data->total;
 								$totalQty += $data->quantity;
                         ?>
@@ -64,22 +65,22 @@
                             <?php } ?>
 						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">Sub Total: </td>
-                            <td><?php echo $rlp_info->sub_total; ?></td>
+                            <td><?php echo $notesheets_master->sub_total; ?></td>
                         </tr>
 						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">AIT: </td>
-                            <td><?php echo $rlp_info->ait; ?></td>
+                            <td><?php echo $notesheets_master->ait; ?></td>
                         </tr>
 						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">VAT: </td>
-                            <td><?php echo $rlp_info->vat; ?></td>
+                            <td><?php echo $notesheets_master->vat; ?></td>
                         </tr>
 						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">Grand Total: </td>
-                            <td><?php echo $rlp_info->grand_total; ?></td>
+                            <td><?php echo $notesheets_master->grand_total; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="7" style="text-align:left"><b>In word: <?php echo convertNumberToWords($rlp_info->grand_total); ?> Only</b></td>
+                            <td colspan="7" style="text-align:left"><b>In word: <?php echo convertNumberToWords($notesheets_master->grand_total); ?> Only</b></td>
                         </tr>
                     </tbody>
                 </table>
