@@ -178,6 +178,32 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "getDepartmentusers"
     ];
     get_rlp_chain_assign_user_view($param);
 }
+// Get Project user 
+if(isset($_GET['process_type']) && $_GET['process_type'] == "getProjectusers"){
+    include '../connection/connect.php';
+    include '../helper/utilities.php';
+    $division_id    =   $_POST['division_id'];
+    $department_id  =   $_POST['department_id'];
+    $project_id  =   $_POST['project_id'];
+    $form_type      =   $_POST['form_type'];
+    
+    if($form_type  != 'access_form'){
+        $table      =   "users WHERE branch_id=$division_id AND department_id=$department_id AND project_id=$project_id AND role_id NOT IN (2,4,5,6,7,8,12)";
+    }else{
+        $table      =   "users WHERE branch_id=$division_id AND department_id=$department_id AND project_id=$project_id ";
+    }
+    $order      =   "ASC";
+    $column     =   "name";
+    $dataType   =   "obj";
+    //echo $table; exit;
+    $users  =   getTableDataByTableName($table,$order,$column,$dataType);
+    $param      =   [
+        'users'     => $users,
+        'formType'  => $form_type,
+    ];
+    get_rlp_chain_assign_user_view($param);
+}
+
 if(isset($_GET['process_type']) && $_GET['process_type'] == "assignThisUserToChain"){
     include '../connection/connect.php';
     include '../helper/utilities.php';

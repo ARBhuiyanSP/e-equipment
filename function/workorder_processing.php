@@ -57,7 +57,7 @@ function execute_workorder_master_table(){
             'ait'	 	=>  $ait,
             'vat' 	=>  $vat,
             'grand_total' 	 	=>  $grand_total,
-            'status'		=>  'Created',
+            'status'		=>  '0',
 			'created_at'	=>  date('Y-m-d h:i:s'),
 			'created_by'	=>  $_SESSION['logged']['user_id']
         ];

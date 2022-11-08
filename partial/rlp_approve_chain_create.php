@@ -37,6 +37,21 @@
                                         <?php } ?>
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label for="sel1">Project:</label>
+                                    <select class="form-control" id="project_id" name="project_id">
+                                        <option value="">Please select</option>
+                                        <?php
+                                        $table = "projects";
+                                        $order = "ASC";
+                                        $column = "project_name";
+                                        $datas = getTableDataByTableName($table, $order, $column);
+                                        foreach ($datas as $data) {
+                                            ?>
+                                            <option value="<?php echo $data->id; ?>"><?php echo $data->project_name; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>                   
                         </div>
                     </div>
@@ -47,7 +62,7 @@
                 <div class="box box-primary">
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="sel1">Division:</label>
                                     <select class="form-control" id="chain_select_branch_id" name="chain_select_branch_id" onchange="getDepartmentByBranch(this.value,'chain_select_department_id');">
@@ -64,10 +79,11 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="sel1">Department:</label>
-                                    <select class="form-control" id="chain_select_department_id" name="chain_select_department_id" onchange="getDepartmentWiseUsers('chain_select_branch_id','chain_select_department_id');">
+                                    <!-- <select class="form-control" id="chain_select_department_id" name="chain_select_department_id" onchange="getDepartmentWiseUsers('chain_select_branch_id','chain_select_department_id');"> --->
+									<select class="form-control" id="chain_select_department_id" name="chain_select_department_id" >
                                         <option value="">Please select</option>
                                         <?php
                                         $table = "department";
@@ -77,6 +93,23 @@
                                         foreach ($datas as $data) {
                                             ?>
                                             <option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>                        
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sel1">Project:</label>
+                                    <select class="form-control" id="chain_select_project_id" name="chain_select_project_id" onchange="getProjectWiseUsers('chain_select_branch_id','chain_select_department_id','chain_select_project_id');">
+                                        <option value="">Please select</option>
+                                        <?php
+                                        $table = "projects";
+                                        $order = "ASC";
+                                        $column = "project_name";
+                                        $datas = getTableDataByTableName($table, $order, $column);
+                                        foreach ($datas as $data) {
+                                            ?>
+                                            <option value="<?php echo $data->id; ?>"><?php echo $data->project_name; ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>                        
@@ -105,7 +138,7 @@
                                         <thead>
                                             <tr>
                                                 <th style="width: 60%">Name</th>
-                                                <th style="width: 25%">Approval Order</th>
+                                                <th style="width: 25%">Order</th>
                                                 <th style="width: 15%">Action</th>
                                             </tr>
                                         </thead>

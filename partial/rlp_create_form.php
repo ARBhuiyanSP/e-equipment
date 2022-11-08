@@ -75,7 +75,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <?php echo get_user_department_wise_rlp_chain_for_create(); ?>
+            <?php echo get_user_project_wise_rlp_chain_for_create(); ?>
         </div>
     </div>
     <div class="row">

@@ -61,6 +61,7 @@
                     <tbody id="tbl_posts_body">
                         <?php
                         $sl =   1;
+                        $dataid =   1;
                             foreach($rlp_details as $data){
                         ?>
                         <tr id="rec-1">
@@ -80,7 +81,7 @@
                                     <input type="text" class="form-control" name="details_remarks[<?php echo $data->id; ?>]" value="<?php echo (isset($data->details_remarks) && !empty($data->details_remarks) ? $data->details_remarks : ""); ?>">
                                 </div>
                             </td>
-							<td><a class="btn btn-xs" data-id=""><i class="glyphicon glyphicon-trash"></i></a></td>
+							<td><a class="btn btn-xs delete-record" data-id="<?php echo $dataid++; ?>"><i class="glyphicon glyphicon-trash"></i></a></td>
                             <?php }else{ ?>
                             <td><?php echo $data->supplier; ?></td>
                             <td><?php echo $data->details_remarks; ?></td>

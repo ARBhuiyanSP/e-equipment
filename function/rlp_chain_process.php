@@ -9,12 +9,13 @@
 if (isset($_POST['rlp_chain_create']) && !empty($_POST['rlp_chain_create'])){
     $division_id    = (isset($_POST['branch_id']) && !empty($_POST['branch_id']) ? validate_input(trim($_POST['branch_id'])) : '');
     $department_id  = (isset($_POST['department_id']) && !empty($_POST['department_id']) ? validate_input(trim($_POST['department_id'])) : "");
+    $project_id  = (isset($_POST['project_id']) && !empty($_POST['project_id']) ? validate_input(trim($_POST['project_id'])) : "");
     
     /*
      * *****************************rlp_info table operation********************
      */ 
-    $table              =   "rlp_access_chain";
-    $where              =   "chain_type='default' AND division_id=$division_id AND department_id=$department_id";
+    $table              = "rlp_access_chain";
+    $where              = "chain_type='default' AND division_id=$division_id AND department_id=$department_id AND project_id=$project_id";
     $is_duplicte        = isDuplicateData($table, $where);
     if(!$is_duplicte){
         $rlp_info_response  =   execute_rlp_chain_create();
@@ -37,6 +38,7 @@ function execute_rlp_chain_create(){
     global $conn;
     $division_id    = (isset($_POST['branch_id']) && !empty($_POST['branch_id']) ? validate_input(trim($_POST['branch_id'])) : '');
     $department_id  = (isset($_POST['department_id']) && !empty($_POST['department_id']) ? validate_input(trim($_POST['department_id'])) : "");
+    $project_id  = (isset($_POST['project_id']) && !empty($_POST['project_id']) ? validate_input(trim($_POST['project_id'])) : "");
     $users          = (isset($_POST['assign_users_order']) && !empty($_POST['assign_users_order']) ? $_POST['assign_users_order'] : "");
     $rlp_type       = (isset($_POST['rlp_type']) && !empty($_POST['rlp_type']) ? validate_input(trim($_POST['rlp_type'])) : "");
     
@@ -48,6 +50,7 @@ function execute_rlp_chain_create(){
         'chain_type'            =>  "default",
         'division_id'           =>  $division_id,
         'department_id'         =>  $department_id,
+        'project_id'         	=>  $project_id,
         'rlp_type'              =>  $rlp_type,
         'users'                 =>  json_encode($users),
         'created_by'            =>  $_SESSION['logged']['user_id'],

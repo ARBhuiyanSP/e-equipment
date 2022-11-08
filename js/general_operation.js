@@ -191,6 +191,21 @@ function getDepartmentWiseUsers(branch = 'branch_id', department = 'department_i
     });
 }
 
+function getProjectWiseUsers(branch = 'branch_id', department = 'department_id', project = 'project_id', form_type = 'chain_create_form', select_id = 'user_list_section') {
+    var division_id = $("#" + branch).val();
+    var department_id = $("#" + department).val();
+    var project_id = $("#" + project).val();
+    $.ajax({
+        url: baseUrl + "function/user_management.php?process_type=getProjectusers",
+        type: 'POST',
+        dataType: 'html',
+        data: 'division_id=' + division_id + "&department_id=" + department_id + '&project_id=' + project_id + "&form_type=" + form_type,
+        success: function(response) {
+            $("#" + select_id).html(response);
+        }
+    });
+}
+
 function assignThisUserToChain(user_id) {
     var user_name = $("#assign_user_name_" + user_id).html();
     $.ajax({

@@ -11,7 +11,6 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Approval Order</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody id="default_rlp_user_chain_section">
@@ -33,7 +32,6 @@
                                         <input style="width: 50px;" type="text" class="form-control" name="assign_users_order[<?php echo $userId; ?>]" value="<?php echo $chainOrder; ?>">
                                     </div>
                                 </td>
-                                <td><a href="javascript:void(0);" onclick="deleteUserAssignTr('<?php echo $userId; ?>');" class="btn btn-danger"><i class="fa fa-times-circle"></i> &nbsp;Delete</a></td>
                             </tr>
                                     <?php }}// end foreach ?>
                         </tbody>
@@ -46,71 +44,7 @@
             </div>
 <?php } ?>
     </div>
-    <div class="col-md-6">
-        <h5>Additional users for this Notesheet<hr></h5>
-        <div class="box box-primary">
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="sel1">Division:</label>
-                            <select class="form-control" id="chain_select_branch_id" name="chain_select_branch_id" onchange="getDepartmentByBranch(this.value, 'chain_select_department_id');">
-                                <option value="">Please select</option>
-                                <?php
-                                $table = "branch";
-                                $order = "ASC";
-                                $column = "name";
-                                $datas = getTableDataByTableName($table, $order, $column);
-                                foreach ($datas as $data) {
-                                    ?>
-                                    <option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
-<?php } ?>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="sel1">Department:</label>
-                            <select class="form-control" id="chain_select_department_id" name="chain_select_department_id" onchange="getDepartmentWiseUsers('chain_select_branch_id', 'chain_select_department_id','rlp_create_form');">
-                                <option value="">Please select</option>
-                                <?php
-                                $table = "department";
-                                $order = "ASC";
-                                $column = "name";
-                                $datas = getTableDataByTableName($table, $order, $column);
-                                foreach ($datas as $data) {
-                                    ?>
-                                    <option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
-<?php } ?>
-                            </select>
-                        </div>                        
-                    </div>
-                    <div class="col-md-4">
-						<div class="form-group">
-							<label for="sel1">Project:</label>
-							<select class="form-control" id="project_id" name="project_id">
-								<option value="">Please select</option>
-								<?php
-								$table = "projects";
-								$order = "ASC";
-								$column = "project_name";
-								$datas = getTableDataByTableName($table, $order, $column);
-								foreach ($datas as $data) {
-									?>
-									<option value="<?php echo $data->id; ?>"><?php echo $data->project_name; ?></option>
-								<?php } ?>
-							</select>
-						</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <span id="user_list_section"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 </div>
 
 

@@ -14,6 +14,7 @@ if (isset($agencyData) && !empty($agencyData)) {
                     <th>Chain Type</th>
                     <th>Division</th>
                     <th>Department</th>
+                    <th>Project</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -28,6 +29,7 @@ if (isset($agencyData) && !empty($agencyData)) {
                         <td><?php echo $adata->chain_type; ?></td>
                         <td><?php echo (isset($adata->division_id) && !empty($adata->division_id) ? getDivisionNameById($adata->division_id) : 'No data'); ?></td>
                         <td><?php echo (isset($adata->department_id) && !empty($adata->department_id) ? getDepartmentNameById($adata->department_id) : 'No data'); ?></td>
+                        <td><?php echo (isset($adata->project_id) && !empty($adata->project_id) ? getDepartmentNameById($adata->project_id) : 'No data'); ?></td>
                         <td>
                             <?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Edit User" class="btn btn-sm btn-info" href="rlp_approve_chain_update.php?chain_id=<?php echo $adata->id; ?>">
