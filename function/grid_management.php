@@ -375,10 +375,17 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableWorkord
 }
 function get_workorders_list_action_data($data){
     $view_url = 'workorders_view.php?id='.$data->wo_no;
+    $approve_url = 'workorders_approve.php?id='.$data->wo_no;
     $action = "";
 	$action.='<span><a title="Details View" class="btn btn-sm btn-success" href="'.$view_url.'">
                                 <span class="fa fa-eye"> <b> Details</b></span>
                             </a></span>';
+							
+	
+	$action.='<span><a title="Make Work Order" class="btn btn-sm btn-info" href="'.$approve_url.'">
+							<span class="fa fa-exchange"> <b> Approval</b></span>
+						</a></span>';
+	
 
 											
     //$action.='<a href="#"><i class="fa fa-trash text-danger"></i></a>';

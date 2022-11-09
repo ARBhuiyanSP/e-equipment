@@ -115,6 +115,30 @@ function execute_workorder_details_table(){
 }
 
 
+if(isset($_GET['process_type']) && $_GET['process_type'] == "wo_update_execute"){
+    date_default_timezone_set("Asia/Dhaka");
+    include '../connection/connect.php';
+    include '../helper/utilities.php';
+    //$param['wo_no']   =   $_POST['wo_no'];
+    //update_rlp_acknowledgement($param);
+    $dataParam['wo_no']     =   $_POST['wo_no'];
+    $dataParam['status']     =   $_POST['acknowledgement'];
+    $dataParam['updated_by']     =   $_POST['created_by'];
+    $dataParam['updated_at']     =   date("Y-d-m H:i:s");
+    $where      =   [
+        'id'    =>  $dataParam['wo_no']
+    ];
+    updateData('workorders_master', $dataParam, $where);
+    //save_rlp_remarks();
+    $feedback   =   [
+        'status'    => "success",
+        'message'   => "Work Order have been successfully updated",
+    ];
+    
+    echo json_encode($feedback);
+}
+
+
 
 function getWorkordersDetailsData($rlp_id){
     $table      =   "`workorders_master` WHERE `wo_no`='$rlp_id'";
@@ -131,5 +155,7 @@ function getWorkordersDetailsData($rlp_id){
     ];
     return $feedbackData;
 }
+
+
 
 

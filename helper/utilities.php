@@ -803,6 +803,19 @@ function has_notesheet_approved($notesheet_id){
     }
     return $is_approved;
 }
+
+function has_wo_approved($wo_id){
+    global $conn;
+    $table  =   "workorders_master";
+    $sql = "SELECT * FROM $table WHERE `wo_no`='$wo_id'";
+    $result = $conn->query($sql);
+    $is_approved   =   false;
+    if ($result->num_rows > 0) {
+        $is_approved   =   ($result->fetch_object()->status == 1 ? true : false);
+    }
+    return $is_approved;
+}
+
 function has_rrr_approved($rrr_id){
     global $conn;
     $table  =   "rrr_info";

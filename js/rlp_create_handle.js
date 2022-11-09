@@ -122,6 +122,25 @@ function execute_rlp_sa_update_form(form_id, process_type='rlp_sa_update_execute
         }
     });
 }
+function execute_wo_update_form(form_id, process_type='wo_update_execute'){
+    $.ajax({
+        url: baseUrl + "function/workorder_processing.php?process_type="+process_type,
+        type: 'POST',
+        dataType: 'json',
+        data: $("#"+form_id).serialize(),
+        success: function (response) {
+            if(response.status == "success"){
+                swal("Success", response.message, "success");
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);                
+            }else{
+                swal("Failed", response.message, "error");
+            }
+        }
+    });
+}
+
 function execute_notesheet_sa_update_form(form_id, process_type='notesheet_sa_update_execute'){
     $.ajax({
         url: baseUrl + "function/notesheet_processing.php?process_type="+process_type,
