@@ -126,8 +126,8 @@
 										<label><input type="radio" name="acknowledgement" value="4">Withheld</label>
 									</div>
 								</div>
-								<input type="text" name="wo_no" value="<?php echo $rlp_info->id; ?>">
-								<input type="text" name="created_by" value="<?php echo $currentUserId; ?>">
+								<input type="hidden" name="wo_no" value="<?php echo $rlp_info->id; ?>">
+								<input type="hidden" name="created_by" value="<?php echo $currentUserId; ?>">
 								<button type="button" class="btn btn-primary btn-block" onclick="execute_wo_update_form('wo_update_form', 'wo_update_execute');">Update</button>
 							</form>
 						<?php
