@@ -9,9 +9,8 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                     <th>SLN#</th>
                     <th>RLP No</th>
                     <th>Request Date</th>
-                    <th>RLP User</th>
-                    <th>Division</th>
-                    <th>Department</th>
+                    <th>Created By</th>
+                    <th>Project</th>
                     <th>Priority</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -34,8 +33,7 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                         </td>
                         <td><?php echo (isset($adata->request_date) && !empty($adata->request_date) ? human_format_date($adata->created_at) : 'No data'); ?></td>
                         <td><?php echo (isset($adata->rlp_user_id) && !empty($adata->rlp_user_id) ? getUserNameByUserId($adata->rlp_user_id) : 'No data'); ?></td>
-                        <td><?php echo (isset($adata->request_division) && !empty($adata->request_division) ? getDivisionNameById($adata->request_division) : 'No data'); ?></td>
-                        <td><?php echo (isset($adata->request_department) && !empty($adata->request_department) ? getDepartmentNameById($adata->request_department) : 'No data'); ?></td>
+                        <td><?php echo (isset($adata->request_project) && !empty($adata->request_project) ? getProjectNameById($adata->request_project) : 'No data'); ?></td>
                         <td><?php echo (isset($adata->priority) && !empty($adata->priority) ? getPriorityNameDiv($adata->priority) : 'No data'); ?></td>
                         <td>
                             <div style="padding: 2% 10%; font-weight: bold; background-color: <?php echo get_status_color($adata->rlp_status); ?>">
@@ -45,32 +43,32 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                         <td>
                             <?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Edit RLP" class="btn btn-sm btn-info" href="rlp_update.php?rlp_id=<?php echo $adata->id; ?>">
-                                <span class="fa fa-pencil"></span>
+                                <span class="fa fa-pencil"> Edit</span>
                             </a>
                             <?php } ?>
 							
                             <?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access')){ ?>
                             <a title="Delete RLP" class="btn btn-sm btn-danger" href="javascript:void(0)" onclick="commonDeleteOperation('<?php echo $delUrl ?>', '<?php echo $adata->id ?>');">
-                                <span class="fa fa-close"></span>
+                                <span class="fa fa-close"> Delete</span>
                             </a>
                             <?php } ?>  
 							
 							
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access') && get_status_name($adata->rlp_status)=='Approve'){ ?>
                             <a title="Make Notesheet" class="btn btn-sm btn-info" href="rlp_notesheet.php?rlp_id=<?php echo $adata->id; ?>">
-                                <span class="fa fa-sticky-note-o"></span>
+                                <span class="fa fa-sticky-note-o"> Notesheet</span>
                             </a>
                             <?php } ?>
 							
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Print RLP History" class="btn btn-sm btn-info bg-olive" href="rlp_view.php?rlp_id=<?php echo $adata->id; ?>">
-                                <span class="fa fa-print"></span>
+                                <span class="fa fa-print"> History</span>
                             </a>
                             <?php } ?>  
 
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access')){ ?>
                             <a title="Print RLP" class="btn btn-sm btn-info bg-blue" href="rlp_print.php?rlp_id=<?php echo $adata->id; ?>">
-                                <span class="fa fa-print"></span>
+                                <span class="fa fa-print"> Print</span>
                             </a>
                             <?php } ?>							
                         </td>

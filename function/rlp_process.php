@@ -51,6 +51,7 @@ function execute_rlp_info_table(){
         'request_date'          =>  date('Y-m-d h:i:s', strtotime($date)),
         'request_division'      =>  $_SESSION['logged']['branch_id'],
         'request_department'    =>  $_SESSION['logged']['department_id'],
+        'request_project'   	=>  $_SESSION['logged']['project_id'],
         'request_person'        =>  $_SESSION['logged']['user_name'],
         'designation'           =>  $_SESSION['logged']['designation'],
         'email'                 =>  $_SESSION['logged']['email'],
