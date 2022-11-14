@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2022 at 11:57 AM
+-- Generation Time: Nov 14, 2022 at 12:08 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -1879,8 +1879,9 @@ CREATE TABLE `rlp_access_chain` (
 --
 
 INSERT INTO `rlp_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `project_id`, `rlp_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(25, 'default', 1, 12, 5, 0, '{\"84\":\"1\",\"222\":\"2\",\"616\":\"3\",\"614\":\"4\"}', 84, '2022-11-08 11:08:54', NULL, NULL),
-(27, 'default', 1, 11, 21, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-11-09 02:02:07', NULL, NULL);
+(28, 'default', 1, 11, 21, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-11-14 05:04:58', NULL, NULL),
+(29, 'default', 1, 9, 21, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-11-14 05:05:36', NULL, NULL),
+(30, 'default', 1, 11, 5, 0, '{\"84\":\"1\",\"222\":\"2\",\"616\":\"3\",\"614\":\"4\"}', 1, '2022-11-14 05:07:52', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2947,7 +2948,7 @@ ALTER TABLE `recruite_requests`
 -- AUTO_INCREMENT for table `rlp_access_chain`
 --
 ALTER TABLE `rlp_access_chain`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
