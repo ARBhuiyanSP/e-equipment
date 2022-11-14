@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2022 at 05:49 AM
+-- Generation Time: Nov 14, 2022 at 11:57 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -1436,15 +1436,6 @@ CREATE TABLE `notesheets` (
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `notesheets`
---
-
-INSERT INTO `notesheets` (`id`, `notesheet_no`, `notesheet_id`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
-(47, 'NS-2022-11-E Engineering-Mechanical-0001', 24, 'RLP-2022-11-E Engineering-Civil-0001', 'test Notesheet', 'Test Supplier', 'Test Address', 'Test Concern Person', '123456', 'test@gmail.com', 'Compressor', '', 'Pics', '2', '6', '12.00', '', 'Created', '2022-11-08 12:17:29', 1),
-(48, 'NS-2022-11-E Engineering-Mechanical-0001', 24, 'RLP-2022-11-E Engineering-Civil-0001', 'test Notesheet', 'Test Supplier', 'Test Address', 'Test Concern Person', '123456', 'test@gmail.com', 'Oil Filter', '', 'Pics', '5', '5', '25.00', '', 'Created', '2022-11-08 12:17:29', 1),
-(49, 'NS-2022-11-E Engineering-Mechanical-0001', 24, 'RLP-2022-11-E Engineering-Civil-0001', 'test Notesheet', 'Test Supplier', 'Test Address', 'Test Concern Person', '123456', 'test@gmail.com', 'Engine Filter', '', 'Pics', '3', '3', '9.00', '', 'Created', '2022-11-08 12:17:30', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -1475,13 +1466,6 @@ CREATE TABLE `notesheets_master` (
   `created_by` int(20) NOT NULL,
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `notesheets_master`
---
-
-INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `notesheet_status`, `is_viewd`, `created_at`, `created_by`, `is_delete`) VALUES
-(24, 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Civil-0001', 'test Notesheet', 'Notesheet Ref. Text/ NS Info', 'Test Supplier', 'Test Address', 'Test Concern Person', '123456', 'test@gmail.com', 0, 46, 0.92, 1.38, 48.3, '', 'Created', 1, 0, '2022-11-08 12:17:29', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1529,15 +1513,6 @@ CREATE TABLE `notesheet_acknowledgement` (
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `notesheet_acknowledgement`
---
-
-INSERT INTO `notesheet_acknowledgement` (`id`, `notesheet_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(397, 24, 222, 1, 6, '2022-11-08 12:17:30', '2022-11-08 14:46:31', 0, 1, 222),
-(398, 24, 616, 1, 1, '2022-11-08 14:46:31', '2022-11-08 14:47:13', 1, 1, 616),
-(399, 24, 614, 1, 0, '2022-11-08 12:17:30', NULL, 1, 1, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -1551,14 +1526,6 @@ CREATE TABLE `notesheet_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `notesheet_remarks_history`
---
-
-INSERT INTO `notesheet_remarks_history` (`id`, `notesheet_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(87, 24, 222, 'Okay', '2022-11-08 14:46:31'),
-(88, 24, 616, 'Approved', '2022-11-08 14:47:13');
 
 -- --------------------------------------------------------
 
@@ -1934,22 +1901,6 @@ CREATE TABLE `rlp_acknowledgement` (
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `rlp_acknowledgement`
---
-
-INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(376, 1, 84, 1, 6, '2022-11-08 11:16:16', '2022-11-08 11:45:40', 1, 3357, 84),
-(377, 1, 222, 2, 6, '2022-11-08 11:45:40', '2022-11-08 11:48:26', 1, 3357, 222),
-(378, 1, 616, 3, 1, '2022-11-08 11:48:26', '2022-11-08 12:05:13', 1, 3357, 616),
-(379, 1, 614, 4, 0, '2022-11-08 12:05:13', NULL, 1, 3357, NULL),
-(383, 2, 222, 1, 0, '2022-11-09 14:02:37', NULL, 1, 3351, NULL),
-(384, 2, 616, 2, 0, '2022-11-09 14:02:37', NULL, 0, 3351, NULL),
-(385, 2, 614, 3, 0, '2022-11-09 14:02:37', NULL, 0, 3351, NULL),
-(386, 3, 222, 1, 0, '2022-11-10 11:22:04', NULL, 1, 1, NULL),
-(387, 3, 616, 2, 0, '2022-11-10 11:22:03', NULL, 0, 1, NULL),
-(388, 3, 614, 3, 0, '2022-11-10 11:22:04', NULL, 0, 1, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -1962,13 +1913,6 @@ CREATE TABLE `rlp_delete_history` (
   `deleted_by` int(11) NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rlp_delete_history`
---
-
-INSERT INTO `rlp_delete_history` (`id`, `rlp_info_id`, `deleted_by`, `deleted_at`) VALUES
-(1, 3, 1, '2022-10-11 06:22:14');
 
 -- --------------------------------------------------------
 
@@ -1986,17 +1930,6 @@ CREATE TABLE `rlp_details` (
   `supplier` text DEFAULT NULL,
   `details_remarks` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rlp_details`
---
-
-INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `purpose`, `quantity`, `estimated_price`, `supplier`, `details_remarks`) VALUES
-(1, 1, 'Compressor', 'Test', '2', 0, '', ''),
-(2, 1, 'Oil Filter', 'test', '5', 0, '', ''),
-(4, 2, 'dsfgdf', 'sdfg', '5', 0, '', ''),
-(5, 3, 'asdas', 'asda', '3', 0, '', ''),
-(11, 1, 'Engine Filter', 'test', '3', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -2024,18 +1957,9 @@ CREATE TABLE `rlp_info` (
   `created_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_by` int(11) DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
+  `updated_at` datetime NOT NULL,
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rlp_info`
---
-
-INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `rlp_status`, `is_viewd`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'RLP-2022-11-E Engineering-Civil-0001', 3357, 'ENG-000842', 0, '2022-11-08 12:00:00', 1, 12, 5, 'Zakir Hossain', '36', 'zh@gmail.com', '', 'Test', 1, 1, 3357, '2022-11-08 11:16:15', 616, '2022-08-11 12:05:13', 0),
-(2, 'RLP-2022-11-E Engineering-Mechanical-0001', 3351, 'ENG-001010', 2, '2022-11-09 12:00:00', 1, 11, 21, 'MD. Nahid Hasan', '8', 'ENG-001010', '', 'ZCXc', 5, 0, 3351, '2022-11-09 02:02:37', NULL, NULL, 0),
-(3, 'RLP-2022-11-E Engineering-Mechanical-0001', 1, 'SA-000001', 0, '2022-11-10 12:00:00', 1, 11, 21, 'Super Admin', '', 'SA-000001', '', 'zcx', 5, 0, 1, '2022-11-10 11:22:03', 1, '2022-10-11 06:22:14', 1);
 
 -- --------------------------------------------------------
 
@@ -2050,16 +1974,6 @@ CREATE TABLE `rlp_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rlp_remarks_history`
---
-
-INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(72, 1, 84, 'okay', '2022-11-08 11:45:40'),
-(73, 1, 222, 'okay', '2022-11-08 11:47:02'),
-(74, 1, 222, 'okay', '2022-11-08 11:48:26'),
-(75, 1, 616, 'Okay', '2022-11-08 12:05:13');
 
 -- --------------------------------------------------------
 
@@ -2499,15 +2413,6 @@ CREATE TABLE `workorders` (
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `workorders`
---
-
-INSERT INTO `workorders` (`id`, `wo_no`, `notesheet_no`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
-(33, '2022-11-E Engineering-WO-0001', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Civil-0001', 'dsfdsfas', 'asdfdsf', 'asdfdsf', 'asdfds', '2345345', 'sdfdsa@tyjy.dr', 'Compressor', '', 'Pics', '2', '6', '12.00', '', 'Created', '2022-11-08 02:52:00', 1),
-(34, '2022-11-E Engineering-WO-0001', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Civil-0001', 'dsfdsfas', 'asdfdsf', 'asdfdsf', 'asdfds', '2345345', 'sdfdsa@tyjy.dr', 'Oil Filter', '', 'Pics', '5', '5', '25.00', '', 'Created', '2022-11-08 02:52:00', 1),
-(35, '2022-11-E Engineering-WO-0001', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Civil-0001', 'dsfdsfas', 'asdfdsf', 'asdfdsf', 'asdfds', '2345345', 'sdfdsa@tyjy.dr', 'Engine Filter', '', 'Pics', '3', '3', '9.00', '', 'Created', '2022-11-08 02:52:00', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -2538,13 +2443,6 @@ CREATE TABLE `workorders_master` (
   `updated_by` int(11) NOT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `workorders_master`
---
-
-INSERT INTO `workorders_master` (`id`, `wo_no`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `created_at`, `created_by`, `updated_by`, `updated_at`) VALUES
-(8, '2022-11-E Engineering-WO-0001', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Civil-0001', 'dsfdsfas', 'fsdfdsfsdf', 'asdfdsf', 'asdfdsf', 'asdfds', '2345345', 'sdfdsa@tyjy.dr', 0, 46, 0.92, 1.38, 48.3, '', '0', '2022-11-08 02:52:00', 1, 0, '2022-09-11 15:34:04');
 
 -- --------------------------------------------------------
 
@@ -2971,13 +2869,13 @@ ALTER TABLE `middle_datas`
 -- AUTO_INCREMENT for table `notesheets`
 --
 ALTER TABLE `notesheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `notesheets_master`
 --
 ALTER TABLE `notesheets_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `notesheet_access_chain`
@@ -2989,13 +2887,13 @@ ALTER TABLE `notesheet_access_chain`
 -- AUTO_INCREMENT for table `notesheet_acknowledgement`
 --
 ALTER TABLE `notesheet_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=400;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=403;
 
 --
 -- AUTO_INCREMENT for table `notesheet_remarks_history`
 --
 ALTER TABLE `notesheet_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `page_details`
@@ -3055,7 +2953,7 @@ ALTER TABLE `rlp_access_chain`
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=389;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=410;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -3079,7 +2977,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -3139,13 +3037,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `workorders`
 --
 ALTER TABLE `workorders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `workorders_master`
 --
 ALTER TABLE `workorders_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
