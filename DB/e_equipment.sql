@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2022 at 12:33 PM
+-- Generation Time: Nov 13, 2022 at 05:49 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -1441,8 +1441,9 @@ CREATE TABLE `notesheets` (
 --
 
 INSERT INTO `notesheets` (`id`, `notesheet_no`, `notesheet_id`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
-(45, 'NS-2022-11-E Engineering-Mechanical-0001', 23, 'RLP-2022-11-E Engineering-Mechanical-0001', 'dfgdf', 'sdfgdf', 'dfgdfsgdf', 'gdsfgdfg', '3245345', 'zxcvzcx@dsfgf.fhd', 'test', '', 'Pics', '2', '4', '8.00', '', 'Created', '2022-11-07 04:43:31', 1),
-(46, 'NS-2022-11-E Engineering-Mechanical-0001', 23, 'RLP-2022-11-E Engineering-Mechanical-0001', 'dfgdf', 'sdfgdf', 'dfgdfsgdf', 'gdsfgdfg', '3245345', 'zxcvzcx@dsfgf.fhd', 'test2', '', 'Pics', '3', '4', '12.00', '', 'Created', '2022-11-07 04:43:31', 1);
+(47, 'NS-2022-11-E Engineering-Mechanical-0001', 24, 'RLP-2022-11-E Engineering-Civil-0001', 'test Notesheet', 'Test Supplier', 'Test Address', 'Test Concern Person', '123456', 'test@gmail.com', 'Compressor', '', 'Pics', '2', '6', '12.00', '', 'Created', '2022-11-08 12:17:29', 1),
+(48, 'NS-2022-11-E Engineering-Mechanical-0001', 24, 'RLP-2022-11-E Engineering-Civil-0001', 'test Notesheet', 'Test Supplier', 'Test Address', 'Test Concern Person', '123456', 'test@gmail.com', 'Oil Filter', '', 'Pics', '5', '5', '25.00', '', 'Created', '2022-11-08 12:17:29', 1),
+(49, 'NS-2022-11-E Engineering-Mechanical-0001', 24, 'RLP-2022-11-E Engineering-Civil-0001', 'test Notesheet', 'Test Supplier', 'Test Address', 'Test Concern Person', '123456', 'test@gmail.com', 'Engine Filter', '', 'Pics', '3', '3', '9.00', '', 'Created', '2022-11-08 12:17:30', 1);
 
 -- --------------------------------------------------------
 
@@ -1480,7 +1481,7 @@ CREATE TABLE `notesheets_master` (
 --
 
 INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `notesheet_status`, `is_viewd`, `created_at`, `created_by`, `is_delete`) VALUES
-(23, 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Mechanical-0001', 'dfgdf', 'dfgdf', 'sdfgdf', 'dfgdfsgdf', 'gdsfgdfg', '3245345', 'zxcvzcx@dsfgf.fhd', 0, 20, 0.8, 0.8, 21.6, '', 'Created', 1, 0, '2022-11-07 04:43:31', 1, 0);
+(24, 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Civil-0001', 'test Notesheet', 'Notesheet Ref. Text/ NS Info', 'Test Supplier', 'Test Address', 'Test Concern Person', '123456', 'test@gmail.com', 0, 46, 0.92, 1.38, 48.3, '', 'Created', 1, 0, '2022-11-08 12:17:29', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1507,7 +1508,7 @@ CREATE TABLE `notesheet_access_chain` (
 --
 
 INSERT INTO `notesheet_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `project_id`, `notesheet_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(20, 'default', 1, 11, 21, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-11-07 09:42:59', NULL, NULL);
+(22, 'default', 1, 11, 21, 0, '{\"222\":\"1\",\"616\":\"1\",\"614\":\"1\"}', 1, '2022-11-08 12:06:42', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1533,9 +1534,9 @@ CREATE TABLE `notesheet_acknowledgement` (
 --
 
 INSERT INTO `notesheet_acknowledgement` (`id`, `notesheet_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(394, 23, 222, 1, 6, '2022-11-07 16:43:32', '2022-11-07 16:46:16', 1, 1, 222),
-(395, 23, 616, 2, 1, '2022-11-07 16:46:16', '2022-11-07 16:46:45', 1, 1, 616),
-(396, 23, 614, 3, 0, '2022-11-07 16:46:45', NULL, 1, 1, NULL);
+(397, 24, 222, 1, 6, '2022-11-08 12:17:30', '2022-11-08 14:46:31', 0, 1, 222),
+(398, 24, 616, 1, 1, '2022-11-08 14:46:31', '2022-11-08 14:47:13', 1, 1, 616),
+(399, 24, 614, 1, 0, '2022-11-08 12:17:30', NULL, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -1556,8 +1557,8 @@ CREATE TABLE `notesheet_remarks_history` (
 --
 
 INSERT INTO `notesheet_remarks_history` (`id`, `notesheet_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(85, 23, 222, 'Recommended', '2022-11-07 16:46:16'),
-(86, 23, 616, 'Okay', '2022-11-07 16:46:45');
+(87, 24, 222, 'Okay', '2022-11-08 14:46:31'),
+(88, 24, 616, 'Approved', '2022-11-08 14:47:13');
 
 -- --------------------------------------------------------
 
@@ -1897,6 +1898,7 @@ CREATE TABLE `rlp_access_chain` (
   `chain_type` varchar(150) NOT NULL DEFAULT 'default',
   `division_id` int(11) NOT NULL,
   `department_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
   `rlp_type` int(11) DEFAULT NULL,
   `users` longtext NOT NULL,
   `created_by` int(11) NOT NULL,
@@ -1909,12 +1911,9 @@ CREATE TABLE `rlp_access_chain` (
 -- Dumping data for table `rlp_access_chain`
 --
 
-INSERT INTO `rlp_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `rlp_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(5, 'default', 5, 32, 0, '{\"858\":\"1\",\"2099\":\"2\",\"624\":\"3\",\"616\":\"4\",\"614\":\"5\"}', 1, '2020-06-28 11:21:54', NULL, NULL),
-(12, 'default', 5, 33, 0, '{\"904\":\"1\",\"2099\":\"2\",\"616\":\"3\",\"614\":\"4\"}', 1, '2022-07-25 10:35:32', NULL, NULL),
-(13, 'default', 0, 0, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-09-11 12:07:46', NULL, NULL),
-(15, 'default', 1, 5, 0, '{\"3246\":\"1\",\"616\":\"2\",\"615\":\"3\"}', 1, '2022-11-03 02:50:00', NULL, NULL),
-(16, 'default', 1, 11, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-11-07 09:37:58', NULL, NULL);
+INSERT INTO `rlp_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `project_id`, `rlp_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
+(25, 'default', 1, 12, 5, 0, '{\"84\":\"1\",\"222\":\"2\",\"616\":\"3\",\"614\":\"4\"}', 84, '2022-11-08 11:08:54', NULL, NULL),
+(27, 'default', 1, 11, 21, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-11-09 02:02:07', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1940,9 +1939,16 @@ CREATE TABLE `rlp_acknowledgement` (
 --
 
 INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
-(373, 1, 222, 1, 6, '2022-11-07 09:38:33', '2022-11-07 09:39:27', 1, 3351, 222),
-(374, 1, 616, 2, 1, '2022-11-07 09:39:27', '2022-11-07 09:39:56', 1, 3351, 616),
-(375, 1, 614, 3, 0, '2022-11-07 09:39:56', NULL, 1, 3351, NULL);
+(376, 1, 84, 1, 6, '2022-11-08 11:16:16', '2022-11-08 11:45:40', 1, 3357, 84),
+(377, 1, 222, 2, 6, '2022-11-08 11:45:40', '2022-11-08 11:48:26', 1, 3357, 222),
+(378, 1, 616, 3, 1, '2022-11-08 11:48:26', '2022-11-08 12:05:13', 1, 3357, 616),
+(379, 1, 614, 4, 0, '2022-11-08 12:05:13', NULL, 1, 3357, NULL),
+(383, 2, 222, 1, 0, '2022-11-09 14:02:37', NULL, 1, 3351, NULL),
+(384, 2, 616, 2, 0, '2022-11-09 14:02:37', NULL, 0, 3351, NULL),
+(385, 2, 614, 3, 0, '2022-11-09 14:02:37', NULL, 0, 3351, NULL),
+(386, 3, 222, 1, 0, '2022-11-10 11:22:04', NULL, 1, 1, NULL),
+(387, 3, 616, 2, 0, '2022-11-10 11:22:03', NULL, 0, 1, NULL),
+(388, 3, 614, 3, 0, '2022-11-10 11:22:04', NULL, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -1956,6 +1962,13 @@ CREATE TABLE `rlp_delete_history` (
   `deleted_by` int(11) NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `rlp_delete_history`
+--
+
+INSERT INTO `rlp_delete_history` (`id`, `rlp_info_id`, `deleted_by`, `deleted_at`) VALUES
+(1, 3, 1, '2022-10-11 06:22:14');
 
 -- --------------------------------------------------------
 
@@ -1979,8 +1992,11 @@ CREATE TABLE `rlp_details` (
 --
 
 INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `purpose`, `quantity`, `estimated_price`, `supplier`, `details_remarks`) VALUES
-(1, 1, 'test', 'test', '2', 0, '', ''),
-(2, 1, 'test2', 'test2', '3', 0, '', '');
+(1, 1, 'Compressor', 'Test', '2', 0, '', ''),
+(2, 1, 'Oil Filter', 'test', '5', 0, '', ''),
+(4, 2, 'dsfgdf', 'sdfg', '5', 0, '', ''),
+(5, 3, 'asdas', 'asda', '3', 0, '', ''),
+(11, 1, 'Engine Filter', 'test', '3', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -1997,6 +2013,7 @@ CREATE TABLE `rlp_info` (
   `request_date` datetime NOT NULL,
   `request_division` int(11) DEFAULT NULL,
   `request_department` int(11) NOT NULL,
+  `request_project` int(11) NOT NULL,
   `request_person` varchar(650) DEFAULT NULL,
   `designation` varchar(500) DEFAULT NULL,
   `email` varchar(500) NOT NULL,
@@ -2015,8 +2032,10 @@ CREATE TABLE `rlp_info` (
 -- Dumping data for table `rlp_info`
 --
 
-INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `rlp_status`, `is_viewd`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'RLP-2022-11-E Engineering-Mechanical-0001', 3351, 'ENG-001010', 1, '2022-11-07 12:00:00', 1, 11, 'MD. Nahid Hasan', '8', 'ENG-001010', '', 'test', 1, 0, 3351, '2022-11-07 09:38:32', 616, '2022-07-11 09:39:56', 0);
+INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `rlp_status`, `is_viewd`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
+(1, 'RLP-2022-11-E Engineering-Civil-0001', 3357, 'ENG-000842', 0, '2022-11-08 12:00:00', 1, 12, 5, 'Zakir Hossain', '36', 'zh@gmail.com', '', 'Test', 1, 1, 3357, '2022-11-08 11:16:15', 616, '2022-08-11 12:05:13', 0),
+(2, 'RLP-2022-11-E Engineering-Mechanical-0001', 3351, 'ENG-001010', 2, '2022-11-09 12:00:00', 1, 11, 21, 'MD. Nahid Hasan', '8', 'ENG-001010', '', 'ZCXc', 5, 0, 3351, '2022-11-09 02:02:37', NULL, NULL, 0),
+(3, 'RLP-2022-11-E Engineering-Mechanical-0001', 1, 'SA-000001', 0, '2022-11-10 12:00:00', 1, 11, 21, 'Super Admin', '', 'SA-000001', '', 'zcx', 5, 0, 1, '2022-11-10 11:22:03', 1, '2022-10-11 06:22:14', 1);
 
 -- --------------------------------------------------------
 
@@ -2037,8 +2056,10 @@ CREATE TABLE `rlp_remarks_history` (
 --
 
 INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
-(67, 1, 222, 'Recommended', '2022-11-07 09:39:27'),
-(68, 1, 616, 'Approve', '2022-11-07 09:39:56');
+(72, 1, 84, 'okay', '2022-11-08 11:45:40'),
+(73, 1, 222, 'okay', '2022-11-08 11:47:02'),
+(74, 1, 222, 'okay', '2022-11-08 11:48:26'),
+(75, 1, 616, 'Okay', '2022-11-08 12:05:13');
 
 -- --------------------------------------------------------
 
@@ -2153,13 +2174,6 @@ INSERT INTO `role_access` (`id`, `role_id`, `page_id`, `page_name`, `add_access`
 (208, 17, 5, 'crlp', 1, 1, 0, 1, 1),
 (209, 17, 6, 'rlp_list', 1, 1, 0, 1, 1),
 (210, 17, 7, 'rlp_report', 0, 0, 0, 1, 1),
-(211, 13, 1, 'dashboard', 1, 1, 0, 1, 1),
-(212, 13, 2, 'settings', 0, 0, 0, 0, 0),
-(213, 13, 3, 'users', 0, 0, 0, 0, 0),
-(214, 13, 4, 'ra', 0, 0, 0, 0, 0),
-(215, 13, 5, 'crlp', 1, 1, 0, 1, 1),
-(216, 13, 6, 'rlp_list', 1, 1, 0, 1, 1),
-(217, 13, 7, 'rlp_report', 0, 0, 0, 1, 1),
 (218, 11, 1, 'dashboard', 1, 1, 0, 1, 1),
 (219, 11, 2, 'settings', 0, 0, 0, 0, 0),
 (220, 11, 3, 'users', 0, 0, 0, 0, 0),
@@ -2257,28 +2271,20 @@ INSERT INTO `role_access` (`id`, `role_id`, `page_id`, `page_name`, `add_access`
 (312, 16, 4, 'ra', 0, 0, 0, 0, 0),
 (313, 16, 5, 'crlp', 1, 1, 0, 1, 1),
 (314, 16, 6, 'rlp_list', 1, 1, 0, 1, 1),
-(315, 16, 7, 'rlp_report', 0, 0, 0, 1, 1),
-(316, 20, 1, 'dashboard', 1, 1, 1, 1, 1),
-(317, 20, 2, 'settings', 0, 0, 0, 0, 0),
-(318, 20, 3, 'users', 0, 0, 0, 0, 0),
-(319, 20, 4, 'ra', 0, 0, 0, 0, 0),
-(320, 20, 5, 'crlp', 1, 1, 0, 1, 1),
-(321, 20, 6, 'rlp_list', 1, 1, 0, 1, 1),
-(322, 20, 7, 'rlp_report', 0, 0, 0, 1, 1),
-(323, 21, 1, 'dashboard', 1, 1, 1, 1, 1),
-(324, 21, 2, 'settings', 0, 0, 0, 0, 0),
-(325, 21, 3, 'users', 0, 0, 0, 0, 0),
-(326, 21, 4, 'ra', 0, 0, 0, 0, 0),
-(327, 21, 5, 'crlp', 1, 1, 0, 1, 1),
-(328, 21, 6, 'rlp_list', 1, 1, 0, 1, 1),
-(329, 21, 7, 'rlp_report', 0, 0, 0, 1, 1),
-(330, 1, 1, 'dashboard', 1, 1, 1, 1, 1),
-(331, 1, 2, 'settings', 1, 1, 1, 1, 1),
-(332, 1, 3, 'users', 1, 1, 1, 1, 1),
-(333, 1, 4, 'ra', 1, 1, 1, 1, 1),
-(334, 1, 5, 'crlp', 1, 1, 1, 1, 1),
-(335, 1, 6, 'rlp_list', 1, 1, 1, 1, 1),
-(336, 1, 7, 'rlp_report', 1, 1, 1, 1, 1);
+(351, 13, 1, 'dashboard', 0, 0, 0, 0, 0),
+(352, 13, 2, 'settings', 0, 0, 0, 0, 0),
+(353, 13, 3, 'users', 0, 0, 0, 0, 0),
+(354, 13, 4, 'ra', 0, 0, 0, 0, 0),
+(355, 13, 5, 'crlp', 1, 1, 1, 1, 1),
+(356, 13, 6, 'rlp_list', 1, 1, 1, 1, 1),
+(357, 13, 7, 'rlp_report', 1, 1, 1, 1, 1),
+(358, 1, 1, 'dashboard', 1, 1, 1, 1, 1),
+(359, 1, 2, 'settings', 1, 1, 1, 1, 1),
+(360, 1, 3, 'users', 1, 1, 1, 1, 1),
+(361, 1, 4, 'ra', 1, 1, 1, 1, 1),
+(362, 1, 5, 'crlp', 1, 1, 1, 1, 1),
+(363, 1, 6, 'rlp_list', 1, 1, 1, 1, 1),
+(364, 1, 7, 'rlp_report', 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -2444,8 +2450,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `office_id`, `role_id`, `designation`, `role_name`, `name`, `email`, `contact_number`, `profile_image`, `signature_image`, `password`, `is_password_changed`, `is_status`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (1, 1, 11, 21, 'SA-000001', 1, NULL, 'sa', 'Super Admin', 'sa@rlp.com', NULL, '', NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2020-03-16 15:03:06', 1, '2022-09-10 17:00:26'),
-(84, 1, 7, 5, 'ENG-000096', 15, '42', '', 'Md. Abdullah-al-mamun', '', NULL, NULL, NULL, 'c7bbbf95da472b10e777ee45d2089bda', 0, 1, 0, NULL, NULL, NULL),
-(222, 1, 9, 0, 'ENG-000257', 13, '21', '', 'Alauddin Ahmed', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
+(84, 1, 7, 5, 'ENG-000096', 15, '42', '', 'Md. Abdullah-al-mamun', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
+(222, 1, 9, 21, 'ENG-000257', 13, '21', '', 'Alauddin Ahmed', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
 (328, 1, 11, 0, 'ENG-000363', 8, '60', '', 'Md. Jalil Khan Noyan', '', NULL, NULL, NULL, '4cfbb31c59c26c4f5fb87c46739ea6d3', 0, 1, 0, NULL, NULL, NULL),
 (374, 1, 11, 22, 'ENG-000409', 8, '83', '', 'Md. Ayub Ali', '', NULL, NULL, NULL, '17fda6ddac34ee34949cb5d61587ef78', 0, 1, 0, NULL, NULL, NULL),
 (396, 1, 11, 12, 'ENG-000431', 5, '92', '', 'Md. Liton Mridha', '', NULL, NULL, NULL, '85797d61d980042b883086f999438a4f', 0, 1, 0, NULL, NULL, NULL),
@@ -2455,13 +2461,13 @@ INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `office_i
 (632, 5, 33, 0, 'SPL-000023', 18, '106', '', 'Md. Fakrul Islam', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
 (3105, 5, 33, 0, 'SPL-007729', 2, '1', '', 'Atiqur Rahman Bhuiyan', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
 (3246, 0, 0, 0, 'SPPL-000001', 20, '112', '', 'Rubya Chowdhury', '', NULL, NULL, NULL, 'c1b874dc1e6fe8f7880bfad54f607782', 0, 1, 0, NULL, NULL, NULL),
-(3351, 1, 11, 0, 'ENG-001010', 2, '8', 'g7', 'MD. Nahid Hasan', '', NULL, NULL, '1667818730Nahid-Hasan-Sign1.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-09-11 00:09:55', 1, '2022-11-06 22:58:50'),
+(3351, 1, 11, 21, 'ENG-001010', 2, '8', 'g7', 'MD. Nahid Hasan', '', NULL, NULL, '1667818730Nahid-Hasan-Sign1.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-09-11 00:09:55', 1, '2022-11-06 22:58:50'),
 (3352, 1, 11, 11, 'ENG-000555', 2, '36', 'g7', 'Shahadat Hossain', 'sh@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 23:26:10', NULL, NULL),
 (3353, 1, 12, 11, 'SPHL-000017', 3, '18', 'g10', 'Hasan Tareq', 'ht@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 23:27:41', NULL, NULL),
 (3354, 1, 12, 12, 'ENG-000665', 3, '18', 'g10', 'Masud Alam', 'ma@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 23:28:47', NULL, NULL),
 (3355, 1, 11, 0, 'ENG-000759', 2, '36', 'g7', 'Myin uddin', 'mu@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 23:29:55', NULL, NULL),
 (3356, 1, 12, 0, 'ENG-000829', 3, '18', 'g10', 'MD Rasel Alam', 'ra@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 23:30:48', NULL, NULL),
-(3357, 1, 12, 5, 'ENG-000842', 2, '36', 'g7', 'Zakir Hossain', 'zh@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 23:31:40', NULL, NULL),
+(3357, 1, 12, 5, 'ENG-000842', 2, '36', 'g7', 'Zakir Hossain', 'zh@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-11-05 23:31:40', NULL, NULL),
 (3358, 1, 12, 22, 'ENG-000867', 17, '16', 'g15', 'Azhar Mahmud', 'am@gmail.com', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 0, 1, 0, '2022-11-05 23:33:10', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -2493,6 +2499,15 @@ CREATE TABLE `workorders` (
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `workorders`
+--
+
+INSERT INTO `workorders` (`id`, `wo_no`, `notesheet_no`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
+(33, '2022-11-E Engineering-WO-0001', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Civil-0001', 'dsfdsfas', 'asdfdsf', 'asdfdsf', 'asdfds', '2345345', 'sdfdsa@tyjy.dr', 'Compressor', '', 'Pics', '2', '6', '12.00', '', 'Created', '2022-11-08 02:52:00', 1),
+(34, '2022-11-E Engineering-WO-0001', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Civil-0001', 'dsfdsfas', 'asdfdsf', 'asdfdsf', 'asdfds', '2345345', 'sdfdsa@tyjy.dr', 'Oil Filter', '', 'Pics', '5', '5', '25.00', '', 'Created', '2022-11-08 02:52:00', 1),
+(35, '2022-11-E Engineering-WO-0001', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Civil-0001', 'dsfdsfas', 'asdfdsf', 'asdfdsf', 'asdfds', '2345345', 'sdfdsa@tyjy.dr', 'Engine Filter', '', 'Pics', '3', '3', '9.00', '', 'Created', '2022-11-08 02:52:00', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -2519,8 +2534,17 @@ CREATE TABLE `workorders_master` (
   `remarks` longtext NOT NULL,
   `status` varchar(15) NOT NULL,
   `created_at` datetime NOT NULL,
-  `created_by` int(20) NOT NULL
+  `created_by` int(20) NOT NULL,
+  `updated_by` int(11) NOT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `workorders_master`
+--
+
+INSERT INTO `workorders_master` (`id`, `wo_no`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `created_at`, `created_by`, `updated_by`, `updated_at`) VALUES
+(8, '2022-11-E Engineering-WO-0001', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Civil-0001', 'dsfdsfas', 'fsdfdsfsdf', 'asdfdsf', 'asdfdsf', 'asdfds', '2345345', 'sdfdsa@tyjy.dr', 0, 46, 0.92, 1.38, 48.3, '', '0', '2022-11-08 02:52:00', 1, 0, '2022-09-11 15:34:04');
 
 -- --------------------------------------------------------
 
@@ -2947,31 +2971,31 @@ ALTER TABLE `middle_datas`
 -- AUTO_INCREMENT for table `notesheets`
 --
 ALTER TABLE `notesheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `notesheets_master`
 --
 ALTER TABLE `notesheets_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `notesheet_access_chain`
 --
 ALTER TABLE `notesheet_access_chain`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `notesheet_acknowledgement`
 --
 ALTER TABLE `notesheet_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=397;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=400;
 
 --
 -- AUTO_INCREMENT for table `notesheet_remarks_history`
 --
 ALTER TABLE `notesheet_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `page_details`
@@ -3025,25 +3049,25 @@ ALTER TABLE `recruite_requests`
 -- AUTO_INCREMENT for table `rlp_access_chain`
 --
 ALTER TABLE `rlp_access_chain`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=376;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=389;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
 --
 ALTER TABLE `rlp_delete_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `rlp_details`
 --
 ALTER TABLE `rlp_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `rlp_info`
@@ -3055,7 +3079,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -3073,7 +3097,7 @@ ALTER TABLE `roles_group`
 -- AUTO_INCREMENT for table `role_access`
 --
 ALTER TABLE `role_access`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=337;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=365;
 
 --
 -- AUTO_INCREMENT for table `status_details`
@@ -3115,13 +3139,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `workorders`
 --
 ALTER TABLE `workorders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `workorders_master`
 --
 ALTER TABLE `workorders_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

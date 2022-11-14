@@ -271,6 +271,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "rlp_delete"){
     echo json_encode($feedback);
 }
 
+
 function getRlpDetailsData($rlp_id){
     $table      =   "rlp_info WHERE id=$rlp_id";
     $rlp_info   = getDataRowIdAndTable($table);
@@ -364,6 +365,98 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "rlp_dh_update_execu
     
     echo json_encode($feedback);
 }
+// common rlp approve
+// common rlp approve
+
+if(isset($_GET['process_type']) && $_GET['process_type'] == "rlp_ab_common_update_execute"){
+    date_default_timezone_set("Asia/Dhaka");
+    include '../connection/connect.php';
+    include '../helper/utilities.php';
+    $param['rlp_info_id']   =   $_GET['approve_id'];
+    $param['ack_status']    =   '1';
+    $param['user_id']       =   $_GET['user_id'];
+    $param['remarks']       =   'Approved';
+    update_common_rlp_acknowledgement($param);
+    /* $dataParam['rlp_status']     =   $_POST['acknowledgement'];
+    $dataParam['updated_by']     =   $_POST['created_by'];
+    $dataParam['updated_at']     =   date("Y-d-m H:i:s");
+    $where      =   [
+        'id'    =>  $param['rlp_info_id']
+    ];
+    updateData('rlp_info', $dataParam, $where); */
+    save_common_rlp_remarks();
+    $feedback   =   [
+        'status'    => "success",
+        'message'   => "RLP data have been successfully updated",
+    ];
+    
+    echo json_encode($feedback);
+}
+if(isset($_GET['process_type']) && $_GET['process_type'] == "rlp_dh_common_update_execute"){
+    date_default_timezone_set("Asia/Dhaka");
+    include '../connection/connect.php';
+    include '../helper/utilities.php';
+        
+		$param['rlp_info_id']   =   $_GET['approve_id'];
+        $param['ack_status']    =   '6';
+        $param['user_id']       =   $_GET['user_id'];
+        $param['remarks']       =   'Recommended';
+        update_common_rlp_acknowledgement($param);
+        save_common_rlp_remarks();
+        $feedback   =   [
+            'status'    => "success",
+            'message'   => "RLP data have been successfully updated",
+        ];
+    echo json_encode($feedback);
+}
+
+function update_common_rlp_acknowledgement($data){
+   
+	$user_id        =   $data['user_id'];
+    $rlp_info_id    =   $data['rlp_info_id'];
+    $dataParam['rlp_info_id']       =   $data['rlp_info_id'];
+    $dataParam['user_id']           =   $data['user_id'];
+    if(isset($data['ack_status']) && !empty($data['ack_status'])){
+        $dataParam['ack_status']    =   $data['ack_status'];
+    }
+    $where  =   "rlp_info_id=$rlp_info_id AND user_id=$user_id";
+    $isDuplicate    =   isDuplicateData('rlp_acknowledgement', $where);
+    if($isDuplicate){
+        // process rlp_acknowledgement (table will be updated):
+        $dataParam['ack_updated_date']  =   date("Y-m-d H:i:s");
+        $dataParam['updated_by']        =   $user_id;
+        $where      =   [
+            'id'    =>  $isDuplicate
+        ];
+        updateData('rlp_acknowledgement', $dataParam, $where);
+        
+        $dataParam                      =   [];
+        $where                          =   [];
+        $dataParam['rlp_status']        =   $data['ack_status'];
+		$dataParam['updated_by']        =   $user_id;
+        $dataParam['updated_at'] 		=   date("Y-m-d H:i:s");
+        $where      =   [
+            'id'    =>  $rlp_info_id
+        ];
+        updateData('rlp_info', $dataParam, $where);
+        
+        set_rlp_visible_for_acknowledge($rlp_info_id);
+    }
+}
+
+function save_common_rlp_remarks(){
+        $dataParam      =   [];
+        $dataParam['remarks']        =   'Approved';
+        $dataParam['rlp_info_id']    =   $_GET['approve_id'];
+        $dataParam['user_id']        =   $_GET['user_id'];
+        $dataParam['remarks_date']   =   date("Y-m-d H:i:s");
+
+        saveData('rlp_remarks_history', $dataParam);
+    
+}
+
+// common rlp approve
+
 function is_dh_update_field_validation_pass(){
     $status     =   true;
     if(empty($_POST['acknowledgement'])){
@@ -464,7 +557,8 @@ function update_rlp_acknowledgement($data){
         
         $dataParam                      =   [];
         $where                          =   [];
-        $dataParam['rlp_status']        =   2;
+        $dataParam['rlp_status']        =   $data['ack_status'];
+        $dataParam['updated_at'] 		=   date("Y-m-d H:i:s");
         $where      =   [
             'id'    =>  $rlp_info_id
         ];

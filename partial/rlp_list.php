@@ -20,10 +20,28 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                 <?php
                 $sl = 0;
                 $delUrl =   "function/rlp_process.php?process_type=rlp_delete";
+                //$approve_url =   "function/rlp_process.php?process_type=rlp_approve";
+				$role       =   get_role_group_short_name();
+				if(is_super_admin($currentUserId)){
+					//include 'rrr_update_view_sa.php';
+					$approve_url =   "function/rlp_process.php?process_type=rlp_dh_common_update_execute";
+				}elseif($role    ==  "member"){
+					//include 'rrr_update_view_member.php';
+					$approve_url =   "function/rlp_process.php?process_type=rlp_dh_common_update_execute";
+				}elseif($role    ==  "dh"){
+					//include 'rrr_update_view_dh.php';
+					$approve_url =   "function/rlp_process.php?process_type=rlp_dh_common_update_execute";
+				}elseif($role    ==  "ab"){
+					//include 'rrr_update_view_ab.php';
+					$approve_url =   "function/rlp_process.php?process_type=rlp_ab_common_update_execute";
+				}else{
+					//include 'rrr_update_view_dh.php';
+					$approve_url =   "function/rlp_process.php?process_type=rlp_dh_common_update_execute";
+				}
                 foreach ($rlpListData as $adata) {
                     ?>
                     <tr id="row_id_<?php echo $adata->id; ?>">
-                        <td><?php echo ++$sl; ?></td>
+                        <td><?php echo ++$sl; ?> </td>
                         <td>
                             <div title="RLP quick view" onclick="rlp_quick_view('<?php echo $adata->id ?>');" style="cursor: pointer;padding: 2% 2%; font-weight: bold; background-color: <?php echo get_status_color($adata->rlp_status); ?>">
                                 <span>
@@ -46,6 +64,12 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                                 <span class="fa fa-pencil"> Edit</span>
                             </a>
                             <?php } ?>
+							
+							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access') && get_status_name($adata->rlp_status)!='Approve'){ ?>
+                            <a title="Delete RLP" class="btn btn-sm btn-success" href="javascript:void(0)" onclick="commonApproveOperation('<?php echo $approve_url ?>', '<?php echo $adata->id ?>', '<?php echo $_SESSION['logged']['user_id'] ?>');">
+                                <span class="fa fa-close"> Approve</span>
+                            </a>
+                            <?php } ?> 
 							
                             <?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access')){ ?>
                             <a title="Delete RLP" class="btn btn-sm btn-danger" href="javascript:void(0)" onclick="commonDeleteOperation('<?php echo $delUrl ?>', '<?php echo $adata->id ?>');">

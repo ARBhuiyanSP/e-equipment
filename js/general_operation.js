@@ -104,13 +104,13 @@ function commonDeleteOperation(del_url, delete_id) {
         });
 }
 
-function commonApproveOperation(approve_url, approve_id) {
+function commonApproveOperation(approve_url, approve_id, user_id) {
     swal({
             title: 'Confirmed?',
             text: "Want To Approve This Requisition!",
             type: "warning",
             showCancelButton: true,
-            confirmButtonClass: "btn-danger",
+            confirmButtonClass: "btn-success",
             confirmButtonText: "Confirm",
             cancelButtonText: 'Cancel',
             closeOnConfirm: false,
@@ -122,7 +122,7 @@ function commonApproveOperation(approve_url, approve_id) {
                     url: baseUrl + approve_url,
                     type: 'GET',
                     dataType: 'json',
-                    data: 'approve_id=' + approve_id,
+                    data: 'approve_id=' + approve_id + "&user_id=" + user_id,
                     success: function(response) {
                         if (response.status == 'success') {
                             $("#row_id_" + approve_id).hide("slow");
@@ -133,7 +133,7 @@ function commonApproveOperation(approve_url, approve_id) {
                     },
                     async: false // <- this turns it into synchronous
                 });
-            }, 2000);
+            }, 500);
         });
 }
 
