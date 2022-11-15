@@ -10,12 +10,12 @@
     <section class="content-header">
         <?php include 'operation_message.php'; ?>
         <h1>
-            RRR Chain Info
-            <small>RRR Chain Create</small>
+            RLP Chain Info
+            <small>RLP Chain Create</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> RRR Chain Create</a></li>
-            <li class="active">RRR Chain Create</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> RLP Chain Create</a></li>
+            <li class="active">RLP Chain Create</li>
         </ol>
     </section>
 

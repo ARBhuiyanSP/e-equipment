@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2022 at 12:08 PM
+-- Generation Time: Nov 15, 2022 at 12:25 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -1879,9 +1879,10 @@ CREATE TABLE `rlp_access_chain` (
 --
 
 INSERT INTO `rlp_access_chain` (`id`, `chain_type`, `division_id`, `department_id`, `project_id`, `rlp_type`, `users`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
-(28, 'default', 1, 11, 21, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-11-14 05:04:58', NULL, NULL),
-(29, 'default', 1, 9, 21, 0, '{\"222\":\"1\",\"616\":\"2\",\"614\":\"3\"}', 1, '2022-11-14 05:05:36', NULL, NULL),
-(30, 'default', 1, 11, 5, 0, '{\"84\":\"1\",\"222\":\"2\",\"616\":\"3\",\"614\":\"4\"}', 1, '2022-11-14 05:07:52', NULL, NULL);
+(31, 'default', 1, 11, 5, 0, '{\"84\":\"1\",\"222\":\"2\"}', 1, '2022-11-14 05:16:48', NULL, NULL),
+(33, 'default', 1, 9, 21, 0, '{\"222\":\"1\"}', 1, '2022-11-14 05:17:00', NULL, NULL),
+(34, 'default', 1, 11, 21, 0, '{\"222\":\"1\"}', 1, '2022-11-14 05:17:10', NULL, NULL),
+(35, 'default', 1, 12, 5, 0, '{\"84\":\"1\",\"222\":\"2\"}', 1, '2022-11-15 02:40:38', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1901,6 +1902,14 @@ CREATE TABLE `rlp_acknowledgement` (
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `rlp_acknowledgement`
+--
+
+INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
+(410, 1, 84, 1, 6, '2022-11-15 14:41:02', '2022-11-15 14:41:47', 1, 3357, 84),
+(411, 1, 222, 2, 1, '2022-11-15 14:41:47', '2022-11-15 14:51:29', 1, 3357, 222);
 
 -- --------------------------------------------------------
 
@@ -1932,6 +1941,13 @@ CREATE TABLE `rlp_details` (
   `details_remarks` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `rlp_details`
+--
+
+INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `purpose`, `quantity`, `estimated_price`, `supplier`, `details_remarks`) VALUES
+(1, 1, 'test 1', 'test 1', '2', 0, '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -1962,6 +1978,13 @@ CREATE TABLE `rlp_info` (
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `rlp_info`
+--
+
+INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `rlp_status`, `is_viewd`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
+(1, 'RLP-2022-11-E Engineering-Civil-0001', 3357, 'ENG-000842', 0, '2022-11-15 12:00:00', 1, 12, 5, 'Zakir Hossain', '36', 'zh@gmail.com', '', 'test 1', 1, 0, 3357, '2022-11-15 02:41:02', 222, '2022-11-15 14:51:30', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -1975,6 +1998,14 @@ CREATE TABLE `rlp_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `rlp_remarks_history`
+--
+
+INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
+(128, 1, 84, 'Approved', '2022-11-15 14:41:47'),
+(129, 1, 222, 'Approved', '2022-11-15 14:51:30');
 
 -- --------------------------------------------------------
 
@@ -2035,8 +2066,8 @@ CREATE TABLE `roles_group` (
 
 INSERT INTO `roles_group` (`id`, `name`, `details`) VALUES
 (1, 'member', '[\"g1\",\"g2\",\"g3\",\"g4\",\"g5\",\"g6\",\"g7\",\"g8\"]'),
-(2, 'acknowledgers', '[\"g9\",\"g10\",\"g11\",\"g12\",\"g13\",\"g14\",\"g15\",\"g16\",\"g17\"]'),
-(3, 'approval', '[\"g18\",\"g19\",\"g20\"]');
+(2, 'acknowledgers', '[\"g9\",\"g10\",\"g11\",\"g12\",\"g13\"]'),
+(3, 'approval', '[\"g14\",\"g15\",\"g16\",\"g17\",\"g18\",\"g19\",\"g20\"]');
 
 -- --------------------------------------------------------
 
@@ -2365,7 +2396,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `office_id`, `role_id`, `designation`, `role_name`, `name`, `email`, `contact_number`, `profile_image`, `signature_image`, `password`, `is_password_changed`, `is_status`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (1, 1, 11, 21, 'SA-000001', 1, NULL, 'sa', 'Super Admin', 'sa@rlp.com', NULL, '', NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2020-03-16 15:03:06', 1, '2022-09-10 17:00:26'),
-(84, 1, 7, 5, 'ENG-000096', 15, '42', '', 'Md. Abdullah-al-mamun', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
+(84, 1, 7, 5, 'ENG-000096', 15, '42', 'g9', 'Md. Abdullah-al-mamun', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-11-15 04:15:27'),
 (222, 1, 9, 21, 'ENG-000257', 13, '21', '', 'Alauddin Ahmed', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
 (328, 1, 11, 0, 'ENG-000363', 8, '60', '', 'Md. Jalil Khan Noyan', '', NULL, NULL, NULL, '4cfbb31c59c26c4f5fb87c46739ea6d3', 0, 1, 0, NULL, NULL, NULL),
 (374, 1, 11, 22, 'ENG-000409', 8, '83', '', 'Md. Ayub Ali', '', NULL, NULL, NULL, '17fda6ddac34ee34949cb5d61587ef78', 0, 1, 0, NULL, NULL, NULL),
@@ -2373,7 +2404,7 @@ INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `office_i
 (614, 5, 26, 0, 'SPL-000001', 20, '112', 'g19', 'Tarafder Md. Ruhul Amin', '123456', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-02-22 22:56:47'),
 (615, 5, 26, 0, 'SPL-000002', 21, '113', '', 'Tarafder Nigar Sultana', '', NULL, NULL, NULL, 'e522c42d71cb28e5811cc071cffce26c', 0, 1, 0, NULL, NULL, NULL),
 (616, 6, 42, 0, 'SPL-000004', 16, '29', 'g18', 'Tarafder Md. Ruhul Saif', '123456', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-02-22 22:56:28'),
-(632, 5, 33, 0, 'SPL-000023', 18, '106', '', 'Md. Fakrul Islam', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
+(632, 5, 33, 0, 'SPL-000023', 18, '106', 'g11', 'Md. Fakrul Islam', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-11-15 04:15:34'),
 (3105, 5, 33, 0, 'SPL-007729', 2, '1', '', 'Atiqur Rahman Bhuiyan', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
 (3246, 0, 0, 0, 'SPPL-000001', 20, '112', '', 'Rubya Chowdhury', '', NULL, NULL, NULL, 'c1b874dc1e6fe8f7880bfad54f607782', 0, 1, 0, NULL, NULL, NULL),
 (3351, 1, 11, 21, 'ENG-001010', 2, '8', 'g7', 'MD. Nahid Hasan', '', NULL, NULL, '1667818730Nahid-Hasan-Sign1.png', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2022-09-11 00:09:55', 1, '2022-11-06 22:58:50'),
@@ -2948,13 +2979,13 @@ ALTER TABLE `recruite_requests`
 -- AUTO_INCREMENT for table `rlp_access_chain`
 --
 ALTER TABLE `rlp_access_chain`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=410;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=412;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -2978,7 +3009,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT for table `roles`
