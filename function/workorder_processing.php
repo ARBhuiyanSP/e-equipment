@@ -119,14 +119,14 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "wo_update_execute")
     date_default_timezone_set("Asia/Dhaka");
     include '../connection/connect.php';
     include '../helper/utilities.php';
-    //$param['wo_no']   =   $_POST['wo_no'];
+    $param['wo_no']   =   $_POST['wo_no'];
     //update_rlp_acknowledgement($param);
-    $dataParam['wo_no']     =   $_POST['wo_no'];
-    $dataParam['status']     =   $_POST['acknowledgement'];
-    $dataParam['updated_by']     =   $_POST['created_by'];
-    $dataParam['updated_at']     =   date("Y-d-m H:i:s");
+    //$dataParam['wo_no']     	=   $_POST['wo_no'];
+    $dataParam['status']     	=   $_POST['acknowledgement'];
+    $dataParam['updated_by']	=   $_POST['created_by'];
+    $dataParam['updated_at']	=   date("Y-d-m H:i:s");
     $where      =   [
-        'id'    =>  $dataParam['wo_no']
+        'id'    =>  $param['wo_no']
     ];
     updateData('workorders_master', $dataParam, $where);
     //save_rlp_remarks();
@@ -140,18 +140,18 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "wo_update_execute")
 
 
 
-function getWorkordersDetailsData($rlp_id){
-    $table      =   "`workorders_master` WHERE `wo_no`='$rlp_id'";
-    $rlp_info   = getDataRowIdAndTable($table);
+function getWorkordersDetailsData($wo_id){
+    $table      =   "`workorders_master` WHERE `wo_no`='$wo_id'";
+    $wo_info   = getDataRowIdAndTable($table);
     
     $order = 'asc';
     $column='id';
-    $table         =   "`workorders` WHERE `wo_no`='$rlp_id'";
-    $rlp_details   = getTableDataByTableName($table, $order, $column);
+    $table         =   "`workorders` WHERE `wo_no`='$wo_id'";
+    $wo_details   = getTableDataByTableName($table, $order, $column);
     
     $feedbackData   =   [
-        'rlp_info'      =>  $rlp_info,
-        'rlp_details'   =>  $rlp_details
+        'wo_info'      =>  $wo_info,
+        'wo_details'   =>  $wo_details
     ];
     return $feedbackData;
 }

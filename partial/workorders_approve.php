@@ -1,9 +1,9 @@
 <?php
     $currentUserId  =   $_SESSION['logged']['user_id'];
     $wo_id         =   $_GET['id'];    
-    $rlp_details    =   getWorkordersDetailsData($wo_id);   
-    $rlp_info       =   $rlp_details['rlp_info'];
-    $rlp_details    =   $rlp_details['rlp_details'];
+    $wo_details    =   getWorkordersDetailsData($wo_id);   
+    $wo_info       =   $wo_details['wo_info'];
+    $wo_details    =   $wo_details['wo_details'];
 ?>
 <!-- Main content -->
 <section class="invoice" id="printableArea">
@@ -16,15 +16,15 @@
 				<p>Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh</p>
 				<h5><b>Work Order</b></h5>
 			</center>
-			<h5><b>Ref : <?php echo $rlp_info->wo_no ?></b></h5>
-			<h5><b>Date : <?php echo human_format_date($rlp_info->created_at) ?></b></h5>
+			<h5><b>Ref : <?php echo $wo_info->wo_no ?></b></h5>
+			<h5><b>Date : <?php echo human_format_date($wo_info->created_at) ?></b></h5>
 			<h5>
-				<b>To,</br><?php echo $rlp_info->supplier_name ?></b></br>
-				Address : <?php echo $rlp_info->address ?></br>
-				Concern person : <?php echo $rlp_info->concern_person ?></br>
-				Call : <?php echo $rlp_info->cell_number ?>, E-Mail:  <?php echo $rlp_info->email ?></br>
+				<b>To,</br><?php echo $wo_info->supplier_name ?></b></br>
+				Address : <?php echo $wo_info->address ?></br>
+				Concern person : <?php echo $wo_info->concern_person ?></br>
+				Call : <?php echo $wo_info->cell_number ?>, E-Mail:  <?php echo $wo_info->email ?></br>
 			</h5>
-			<h5><b>Subject : <?php echo $rlp_info->subject ?></b></h5>
+			<h5><b>Subject : <?php echo $wo_info->subject ?></b></h5>
 		</div>
         <!-- /.col -->
     </div>
@@ -33,7 +33,7 @@
     <!-- Table row -->
         <div class="row">
 			<div class="col-xs-12 table-responsive">
-                <p><?php echo $rlp_info->ns_info ?></p>
+                <p><?php echo $wo_info->ns_info ?></p>
 				<table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -50,7 +50,7 @@
 							$sl =   1;
 							$total = 0;
 							$totalQty = 0;
-                            foreach($rlp_details as $data){
+                            foreach($wo_details as $data){
 								$total += $data->total;
 								$totalQty += $data->quantity;
                         ?>
@@ -65,22 +65,22 @@
                             <?php } ?>
 						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">Sub Total: </td>
-                            <td><?php echo $rlp_info->sub_total; ?></td>
+                            <td><?php echo $wo_info->sub_total; ?></td>
                         </tr>
 						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">AIT: </td>
-                            <td><?php echo $rlp_info->ait; ?></td>
+                            <td><?php echo $wo_info->ait; ?></td>
                         </tr>
 						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">VAT: </td>
-                            <td><?php echo $rlp_info->vat; ?></td>
+                            <td><?php echo $wo_info->vat; ?></td>
                         </tr>
 						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">Grand Total: </td>
-                            <td><?php echo $rlp_info->grand_total; ?></td>
+                            <td><?php echo $wo_info->grand_total; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="7" style="text-align:left"><b>In word: <?php echo convertNumberToWords($rlp_info->grand_total); ?> Only</b></td>
+                            <td colspan="7" style="text-align:left"><b>In word: <?php echo convertNumberToWords($wo_info->grand_total); ?> Only</b></td>
                         </tr>
                     </tbody>
                 </table>
@@ -114,7 +114,7 @@
 				<div class="col-md-4">
 					<?php
 						if(!has_wo_approved($wo_id)){
-							if($currentUserId!=$rlp_info->created_by){
+							if($currentUserId!=$wo_info->created_by){
 					?>
 							<form id="wo_update_form">        
 								<div class="common_individual_section approval_body_section_style">
@@ -126,13 +126,13 @@
 										<label><input type="radio" name="acknowledgement" value="4">Withheld</label>
 									</div>
 								</div>
-								<input type="hidden" name="wo_no" value="<?php echo $rlp_info->id; ?>">
+								<input type="hidden" name="wo_no" value="<?php echo $wo_info->id; ?>">
 								<input type="hidden" name="created_by" value="<?php echo $currentUserId; ?>">
 								<button type="button" class="btn btn-primary btn-block" onclick="execute_wo_update_form('wo_update_form', 'wo_update_execute');">Update</button>
 							</form>
 						<?php
 							
-							if($rlp_info->status == 0){
+							if($wo_info->status == 0){
 						?>
 						<div style="margin: 30% 5% 5% 5%;">
 								<img style="margin-left: 30%" src="images/icon/pending_small.png" class="img img-responsive" />
