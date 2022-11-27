@@ -226,6 +226,44 @@ function get_equipment_data_table(){
 
 }
 </script>
+<!---RLP Duel List----->
+<!---RLP Duel List----->
+<script>
+$(function () {    
+  get_approved_rlp_data_table();
+})
+
+function get_approved_rlp_data_table(){
+
+  let project_id   = '';
+  let sub_project_id   = '';
+    //getDataTablelogsheetList call from  grid_management.php
+    //var url       =   baseUrl + "function/grid_management.php?process_type=getDataTableequipmentList";
+    var url       =   baseUrl + "function/grid_management.php?process_type=getDataTableRlpApproveList";
+//logsheet_list_table  reference logsheet-list.php
+    var userListDataTable   =   $('#approved_rlp_duel_list_table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                url:url,
+                type:'POST',
+                dataType:'json',
+                data: {
+                    project_id		: project_id,
+                    sub_project_id	: sub_project_id
+                }
+            },
+            "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [ -1, 2, 3 ] }
+            ],
+            "lengthMenu": [[10, 100, 250, -1], [10,100, 250,"All"]]
+        });
+
+
+}
+</script>
+<!---RLP Duel List End----->
+<!---RLP Duel List End----->
 <script>
 $(function () {    
   get_ins_data_table();

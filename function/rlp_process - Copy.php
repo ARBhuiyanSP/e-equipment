@@ -72,24 +72,18 @@ function execute_rlp_details_table($rlp_info_id){
      */
     for($count 		= 0; $count<count($_POST['description']); $count++){        
         $description	= (isset($_POST['description'][$count]) && !empty($_POST['description'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['description'][$count])) : '');
-        //$purpose	= (isset($_POST['purpose'][$count]) && !empty($_POST['purpose'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['purpose'][$count])) : '');
+        $purpose	= (isset($_POST['purpose'][$count]) && !empty($_POST['purpose'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['purpose'][$count])) : '');
         $quantity	= (isset($_POST['quantity'][$count]) && !empty($_POST['quantity'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['quantity'][$count])) : '');
-        $unit	= (isset($_POST['unit'][$count]) && !empty($_POST['unit'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit'][$count])) : '');
-        //$estimatedPrice	= (isset($_POST['estimatedPrice'][$count]) && !empty($_POST['estimatedPrice'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['estimatedPrice'][$count])) : '');        
-        $unit_price	= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : '');        
-        $amount	= (isset($_POST['amount'][$count]) && !empty($_POST['amount'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['amount'][$count])) : '');        
+        $estimatedPrice	= (isset($_POST['estimatedPrice'][$count]) && !empty($_POST['estimatedPrice'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['estimatedPrice'][$count])) : '');        
         $supplier	= (isset($_POST['supplier'][$count]) && !empty($_POST['supplier'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['supplier'][$count])) : '');        
         $details_remarks= (isset($_POST['details_remarks'][$count]) && !empty($_POST['details_remarks'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['details_remarks'][$count])) : '');        
         $dataParam     =   [
             'id'                =>  get_table_next_primary_id('rlp_details'),
             'rlp_info_id'       =>  $rlp_info_id,
             'item_des'          =>  $description,
-            //'purpose'           =>  $purpose,
+            'purpose'           =>  $purpose,
             'quantity'          =>  $quantity,
-            'unit'          	=>  $unit,
-            //'estimated_price'   =>  $estimatedPrice,
-            'unit_price'   		=>  $unit_price,
-            'amount'   			=>  $amount,
+            'estimated_price'   =>  $estimatedPrice,
             'supplier'          =>  $supplier,
             'details_remarks'   =>  $details_remarks,
         ];

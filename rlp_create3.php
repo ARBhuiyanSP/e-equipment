@@ -35,7 +35,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <?php include 'partial/rlp_create_form2.php'; ?>
+                        <?php include 'partial/rlp_create_form.php'; ?>
                     </div>
                     <!-- /.box-body -->
                 </div>

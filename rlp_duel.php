@@ -11,14 +11,14 @@
         <?php include 'operation_message.php'; ?>
         <h1>
             Home
-            <small>RLP Info</small>
+            <small>Equipment List</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">RLP Create</li>
+            <li class="active">Equipment List</li>
         </ol>
     </section>
-
+	
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
@@ -26,16 +26,18 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">RLP Create form</h3>
+                        <h3 class="box-title"></h3>
                         <div class="box-tools">
                             <ul class="pagination pagination-sm no-margin pull-right">
-                                <li><a href="rlp_list.php"><i class="fa fa-user-plus"></i> RLP List</a></li>
+                                <?php if(hasAccessPermission($user_id_session, 'crlp', 'view_access')){ ?>
+                                <li><a href="equipment_entry.php"><i class="fa fa-user-plus"></i> Create</a></li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <?php include 'partial/rlp_create_form2.php'; ?>
+                        <?php include 'partial/rlp_duel.php'; ?>
                     </div>
                     <!-- /.box-body -->
                 </div>

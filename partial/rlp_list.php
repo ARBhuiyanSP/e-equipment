@@ -71,11 +71,11 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                             </a>
                             <?php } ?> 
 							
-                            <?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access')){ ?>
+                            <!---  <?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access')){ ?>
                             <a title="Delete RLP" class="btn btn-sm btn-danger" href="javascript:void(0)" onclick="commonDeleteOperation('<?php echo $delUrl ?>', '<?php echo $adata->id ?>');">
                                 <span class="fa fa-close"> Delete</span>
                             </a>
-                            <?php } ?>  
+                            <?php } ?>   --->
 							
 							
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access') && get_status_name($adata->rlp_status)=='Approve'){ ?>

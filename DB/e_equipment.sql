@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2022 at 12:25 PM
+-- Generation Time: Nov 27, 2022 at 12:57 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -1318,6 +1318,14 @@ CREATE TABLE `maintenance` (
   `updated_by` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `maintenance`
+--
+
+INSERT INTO `maintenance` (`id`, `maintenance_id`, `project_id`, `equipment_id`, `lastseervice_date`, `lastservice_hrkm`, `schedule_hrkm`, `present_hrkm`, `nextservice_date`, `nextservice_hrkm`, `dueforservice_hrkm`, `typeofservice_hrkm`, `detailsofmaintenance`, `remarks`, `created_date`, `updated_date`, `created_by`, `updated_by`) VALUES
+(15, '', '15', 'AC-01', '2022-11-16', 1000, 1250, 1200, '2022-11-17', 1450, 50, 250, 'okay', 'okay', '2022-11-16 06:38:38', '2022-11-16 06:38:38', '', ''),
+(16, '', '15', 'AC-01', '2022-11-16', 1200, 1450, 1370, '2022-11-18', 1620, 80, 500, 'okay', 'okay', '2022-11-16 06:39:03', '2022-11-16 06:39:03', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -1436,6 +1444,13 @@ CREATE TABLE `notesheets` (
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `notesheets`
+--
+
+INSERT INTO `notesheets` (`id`, `notesheet_no`, `notesheet_id`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
+(51, 'NS-2022-11-E Engineering-Mechanical-0001', 26, 'RLP-2022-11-E Engineering-Mechanical-0001', 'Purchasing of Air compressor for bhasanchor project', 'EM Solution', '7/A/B, st Floor, Mirpur, Dhaka', 'Kashem Shikder', '01725874689', 'kasehem@gmail.com', 'Air Compressor', '', 'Pics', '10', '23000', '230000.00', '', 'Created', '2022-11-16 11:46:12', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -1466,6 +1481,13 @@ CREATE TABLE `notesheets_master` (
   `created_by` int(20) NOT NULL,
   `is_delete` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notesheets_master`
+--
+
+INSERT INTO `notesheets_master` (`id`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `notesheet_status`, `is_viewd`, `created_at`, `created_by`, `is_delete`) VALUES
+(26, 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Mechanical-0001', 'Purchasing of Air compressor for bhasanchor project', 'TMT-08,BC', 'EM Solution', '7/A/B, st Floor, Mirpur, Dhaka', 'Kashem Shikder', '01725874689', 'kasehem@gmail.com', 0, 230000, 0, 17250, 247250, '', 'Created', 1, 0, '2022-11-16 11:46:12', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1513,6 +1535,15 @@ CREATE TABLE `notesheet_acknowledgement` (
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `notesheet_acknowledgement`
+--
+
+INSERT INTO `notesheet_acknowledgement` (`id`, `notesheet_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
+(403, 26, 222, 1, 1, '2022-11-16 11:46:12', '2022-11-16 11:52:07', 0, 1, 222),
+(404, 26, 616, 1, 0, '2022-11-16 11:52:07', NULL, 1, 1, NULL),
+(405, 26, 614, 1, 0, '2022-11-16 11:46:12', NULL, 1, 1, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1526,6 +1557,34 @@ CREATE TABLE `notesheet_remarks_history` (
   `remarks` longtext NOT NULL,
   `remarks_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notesheet_remarks_history`
+--
+
+INSERT INTO `notesheet_remarks_history` (`id`, `notesheet_id`, `user_id`, `remarks`, `remarks_date`) VALUES
+(91, 26, 222, 'Approved', '2022-11-16 11:52:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notesheet_roles_group`
+--
+
+CREATE TABLE `notesheet_roles_group` (
+  `id` int(11) NOT NULL,
+  `name` varchar(450) NOT NULL,
+  `details` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `notesheet_roles_group`
+--
+
+INSERT INTO `notesheet_roles_group` (`id`, `name`, `details`) VALUES
+(1, 'member', '[\"g1\",\"g2\",\"g3\",\"g4\",\"g5\",\"g6\",\"g7\",\"g8\"]'),
+(2, 'acknowledgers', '[\"g9\",\"g10\",\"g11\",\"g12\",\"g14\",\"g15\",\"g16\",\"g13\"]'),
+(3, 'approval', '[\"g17\",\"g18\",\"g19\",\"g20\"]');
 
 -- --------------------------------------------------------
 
@@ -1909,7 +1968,14 @@ CREATE TABLE `rlp_acknowledgement` (
 
 INSERT INTO `rlp_acknowledgement` (`id`, `rlp_info_id`, `user_id`, `ack_order`, `ack_status`, `ack_request_date`, `ack_updated_date`, `is_visible`, `created_by`, `updated_by`) VALUES
 (410, 1, 84, 1, 6, '2022-11-15 14:41:02', '2022-11-15 14:41:47', 1, 3357, 84),
-(411, 1, 222, 2, 1, '2022-11-15 14:41:47', '2022-11-15 14:51:29', 1, 3357, 222);
+(411, 1, 222, 2, 1, '2022-11-15 14:41:47', '2022-11-15 14:51:29', 1, 3357, 222),
+(412, 2, 222, 1, 1, '2022-11-16 11:32:04', '2022-11-16 11:35:16', 1, 3351, 222),
+(413, 3, 84, 1, 0, '2022-11-27 11:32:51', NULL, 1, 3357, NULL),
+(414, 3, 222, 2, 0, '2022-11-27 11:32:51', NULL, 0, 3357, NULL),
+(415, 4, 84, 1, 0, '2022-11-27 12:24:12', NULL, 1, 3357, NULL),
+(416, 4, 222, 2, 0, '2022-11-27 12:24:12', NULL, 0, 3357, NULL),
+(417, 5, 222, 1, 0, '2022-11-27 17:44:56', NULL, 1, 1, NULL),
+(418, 6, 222, 1, 0, '2022-11-27 17:46:43', NULL, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -1936,6 +2002,9 @@ CREATE TABLE `rlp_details` (
   `item_des` longtext DEFAULT NULL,
   `purpose` longtext DEFAULT NULL,
   `quantity` varchar(100) DEFAULT NULL,
+  `unit` varchar(11) NOT NULL,
+  `unit_price` float NOT NULL,
+  `amount` float NOT NULL,
   `estimated_price` float DEFAULT NULL,
   `supplier` text DEFAULT NULL,
   `details_remarks` text DEFAULT NULL
@@ -1945,8 +2014,16 @@ CREATE TABLE `rlp_details` (
 -- Dumping data for table `rlp_details`
 --
 
-INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `purpose`, `quantity`, `estimated_price`, `supplier`, `details_remarks`) VALUES
-(1, 1, 'test 1', 'test 1', '2', 0, '', '');
+INSERT INTO `rlp_details` (`id`, `rlp_info_id`, `item_des`, `purpose`, `quantity`, `unit`, `unit_price`, `amount`, `estimated_price`, `supplier`, `details_remarks`) VALUES
+(1, 1, 'test 1', 'test 1', '2', '', 0, 0, 0, '', ''),
+(2, 2, 'Air Compressor', 'for bhasanchor project', '10', '', 0, 0, 0, '', ''),
+(3, 3, 'sdfghf', 'sdfgdf', '4', '', 0, 0, 0, '', ''),
+(4, 4, 'test 1', NULL, '3', '', 1200, 3600, NULL, '', ''),
+(5, 4, 'Test 2', NULL, '4', '', 1300, 5200, NULL, '', ''),
+(6, 5, 'sdfd', NULL, '3', 'S', 43, 129, NULL, '', ''),
+(7, 5, 'sadfsd', NULL, '4', 'E', 120, 480, NULL, '', ''),
+(8, 6, 'sdfd', NULL, '34', 'PCS', 45, 1530, NULL, '', ''),
+(9, 6, 'asdf', NULL, '4', 'SET', 56, 224, NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -1969,6 +2046,7 @@ CREATE TABLE `rlp_info` (
   `email` varchar(500) NOT NULL,
   `contact_number` varchar(100) DEFAULT NULL,
   `user_remarks` text DEFAULT NULL,
+  `totalamount` float NOT NULL,
   `rlp_status` tinyint(1) NOT NULL DEFAULT 5,
   `is_viewd` tinyint(1) NOT NULL DEFAULT 0,
   `created_by` int(11) NOT NULL,
@@ -1982,8 +2060,13 @@ CREATE TABLE `rlp_info` (
 -- Dumping data for table `rlp_info`
 --
 
-INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `rlp_status`, `is_viewd`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
-(1, 'RLP-2022-11-E Engineering-Civil-0001', 3357, 'ENG-000842', 0, '2022-11-15 12:00:00', 1, 12, 5, 'Zakir Hossain', '36', 'zh@gmail.com', '', 'test 1', 1, 0, 3357, '2022-11-15 02:41:02', 222, '2022-11-15 14:51:30', 0);
+INSERT INTO `rlp_info` (`id`, `rlp_no`, `rlp_user_id`, `rlp_user_office_id`, `priority`, `request_date`, `request_division`, `request_department`, `request_project`, `request_person`, `designation`, `email`, `contact_number`, `user_remarks`, `totalamount`, `rlp_status`, `is_viewd`, `created_by`, `created_at`, `updated_by`, `updated_at`, `is_delete`) VALUES
+(1, 'RLP-2022-11-E Engineering-Civil-0001', 3357, 'ENG-000842', 0, '2022-11-15 12:00:00', 1, 12, 5, 'Zakir Hossain', '36', 'zh@gmail.com', '', 'test 1', 0, 1, 0, 3357, '2022-11-15 02:41:02', 222, '2022-11-15 14:51:30', 0),
+(2, 'RLP-2022-11-E Engineering-Mechanical-0001', 3351, 'ENG-001010', 2, '2022-11-16 12:00:00', 1, 11, 21, 'MD. Nahid Hasan', '8', 'ENG-001010', '', 'Air Compressor for bhasanchor project', 0, 1, 0, 3351, '2022-11-16 11:32:04', 222, '0000-00-00 00:00:00', 0),
+(3, 'RLP-2022-11-E Engineering-Civil-0002', 3357, 'ENG-000842', 4, '2022-11-27 12:00:00', 1, 12, 5, 'Zakir Hossain', '36', 'zh@gmail.com', '', '', 0, 5, 0, 3357, '2022-11-27 11:32:50', NULL, '0000-00-00 00:00:00', 0),
+(4, 'RLP-2022-11-E Engineering-Civil-0003', 3357, 'ENG-000842', 4, '2022-11-27 12:00:00', 1, 12, 5, 'Zakir Hossain', '36', 'zh@gmail.com', '', 'Test', 5800, 5, 0, 3357, '2022-11-27 12:24:11', NULL, '0000-00-00 00:00:00', 0),
+(5, 'RLP-2022-11-E Engineering-Mechanical-0001', 1, 'SA-000001', 2, '2022-11-27 12:00:00', 1, 11, 21, 'Super Admin', '', 'SA-000001', '', 'dgdsg', 0, 5, 0, 1, '2022-11-27 05:44:56', NULL, '0000-00-00 00:00:00', 0),
+(6, 'RLP-2022-11-E Engineering-Mechanical-0002', 1, 'SA-000001', 2, '2022-11-27 12:00:00', 1, 11, 21, 'Super Admin', '', 'SA-000001', '', 'sdfgdsfg', 0, 5, 0, 1, '2022-11-27 05:46:43', NULL, '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -2005,7 +2088,9 @@ CREATE TABLE `rlp_remarks_history` (
 
 INSERT INTO `rlp_remarks_history` (`id`, `rlp_info_id`, `user_id`, `remarks`, `remarks_date`) VALUES
 (128, 1, 84, 'Approved', '2022-11-15 14:41:47'),
-(129, 1, 222, 'Approved', '2022-11-15 14:51:30');
+(129, 1, 222, 'Approved', '2022-11-15 14:51:30'),
+(130, 2, 222, 'okay', '2022-11-16 11:35:16'),
+(131, 4, 3357, 'Approved', '2022-11-27 14:31:44');
 
 -- --------------------------------------------------------
 
@@ -2335,7 +2420,8 @@ CREATE TABLE `tb_logsheet` (
 --
 
 INSERT INTO `tb_logsheet` (`slno`, `d_date`, `equipment_code`, `project_id`, `operator_id`, `monthname`, `workdetails`, `runninghrkm`, `closehrkm`, `totalhrkm`, `standby`, `hydrolicltr`, `disealltr`, `engineoil`, `greasing`) VALUES
-(22, '2022-09-20', 'AC-01', 15, 0, '', 'Running', 1250, 1320, 70, 'Running', 20, 12, 1, 0);
+(22, '2022-09-20', 'AC-01', 15, 0, '', 'Running', 1250, 1320, 70, 'Running', 20, 12, 1, 0),
+(23, '2022-11-16', 'AC-01', 15, 0, '', 'Okay', 1320, 1420, 100, 'Running', 5, 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -2397,7 +2483,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `branch_id`, `department_id`, `project_id`, `office_id`, `role_id`, `designation`, `role_name`, `name`, `email`, `contact_number`, `profile_image`, `signature_image`, `password`, `is_password_changed`, `is_status`, `created_by`, `created_at`, `updated_by`, `updated_at`) VALUES
 (1, 1, 11, 21, 'SA-000001', 1, NULL, 'sa', 'Super Admin', 'sa@rlp.com', NULL, '', NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, '2020-03-16 15:03:06', 1, '2022-09-10 17:00:26'),
 (84, 1, 7, 5, 'ENG-000096', 15, '42', 'g9', 'Md. Abdullah-al-mamun', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, 1, '2022-11-15 04:15:27'),
-(222, 1, 9, 21, 'ENG-000257', 13, '21', '', 'Alauddin Ahmed', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
+(222, 1, 9, 21, 'ENG-000257', 13, '21', 'g16', 'Alauddin Ahmed', '', NULL, NULL, NULL, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 0, NULL, NULL, NULL),
 (328, 1, 11, 0, 'ENG-000363', 8, '60', '', 'Md. Jalil Khan Noyan', '', NULL, NULL, NULL, '4cfbb31c59c26c4f5fb87c46739ea6d3', 0, 1, 0, NULL, NULL, NULL),
 (374, 1, 11, 22, 'ENG-000409', 8, '83', '', 'Md. Ayub Ali', '', NULL, NULL, NULL, '17fda6ddac34ee34949cb5d61587ef78', 0, 1, 0, NULL, NULL, NULL),
 (396, 1, 11, 12, 'ENG-000431', 5, '92', '', 'Md. Liton Mridha', '', NULL, NULL, NULL, '85797d61d980042b883086f999438a4f', 0, 1, 0, NULL, NULL, NULL),
@@ -2445,6 +2531,14 @@ CREATE TABLE `workorders` (
   `created_by` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `workorders`
+--
+
+INSERT INTO `workorders` (`id`, `wo_no`, `notesheet_no`, `rlp_no`, `subject`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `item`, `part_no`, `unit`, `quantity`, `unit_price`, `total`, `remarks`, `status`, `created_at`, `created_by`) VALUES
+(37, '2022-11-E Engineering-WO-0001', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Mechanical-0001', 'Purchasing of Air compressor for bhasanchor project', 'EM Solution', '7/A/B, st Floor, Mirpur, Dhaka', 'Kashem Shikder', '01725874689', 'kasehem@gmail.com', 'Air Compressor', '', 'Pics', '10', '23000', '230000.00', '', 'Created', '2022-11-16 02:49:35', 1),
+(38, '2022-11-E Engineering-WO-0002', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Mechanical-0001', 'fhd', 'dfghgfh', 'dfhgfg', 'dfghfgh', '1343', 'cvbnv@rtyrt.gy', 'Air Compressor', '', 'Pics', '10', '23000', '230000.00', '', 'Created', '2022-11-20 05:14:20', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -2473,8 +2567,16 @@ CREATE TABLE `workorders_master` (
   `created_at` datetime NOT NULL,
   `created_by` int(20) NOT NULL,
   `updated_by` int(11) NOT NULL,
-  `updated_at` datetime DEFAULT NULL
+  `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `workorders_master`
+--
+
+INSERT INTO `workorders_master` (`id`, `wo_no`, `notesheet_no`, `rlp_no`, `subject`, `ns_info`, `supplier_name`, `address`, `concern_person`, `cell_number`, `email`, `no_of_item`, `sub_total`, `ait`, `vat`, `grand_total`, `remarks`, `status`, `created_at`, `created_by`, `updated_by`, `updated_at`) VALUES
+(10, '2022-11-E Engineering-WO-0001', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Mechanical-0001', 'Purchasing of Air compressor for bhasanchor project', 'Text/ NS Info', 'EM Solution', '7/A/B, st Floor, Mirpur, Dhaka', 'Kashem Shikder', '01725874689', 'kasehem@gmail.com', 0, 230000, 0, 17250, 247250, '', '0', '2022-11-16 02:49:35', 1, 0, '0000-00-00 00:00:00'),
+(11, '2022-11-E Engineering-WO-0002', 'NS-2022-11-E Engineering-Mechanical-0001', 'RLP-2022-11-E Engineering-Mechanical-0001', 'fhd', 'dfghgfh', 'dfghgfh', 'dfhgfg', 'dfghfgh', '1343', 'cvbnv@rtyrt.gy', 0, 230000, 0, 17250, 247250, '', '0', '2022-11-20 05:14:20', 1, 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -2629,6 +2731,12 @@ ALTER TABLE `notesheet_acknowledgement`
 ALTER TABLE `notesheet_remarks_history`
   ADD PRIMARY KEY (`id`),
   ADD KEY `rlp_info_id` (`notesheet_id`);
+
+--
+-- Indexes for table `notesheet_roles_group`
+--
+ALTER TABLE `notesheet_roles_group`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `page_details`
@@ -2865,7 +2973,7 @@ ALTER TABLE `inv_item_unit`
 -- AUTO_INCREMENT for table `maintenance`
 --
 ALTER TABLE `maintenance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `maintenance_cost`
@@ -2901,13 +3009,13 @@ ALTER TABLE `middle_datas`
 -- AUTO_INCREMENT for table `notesheets`
 --
 ALTER TABLE `notesheets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `notesheets_master`
 --
 ALTER TABLE `notesheets_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `notesheet_access_chain`
@@ -2919,13 +3027,19 @@ ALTER TABLE `notesheet_access_chain`
 -- AUTO_INCREMENT for table `notesheet_acknowledgement`
 --
 ALTER TABLE `notesheet_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=403;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=406;
 
 --
 -- AUTO_INCREMENT for table `notesheet_remarks_history`
 --
 ALTER TABLE `notesheet_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+
+--
+-- AUTO_INCREMENT for table `notesheet_roles_group`
+--
+ALTER TABLE `notesheet_roles_group`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `page_details`
@@ -2985,7 +3099,7 @@ ALTER TABLE `rlp_access_chain`
 -- AUTO_INCREMENT for table `rlp_acknowledgement`
 --
 ALTER TABLE `rlp_acknowledgement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=412;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=419;
 
 --
 -- AUTO_INCREMENT for table `rlp_delete_history`
@@ -3009,7 +3123,7 @@ ALTER TABLE `rlp_info`
 -- AUTO_INCREMENT for table `rlp_remarks_history`
 --
 ALTER TABLE `rlp_remarks_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -3051,7 +3165,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `tb_logsheet`
 --
 ALTER TABLE `tb_logsheet`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `temp_info`
@@ -3069,13 +3183,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `workorders`
 --
 ALTER TABLE `workorders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `workorders_master`
 --
 ALTER TABLE `workorders_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

@@ -19,7 +19,7 @@
                         if(isset($priorities) && !empty($priorities)){
                             foreach($priorities as $priority){
                     ?>
-                            <label><input type="radio" name="priority" value="<?php echo $priority->id; ?>" <?php if($priority->name == 'Low'){ echo 'checked';} ?>>                                
+                            <label><input type="radio" name="priority" value="<?php echo $priority->id; ?>" required>                                
                                 <span class="label label-<?php echo $priority->color_code; ?>"><?php echo $priority->name; ?></span>
                             </label>
                     <?php

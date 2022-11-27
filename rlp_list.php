@@ -38,6 +38,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <?php include 'partial/rlp_list.php'; ?>
+                        <?php //include 'partial/rlp_list2.php'; ?>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -52,3 +53,4 @@
 </div>
 <!-- /.content-wrapper -->
 <?php include 'footer.php'; ?>
+

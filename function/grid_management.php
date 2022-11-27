@@ -115,16 +115,16 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableequipme
     
     $totalFilter=$totalData;
     //Search
-    $sql ="SELECT * FROM equipments WHERE 1=1";
-    //$sql ="SELECT equipments.name,equipments.eel_code,equipments.capacity,equipments.makeby,equipments.model, projects.project_name,equipments.present_condition FROM equipments INNER JOIN projects ON equipments.project_id=projects.id WHERE 1=1";
+    //$sql ="SELECT * FROM equipments WHERE 1=1";
+    $sql ="SELECT equipments.name,equipments.eel_code,equipments.capacity,equipments.makeby,equipments.model, projects.project_name,equipments.present_condition FROM equipments INNER JOIN projects ON equipments.project_id=projects.id WHERE 1=1";
     if(!empty($request['search']['value'])){
-        $sql.=" AND name Like '%".$request['search']['value']."%' ";
-        $sql.=" OR eel_code Like '%".$request['search']['value']."%' ";
-        $sql.=" OR capacity Like '%".$request['search']['value']."%' ";
-        $sql.=" OR makeby Like '%".$request['search']['value']."%' ";
-        $sql.=" OR model Like '%".$request['search']['value']."%' ";
-        $sql.=" OR project_id Like '%".$request['search']['value']."%' ";
-        $sql.=" OR present_condition Like '%".$request['search']['value']."%' ";
+        $sql.=" AND equipments.name Like '%".$request['search']['value']."%' ";
+        $sql.=" OR equipments.eel_code Like '%".$request['search']['value']."%' ";
+        $sql.=" OR equipments.capacity Like '%".$request['search']['value']."%' ";
+        $sql.=" OR equipments.makeby Like '%".$request['search']['value']."%' ";
+        $sql.=" OR equipments.model Like '%".$request['search']['value']."%' ";
+        $sql.=" OR projects.project_name Like '%".$request['search']['value']."%' ";
+        $sql.=" OR equipments.present_condition Like '%".$request['search']['value']."%' ";
   
     }
 
@@ -152,10 +152,10 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableequipme
             $subdata[] = (isset($adata->capacity) && !empty($adata->capacity) ? $adata->capacity : 'No data');
             $subdata[] = (isset($adata->makeby) && !empty($adata->makeby) ? $adata->makeby : 'No data');
             $subdata[] = (isset($adata->model) && !empty($adata->model) ? $adata->model : 'No data');
-                $dataresult =   getDataRowByTableAndId('projects', $adata->project_id);
-            $subdata[] = (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : '');
+                //$dataresult =   getDataRowByTableAndId('projects', $adata->project_id);
+				//subdata[] = (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : '');
 
-            //$subdata[] = (isset($adata->project_id) && !empty($adata->project_id) ? $adata->project_id : 'No data');
+            $subdata[] = (isset($adata->project_name) && !empty($adata->project_name) ? $adata->project_name : 'No data');
 
 
 
@@ -201,7 +201,104 @@ function get_equipment_list_action_data($data){
 
 }
 
+/***Rlp Approved List***/
+/***Rlp Approved List***/
+if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableRlpApproveList'){
+    include "../connection/connect.php";
+    include "../helper/utilities.php";
+    
+    $request    =   $_REQUEST;
+    $col        =   array(
+            0   =>  'rlp_no',
+            1   =>  'request_person',
+            2   =>  'rlp_status'
+        );  
+		//create column like table in database
+        //rlp_utilities.php
+    $totalData= getDataRowByTable('rlp_info');
+    
+    $totalFilter=$totalData;
+    //Search
+    $sql ="SELECT * FROM rlp_info WHERE 1=1";
+    //$sql ="SELECT equipments.name,equipments.eel_code,equipments.capacity,equipments.makeby,equipments.model, projects.project_name,equipments.present_condition FROM equipments INNER JOIN projects ON equipments.project_id=projects.id WHERE 1=1";
+    if(!empty($request['search']['value'])){
+        $sql.=" AND rlp_no Like '%".$request['search']['value']."%' ";
+        $sql.=" OR request_person Like '%".$request['search']['value']."%' ";
+        $sql.=" OR rlp_status Like '%".$request['search']['value']."%' ";
+  
+    }
 
+    $totalData=getTotalRowBySQL($sql);
+    //Order
+    $sql.=" ORDER BY ".$col[$request['order'][0]['column']]."   ".$request['order'][0]['dir']."  LIMIT ".
+        $request['start']."  ,".$request['length']."  ";
+    
+    $userData   = getDataRowIdAndTableBySQL($sql);
+    
+    $data=[];
+    
+    
+    $slno   =   1;
+    if (isset($userData) && !empty($userData)) {
+        foreach ($userData as $adata) {
+            $actionData     =   get_approved_rlp_list_action_data($adata);
+
+           
+            $subdata = array();
+            $subdata[] = $adata->id; //id
+			
+            $subdata[] = (isset($adata->rlp_no) && !empty($adata->rlp_no) ? $adata->rlp_no : 'No data');
+            $subdata[] = (isset($adata->request_person) && !empty($adata->request_person) ? $adata->request_person : 'No data');
+            $subdata[] = (isset($adata->rlp_status) && !empty($adata->rlp_status) ? get_status_name($adata->rlp_status) : 'No data');
+                /* $dataresult =   getDataRowByTableAndId('projects', $adata->project_id);
+            $subdata[] = (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : ''); */
+
+
+            $subdata[] = $actionData;
+            $data[] = $subdata;
+        }
+    }
+    $json_data=array(
+        "draw"              =>  intval($request['draw']),
+        "recordsTotal"      =>  intval($totalData),
+        "recordsFiltered"   =>  intval($totalFilter),
+        "data"              =>  $data
+    );
+    
+    echo json_encode($json_data);
+
+
+}
+
+
+function get_approved_rlp_list_action_data($data){
+   $edit_url = 'rlp_update.php?rlp_id='.$data->id;
+   $shifting_url = 'equipment_shifting.php?id='.$data->id;
+   $view_url = 'equipment_view.php?id='.$data->id;
+    $history_url = '#';
+    $action = "";
+	
+	if($data->rlp_status != 1)
+	{
+    $action.='<span><a title="Edit RLP Data" class="btn btn-sm btn-warning" href="'.$edit_url.'">
+                                <span class="fa fa-edit"> <b>Edit</b></span>
+	</a></span>'; 
+	}
+	$action.='<span><a title="Edit Equipment Data" class="btn btn-sm btn-success" href="'.$view_url.'">
+                                <span class="fa fa-edit"> <b>Details</b></span>
+                            </a></span>';
+	$action.='<span><a title="Edit Equipment Data" class="btn btn-sm btn-info" href="'.$shifting_url.'">
+                                <span class="fa fa-edit"> <b>Shifting</b></span>
+                            </a></span>';
+	$action.='<span><a title="Edit Equipment Data" class="btn btn-sm btn-success" href="'.$history_url.'">
+                                <span class="fa fa-edit"> <b>History</b></span>
+                            </a></span>';
+
+    return $action;
+
+}
+/***Rlp Approved List End***/
+/***Rlp Approved List End***/
 /////////////////////
 if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTablenotesheetsList'){
 	
