@@ -86,7 +86,7 @@
         </div>
     <!-- /.row -->
     <?php
-    $role       =   get_role_group_short_name();
+    $role       =   get_notesheet_role_group_short_name();
     
     if(is_super_admin($currentUserId)){
         include 'notesheet_update_view_sa.php';

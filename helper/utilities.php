@@ -611,14 +611,17 @@ function get_rlp_no($prefix="RLP", $formater_length=4){
     
     $year       =   date("Y");
     $month      =   date("m");
-    $sql        = "SELECT count('id') as total FROM rlp_info WHERE YEAR(created_at) = '$year' AND MONTH(created_at) = $month AND is_delete=0 AND rlp_user_id=$user_id AND request_division=$division_id AND request_department=$department_id";
+    $sql        = "SELECT count('id') as total FROM rlp_info WHERE YEAR(created_at) = '$year' AND MONTH(created_at) = $month AND is_delete=0 AND request_division=$division_id AND request_department=$department_id";
     $result     = $conn->query($sql);
     $total_row  =   $result->fetch_object()->total;
     
     $nextRLP    =   $total_row+1;
     $finalRLPNo = sprintf('%0' . $formater_length . 'd', $nextRLP);
-    $divName    = replace_dashes(getDivisionNameById($division_id));
-    $depName    = replace_dashes(getDepartmentNameById($department_id));
+    //$divName    = replace_dashes(getDivisionNameById($division_id));
+    $divName    = 'ENG';
+    //$depName    = replace_dashes(getDepartmentNameById($department_id));
+    $dep    = replace_dashes(getDepartmentNameById($department_id));
+    $depName    = mb_substr($dep, 0, 3);
     
     return $prefix."-".$year."-".$month."-".$divName.'-'.$depName.'-'.$finalRLPNo;
 }
@@ -639,8 +642,11 @@ function get_notesheet_no($prefix="NS", $formater_length=4){
     
     $nextRLP    =   $total_row+1;
     $finalRLPNo = sprintf('%0' . $formater_length . 'd', $nextRLP);
-    $divName    = replace_dashes(getDivisionNameById($division_id));
-    $depName    = replace_dashes(getDepartmentNameById($department_id));
+    //$divName    = replace_dashes(getDivisionNameById($division_id));
+    $divName    = 'ENG';
+    //$depName    = replace_dashes(getDepartmentNameById($department_id));
+    $dep    = replace_dashes(getDepartmentNameById($department_id));
+    $depName    = mb_substr($dep, 0, 3);
     
     return $prefix."-".$year."-".$month."-".$divName.'-'.$depName.'-'.$finalRLPNo;
 }
@@ -684,8 +690,11 @@ function get_wo_no($prefix="WO", $formater_length=4){
     
     $nextRLP    =   $total_row+1;
     $finalRLPNo = sprintf('%0' . $formater_length . 'd', $nextRLP);
-    $divName    = replace_dashes(getDivisionNameById($division_id));
-    $depName    = replace_dashes(getDepartmentNameById($department_id));
+    //$divName    = replace_dashes(getDivisionNameById($division_id));
+    $divName    = 'ENG';
+    //$depName    = replace_dashes(getDepartmentNameById($department_id));
+    $dep    = replace_dashes(getDepartmentNameById($department_id));
+    $depName    = mb_substr($dep, 0, 3);
     
     return $year."-".$month."-".$divName.'-'.$prefix.'-'.$finalRLPNo;
 }
@@ -1309,6 +1318,13 @@ function is_password_changed(){
 
 function get_role_group($name){
     $table  = "roles_group WHERE name = '$name'";
+    $res    = getDataRowIdAndTable($table);
+    $details    = json_decode($res->details);
+    return $details;
+}
+
+function get_noteshet_role_group($name){
+    $table  = "notesheet_roles_group WHERE name = '$name'";
     $res    = getDataRowIdAndTable($table);
     $details    = json_decode($res->details);
     return $details;

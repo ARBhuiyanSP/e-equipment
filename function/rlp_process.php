@@ -35,6 +35,9 @@ function execute_rlp_info_table(){
     global $conn;
     $date		= (isset($_POST['date']) && !empty($_POST['date']) ? trim(mysqli_real_escape_string($conn,$_POST['date'])) : date("Y-m-d"));
     $priority		= (isset($_POST['priority']) && !empty($_POST['priority']) ? trim(mysqli_real_escape_string($conn,$_POST['priority'])) : "");
+    $request_division		= (isset($_POST['request_division']) && !empty($_POST['request_division']) ? trim(mysqli_real_escape_string($conn,$_POST['request_division'])) : "");
+    $request_department		= (isset($_POST['request_department']) && !empty($_POST['request_department']) ? trim(mysqli_real_escape_string($conn,$_POST['request_department'])) : "");
+    $request_project		= (isset($_POST['request_project']) && !empty($_POST['request_project']) ? trim(mysqli_real_escape_string($conn,$_POST['request_project'])) : "");
     $rlpNo		= (isset($_POST['rlp_no']) && !empty($_POST['rlp_no']) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_no'])) : "");
     $remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
     
@@ -49,9 +52,9 @@ function execute_rlp_info_table(){
         'rlp_user_office_id'    =>  $_SESSION['logged']['office_id'],
         'priority'              =>  $priority,
         'request_date'          =>  date('Y-m-d h:i:s', strtotime($date)),
-        'request_division'      =>  $_SESSION['logged']['branch_id'],
-        'request_department'    =>  $_SESSION['logged']['department_id'],
-        'request_project'   	=>  $_SESSION['logged']['project_id'],
+        'request_division'      =>  $request_division,
+        'request_department'    =>  $request_department,
+        'request_project'   	=>  $request_project,
         'request_person'        =>  $_SESSION['logged']['user_name'],
         'designation'           =>  $_SESSION['logged']['designation'],
         'email'                 =>  $_SESSION['logged']['email'],

@@ -154,7 +154,7 @@ function update_supplier_details(){
 // get rlp list data depends on user:
 function getNotesheetListData(){
     $user_id            =   $_SESSION['logged']['user_id'];
-    $role       =   get_role_group_short_name();
+    $role       =   get_notesheet_role_group_short_name();
     switch ($role){
         case 'sa':
             $table      = 'notesheets_master WHERE is_delete = 0';
@@ -202,12 +202,12 @@ function getNotesheetListData(){
     return $listData;
 }
 
-/* function get_role_group_short_name(){
+function get_notesheet_role_group_short_name(){
     $role_id            =   $_SESSION['logged']['role_id'];    
     $role_name          =   get_role_shortcode_by_role_id($role_id);
-    $memberRoles        =   get_role_group('member'); 
-    $approvalRoles      =   get_role_group('approval'); 
-    $acknowledgeRoles   =   get_role_group('acknowledgers');
+    $memberRoles        =   get_noteshet_role_group('member'); 
+    $approvalRoles      =   get_noteshet_role_group('approval'); 
+    $acknowledgeRoles   =   get_noteshet_role_group('acknowledgers');
     if(in_array($role_name, $memberRoles)){
         $role_short_name           =      'member';
     }elseif(in_array($role_name, $acknowledgeRoles)){
@@ -219,7 +219,7 @@ function getNotesheetListData(){
     }
     
     return $role_short_name;
-} */
+} 
 
 function getNotesheetAcknowledgeData($user_id, $column='created_at', $order="DESC"){    
     $sql    =   "SELECT ri.*

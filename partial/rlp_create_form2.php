@@ -4,7 +4,73 @@
 ?>
 <form action="" method="post">
     <div class="row">
-        <div class="col-sm-4">
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="sel1">Division:</label>
+				 <?php if (is_super_admin($user_id_session)) { ?>
+				<select class="form-control" id="branch_id" name="request_division" onchange="getDepartmentByBranch(this.value);">
+					<option value="">Please select</option>
+					<?php
+					$table = "branch";
+					$order = "ASC";
+					$column = "name";
+					$datas = getTableDataByTableName($table, $order, $column);
+					foreach ($datas as $data) {
+						?>
+						<option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
+					<?php } ?>
+				</select>
+				 <?php } else{?>
+				 <input type="text" class="form-control" value="<?php echo getDivisionNameById($_SESSION['logged']['branch_id']); ?>" readonly />
+				 <input name="request_division" type="hidden" value="<?php echo $_SESSION['logged']['branch_id']; ?>" />
+				 <?php } ?>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="sel1">Department:</label>
+				<?php if (is_super_admin($user_id_session)) { ?>
+				<select class="form-control" id="department_id" name="request_department">
+					<option value="">Please select</option>
+					<?php
+					$table = "department";
+					$order = "ASC";
+					$column = "name";
+					$datas = getTableDataByTableName($table, $order, $column);
+					foreach ($datas as $data) {
+						?>
+						<option value="<?php echo $data->id; ?>"><?php echo $data->name; ?></option>
+					<?php } ?>
+				</select>
+				<?php } else{?>
+				 <input type="text" class="form-control" value="<?php echo getDepartmentNameById($_SESSION['logged']['department_id']); ?>" readonly />
+				 <input name="request_department" type="hidden" value="<?php echo $_SESSION['logged']['department_id']; ?>" />
+				 <?php } ?>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="form-group">
+				<label for="sel1">Project:</label>
+				<?php if (is_super_admin($user_id_session)) { ?>
+				<select class="form-control" id="project_id" name="request_project">
+					<option value="">Please select</option>
+					<?php
+					$table = "projects";
+					$order = "ASC";
+					$column = "project_name";
+					$datas = getTableDataByTableName($table, $order, $column);
+					foreach ($datas as $data) {
+						?>
+						<option value="<?php echo $data->id; ?>"><?php echo $data->project_name; ?></option>
+					<?php } ?>
+				</select>
+				<?php } else{?>
+				 <input type="text" class="form-control" value="<?php echo getProjectNameById($_SESSION['logged']['project_id']); ?>" readonly />
+				 <input name="request_project" type="hidden" value="<?php echo $_SESSION['logged']['project_id']; ?>" />
+				 <?php } ?>
+			</div>
+		</div>
+		<div class="col-sm-4">
             <div class="form-group">
                 <label for="exampleId">Date</label>
                 <input name="date" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />

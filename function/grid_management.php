@@ -99,7 +99,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableequipme
     include "../helper/utilities.php";
   
     
-    $request    =   $_REQUEST;
+   $request    =   $_REQUEST;
     $col        =   array(
             0   =>  'name',
             1   =>  'eel_code',
@@ -115,16 +115,16 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableequipme
     
     $totalFilter=$totalData;
     //Search
-    //$sql ="SELECT * FROM equipments WHERE 1=1";
-    $sql ="SELECT equipments.name,equipments.eel_code,equipments.capacity,equipments.makeby,equipments.model, projects.project_name,equipments.present_condition FROM equipments INNER JOIN projects ON equipments.project_id=projects.id WHERE 1=1";
+    $sql ="SELECT * FROM equipments WHERE 1=1";
+    //$sql ="SELECT equipments.name,equipments.eel_code,equipments.capacity,equipments.makeby,equipments.model, projects.project_name,equipments.present_condition FROM equipments INNER JOIN projects ON equipments.project_id=projects.id WHERE 1=1";
     if(!empty($request['search']['value'])){
-        $sql.=" AND equipments.name Like '%".$request['search']['value']."%' ";
-        $sql.=" OR equipments.eel_code Like '%".$request['search']['value']."%' ";
-        $sql.=" OR equipments.capacity Like '%".$request['search']['value']."%' ";
-        $sql.=" OR equipments.makeby Like '%".$request['search']['value']."%' ";
-        $sql.=" OR equipments.model Like '%".$request['search']['value']."%' ";
-        $sql.=" OR projects.project_name Like '%".$request['search']['value']."%' ";
-        $sql.=" OR equipments.present_condition Like '%".$request['search']['value']."%' ";
+        $sql.=" AND name Like '%".$request['search']['value']."%' ";
+        $sql.=" OR eel_code Like '%".$request['search']['value']."%' ";
+        $sql.=" OR capacity Like '%".$request['search']['value']."%' ";
+        $sql.=" OR makeby Like '%".$request['search']['value']."%' ";
+        $sql.=" OR model Like '%".$request['search']['value']."%' ";
+        $sql.=" OR project_id Like '%".$request['search']['value']."%' ";
+        $sql.=" OR present_condition Like '%".$request['search']['value']."%' ";
   
     }
 
@@ -152,10 +152,10 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableequipme
             $subdata[] = (isset($adata->capacity) && !empty($adata->capacity) ? $adata->capacity : 'No data');
             $subdata[] = (isset($adata->makeby) && !empty($adata->makeby) ? $adata->makeby : 'No data');
             $subdata[] = (isset($adata->model) && !empty($adata->model) ? $adata->model : 'No data');
-                //$dataresult =   getDataRowByTableAndId('projects', $adata->project_id);
-				//subdata[] = (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : '');
+                $dataresult =   getDataRowByTableAndId('projects', $adata->project_id);
+            $subdata[] = (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : '');
 
-            $subdata[] = (isset($adata->project_name) && !empty($adata->project_name) ? $adata->project_name : 'No data');
+            //$subdata[] = (isset($adata->project_id) && !empty($adata->project_id) ? $adata->project_id : 'No data');
 
 
 
