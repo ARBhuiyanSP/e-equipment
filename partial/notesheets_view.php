@@ -98,24 +98,24 @@
 				</ul>
             </div>
 			<div class="row">
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>Asst. Manager(Mechanical)</center>
-				</div>
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>Logistic Incharge</center>
-				</div>
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>Head of Accounts</center>
-				</div>
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>ED(Mechanical)</center>
-				</div>
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>Director</center>
-				</div>
-				<div class="col-sm-4 col-xs-4" style="padding-top:100px;">
-					<center>________________________</br>Chairman</center>
-				</div>
+								<?php
+								$table = "notesheet_acknowledgement WHERE notesheet_id=$notesheet_id";
+								$order = 'DESC';
+								$column = 'ack_request_date';
+								$allRemarksHistory = getTableDataByTableName($table, $order, $column);
+									if (isset($allRemarksHistory) && !empty($allRemarksHistory)) {
+									foreach ($allRemarksHistory as $dat) {
+								?>
+								
+								<?php //echo (isset($dat->ack_updated_date) && !empty($dat->ack_updated_date) ? human_format_date($dat->ack_updated_date) : ""); ?>
+								<div class="col-sm-3 col-xs-3" style="padding-top:100px;">
+									<center><?php //echo get_status_name($dat->ack_status) ?></br><?php //echo getUserNameByUserId($dat->user_id) ?></br>________________________</br><?php echo getDesignationByUserId($dat->user_id) ?></center>
+								</div>
+								<?php
+								}
+							}
+							?>
+				
 			</div>
             <!-- /.col -->
         </div>
