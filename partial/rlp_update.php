@@ -52,9 +52,7 @@
                             <th>Item Description</th>
                             <th>Purpose of Purchase</th>
                             <th>Quantity</th>
-                            <th>Estimated Price</th>
-                            <th>Supplier</th>
-                            <th>Remarks</th>
+                            <th>Unit Price</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -69,7 +67,7 @@
                             <td><?php echo $data->item_des; ?></td>
                             <td><?php echo $data->purpose; ?></td>
                             <td><?php echo $data->quantity; ?></td>
-                            <td><?php echo $data->estimated_price; ?></td>
+                            <td><?php echo $data->unit_price; ?></td>
                             <?php if(is_super_admin($currentUserId)){ ?>
                             <td>
                                 <div class="form-group">
@@ -83,16 +81,13 @@
                             </td>
 							<td><a class="btn btn-xs delete-record" data-id="<?php echo $dataid++; ?>"><i class="glyphicon glyphicon-trash"></i></a></td>
                             <?php }else{ ?>
-                            <td><?php echo $data->supplier; ?></td>
-                            <td><?php echo $data->details_remarks; ?></td>
+                            
                             <?php } ?>
                         </tr>                        
                             <?php } ?>
                         <?php if(is_super_admin($currentUserId)){ ?>
                         <tr>
-                            <td colspan="7">
-                                <button type="button" class="btn btn-primary btn-block" onclick="execute_rlp_supplier_update_form('rlp_product_supplier_assign_form');">Update Supplier</button>
-                            </td>
+                            
                         </tr>
                         <?php }?>
                     </tbody>
