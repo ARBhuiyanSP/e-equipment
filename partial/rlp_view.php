@@ -57,6 +57,7 @@
                         <th>Item Description</th>
                         <th>Purpose of Purchase</th>
                         <th>Quantity</th>
+                        <th>Unit</th>
                         <th>Estimated Price</th>
                     </tr>
                 </thead>
@@ -70,6 +71,7 @@
                         <td><?php echo $data->item_des; ?></td>
                         <td><?php echo $data->purpose; ?></td>
                         <td><?php echo $data->quantity; ?></td>
+                        <td><?php echo $data->unit; ?></td>
                         <td><?php if ($data->unit_price > 0){echo $data->unit_price;}else{echo '-';} ?></td>
                     </tr>
                         <?php } ?>
