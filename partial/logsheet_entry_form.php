@@ -111,7 +111,7 @@
         </div>
         <div class="col-sm-2">
             <div class="form-group">
-                <label for="exampleId">Stand By</label>
+                <label for="exampleId">Status</label>
                 <input name="standby" type="text" class="form-control" id="standby" value="" autocomplete="off" required />
 				<select calss="form-control select2">
 					<option value="">Select</option>
