@@ -140,7 +140,7 @@
 									</div>
 									<div class="col-sm-2">
 										<div class="form-group">
-											<label for="exampleId">Stand By</label>
+											<label for="exampleId">Status</label>
 											
 											<select class="form-control select2"  name="standby">
 												<option value="">Select</option>
