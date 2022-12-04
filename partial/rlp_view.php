@@ -70,7 +70,7 @@
                         <td><?php echo $data->item_des; ?></td>
                         <td><?php echo $data->purpose; ?></td>
                         <td><?php echo $data->quantity; ?></td>
-                        <td><?php echo $data->estimated_price; ?></td>
+                        <td><?php if ($data->unit_price > 0){echo $data->unit_price;}else{echo '-';} ?></td>
                     </tr>
                         <?php } ?>
                 </tbody>
