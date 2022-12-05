@@ -600,7 +600,7 @@ function get_table_next_primary_id($table){
     $nextRow    =   $total_row+1;
     return $nextRow;
 }
-function get_rlp_no($prefix="RLP", $formater_length=4){
+function get_rlp_no($prefix="RLP", $formater_length=3){
     global $conn;
     
     $division_id    =   $_SESSION['logged']['branch_id'];
@@ -625,7 +625,7 @@ function get_rlp_no($prefix="RLP", $formater_length=4){
     
     return $prefix."-".$year."-".$month."-".$divName.'-'.$depName.'-'.$finalRLPNo;
 }
-function get_notesheet_no($prefix="NS", $formater_length=4){
+function get_notesheet_no($prefix="NS", $formater_length=3){
     global $conn;
     
     $division_id    =   $_SESSION['logged']['branch_id'];
@@ -650,7 +650,7 @@ function get_notesheet_no($prefix="NS", $formater_length=4){
     
     return $prefix."-".$year."-".$month."-".$divName.'-'.$depName.'-'.$finalRLPNo;
 }
-function get_mcsl_no($prefix="MCSL", $formater_length=4){
+function get_mcsl_no($prefix="MCSL", $formater_length=3){
     global $conn;
     
     $division_id    =   $_SESSION['logged']['branch_id'];
@@ -673,7 +673,7 @@ function get_mcsl_no($prefix="MCSL", $formater_length=4){
     
     return $year."-".$month."-".$divName.'-'.$prefix.'-'.$finalRLPNo;
 }
-function get_wo_no($prefix="WO", $formater_length=4){
+function get_wo_no($prefix="WO", $formater_length=3){
     global $conn;
     
     $division_id    =   $_SESSION['logged']['branch_id'];

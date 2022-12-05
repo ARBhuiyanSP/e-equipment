@@ -106,12 +106,12 @@
     </div>
 					<table class="table table-bordered" id="dynamic_field">
                         <thead>
-							<th width="35%">Item Description</th>
-							<th width="25%">Purpose</th>
-							<th width="5%">Qty <span class="reqfield"> ***</span></th>
-							<th width="10%">Unit</th>
-							<th width="10%">Unit Price</th>
-							<th width="10%">Amount</th>
+							<th width="37%">Item Description</th>
+							<th width="27%">Purpose</th>
+							<th width="8%">Qty <span class="reqfield"> ***</span></th>
+							<th width="7%">Unit</th>
+							<th width="8%">Unit Price</th>
+							<th width="8%">Amount</th>
 							<th width="5%"></th>
                         </thead>
 						<tbody>
