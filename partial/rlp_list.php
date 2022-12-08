@@ -110,7 +110,7 @@ if (isset($rlpListData) && !empty($rlpListData)) {
 <script>
 $(document).ready(function () {
     $('#rlp_list_table').DataTable({
-        scrollY: '500px',
+        scrollY: '400px',
         scrollCollapse: true,
         paging: false,
     });
