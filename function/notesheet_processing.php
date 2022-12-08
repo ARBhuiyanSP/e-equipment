@@ -9,8 +9,9 @@ if (isset($_POST['create_notesheet']) && !empty($_POST['create_notesheet'])){
     
     /*
      * *****************************rlp_info table operation********************
-     */    
-    $notesheets_info_response  =   execute_notesheets_master_table();
+     */   
+	$file_path    = "../uploads/file/";
+    $notesheets_info_response  =   execute_notesheets_master_table($file_path);
     if(isset($notesheets_info_response) && $notesheets_info_response['status'] == "success"){
         $notesheet_id    =   $notesheets_info_response['last_id'];
         /*
@@ -31,7 +32,7 @@ if (isset($_POST['create_notesheet']) && !empty($_POST['create_notesheet'])){
     exit();
 }
 
-function execute_notesheets_master_table(){
+function execute_notesheets_master_table($file_path = "../uploads/file/"){
 		global $conn;
 		$notesheet_no		= (isset($_POST['notesheet_no']) && !empty($_POST['notesheet_no']) ? trim(mysqli_real_escape_string($conn,$_POST['notesheet_no'])) : "");
 		$rlp_no		= (isset($_POST['rlp_no']) && !empty($_POST['rlp_no']) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_no'])) : "");
@@ -47,7 +48,10 @@ function execute_notesheets_master_table(){
 		//$remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
 		$vat		= (isset($_POST['vat']) && !empty($_POST['vat']) ? trim(mysqli_real_escape_string($conn,$_POST['vat'])) : "");
 		$grand_total		= (isset($_POST['grand_total']) && !empty($_POST['grand_total']) ? trim(mysqli_real_escape_string($conn,$_POST['grand_total'])) : "");
-                       
+		$terms_condition		= (isset($_POST['terms_condition']) && !empty($_POST['terms_condition']) ? trim(mysqli_real_escape_string($conn,$_POST['terms_condition'])) : "");
+          
+
+		 $file     =   attached_file_upload($file_path);
         $dataParam     =   [
             //'id'                =>  get_table_next_primary_id('rlp_details'),
             'notesheet_no'	=>  $notesheet_no,
@@ -56,7 +60,7 @@ function execute_notesheets_master_table(){
             'ns_info'	=>  $ns_info,
             'supplier_name'	=>  $supplier_name,
             'address' 		=>  $address,
-            'concern_person' =>  $concern_person,
+            'concern_person' => $concern_person,
             'cell_number'   =>  $cell_number,
             'email'       	=>  $email,
             //'no_of_item'       	=>  $no_of_material,
@@ -64,13 +68,29 @@ function execute_notesheets_master_table(){
             'ait'	 	=>  $ait,
             'vat' 	=>  $vat,
             'grand_total' 	 	=>  $grand_total,
+            'terms_condition' 	 	=>  $terms_condition,
             'status'		=>  'Created',
+			'attached_file'            	=>  $file,
 			'created_at'	=>  date('Y-m-d h:i:s'),
 			'created_by'	=>  $_SESSION['logged']['user_id']
         ];
     
     $response   =   saveData("notesheets_master", $dataParam);
     return $response;
+}
+
+function attached_file_upload($file_path){
+
+    if (is_uploaded_file($_FILES['sn_prt_file']['tmp_name'])) {
+        $temp_file = $_FILES['sn_prt_file']['tmp_name'];
+        $file = time() . $_FILES['sn_prt_file']['name'];
+        // move_uploaded_file($temp_file, $file_path . $file);
+        move_uploaded_file($temp_file, "uploads/file/" . $file);
+    } else {
+        $file = $_POST["sn_prt_file"];
+    }
+
+    return $file;
 }
 
 function execute_notesheet_details_table($notesheet_id){
@@ -111,7 +131,7 @@ function execute_notesheet_details_table($notesheet_id){
             'quantity'	 	=>  $quantity,
             'unit_price' 	=>  $unit_price,
             'total' 	 	=>  $total,
-            //'remarks'		=>  $remarks,
+            'remarks'		=>  $remarks,
             'status'		=>  'Created',
 			'created_at'	=>  date('Y-m-d h:i:s'),
 			'created_by'	=>  $_SESSION['logged']['user_id']

@@ -5,9 +5,10 @@
     $rlp_info       =   $rlp_details['rlp_info'];
     $rlp_details    =   $rlp_details['rlp_details'];
 ?>
+<link rel='stylesheet prefetch' href='css/summernote.min.css'>
 <!-- Main content -->
 <section class="invoice">
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
     <!-- title row -->
     <div class="row">
         <div class="col-xs-12">
@@ -167,6 +168,32 @@
                 </table>
             </div>
             <!-- /.col -->
+			<div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleId">Attachment</label>
+                    <input class="" type="file" id="" name="sn_prt_file">
+                </div>
+            </div>
+			<div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleId">Terms & Conditions</label>
+					<textarea class="form-control code_preview0" id="" name="terms_condition" style="height: 150px;">
+						<ul>
+
+							<li>Date of Commencement</li>
+
+							<li>Delivery of Goods: Within 03(Three) days after receiving the work order.</li>
+
+							<li>Mode of payment: After 45 days from the date of bill Submission.</li>
+
+							<li>The above rate includes VAT, AIT &amp; other Taxes.</li>
+
+							<li>Transport &amp; Courier costs will be charged by Buyers.</li>
+
+						</ul>
+					</textarea>
+                </div>
+            </div>
         </div>
 		<div class="row">
 			<div class="col-md-12">
@@ -256,3 +283,9 @@ calculate();
 
 
 </script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.code_preview0').summernote({height: 150});
+    });
+</script>
+<script src='js/summernote.min.js'></script>

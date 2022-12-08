@@ -85,17 +85,49 @@
                     </tbody>
                 </table>
             </div>
+			<!---- Attachment View----->
+			<div class="col-xs-12">
+				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">View Attachment</button>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Attachment</h4>
+							</div>
+							<div class="modal-body">
+								<object
+									data='uploads/file/<?php echo $notesheets_master->attached_file; ?>'
+									type="application/pdf"
+									width="100%"
+									height="500"
+								  >
+
+									<iframe
+									  src='uploads/file/<?php echo $notesheets_master->attached_file; ?>'
+									  width="100%"
+									  height="500"
+									>
+									<p>Not Supported !</p>
+									</iframe>
+								  </object>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!---- Attachment View----->
 			<div class="col-xs-12 table-responsive">
 				<p>This is for your kind approval.</p>
 				<p style="text-decoration:underline;"><b>Other terms and conditions</b></p>
-				<ul>
-					<li> Date of Commencement</li>
-					<li> Delivery of Goods: Within 03(Three) days after receiving the work order.</li>
-					<li> Mode of payment: After 45 days from the date of bill Submission.</li>
-					<li> Avobe rate is includig VAT, AIT & other Taxes.</li>
-					<li> Transport & Courier cost will be charged by Buyers.</li>
-					<li> Supply Location: Mongla Project Contact Person:Shadat Babu, 01729714503(Manager, mechanical)</li>
-				</ul>
+				<?php echo $notesheets_master->terms_condition; ?>
             </div>
 			<div class="row">
 								<?php

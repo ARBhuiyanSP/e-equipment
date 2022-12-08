@@ -98,7 +98,15 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <label for="exampleId">RLP No</label>
-                <?php $rlpNo    =   get_rlp_no(); ?>
+                <?php
+				$prefix="RLP";
+				$formater_length=3;				
+				$division_id    =   $_SESSION['logged']['branch_id'];
+				$department_id  =   $_SESSION['logged']['department_id'];
+				$office_id      =   $_SESSION['logged']['office_id'];
+				$user_id        =   $_SESSION['logged']['user_id'];
+				
+				$rlpNo    =   get_rlp_no($prefix,$formater_length,$division_id,$department_id); ?>
                 <div class="rlpno_style"><?php echo $rlpNo; ?></div>
                 <input type="hidden" name="rlp_no" value="<?php echo $rlpNo; ?>">
             </div>
@@ -125,6 +133,8 @@
 										<option value="SET">SET</option>
 										<option value="KG">KG</option>
 										<option value="LTR">LTR</option>
+										<option value="FEET">FEET</option>
+										<option value="PACKET">PACKET</option>
 									</select>
 								</td>
 								<td><input type="text" name="unit_price[]" id="unit_price0" onkeyup="sum(0)" class="form-control" ></td>
@@ -148,7 +158,7 @@
 						$(document).ready(function () {
 							$('#add').click(function () {
 								i++;
-								$('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="description[]" id="" class="form-control" required></td><td><input type="text" name="purpose[]" id="" class="form-control" required></td><td><input type="number" name="quantity[]" id="quantity' + i + '" class="form-control common_issue_quantity" required></td><td><select class="form-control" name="unit[]"><option value="PCS">PCS</option><option value="SET">SET</option><option value="KG">KG</option><option value="LTR">LTR</option></select></td><td><input type="text" name="unit_price[]" id="unit_price' + i + '" onkeyup="sum(' + i + ')" class="form-control"></td><td><input type="text" name="amount[]" id="sum' + i + '" class="form-control" readonly ></td><td><button type="button" name="remove" id="' + i + '" class="btn btn_remove" style="background-color:#f26522;color:#ffffff;">X</button></td></tr>');
+								$('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="description[]" id="" class="form-control" required></td><td><input type="text" name="purpose[]" id="" class="form-control" required></td><td><input type="number" name="quantity[]" id="quantity' + i + '" class="form-control common_issue_quantity" required></td><td><select class="form-control" name="unit[]"><option value="PCS">PCS</option><option value="SET">SET</option><option value="KG">KG</option><option value="LTR">LTR</option><option value="FEET">FEET</option><option value="PACKET">PACKET</option></select></td><td><input type="text" name="unit_price[]" id="unit_price' + i + '" onkeyup="sum(' + i + ')" class="form-control"></td><td><input type="text" name="amount[]" id="sum' + i + '" class="form-control" readonly ></td><td><button type="button" name="remove" id="' + i + '" class="btn btn_remove" style="background-color:#f26522;color:#ffffff;">X</button></td></tr>');
 														$(".material_select_2").select2();
 														
 														<!-- COMMENTS: QTY AND UNIT PRICE AND TOTAL AMOUNT -->
