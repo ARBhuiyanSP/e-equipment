@@ -106,3 +106,13 @@ if (isset($rlpListData) && !empty($rlpListData)) {
         <strong>Sorry there is no data!</strong>
     </div>
 <?php } ?>
+
+<script>
+$(document).ready(function () {
+    $('#rlp_list_table').DataTable({
+        scrollY: '200px',
+        scrollCollapse: true,
+        paging: false,
+    });
+});
+</script>
