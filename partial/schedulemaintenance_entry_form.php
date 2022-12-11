@@ -89,7 +89,7 @@
 				</div>
 				<div class="col-sm-2">
 					<div class="form-group">
-						<label for="exampleId">Service Done (HR/KM)</label>
+						<label for="exampleId">Previous Service (HR/KM)</label>
 						<input name="lastservice_hrkm" type="text" class="form-control" id="lastservice_hrkm" value="<?php if(isset($sm_info->present_hrkm)){echo $sm_info->present_hrkm;} ?>" autocomplete="off" required />
 					</div>
 				</div>
@@ -113,7 +113,7 @@
 				</div>
 				<div class="col-sm-2">
 					<div class="form-group">
-						<label for="exampleId"> Type of Service</label>
+						<label for="exampleId"> Service Type</label>
 						<input name="typeofservice_hrkm" type="text" class="form-control" id="" value="" autocomplete="off" />
 					</div>
 				</div>

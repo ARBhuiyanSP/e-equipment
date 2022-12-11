@@ -600,14 +600,14 @@ function get_table_next_primary_id($table){
     $nextRow    =   $total_row+1;
     return $nextRow;
 }
-function get_rlp_no($prefix="RLP", $formater_length=3,$division_id,$department_id){
+function get_rlp_no($prefix="RLP", $formater_length=3){
     global $conn;
     
-    /* $division_id    =   $_SESSION['logged']['branch_id'];
+    $division_id    =   $_SESSION['logged']['branch_id'];
     $department_id  =   $_SESSION['logged']['department_id'];
     $department_id  =   $_SESSION['logged']['department_id'];
     $office_id      =   $_SESSION['logged']['office_id'];
-    $user_id        =   $_SESSION['logged']['user_id']; */
+    $user_id        =   $_SESSION['logged']['user_id']; 
     
     $year       =   date("Y");
     $month      =   date("m");
