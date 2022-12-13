@@ -17,6 +17,7 @@
 				<h2>E-Engineering Limited</h2>
 				<p>Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh</p>
 				<h5><b>Note Sheet - [Req No: <?php echo $notesheets_master->notesheet_no ?>]</b></h5>
+				<h5><b style="border:1px solid #000;padding:3px;border-radius:5px;">Project: <?php echo getProjectNameById($notesheets_master->request_project) ?></b></h5>
 			</center>
 			<h5><b>Subject : <?php echo $notesheets_master->subject ?></b></h5></br>
 			<h5>
@@ -85,45 +86,7 @@
                     </tbody>
                 </table>
             </div>
-			<!---- Attachment View----->
-			<div class="col-xs-12">
-				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">View Attachment</button>
-				<!-- Modal -->
-				<div class="modal fade" id="myModal" role="dialog">
-					<div class="modal-dialog">
-
-						<!-- Modal content-->
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Attachment</h4>
-							</div>
-							<div class="modal-body">
-								<object
-									data='uploads/file/<?php echo $notesheets_master->attached_file; ?>'
-									type="application/pdf"
-									width="100%"
-									height="500"
-								  >
-
-									<iframe
-									  src='uploads/file/<?php echo $notesheets_master->attached_file; ?>'
-									  width="100%"
-									  height="500"
-									>
-									<p>Not Supported !</p>
-									</iframe>
-								  </object>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!---- Attachment View----->
+			
 			<div class="col-xs-12 table-responsive">
 				<p>This is for your kind approval.</p>
 				<p style="text-decoration:underline;"><b>Other terms and conditions</b></p>

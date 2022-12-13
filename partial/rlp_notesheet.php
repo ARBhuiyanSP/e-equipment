@@ -28,6 +28,8 @@
                 Designation:&nbsp;<?php echo getDesignationNameById($rlp_info->designation) ?><br>
                 Division:&nbsp;<?php echo getDivisionNameById($rlp_info->request_division) ?><br>
                 Department:&nbsp;<?php echo getDepartmentNameById($rlp_info->request_department) ?><br>
+                Project:&nbsp;<?php echo getProjectNameById($rlp_info->request_project) ?><br>
+                <input type="text" name="request_project" value="<?php echo $rlp_info->request_project; ?>" />
             </address>
         </div>
         <!-- /.col -->

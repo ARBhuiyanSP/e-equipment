@@ -83,6 +83,50 @@
                 </table>
             </div>
             <!-- /.col -->
+			<!---- Attachment View----->
+			<div class="col-xs-12">
+				<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">View Attachment</button>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Attachment</h4>
+							</div>
+							<div class="modal-body">
+								
+								<?php if($notesheets_master->attached_file){ ?>
+								<object
+									data='uploads/file/<?php echo $notesheets_master->attached_file; ?>'
+									type="application/pdf"
+									width="100%"
+									height="500"
+								  >
+
+									<iframe
+									  src='uploads/file/<?php echo $notesheets_master->attached_file; ?>'
+									  width="100%"
+									  height="500"
+									>
+									<p>Not Supported !</p>
+									</iframe>
+								  </object>
+								<?php }else{ ?>
+									No Attachment Found
+								<?php }?>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!---- Attachment View----->
         </div>
     <!-- /.row -->
     <?php

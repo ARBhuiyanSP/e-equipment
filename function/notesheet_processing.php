@@ -36,6 +36,7 @@ function execute_notesheets_master_table($file_path = "../uploads/file/"){
 		global $conn;
 		$notesheet_no		= (isset($_POST['notesheet_no']) && !empty($_POST['notesheet_no']) ? trim(mysqli_real_escape_string($conn,$_POST['notesheet_no'])) : "");
 		$rlp_no		= (isset($_POST['rlp_no']) && !empty($_POST['rlp_no']) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_no'])) : "");
+		$request_project		= (isset($_POST['request_project']) && !empty($_POST['request_project']) ? trim(mysqli_real_escape_string($conn,$_POST['request_project'])) : "");
 		$subject		= (isset($_POST['subject']) && !empty($_POST['subject']) ? trim(mysqli_real_escape_string($conn,$_POST['subject'])) : "");
 		$ns_info		= (isset($_POST['ns_info']) && !empty($_POST['ns_info']) ? trim(mysqli_real_escape_string($conn,$_POST['ns_info'])) : "");
 		$supplier_name		= (isset($_POST['supplier_name']) && !empty($_POST['supplier_name']) ? trim(mysqli_real_escape_string($conn,$_POST['supplier_name'])) : "");
@@ -56,6 +57,7 @@ function execute_notesheets_master_table($file_path = "../uploads/file/"){
             //'id'                =>  get_table_next_primary_id('rlp_details'),
             'notesheet_no'	=>  $notesheet_no,
             'rlp_no'       	=>  $rlp_no,
+            'request_project'       	=>  $request_project,
             'subject'	=>  $subject,
             'ns_info'	=>  $ns_info,
             'supplier_name'	=>  $supplier_name,
