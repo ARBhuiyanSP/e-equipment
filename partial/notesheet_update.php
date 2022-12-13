@@ -15,6 +15,7 @@
 				<h2>E-Engineering Limited</h2>
 				<p>Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh</p>
 				<h5><b>Note Sheet - [Req No: <?php echo $notesheets_master->notesheet_no ?>]</b></h5>
+				<h5><b style="border:1px solid #000;padding:3px;border-radius:5px;">Project: <?php echo getProjectNameById($notesheets_master->request_project) ?></b></h5>
 			</center>
 			<h5><b>Subject : <?php echo $notesheets_master->subject ?></b></h5></br>
 			<h5>
