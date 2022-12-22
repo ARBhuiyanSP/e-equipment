@@ -1,5 +1,6 @@
 <?php
 $user_id_session = $_SESSION['logged']['user_id'];
+$user_type = $_SESSION['logged']['type'];
 ?>
 <style>
 .sidebar-menu li.header{
@@ -84,7 +85,7 @@ $user_id_session = $_SESSION['logged']['user_id'];
 			<?php if (is_not_guest($user_id_session)) { ?>
 				
 				
-				<?php if (is_super_admin($user_id_session)) { ?>		
+				<?php if ($_SESSION['logged']['type']!='user') { ?>		
 				<li class="<?php if ($page_name == "notesheets_list.php") {
                 echo "active";
             } ?>">
@@ -96,7 +97,7 @@ $user_id_session = $_SESSION['logged']['user_id'];
                     <a href="workorders_list.php"><i class="fa fa-file-text-o"></i> <span>Workorders</span></a>
                 </li>
 				<?php }} ?>
-				<?php if (is_super_admin($user_id_session)) { ?>
+				<?php if ($_SESSION['logged']['type']!='user') { ?>	
 				<li class="<?php if ($page_name == "equipment_list.php") {
                 echo "active";
             } ?>">
