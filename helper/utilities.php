@@ -33,6 +33,21 @@ function is_super_admin($user_id, $roleName = 'sa') {
         }
     return false;
 }
+function is_not_guest($user_id, $type = 'guest') {
+    global $conn;
+    $sql    =   "SELECT *
+                     FROM users WHERE id = $user_id";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {  
+            $users = $result->fetch_object();
+            if ($users->type != $type) {
+                return true;
+            }
+            return false;
+        }
+    return false;
+}
+
 function hasAccessPermission($user_id, $page_name, $accessType) {
     global $conn;
     $return = false;

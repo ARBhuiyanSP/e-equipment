@@ -28,6 +28,7 @@ $user_id_session = $_SESSION['logged']['user_id'];
         <!-- sidebar menu: : style can be found in sidebar.less general_sms_create -->
         <ul class="sidebar-menu" data-widget="tree">
             <?php if (is_super_admin($user_id_session)) { ?>
+            
                 <li class="header">Settings</li>
                 <li class="<?php if ($page_name == "users_list.php") {
                 echo "active";
@@ -77,6 +78,13 @@ $user_id_session = $_SESSION['logged']['user_id'];
             } ?>">
                     <a href="rlp_list.php"><i class="fa fa-file-text-o"></i> <span>RLP</span></a>
                 </li>
+				
+				
+				
+			<?php if (is_not_guest($user_id_session)) { ?>
+				
+				
+				<?php if (is_super_admin($user_id_session)) { ?>		
 				<li class="<?php if ($page_name == "notesheets_list.php") {
                 echo "active";
             } ?>">
@@ -87,11 +95,14 @@ $user_id_session = $_SESSION['logged']['user_id'];
             } ?>">
                     <a href="workorders_list.php"><i class="fa fa-file-text-o"></i> <span>Workorders</span></a>
                 </li>
+				<?php }} ?>
+				<?php if (is_super_admin($user_id_session)) { ?>
 				<li class="<?php if ($page_name == "equipment_list.php") {
                 echo "active";
             } ?>">
                     <a href="equipment_list.php"><i class="fa fa-file-text-o"></i> <span>Equipment</span></a>
                 </li>
+				<?php } ?>
 				<li class="<?php if ($page_name == "logsheet.php") {
                 echo "active";
             } ?>">

@@ -23,6 +23,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == "loginAsAnotherUser"
         $_SESSION['logged']['project_id']=   (isset($row->project_id) && !empty($row->project_id) ? $row->project_id : "");
         $_SESSION['logged']['office_id']    =   (isset($row->office_id) && !empty($row->office_id) ? $row->office_id : "");
         $_SESSION['logged']['role_id']      =   (isset($row->role_id) && !empty($row->role_id) ? $row->role_id : "");
+        $_SESSION['logged']['type']      =   (isset($row->type) && !empty($row->type) ? $row->type : "");
         $_SESSION['logged']['designation']  =   (isset($row->designation) && !empty($row->designation) ? $row->designation : "");
         $_SESSION['logged']['role_name']    =   (isset($row->role_id) && !empty($row->role_id) ? getRoleShortNameByRoleId($row->role_id) : "");
         $_SESSION['logged']['contact_number']    =   (isset($row->contact_number) && !empty($row->contact_number) ? $row->contact_number : "");
@@ -92,6 +93,7 @@ if (isset($_POST['login_submit']) && !empty($_POST['login_submit'])) {
                 $_SESSION['logged']['project_id']=   (isset($row->project_id) && !empty($row->project_id) ? $row->project_id : "");
                 $_SESSION['logged']['office_id']    =   (isset($row->office_id) && !empty($row->office_id) ? $row->office_id : "");
                 $_SESSION['logged']['role_id']      =   (isset($row->role_id) && !empty($row->role_id) ? $row->role_id : "");
+                $_SESSION['logged']['type']      =   (isset($row->type) && !empty($row->type) ? $row->type : "");
                 $_SESSION['logged']['designation']  =   (isset($row->designation) && !empty($row->designation) ? $row->designation : "");
                 $_SESSION['logged']['role_name']    =   (isset($row->role_id) && !empty($row->role_id) ? getRoleShortNameByRoleIdDuringLogin($row->role_id) : "");
                 $_SESSION['logged']['contact_number']    =   (isset($row->contact_number) && !empty($row->contact_number) ? $row->contact_number : "");
