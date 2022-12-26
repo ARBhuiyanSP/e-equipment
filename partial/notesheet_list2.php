@@ -95,7 +95,7 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
                             </a>
                             <?php } ?>	
 
-							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access') && get_status_name($adata->notesheet_status)=='Approve'){ ?>
+							<?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access') && get_status_name($adata->notesheet_status)=='Approve'){ ?>
                             <a title="Edit RLP" class="btn btn-sm btn-success" href="create_workorder.php?id=<?php echo $adata->id; ?>">
                                 <span class="fa fa-pencil"> Work Order</span>
                             </a>
