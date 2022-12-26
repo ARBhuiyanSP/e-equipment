@@ -53,6 +53,7 @@
                     <tr>
                         <th>#</th>
                         <th>Item Description</th>
+                        <th>Purpose of Purchase</th>
                         <th>Quantity</th>
                     </tr>
                 </thead>
@@ -64,11 +65,12 @@
                     <tr>
                         <td><?php echo $sl++; ?></td>
                         <td><?php echo $data->item_des; ?></td>
+                        <td><?php echo $data->purpose; ?></td>
                         <td><?php echo $data->quantity; ?></td>
                     </tr>
                         <?php } ?>
 					<tr>
-                        <td colspan="3"><?php echo $rlp_info->user_remarks; ?></td>
+                        <td colspan="4"><?php echo $rlp_info->user_remarks; ?></td>
                     </tr>
                 </tbody>
             </table>
