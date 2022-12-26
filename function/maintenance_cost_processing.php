@@ -53,14 +53,14 @@ function execute_maintenance_spare_parts_table(){
     /*
      * *****************************rrr_details table operation********************
      */
-	 $no_of_material     =   0;
+	 //$no_of_material     =   0;
     for($count 		= 0; $count<count($_POST['material_name']); $count++){
         $m_cost_id		= (isset($_POST['m_cost_id']) && !empty($_POST['m_cost_id']) ? trim(mysqli_real_escape_string($conn,$_POST['m_cost_id'])) : "");
         $material_name	= (isset($_POST['material_name'][$count]) && !empty($_POST['material_name'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['material_name'][$count])) : '');
         $quantity	= (isset($_POST['quantity'][$count]) && !empty($_POST['quantity'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['quantity'][$count])) : '');
         $unit_price	= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : '');
         $totalamount	= (isset($_POST['totalamount'][$count]) && !empty($_POST['totalamount'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['totalamount'][$count])) : '');
-		$no_of_material     = $no_of_material+$quantity;
+		//$no_of_material     = $no_of_material+$quantity;
         $dataParam     =   [
             //'id'                =>  get_table_next_primary_id('rlp_details'),
             'm_cost_id'	=>  $m_cost_id,
