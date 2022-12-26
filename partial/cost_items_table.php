@@ -9,9 +9,9 @@
 	<tbody>
 		<tr>
 			<td><input type="text" name="material_name[]" id="material_name0" class="form-control" required ></td>
-			<td><input type="text" name="quantity[]" id="quantity0" onkeyup="sum(0)" class="form-control" required></td>
-			<td><input type="text" name="unit_price[]" id="unit_price0" onkeyup="sum(0)" class="form-control" required></td>
-			<td><input type="text" name="totalamount[]" id="sum0" class="form-control"></td>
+			<td><input type="number" name="quantity[]" id="quantity0" onkeyup="sum(0)" class="form-control" required></td>
+			<td><input type="number" name="unit_price[]" id="unit_price0" onkeyup="sum(0)" class="form-control" required></td>
+			<td><input type="text" name="totalamount[]" id="sum0" class="form-control" readonly></td>
 			<td><button type="button" name="add" id="add" class="btn btn-success">+</button></td>
 		</tr>
 	</tbody>
@@ -27,7 +27,7 @@
 	$(document).ready(function () {
 		$('#add').click(function () {
 			i++;
-			$('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="material_name[]" id="material_name' + i + '" class="form-control" required ></td><td><input type="text" name="quantity[]" id="quantity' + i + '" onkeyup="sum(' + i + ')" class="form-control" required></td><td><input type="text" name="unit_price[]" id="unit_price' + i + '" onkeyup="sum(' + i + ')" class="form-control" required></td><td><input type="text" name="totalamount[]" id="sum' + i + '" class="form-control"></td><td><button type="button" name="remove" id="' + i + '" class="btn btn_remove btn-warning">X</button></td></tr>');
+			$('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="material_name[]" id="material_name' + i + '" class="form-control" required ></td><td><input type="number" name="quantity[]" id="quantity' + i + '" onkeyup="sum(' + i + ')" class="form-control" required></td><td><input type="number" name="unit_price[]" id="unit_price' + i + '" onkeyup="sum(' + i + ')" class="form-control" required></td><td><input type="text" name="totalamount[]" id="sum' + i + '" class="form-control" readonly ></td><td><button type="button" name="remove" id="' + i + '" class="btn btn_remove btn-warning">X</button></td></tr>');
 			$(".material_select_2").select2();
 			$('#quantity' + i + ', #unit_price' + i).change(function () {
 				sum(i)
