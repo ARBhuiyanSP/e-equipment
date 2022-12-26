@@ -11,14 +11,14 @@
         <?php include 'operation_message.php'; ?>
         <h1>
             Home
-            <small>Notesheet Info</small>
+            <small>Note Sheet List</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Notesheet Info</li>
+            <li class="active">Note Sheet List</li>
         </ol>
     </section>
-
+	
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
@@ -30,14 +30,14 @@
                         <div class="box-tools">
                             <ul class="pagination pagination-sm no-margin pull-right">
                                 <?php if(hasAccessPermission($user_id_session, 'crlp', 'view_access')){ ?>
-                                <li><a href="rlp_create.php"><i class="fa fa-user-plus"></i> Create</a></li>
+                                <li></li>
                                 <?php } ?>
                             </ul>
                         </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <?php include 'partial/notesheet_list2.php'; ?>
+                        <?php include 'partial/notesheets_list.php'; ?>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -52,4 +52,3 @@
 </div>
 <!-- /.content-wrapper -->
 <?php include 'footer.php'; ?>
-
