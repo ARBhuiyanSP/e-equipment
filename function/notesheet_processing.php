@@ -197,7 +197,7 @@ function getNotesheetListData(){
             // get others rlp for approval:
             $listData1   = getNotesheetAcknowledgeData($user_id);
             // get own RLp:
-            $table      = 'notesheets_master WHERE is_delete = 0';
+            $table      = 'notesheets_master WHERE is_delete = 0 AND created_by = '.$user_id;
             $order      = 'DESC';
             $column     = 'created_at';
             $dataType   = 'obj';
