@@ -12,6 +12,7 @@ if (isset($_POST['create_workorder']) && !empty($_POST['create_workorder'])){
      */    
     $notesheets_info_response  =   execute_workorder_details_table();
     $notesheets_info_response  =   execute_workorder_master_table();
+    $notesheets_info_response  =   update_notesheet_master_table();
     if(isset($notesheets_info_response) && $notesheets_info_response['status'] == "success"){
         
         $_SESSION['success']    =   "Your request have been successfully procced.";
@@ -64,6 +65,24 @@ function execute_workorder_master_table(){
     
     $response   =   saveData("workorders_master", $dataParam);
     return $response;
+}
+function update_notesheet_master_table(){
+		global $conn;
+		
+		$notesheet_no		= (isset($_POST['notesheet_no']) && !empty($_POST['notesheet_no']) ? trim(mysqli_real_escape_string($conn,$_POST['notesheet_no'])) : "");
+		          
+        $dataParam     =   [
+            'is_wo'		=>  '1'
+        ];
+		
+		$where      =   [
+			'notesheet_no'	=>  $notesheet_no
+		];
+    
+    $response   =   updateData('notesheets_master', $dataParam, $where);
+    return $response;
+	
+    
 }
 function execute_workorder_details_table(){
     global $conn;

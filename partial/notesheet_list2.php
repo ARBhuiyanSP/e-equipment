@@ -45,7 +45,7 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
                         <td>
                             <div title="RLP quick view" onclick="rlp_quick_view('<?php echo $adata->id ?>');" style="cursor: pointer;padding: 2% 2%; font-weight: bold; background-color: <?php echo get_status_color($adata->notesheet_status); ?>">
                                 <span>
-                                    <?php echo (isset($adata->rlp_no) && !empty($adata->rlp_no) ? $adata->rlp_no : 'No data'); ?>
+                                    <?php echo (isset($adata->notesheet_no) && !empty($adata->notesheet_no) ? $adata->notesheet_no : 'No data'); ?>
                                 </span>
                             </div>
                         </td>
@@ -99,9 +99,9 @@ if (isset($NotesheetListData) && !empty($NotesheetListData)) {
                             </a>
                             <?php } ?>	
 
-							<?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access') && get_status_name($adata->notesheet_status)=='Approve'){ ?>
+							<?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access') && get_status_name($adata->notesheet_status)=='Approve' && $adata->is_wo==0){ ?>
                             <a title="Edit RLP" class="btn btn-sm btn-success" href="create_workorder.php?id=<?php echo $adata->id; ?>">
-                                <span class="fa fa-pencil"> Work Order</span>
+                                <span class="fa fa-plus"> Work Order</span>
                             </a>
                             <?php } ?>
                         </td>
