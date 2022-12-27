@@ -65,11 +65,12 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                             </a>
                             <?php } ?>
 							
+							<?php if (!is_super_admin($user_id_session)) {?>
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access') && get_status_name($adata->rlp_status)!='Approve'){ ?>
                             <a title="Delete RLP" class="btn btn-sm btn-success" href="javascript:void(0)" onclick="commonApproveOperation('<?php echo $approve_url ?>', '<?php echo $adata->id ?>', '<?php echo $_SESSION['logged']['user_id'] ?>');">
                                 <span class="fa fa-close"> Approve</span>
                             </a>
-                            <?php } ?> 
+                            <?php }} ?> 
 							
                             <!---  <?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access')){ ?>
                             <a title="Delete RLP" class="btn btn-sm btn-danger" href="javascript:void(0)" onclick="commonDeleteOperation('<?php echo $delUrl ?>', '<?php echo $adata->id ?>');">
@@ -78,7 +79,7 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                             <?php } ?>   --->
 							
 							
-							<?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access') && get_status_name($adata->rlp_status)=='Approve'){ ?>
+							<?php if(hasAccessPermission($user_id_session, 'crlp', 'delete_access') && get_status_name($adata->rlp_status)=='Approve' && $adata->is_ns==0){ ?>
                             <a title="Make Notesheet" class="btn btn-sm btn-info" href="rlp_notesheet.php?rlp_id=<?php echo $adata->id; ?>">
                                 <span class="fa fa-sticky-note-o"> Notesheet</span>
                             </a>

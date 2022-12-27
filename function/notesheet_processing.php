@@ -14,10 +14,12 @@ if (isset($_POST['create_notesheet']) && !empty($_POST['create_notesheet'])){
     $notesheets_info_response  =   execute_notesheets_master_table($file_path);
     if(isset($notesheets_info_response) && $notesheets_info_response['status'] == "success"){
         $notesheet_id    =   $notesheets_info_response['last_id'];
+		$rlp_no		= (isset($_POST['rlp_no']) && !empty($_POST['rlp_no']) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_no'])) : "");
         /*
         * *****************************rlp_details table operation********************
         */    
         $notesheet_details_response  =   execute_notesheet_details_table($notesheet_id);
+        $notesheet_details_response  =   update_rlp_master_table($rlp_no);
         
         $ackParam['acknowledge_user']   =   $_POST['assign_users_order'];
         $ackParam['notesheet_id']        =   $notesheet_id;
@@ -30,6 +32,25 @@ if (isset($_POST['create_notesheet']) && !empty($_POST['create_notesheet'])){
     }
     header("location: notesheets_list.php");
     exit();
+}
+
+function update_rlp_master_table(){
+		global $conn;
+		
+		$rlp_no		= (isset($_POST['rlp_no']) && !empty($_POST['rlp_no']) ? trim(mysqli_real_escape_string($conn,$_POST['rlp_no'])) : "");
+		          
+        $dataParam     =   [
+            'is_ns'		=>  '1'
+        ];
+		
+		$where      =   [
+			'rlp_no'	=>  $rlp_no
+		];
+    
+    $response   =   updateData('rlp_info', $dataParam, $where);
+    return $response;
+	
+    
 }
 
 function execute_notesheets_master_table($file_path = "../uploads/file/"){
