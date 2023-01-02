@@ -159,6 +159,16 @@
                             <td></td>
                         </tr>
 						<tr>
+                            <td colspan="3" style="text-align:right">Discount Amount : </td>
+							<td colspan="2">
+								<input type="text" class="form-control" id="discount" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
+                            </td>
+							<td>
+								<input type="text" class="form-control" name="discount" id="discountamount" readonly />
+                            </td>
+                            <td></td>
+                        </tr>
+						<tr>
                             <td colspan="5" style="text-align:right">Grand Total : </td>
 							<td>
 								<input type="text" class="form-control" name="grand_total" id="grandTotal" readonly />
@@ -216,7 +226,7 @@ function  caltotal(id){
     let unit_price = parseFloat($('#unit_price_'+id).val());
 	
 	let myResult = parseFloat(quantity * unit_price).toFixed(2);
-
+-
     $('#total_'+id).val(myResult);
 	
 	 calculate_total_buy_amount();
@@ -245,6 +255,9 @@ function calculate_total_buy_amount() {
 	$('#ait').on('input', function() {
      calculate();
     });
+	$('#discount').on('input', function() {
+     calculate();
+    });
     function calculate(){
         var subTotal = parseFloat($('#allcur').val()).toFixed(2); 
         var vat = parseFloat($('#vat').val()).toFixed(2);
@@ -269,8 +282,21 @@ function calculate_total_buy_amount() {
         $('#vatamount').val(vatPerc);
 		var pVat = parseFloat($('#vatamount').val()).toFixed(2);
 		
+		// Discount
+		var discount = parseFloat($('#discount').val()).toFixed(2);
+        var discountPerc="";
+		if(isNaN(subTotal) || isNaN(discount)){
+            discountPerc=" ";
+           }else{
+           //discountPerc = ((subTotal*discount)/ 100).toFixed(2);
+           discountPerc = parseFloat($('#discount').val()).toFixed(2);
+           }
+        
+        $('#discountamount').val(discountPerc);
+		var pDiscount = parseFloat($('#discountamount').val()).toFixed(2);
+		
 		//var grandTotal = parseFloat(subTotal + pVat).toFixed(2);
-		var grandTotal = (parseFloat(subTotal) + parseFloat(pVat) + parseFloat(pAit)).toFixed(2);
+		var grandTotal = (parseFloat(subTotal) + parseFloat(pVat) + parseFloat(pAit) - parseFloat(pDiscount)).toFixed(2);
 
 		$('#grandTotal').val(grandTotal).toFixed(2);
     }

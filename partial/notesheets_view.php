@@ -77,6 +77,10 @@
                             <td><?php echo $notesheets_master->vat; ?></td>
                         </tr>
 						<tr id="rec-1">
+                            <td colspan="5" style="text-align:right">Discount: </td>
+                            <td><?php echo $notesheets_master->discount; ?></td>
+                        </tr>
+						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">Grand Total: </td>
                             <td><?php echo $notesheets_master->grand_total; ?></td>
                         </tr>

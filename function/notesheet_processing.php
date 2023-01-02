@@ -69,6 +69,7 @@ function execute_notesheets_master_table($file_path = "../uploads/file/"){
 		$sub_total		= (isset($_POST['sub_total']) && !empty($_POST['sub_total']) ? trim(mysqli_real_escape_string($conn,$_POST['sub_total'])) : "");
 		//$remarks		= (isset($_POST['remarks']) && !empty($_POST['remarks']) ? trim(mysqli_real_escape_string($conn,$_POST['remarks'])) : "");
 		$vat		= (isset($_POST['vat']) && !empty($_POST['vat']) ? trim(mysqli_real_escape_string($conn,$_POST['vat'])) : "");
+		$discount		= (isset($_POST['discount']) && !empty($_POST['discount']) ? trim(mysqli_real_escape_string($conn,$_POST['discount'])) : "");
 		$grand_total		= (isset($_POST['grand_total']) && !empty($_POST['grand_total']) ? trim(mysqli_real_escape_string($conn,$_POST['grand_total'])) : "");
 		$terms_condition		= (isset($_POST['terms_condition']) && !empty($_POST['terms_condition']) ? trim(mysqli_real_escape_string($conn,$_POST['terms_condition'])) : "");
           
@@ -90,6 +91,7 @@ function execute_notesheets_master_table($file_path = "../uploads/file/"){
             'sub_total'			=>  $sub_total,
             'ait'	 	=>  $ait,
             'vat' 	=>  $vat,
+            'discount' 	=>  $discount,
             'grand_total' 	 	=>  $grand_total,
             'terms_condition' 	 	=>  $terms_condition,
             'status'		=>  'Created',
