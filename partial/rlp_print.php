@@ -55,6 +55,8 @@
                         <th>Item Description</th>
                         <th>Purpose of Purchase</th>
                         <th>Quantity</th>
+                        <th>Unit price</th>
+                        <th>Amount</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -67,10 +69,12 @@
                         <td><?php echo $data->item_des; ?></td>
                         <td><?php echo $data->purpose; ?></td>
                         <td><?php echo $data->quantity; ?></td>
+                        <td><?php echo $data->unit_price; ?></td>
+                        <td><?php echo $data->amount; ?></td>
                     </tr>
                         <?php } ?>
 					<tr>
-                        <td colspan="4"><?php echo $rlp_info->user_remarks; ?></td>
+                        <td colspan="6"><?php echo $rlp_info->user_remarks; ?></td>
                     </tr>
                 </tbody>
             </table>
