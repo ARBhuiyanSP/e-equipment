@@ -69,16 +69,20 @@
                             <td><?php echo $notesheets_master->sub_total; ?></td>
                         </tr>
 						<tr id="rec-1">
+                            <td colspan="5" style="text-align:right">Discount: </td>
+                            <td><?php echo $notesheets_master->discount; ?></td>
+                        </tr>
+						<tr id="rec-1">
+                            <td colspan="5" style="text-align:right">Total After Discount: </td>
+                            <td><?php echo $notesheets_master->total_afterdiscount; ?></td>
+                        </tr>
+						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">AIT: </td>
                             <td><?php echo $notesheets_master->ait; ?></td>
                         </tr>
 						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">VAT: </td>
                             <td><?php echo $notesheets_master->vat; ?></td>
-                        </tr>
-						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">Discount: </td>
-                            <td><?php echo $notesheets_master->discount; ?></td>
                         </tr>
 						<tr id="rec-1">
                             <td colspan="5" style="text-align:right">Grand Total: </td>
@@ -97,24 +101,23 @@
 				<?php echo $notesheets_master->terms_condition; ?>
             </div>
 			<div class="row">
-								<?php
-								$table = "notesheet_acknowledgement WHERE notesheet_id=$notesheet_id";
-								$order = 'DESC';
-								$column = 'ack_request_date';
-								$allRemarksHistory = getTableDataByTableName($table, $order, $column);
-									if (isset($allRemarksHistory) && !empty($allRemarksHistory)) {
-									foreach ($allRemarksHistory as $dat) {
-								?>
-								
-								<?php //echo (isset($dat->ack_updated_date) && !empty($dat->ack_updated_date) ? human_format_date($dat->ack_updated_date) : ""); ?>
-								<div class="col-sm-3 col-xs-3" style="padding-top:100px;">
-									<center><?php if(get_status_name($dat->ack_status)=='Approve' || get_status_name($dat->ack_status)=='Recommended'){ ?><img src="images/signatures/<?php echo getSignatureByUserId($dat->user_id); ?>" height="70px"/><?php } ?></br><?php echo getUserNameByUserId($dat->user_id) ?></br>________________________</br><?php echo getDesignationByUserId($dat->user_id) ?></center>
-								</div>
-								<?php
-								}
-							}
-							?>
-				
+					<?php
+					$table = "notesheet_acknowledgement WHERE notesheet_id=$notesheet_id";
+					$order = 'DESC';
+					$column = 'ack_request_date';
+					$allRemarksHistory = getTableDataByTableName($table, $order, $column);
+						if (isset($allRemarksHistory) && !empty($allRemarksHistory)) {
+						foreach ($allRemarksHistory as $dat) {
+					?>
+					
+					<?php //echo (isset($dat->ack_updated_date) && !empty($dat->ack_updated_date) ? human_format_date($dat->ack_updated_date) : ""); ?>
+					<div class="col-sm-3 col-xs-3" style="padding-top:100px;">
+						<center><?php if(get_status_name($dat->ack_status)=='Approve' || get_status_name($dat->ack_status)=='Recommended'){ ?><img src="images/signatures/<?php echo getSignatureByUserId($dat->user_id); ?>" height="70px"/><?php } ?></br><?php echo getUserNameByUserId($dat->user_id) ?></br>________________________</br><?php echo getDesignationByUserId($dat->user_id) ?></center>
+					</div>
+					<?php
+					}
+				}
+				?>			
 			</div>
             <!-- /.col -->
         </div>

@@ -134,29 +134,10 @@
 					   <tr>
                             <td colspan="5" style="text-align:right">Sub Total : </td>
 							<td>
-								<input type="text" class="form-control" name="sub_total" onchange="calculate_total_buy_amount()" id="allcur" readonly />
+								<input type="text" class="form-control" name="sub_total" onchange="calculate_total_buy_amount()" id="allcur" />
                             </td>
                             <td></td>
                         </tr>
-						<tr>
-                            <td colspan="3" style="text-align:right">Discount Amount : </td>
-							<td colspan="2">
-								<input type="text" class="form-control" id="discount" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
-                            </td>
-							<td>
-								<input type="text" class="form-control" name="discount" id="discountamount" readonly />
-                            </td>
-                            <td></td>
-                        </tr>
-						<!------------------>
-						<tr>
-                            <td colspan="5" style="text-align:right">Total After Discount : </td>
-							<td>
-								<input type="text" class="form-control" name="total_afterdiscount" onchange="calculate_total_buy_amount()" id="allcur_after_discount" readonly />
-                            </td>
-                            <td></td>
-                        </tr>
-						<!------------------>
 						<tr>
                             <td colspan="3" style="text-align:right">AIT [%] : </td>
 							<td colspan="2">
@@ -174,6 +155,16 @@
                             </td>
 							<td>
 								<input type="text" class="form-control" name="vat" id="vatamount" readonly />
+                            </td>
+                            <td></td>
+                        </tr>
+						<tr>
+                            <td colspan="3" style="text-align:right">Discount Amount : </td>
+							<td colspan="2">
+								<input type="text" class="form-control" id="discount" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
+                            </td>
+							<td>
+								<input type="text" class="form-control" name="discount" id="discountamount" readonly />
                             </td>
                             <td></td>
                         </tr>
@@ -254,6 +245,7 @@ function calculate_total_buy_amount() {
 		 
 		
 		$(function(){
+    
     $('#allcur').on('input', function() {
       calculate();
     });
@@ -267,11 +259,32 @@ function calculate_total_buy_amount() {
      calculate();
     });
     function calculate(){
-        let subTotal = parseFloat($('#allcur').val()).toFixed(2);
-
+        var subTotal = parseFloat($('#allcur').val()).toFixed(2); 
+        var vat = parseFloat($('#vat').val()).toFixed(2);
+        var ait = parseFloat($('#ait').val()).toFixed(2);
+        var aitPerc="";
+		if(isNaN(subTotal) || isNaN(ait)){
+            aitPerc=" ";
+           }else{
+           aitPerc = ((subTotal*ait)/ 100).toFixed(2);
+           }
+        
+        $('#aitamount').val(aitPerc);
+		var pAit = parseFloat($('#aitamount').val()).toFixed(2);
+		
+        var vatPerc="";
+        if(isNaN(subTotal) || isNaN(vat)){
+            vatPerc=" ";
+           }else{
+           vatPerc = ((subTotal*vat)/ 100).toFixed(2);
+           }
+        
+        $('#vatamount').val(vatPerc);
+		var pVat = parseFloat($('#vatamount').val()).toFixed(2);
+		
 		// Discount
-		let discount = parseFloat($('#discount').val()).toFixed(2);
-        let discountPerc="";
+		var discount = parseFloat($('#discount').val()).toFixed(2);
+        var discountPerc="";
 		if(isNaN(subTotal) || isNaN(discount)){
             discountPerc=" ";
            }else{
@@ -280,38 +293,12 @@ function calculate_total_buy_amount() {
            }
         
         $('#discountamount').val(discountPerc);
-		let pDiscount = parseFloat($('#discountamount').val()).toFixed(2);
+		var pDiscount = parseFloat($('#discountamount').val()).toFixed(2);
 		
-		let disTotal = (parseFloat(subTotal) - parseFloat(pDiscount)).toFixed(2);
-		$('#allcur_after_discount').val(disTotal);
-		// Discount end 
-        let vat = parseFloat($('#vat').val()).toFixed(2);
-        let ait = parseFloat($('#ait').val()).toFixed(2);
-        let aitPerc="";
-		if(isNaN(disTotal) || isNaN(ait)){
-            aitPerc=" ";
-           }else{
-           aitPerc = ((disTotal*ait)/ 100).toFixed(2);
-           }
-        
-        $('#aitamount').val(aitPerc);
-		let pAit = parseFloat($('#aitamount').val()).toFixed(2);
-			
-        let vatPerc="";
-        if(isNaN(disTotal) || isNaN(vat)){
-            vatPerc=" ";
-           }else{
-           vatPerc = ((disTotal*vat)/ 100).toFixed(2);
-           }
-        
-        $('#vatamount').val(vatPerc);
-		let pVat = parseFloat($('#vatamount').val()).toFixed(2);
-		
-		let grandTotal = (parseFloat(disTotal) + parseFloat(pVat) + parseFloat(pAit)).toFixed(2);
+		//var grandTotal = parseFloat(subTotal + pVat).toFixed(2);
+		var grandTotal = (parseFloat(subTotal) + parseFloat(pVat) + parseFloat(pAit) - parseFloat(pDiscount)).toFixed(2);
+
 		$('#grandTotal').val(grandTotal).toFixed(2);
-		
-		
-		
     }
 calculate();
 });
