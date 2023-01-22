@@ -141,6 +141,8 @@ table td {
 										</thead>
 										<tbody>
 										<?php
+											$totalpartsQty = 0;
+											$totalAmount = 0;
 											$eel_code = $row['eel_code'];
 											$sqlh	=	"select * from `maintenance_cost` where `eel_code`='$eel_code' AND `out_time` BETWEEN '$from_date' AND '$to_date'";
 											$resulth = mysqli_query($conn, $sqlh);
@@ -181,6 +183,8 @@ table td {
 															$sqlparts	=	"select * from `maintenance_spare_parts` where `m_cost_id`='$m_cost_id'";
 															$resultparts = mysqli_query($conn, $sqlparts);
 															while ($rowparts = mysqli_fetch_array($resultparts)) {
+																$totalpartsQty += $rowparts['qty'];
+																$totalAmount += $rowparts['amount'];
 														?>
 														<tr>
 															<td><?php echo $rowparts['spare_parts_name']; ?></td>
@@ -213,6 +217,12 @@ table td {
 												<td><?php echo $rowh['certified_by']; ?></td>
 											</tr>
 											<?php } ?>
+											<tr>
+												<td colspan="2" style="text-align:right;"><b>Total:</b><td>
+												<td><b>Parts Quantity : <?php echo $totalpartsQty; ?>
+												& Amount : <?php echo $totalAmount; ?> </b></td>
+												<td colspan="6"></td>
+											</tr>
 										</tbody>
 									</table>
 								</center>
