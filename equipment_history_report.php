@@ -45,8 +45,14 @@
 												<label>Equipment</label>
 												<select class="form-control select2" id="project_id" name="eel_code">
 														<?php $results = mysqli_query($conn, "SELECT * FROM `equipments`"); 
-														while ($row = mysqli_fetch_array($results)) { ?>
-														<option value="<?php echo $row['eel_code']; ?>"><?php echo $row['eel_code']; ?> || <?php echo $row['name']; ?></option>
+														while ($row = mysqli_fetch_array($results)) {
+															if($_POST['eel_code'] == $row['eel_code']){
+															$selected	= 'selected';
+															}else{
+															$selected	= '';
+															}
+														?>
+														<option value="<?php echo $row['eel_code']; ?>" <?php echo $selected; ?>><?php echo $row['eel_code']; ?> || <?php echo $row['name']; ?></option>
 														<?php } ?>
 												</select>
 											</div>
@@ -54,7 +60,13 @@
 										<div class="col-sm-2">
 											<div class="form-group">
 												<label></label>
-												<input type="submit" name="submit" id="submit" class="btn btn-block btn-primary" value="Search Data" />
+												<input type="submit" name="submit" id="submit" class="btn btn-block btn-success" value="Search Data" />
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<label></label>
+												<input type="button" name="" id="" class="btn btn-block btn-primary" value="Back To Reports Section" onclick="location.href='reports.php';"/>
 											</div>
 										</div>
 									</div>

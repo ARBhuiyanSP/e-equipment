@@ -156,16 +156,6 @@ $user_type = $_SESSION['logged']['type'];
             } ?>">
                     <a href="reports.php"><i class="fa fa-file-text-o"></i> <span>Reports Section</span></a>
                 </li>
-				<li class="<?php if ($page_name == "rlp_list.php") {
-                echo "active";
-            } ?>">
-                    <a href="equipment_list_report.php"><i class="fa fa-file-text-o"></i> <span>Equipment List</span></a>
-                </li>
-				<li class="<?php if ($page_name == "rlp_list.php") {
-                echo "active";
-            } ?>">
-                    <a href="equipment_history_report.php"><i class="fa fa-file-text-o"></i> <span>Equipment History</span></a>
-                </li>
 <?php } ?>
             <!--setActiveMenuClass-->
         </ul>

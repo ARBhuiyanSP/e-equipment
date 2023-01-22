@@ -48,6 +48,13 @@ ul li:hover{
 									<a href="datewise_maintenance_report.php"><li><b>Datewise Schedule Maintenance Reports</b></li></a>
 									<a href="datewise_maintenance_cost_report.php"><li><b>Datewise Maintenance Cost Reports</b></li></a>
 								</ul>
+							
+								<h3>Operation Reports</h3>
+								<ul>
+									<a href="equipment_list_report.php"><li><b>Equipment List</b></li></a>
+									<a href="equipment_history_report.php"><li><b>Equipment Movement History</b></li></a>
+									<a href="datewise_maintenance_report.php"><li><b>Equipment Logsheet Report</b></li></a>
+								</ul>
 							</div>
 						</div>
                     </div>

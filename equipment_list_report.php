@@ -40,10 +40,10 @@
 							<div class="col-sm-12">
 								<form action="" method="post">
 									<div class="row">
-										<div class="col-sm-6">
+										<div class="col-sm-3">
 											<div class="form-group">
 												<label>Project</label>
-												<select class="form-control" id="project_id" name="project_id">
+												<select class="form-control select2" id="project_id" name="project_id">
 														<option value="all">All Project</option>
 														<?php $results = mysqli_query($conn, "SELECT * FROM `projects`"); 
 														while ($row = mysqli_fetch_array($results)) { ?>
@@ -52,10 +52,10 @@
 												</select>
 											</div>
 										</div>
-										<div class="col-sm-6">
+										<div class="col-sm-3">
 											<div class="form-group">
 												<label>Make By</label>
-												<select class="form-control" id="makeby" name="makeby">
+												<select class="form-control select2" id="makeby" name="makeby">
 														<option value="all">All Brand</option>
 														<option value="DENAIR">DENAIR</option>
 														<option value="ULTRATEX">ULTRATEX</option>
@@ -95,11 +95,17 @@
 												</select>
 											</div>
 										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-sm-12">
-											<input type="submit" name="submit" id="submit" class="btn btn-block btn-primary" value="Search Data" />
+										<div class="col-sm-2">
+											<div class="form-group">
+												<label></label>
+												<input type="submit" name="submit" id="submit" class="btn btn-block btn-success" value="Search Data" />
+											</div>
+										</div>
+										<div class="col-sm-3">
+											<div class="form-group">
+												<label></label>
+												<input type="button" name="" id="" class="btn btn-block btn-primary" value="Back To Reports Section" onclick="location.href='reports.php';"/>
+											</div>
 										</div>
 									</div>
 								</form>
