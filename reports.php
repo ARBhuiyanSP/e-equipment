@@ -53,7 +53,7 @@ ul li:hover{
 								<ul>
 									<a href="equipment_list_report.php"><li><b>Equipment List</b></li></a>
 									<a href="equipment_history_report.php"><li><b>Equipment Movement History</b></li></a>
-									<a href="datewise_maintenance_report.php"><li><b>Equipment Logsheet Report</b></li></a>
+									<a href="datewise_logsheet_report.php"><li><b>Equipment Logsheet Report</b></li></a>
 								</ul>
 							</div>
 						</div>
