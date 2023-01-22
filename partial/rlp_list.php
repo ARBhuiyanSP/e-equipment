@@ -9,10 +9,9 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                     <th>SLN#</th>
                     <th>RLP No</th>
                     <th>Request Date</th>
-                    <th>Request Purpose</th>
+                    <th width="25%">Request Purpose</th>
                     <th>Created By</th>
                     <th>Project</th>
-                    <th>Priority</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -63,7 +62,7 @@ if (isset($rlpListData) && !empty($rlpListData)) {
 						</td>
                         <td><?php echo (isset($adata->rlp_user_id) && !empty($adata->rlp_user_id) ? getUserNameByUserId($adata->rlp_user_id) : 'No data'); ?></td>
                         <td><?php echo (isset($adata->request_project) && !empty($adata->request_project) ? getProjectNameById($adata->request_project) : 'No data'); ?></td>
-                        <td><?php echo (isset($adata->priority) && !empty($adata->priority) ? getPriorityNameDiv($adata->priority) : 'No data'); ?></td>
+                       
                         <td>
                             <div style="padding: 2% 10%; font-weight: bold; background-color: <?php echo get_status_color($adata->rlp_status); ?>">
                                 <?php echo get_status_name($adata->rlp_status); ?>
