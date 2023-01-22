@@ -9,6 +9,7 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                     <th>SLN#</th>
                     <th>RLP No</th>
                     <th>Request Date</th>
+                    <th>Request Purpose</th>
                     <th>Created By</th>
                     <th>Project</th>
                     <th>Priority</th>
@@ -50,6 +51,16 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                             </div>
                         </td>
                         <td><?php echo (isset($adata->request_date) && !empty($adata->request_date) ? human_format_date($adata->created_at) : 'No data'); ?></td>
+						<td>
+							<?php
+								$rlp_id         =   $adata->id;    
+								$rlp_details    =   getRlpDetailsData($rlp_id);   
+								$rlp_info       =   $rlp_details['rlp_info'];
+								$rlp_details    =   $rlp_details['rlp_details'];
+									foreach($rlp_details as $data){
+										echo $data->purpose.',';
+							 } ?>
+						</td>
                         <td><?php echo (isset($adata->rlp_user_id) && !empty($adata->rlp_user_id) ? getUserNameByUserId($adata->rlp_user_id) : 'No data'); ?></td>
                         <td><?php echo (isset($adata->request_project) && !empty($adata->request_project) ? getProjectNameById($adata->request_project) : 'No data'); ?></td>
                         <td><?php echo (isset($adata->priority) && !empty($adata->priority) ? getPriorityNameDiv($adata->priority) : 'No data'); ?></td>
