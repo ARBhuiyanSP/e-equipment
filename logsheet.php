@@ -25,16 +25,6 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title"></h3>
-                        <div class="box-tools">
-                            <ul class="pagination pagination-sm no-margin pull-right">
-                                <?php if(hasAccessPermission($user_id_session, 'crlp', 'view_access')){ ?>
-								<li><button class="btn btn-success" onclick="location.href='logsheet_report.php';">Search Logsheet Report</button></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
                     <!-- /.box-header -->
                      <div class="box-body">
 						<div class="row">

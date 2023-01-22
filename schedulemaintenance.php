@@ -26,16 +26,6 @@
             <!-- left column -->
             <div class="col-md-12">
 				<div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title"></h3>
-                        <div class="box-tools">
-                            <ul class="pagination pagination-sm no-margin pull-right">
-                                <?php if(hasAccessPermission($user_id_session, 'crlp', 'view_access')){ ?>
-								<li><button class="btn btn-success" onclick="location.href='maintenance_report.php';">Search Sheduale Maintenance Report</button></li>
-                                <?php } ?>
-                            </ul>
-                        </div>
-                    </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <?php include 'partial/schedulemaintenance_entry_form.php'; ?>
