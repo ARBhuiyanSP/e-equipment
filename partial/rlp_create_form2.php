@@ -126,7 +126,7 @@
 							<tr>
 								<td><input type="text" name="description[]" id="" class="form-control" required ></td>
 								<td><input type="text" name="purpose[]" id="" class="form-control" required ></td>
-								<td><input type="number" name="quantity[]" id="quantity0" class="form-control common_issue_quantity" required></td>
+								<td><input type="number" name="quantity[]" onkeyup="sum(0)" id="quantity0" class="form-control common_issue_quantity" required></td>
 								<td>
 									<select class="form-control" name="unit[]">
 										<option value="PCS">PCS</option>
@@ -161,7 +161,7 @@
 						$(document).ready(function () {
 							$('#add').click(function () {
 								i++;
-								$('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="description[]" id="" class="form-control" required></td><td><input type="text" name="purpose[]" id="" class="form-control" required></td><td><input type="number" name="quantity[]" id="quantity' + i + '" class="form-control common_issue_quantity" required></td><td><select class="form-control" name="unit[]"><option value="PCS">PCS</option><option value="NOS">NOS</option><option value="GALLON">GALLON</option><option value="SET">SET</option><option value="INCH">INCH</option><option value="KG">KG</option><option value="LTR">LTR</option><option value="FEET">FEET</option><option value="PACKET">PACKET</option></select></td><td><input type="text" name="unit_price[]" id="unit_price' + i + '" onkeyup="sum(' + i + ')" class="form-control"></td><td><input type="text" name="amount[]" id="sum' + i + '" class="form-control" readonly ></td><td><button type="button" name="remove" id="' + i + '" class="btn btn_remove" style="background-color:#f26522;color:#ffffff;">X</button></td></tr>');
+								$('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="description[]" id="" class="form-control" required></td><td><input type="text" name="purpose[]" id="" class="form-control" required></td><td><input type="number" name="quantity[]" onkeyup="sum(' + i + ')" id="quantity' + i + '" class="form-control common_issue_quantity" required></td><td><select class="form-control" name="unit[]"><option value="PCS">PCS</option><option value="NOS">NOS</option><option value="GALLON">GALLON</option><option value="SET">SET</option><option value="INCH">INCH</option><option value="KG">KG</option><option value="LTR">LTR</option><option value="FEET">FEET</option><option value="PACKET">PACKET</option></select></td><td><input type="text" name="unit_price[]" id="unit_price' + i + '" onkeyup="sum(' + i + ')" class="form-control"></td><td><input type="text" name="amount[]" id="sum' + i + '" class="form-control" readonly ></td><td><button type="button" name="remove" id="' + i + '" class="btn btn_remove" style="background-color:#f26522;color:#ffffff;">X</button></td></tr>');
 														$(".material_select_2").select2();
 														
 														<!-- COMMENTS: QTY AND UNIT PRICE AND TOTAL AMOUNT -->
