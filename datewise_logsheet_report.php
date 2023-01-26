@@ -75,8 +75,9 @@
 						if(isset($_POST['submit'])){ ?>
 						<div class="row">
 								<?php
-											$from_date	=	$_POST['from_date'];
-											$to_date	=	$_POST['to_date'];
+								$from_date	=	$_POST['from_date'];
+								$to_date	=	$_POST['to_date'];
+								
 								$eel_code = $_POST['eel_code'];
 								$sql	=	"select * from `equipments` where `eel_code`='$eel_code'";
 								$result = mysqli_query($conn, $sql);

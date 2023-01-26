@@ -174,7 +174,8 @@ table td {
 													<table class="table">
 														<tr>
 															<td><b>Used Spare Parts</b></td>
-															<td><b>Quantity</b></td>
+															<td><b>QTY</b></td>
+															<td><b>Unit</b></td>
 															<td><b>Rate</b></td>
 															<td><b>Amount</b></td>
 														</tr>
@@ -189,6 +190,7 @@ table td {
 														<tr>
 															<td><?php echo $rowparts['spare_parts_name']; ?></td>
 															<td><?php echo $rowparts['qty']; ?></td>
+															<td><?php echo $rowparts['unit']; ?></td>
 															<td><?php echo $rowparts['rate']; ?></td>
 															<td><?php echo $rowparts['amount']; ?></td>
 														</tr>

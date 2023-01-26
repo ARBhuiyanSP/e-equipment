@@ -1,15 +1,26 @@
 <table class="table table-bordered" id="dynamic_field">
 	<thead>
-		<th width="30%">Spare Parts Name<span class="reqfield"> ***req</span></th>
-		<th>Qty<span class="reqfield"> ***req</span></th>
-		<th>Rate<span class="reqfield"> ***req</span></th>
-		<th>Amount</th>
+		<th width="35%">Spare Parts Name<span class="reqfield"> *</span></th>
+		<th width="15%">Qty<span class="reqfield"> *</span></th>
+		<th width="15%">Unit<span class="reqfield"> *</span></th>
+		<th width="15%">Rate<span class="reqfield"> *</span></th>
+		<th width="15%">Amount</th>
 		<th></th>
 	</thead>
 	<tbody>
 		<tr>
 			<td><input type="text" name="material_name[]" id="material_name0" class="form-control" required ></td>
 			<td><input type="number" name="quantity[]" id="quantity0" onkeyup="sum(0)" class="form-control" required></td>
+			<td>
+				<select class="form-control" name="unit[]">
+					<option value="PCS">PCS</option>
+					<option value="SET">SET</option>
+					<option value="KG">KG</option>
+					<option value="LTR">LTR</option>
+					<option value="FEET">FEET</option>
+					<option value="PACKET">PACKET</option>
+				</select>
+			</td>
 			<td><input type="number" name="unit_price[]" id="unit_price0" onkeyup="sum(0)" class="form-control" required></td>
 			<td><input type="text" name="totalamount[]" id="sum0" class="form-control" readonly></td>
 			<td><button type="button" name="add" id="add" class="btn btn-success">+</button></td>
@@ -27,7 +38,7 @@
 	$(document).ready(function () {
 		$('#add').click(function () {
 			i++;
-			$('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="material_name[]" id="material_name' + i + '" class="form-control" required ></td><td><input type="number" name="quantity[]" id="quantity' + i + '" onkeyup="sum(' + i + ')" class="form-control" required></td><td><input type="number" name="unit_price[]" id="unit_price' + i + '" onkeyup="sum(' + i + ')" class="form-control" required></td><td><input type="text" name="totalamount[]" id="sum' + i + '" class="form-control" readonly ></td><td><button type="button" name="remove" id="' + i + '" class="btn btn_remove btn-warning">X</button></td></tr>');
+			$('#dynamic_field').append('<tr id="row' + i + '"><td><input type="text" name="material_name[]" id="material_name' + i + '" class="form-control" required ></td><td><input type="number" name="quantity[]" id="quantity' + i + '" onkeyup="sum(' + i + ')" class="form-control" required></td><td><select class="form-control" name="unit[]"><option value="PCS">PCS</option><option value="SET">SET</option><option value="KG">KG</option><option value="LTR">LTR</option><option value="FEET">FEET</option><option value="PACKET">PACKET</option></select></td><td><input type="number" name="unit_price[]" id="unit_price' + i + '" onkeyup="sum(' + i + ')" class="form-control" required></td><td><input type="text" name="totalamount[]" id="sum' + i + '" class="form-control" readonly ></td><td><button type="button" name="remove" id="' + i + '" class="btn btn_remove btn-warning">X</button></td></tr>');
 			$(".material_select_2").select2();
 			$('#quantity' + i + ', #unit_price' + i).change(function () {
 				sum(i)

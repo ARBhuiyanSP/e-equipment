@@ -26,7 +26,8 @@ if (isset($_POST['cost_entry']) && !empty($_POST['cost_entry'])){
 }
 function execute_maintenance_cost_table(){
 		global $conn;
-		$m_cost_id		= (isset($_POST['m_cost_id']) && !empty($_POST['m_cost_id']) ? trim(mysqli_real_escape_string($conn,$_POST['m_cost_id'])) : "");
+		//$m_cost_id		= (isset($_POST['m_cost_id']) && !empty($_POST['m_cost_id']) ? trim(mysqli_real_escape_string($conn,$_POST['m_cost_id'])) : "");
+		$m_cost_id		= get_mcsl_no();
 		$eel_code		= (isset($_POST['eel_code']) && !empty($_POST['eel_code']) ? trim(mysqli_real_escape_string($conn,$_POST['eel_code'])) : "");
 		$in_time		= (isset($_POST['in_time']) && !empty($_POST['in_time']) ? trim(mysqli_real_escape_string($conn,$_POST['in_time'])) : date("Y-m-d h:i:s"));
 		$out_time		= (isset($_POST['out_time']) && !empty($_POST['out_time']) ? trim(mysqli_real_escape_string($conn,$_POST['out_time'])) : date("Y-m-d h:i:s"));
@@ -58,6 +59,7 @@ function execute_maintenance_spare_parts_table(){
         $m_cost_id		= (isset($_POST['m_cost_id']) && !empty($_POST['m_cost_id']) ? trim(mysqli_real_escape_string($conn,$_POST['m_cost_id'])) : "");
         $material_name	= (isset($_POST['material_name'][$count]) && !empty($_POST['material_name'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['material_name'][$count])) : '');
         $quantity	= (isset($_POST['quantity'][$count]) && !empty($_POST['quantity'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['quantity'][$count])) : '');
+        $unit	= (isset($_POST['unit'][$count]) && !empty($_POST['unit'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit'][$count])) : '');
         $unit_price	= (isset($_POST['unit_price'][$count]) && !empty($_POST['unit_price'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['unit_price'][$count])) : '');
         $totalamount	= (isset($_POST['totalamount'][$count]) && !empty($_POST['totalamount'][$count]) ? trim(mysqli_real_escape_string($conn,$_POST['totalamount'][$count])) : '');
 		//$no_of_material     = $no_of_material+$quantity;
@@ -66,6 +68,7 @@ function execute_maintenance_spare_parts_table(){
             'm_cost_id'	=>  $m_cost_id,
             'spare_parts_name'	=>  $material_name,
             'qty'	=>  $quantity,
+            'unit'	=>  $unit,
             'rate'	=>  $unit_price,
             'amount'	=>  $totalamount,
             

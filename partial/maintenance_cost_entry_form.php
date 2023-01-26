@@ -55,10 +55,10 @@
 		
 		<form action="" method="post">
 			<div class="" id="printableArea" style="display:block;">
-				<div class="col-sm-3">
+				<div class="col-sm-12">
 					<?php $mcslNo    =   get_mcsl_no(); ?>
-					<b>MCSL No: &nbsp;<span class="rlpno_style"><?php echo $mcslNo; ?></span></b><br>
-					<input type="hidden" name="m_cost_id" value="<?php echo $mcslNo; ?>">
+					<b>MCSL No: &nbsp; <span class="rlpno_style"><?php echo $mcslNo; ?></span></b>
+					<input type="hidden" name="m_cost_id" value="<?php echo $mcslNo; ?>"></br>
 				</div>
 				<div class="col-sm-2">
 					<div class="form-group">
@@ -88,13 +88,13 @@
 				</div>
 				<div class="col-sm-2">
 					<div class="form-group">
-						<label for="exampleId">Date of in</label>
+						<label for="exampleId">Breakdown Start Date</label>
 						<input name="in_time" type="text" class="form-control" id="rlpdate" value="<?php echo date("Y-m-d"); ?>" size="30" autocomplete="off" required />
 					</div>
 				</div>
 				<div class="col-sm-2">
 					<div class="form-group">
-						<label for="exampleId">Date of Out</label>
+						<label for="exampleId">Work Completed date</label>
 						<input name="out_time" type="text" class="form-control" id="date" value="" size="30" autocomplete="off" />
 					</div>
 				</div>
