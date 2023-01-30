@@ -91,7 +91,7 @@
 				<div class="row">
 				<div class="col-sm-4 col-xs-4">
 					Thanking You,</br>
-					<p style="padding-top:30px;">Alauddin Ahmed</br>Executive Director(Mechanical)</br>E-Engineering Ltd.</br>Cell:01324263969,Email: alauddin.ahmed@e-enggltd.com</p>
+					<p style="padding-top:30px;">Alauddin Ahmed</br>Executive Director(Mechanical)</br>E-Engineering Ltd.</br>Cell:01324263969</br>Email: alauddin.ahmed@e-enggltd.com</p>
 				</div>
 			</div>
 			<div class="row">
