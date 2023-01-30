@@ -241,6 +241,18 @@ function getCandidatesSalaryByIdAndTable($table, $id){
     }
     return $name;
 }
+
+function getTCByNotesheetNoAndTable($table, $nno){
+    global $conn;
+    $sql = "SELECT * FROM $table WHERE `notesheet_no`='$nno'";
+    $result = $conn->query($sql);
+    $name   =   '';
+    if ($result->num_rows > 0) {
+        $name   =   $result->fetch_object()->terms_condition;
+    }
+    return $name;
+}
+
 function getCandidatesNameByIdAndTable($table, $id){
     global $conn;
     $sql = "SELECT * FROM $table WHERE `id`='$id'";

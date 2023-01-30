@@ -87,13 +87,7 @@
             </div>
 			<div class="col-xs-12 table-responsive">
 				<p style="text-decoration:underline;"><b>Other terms and conditions</b></p>
-				<ul>
-					<li> Commencement of Supply</li>
-					<li> Delivery Status: Delivered at site within 07 days(as per telephonic discussion with managing director Md. Afzal & executive Director Alauddin Ahmed).</li>
-					<li> This price is including VAT & AIT other taxes</li>
-					<li> Mode of payment : After 45 days from the date of bill submission</li>
-					<li> Delivery Location: CWLP Project, Chattogram, Contact : 01784704948</li>
-				</ul>
+				<?php echo getTCByNotesheetNoAndTable('notesheets_master',$wo_info->notesheet_no) ?>
 				<div class="row">
 				<div class="col-sm-4 col-xs-4">
 					Thanking You,</br>
