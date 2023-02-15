@@ -22,7 +22,7 @@ table.list-table-custom-style tr td{
                     <th>Capacity</th>
                     <th>Brand</th>
                     <th>Model</th>
-                    <th>Project</th>
+                    <th>Location</th>
                     <th>Present Condition</th>
                     <th style="background-color: #3C8DBC;color: #fff;" width="25%">Action</th>
                 </tr>

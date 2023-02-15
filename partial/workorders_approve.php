@@ -157,7 +157,7 @@
     <!-- /.row -->
 </section>
 <!-- /.content -->
-<div class="clearfix"></div>
+<!-- <div class="clearfix"></div>
 <div class="row">
 		<div class="col-sm-12">
 			<center>
@@ -178,4 +178,4 @@
 			}
 			</script>
 		</div>
-	</div>
+	</div> -->

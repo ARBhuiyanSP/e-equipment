@@ -106,7 +106,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableequipme
             2   =>  'capacity',
             3   =>  'makeby',
             4   =>  'model',
-            5   =>  'project_id',
+            5   =>  'present_location',
             6   =>  'present_condition'
         );  
 		//create column like table in database
@@ -123,7 +123,7 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableequipme
         $sql.=" OR capacity Like '%".$request['search']['value']."%' ";
         $sql.=" OR makeby Like '%".$request['search']['value']."%' ";
         $sql.=" OR model Like '%".$request['search']['value']."%' ";
-        $sql.=" OR project_id Like '%".$request['search']['value']."%' ";
+        $sql.=" OR present_location Like '%".$request['search']['value']."%' ";
         $sql.=" OR present_condition Like '%".$request['search']['value']."%' ";
   
     }
@@ -152,10 +152,10 @@ if(isset($_GET['process_type']) && $_GET['process_type'] == 'getDataTableequipme
             $subdata[] = (isset($adata->capacity) && !empty($adata->capacity) ? $adata->capacity : 'No data');
             $subdata[] = (isset($adata->makeby) && !empty($adata->makeby) ? $adata->makeby : 'No data');
             $subdata[] = (isset($adata->model) && !empty($adata->model) ? $adata->model : 'No data');
-                $dataresult =   getDataRowByTableAndId('projects', $adata->project_id);
-            $subdata[] = (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : '');
+                /* $dataresult =   getDataRowByTableAndId('projects', $adata->project_id);
+            $subdata[] = (isset($dataresult) && !empty($dataresult) ? $dataresult->project_name : ''); */
 
-            //$subdata[] = (isset($adata->project_id) && !empty($adata->project_id) ? $adata->project_id : 'No data');
+            $subdata[] = (isset($adata->present_location) && !empty($adata->present_location) ? $adata->present_location : 'No data');
 
 
 
@@ -182,7 +182,7 @@ function get_equipment_list_action_data($data){
    $history_url = 'history.php?id='.$data->eel_code;
    $shifting_url = 'equipment_shifting.php?id='.$data->id;
    $view_url = 'equipment_view.php?id='.$data->id;
-    $edit_url = '#';
+    $edit_url = 'equipment_edit.php?id='.$data->id;
     $action = "";
     $action.='<span><a title="Edit Equipment Data" class="btn btn-sm btn-warning" href="'.$edit_url.'">
                                 <span class="fa fa-edit"> <b>Edit</b></span>
