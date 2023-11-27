@@ -6,7 +6,11 @@
     $notesheets_master	=   $notesheets['notesheets_master'];
     $notesheets    		=   $notesheets['notesheets'];
 ?>
+
 <!-- Main content -->
+<?php if($notesheets_master->attached_file){?>
+<a class="btn btn-success btn-sm" target="blank" href="uploads/file/<?php echo trim($notesheets_master->attached_file) ?>">View Attached File</a>
+<?php } ?>
 <section class="invoice" id="printableArea">
     <form action="" method="POST">
     <!-- info row -->
@@ -17,9 +21,11 @@
 				<h2>E-Engineering Limited</h2>
 				<p>Khawaja Tower[13th Floor], 95 Bir Uttam A.K Khandokar Road, Mohakhali C/A, Dhaka-1212, Bangladesh</p>
 				<h5><b>Note Sheet - [Req No: <?php echo $notesheets_master->notesheet_no ?>]</b></h5>
+				
 				<h5><b style="border:1px solid #000;padding:3px;border-radius:5px;">Project: <?php echo getProjectNameById($notesheets_master->request_project) ?></b></h5>
 			</center>
 			<h5><b>Subject : <?php echo $notesheets_master->subject ?></b></h5></br>
+			<h5>Ref - RLP No: <b><?php echo $notesheets_master->rlp_no ?></b></h5>
 			<h5>
 				<b>Supplier Name : <?php echo $notesheets_master->supplier_name ?></b></br>
 				Address : <?php echo $notesheets_master->address ?></br>
@@ -44,6 +50,7 @@
                             <th width="10%">Quantity</th>
                             <th width="10%">Unit Price</th>
                             <th width="10%">Total</th>
+                            <th width="20%">Remarks</th>
                         </tr>
                     </thead>
                     <tbody id="tbl_posts_body">
@@ -62,34 +69,35 @@
                             <td><?php echo $data->quantity; ?></td>
                             <td><?php echo $data->unit_price; ?></td>
                             <td><?php echo $data->total; ?></td>
+                            <td><?php echo $data->remarks; ?></td>
                         </tr>                        
                             <?php } ?>
 						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">Sub Total: </td>
-                            <td><?php echo $notesheets_master->sub_total; ?></td>
+                            <td colspan="6" style="text-align:right"><b>Sub Total: </b></td>
+                            <td><?php echo number_format($notesheets_master->sub_total); ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">Discount: </td>
+                            <td colspan="6" style="text-align:right">Discount: </td>
                             <td><?php echo $notesheets_master->discount; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">Total After Discount: </td>
-                            <td><?php echo $notesheets_master->total_afterdiscount; ?></td>
+                            <td colspan="6" style="text-align:right"><b>Total After Discount: </b></td>
+                            <td><?php echo number_format($notesheets_master->total_afterdiscount); ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">AIT: </td>
+                            <td colspan="6" style="text-align:right">AIT: </td>
                             <td><?php echo $notesheets_master->ait; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">VAT: </td>
+                            <td colspan="6" style="text-align:right">VAT: </td>
                             <td><?php echo $notesheets_master->vat; ?></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="5" style="text-align:right">Grand Total: </td>
-                            <td><?php echo $notesheets_master->grand_total; ?></td>
+                            <td colspan="6" style="text-align:right"><b>Grand Total: </b></td>
+                            <td><b><?php echo number_format($notesheets_master->grand_total); ?></b></td>
                         </tr>
 						<tr id="rec-1">
-                            <td colspan="7" style="text-align:left"><b>In word: <?php echo convertNumberToWords($notesheets_master->grand_total); ?> Only</b></td>
+                            <td colspan="8" style="text-align:left"><b>In word: <?php echo convertNumberToWords($notesheets_master->grand_total); ?> Only</b></td>
                         </tr>
                     </tbody>
                 </table>

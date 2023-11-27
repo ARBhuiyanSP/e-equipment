@@ -71,13 +71,13 @@ if (isset($rlpListData) && !empty($rlpListData)) {
                         <td>
                             <?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access') && get_status_name($adata->rlp_status)!='Approve'){ ?>
                             <a title="Edit RLP" class="btn btn-sm btn-info" href="rlp_update.php?rlp_id=<?php echo $adata->id; ?>">
-                                <span class="fa fa-pencil"> Edit</span>
+                                <span class="fa fa-pencil"> Details</span>
                             </a>
                             <?php } ?>
 							
 							<?php if (!is_super_admin($user_id_session)) {?>
 							<?php if(hasAccessPermission($user_id_session, 'crlp', 'edit_access') && get_status_name($adata->rlp_status)!='Approve'){ ?>
-                            <a title="Delete RLP" class="btn btn-sm btn-success" href="javascript:void(0)" onclick="commonApproveOperation('<?php echo $approve_url ?>', '<?php echo $adata->id ?>', '<?php echo $_SESSION['logged']['user_id'] ?>');">
+                            <a title="Approve RLP" class="btn btn-sm btn-success" href="javascript:void(0)" onclick="commonApproveOperation('<?php echo $approve_url ?>', '<?php echo $adata->id ?>', '<?php echo $_SESSION['logged']['user_id'] ?>');">
                                 <span class="fa fa-close"> Approve</span>
                             </a>
                             <?php }} ?> 
