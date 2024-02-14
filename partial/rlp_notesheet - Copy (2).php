@@ -97,14 +97,11 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th width="15%">Item Description</th>
+                            <th>Item Description</th>
                             <th>Purpose of Purchase</th>
-                            <th>Quantity</th>
-                            <th width="">Unit Price</th>
-                            <th width="">Total</th>
-                            <th colspan="2">AIT[%]</th>
-                            <th colspan="2">VAT[%]</th>
-                            <th width="">Total Amount</th>
+                            <th width="10%">Quantity</th>
+                            <th width="10%">Unit Price</th>
+                            <th width="10%">Total</th>
                             <th>Remarks</th>
                         </tr>
                     </thead>
@@ -117,50 +114,34 @@
                             <td><?php echo $sl++; ?></td>
                             <td><input type="text" class="form-control" name="item[]" id="" value="<?php echo (isset($data->item_des) && !empty($data->item_des) ? $data->item_des : ""); ?>" readonly ></td>
                             <td><?php echo $data->purpose; ?></td>
-                            <td><input type="number" step="any" min="0" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
-                            <td><input type="number" step="any" min="0" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value="0" required ></td>
+                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="quantity[]" id="quantity_<?php echo $data->id; ?>" value="<?php echo (isset($data->quantity) && !empty($data->quantity) ? $data->quantity : ""); ?>" required ></td>
+                            <td><input type="text" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="unit_price[]" id="unit_price_<?php echo $data->id; ?>" value="" required ></td>
                             <td>
                                 <div class="form-group">
-                                    <input type="number" step="any" min="0" class="form-control " name="total[]" id="total_<?php echo $data->id; ?>" value="0" readonly >
-                                </div>
-                            </td>
-							<td>
-								<input type="number" step="any" min="0" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="ait_individuals[]" id="ait_individuals_<?php echo $data->id; ?>" value="0" required >
-							</td>
-							<td>
-								<input type="number" step="any" min="0" class="form-control" name="ait_individualsamount" id="ait_individualsamount_<?php echo $data->id; ?>" value="0" readonly onchange="caltotal(<?php echo $data->id; ?>)" />
-							</td>
-							<td>
-								<input type="number" step="any" min="0" class="form-control" onkeyup="caltotal(<?php echo $data->id; ?>)" name="vat_individuals[]" id="vat_individuals_<?php echo $data->id; ?>" value="0" required >
-							</td>
-							<td>
-								<input type="number" step="any" min="0" class="form-control" name="vat_individualsamount" id="vat_individualsamount_<?php echo $data->id; ?>" value="0" readonly onchange="caltotal(<?php echo $data->id; ?>)" />
-							</td>
-							<td>
-                                <div class="form-group">
-                                    <input type="number" step="any" min="0" class="form-control total_amount" name="subtotal[]" id="subtotal_<?php echo $data->id; ?>" value="0" readonly >
+                                    <input type="text" class="form-control total_amount" name="total[]" id="total_<?php echo $data->id; ?>" value="" readonly >
                                 </div>
                             </td>
                             <td>
-							<div class="form-group">
-								<input type="text" class="form-control" name="remarks[]" value="">
-							</div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="remarks[]" value="">
+                                    
+                                </div>
                             </td>
                         </tr>                        
                             <?php } ?>
 							
                         <?php if(is_super_admin($currentUserId)){ ?>                       
 					   <tr>
-                            <td colspan="11" style="text-align:right">Sub Total : </td>
+                            <td colspan="5" style="text-align:right">Sub Total : </td>
 							<td>
-								<input type="number" step="any" min="0" class="form-control" name="sub_total" onchange="calculate_total_buy_amount()" id="allcur" value="0" readonly />
+								<input type="text" class="form-control" name="sub_total" onchange="calculate_total_buy_amount()" id="allcur" readonly />
                             </td>
                             <td></td>
                         </tr>
 						<tr>
-                            <td colspan="9" style="text-align:right">Discount Amount : </td>
+                            <td colspan="3" style="text-align:right">Discount Amount : </td>
 							<td colspan="2">
-								<input type="number" step="any" min="0" class="form-control" id="discount" onkeyup="calculate_total_buy_amount()" value="0" required />
+								<input type="text" class="form-control" id="discount" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
                             </td>
 							<td>
 								<input type="text" class="form-control" name="discount" id="discountamount" readonly />
@@ -169,7 +150,7 @@
                         </tr>
 						<!------------------>
 						<tr>
-                            <td colspan="11" style="text-align:right">Total After Discount : </td>
+                            <td colspan="5" style="text-align:right">Total After Discount : </td>
 							<td>
 								<input type="text" class="form-control" name="total_afterdiscount" onchange="calculate_total_buy_amount()" id="allcur_after_discount" readonly />
                             </td>
@@ -177,9 +158,9 @@
                         </tr>
 						<!------------------>
 						<tr>
-                            <td colspan="9" style="text-align:right">AIT [%] : </td>
+                            <td colspan="3" style="text-align:right">AIT [%] : </td>
 							<td colspan="2">
-								<input type="number" step="any" min="0" class="form-control" id="ait" onkeyup="calculate_total_buy_amount()" required value="0"/>
+								<input type="text" class="form-control" id="ait" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
                             </td>
 							<td>
 								<input type="text" class="form-control" name="ait" id="aitamount" readonly />
@@ -187,9 +168,9 @@
                             <td></td>
                         </tr>
 						<tr>
-                            <td colspan="9" style="text-align:right">VAT [%] : </td>
+                            <td colspan="3" style="text-align:right">VAT [%] : </td>
 							<td colspan="2">
-								<input type="number" step="any" min="0" class="form-control" id="vat" onkeyup="calculate_total_buy_amount()" value="0" required />
+								<input type="text" class="form-control" id="vat" onkeyup="calculate_total_buy_amount()" required /><small style="color:red">Type '0' If Not Applicable</small>
                             </td>
 							<td>
 								<input type="text" class="form-control" name="vat" id="vatamount" readonly />
@@ -197,7 +178,7 @@
                             <td></td>
                         </tr>
 						<tr>
-                            <td colspan="11" style="text-align:right">Grand Total : </td>
+                            <td colspan="5" style="text-align:right">Grand Total : </td>
 							<td>
 								<input type="text" class="form-control" name="grand_total" id="grandTotal" readonly />
                             </td>
@@ -252,22 +233,10 @@
 function  caltotal(id){
 	let quantity = parseFloat($('#quantity_'+id).val());
     let unit_price = parseFloat($('#unit_price_'+id).val());
+	
 	let myResult = parseFloat(quantity * unit_price).toFixed(2);
-    let amount = $('#total_'+id).val(myResult);
-	
-	let ait_individuals = parseFloat($('#ait_individuals_'+id).val());
-	let aitIndAmount = parseFloat((myResult * ait_individuals)/100).toFixed(2);
-	$('#ait_individualsamount_'+id).val(aitIndAmount);
-	
-	let vat_individuals = parseFloat($('#vat_individuals_'+id).val());
-	let vatIndAmount = parseFloat((myResult * vat_individuals)/100).toFixed(2);
-	$('#vat_individualsamount_'+id).val(vatIndAmount);
-	
-	let amounAfterAitVat = (parseFloat(myResult) + parseFloat(aitIndAmount) + parseFloat(vatIndAmount)).toFixed(2);
-    $('#subtotal_'+id).val(amounAfterAitVat);
-	
-
-	
+-
+    $('#total_'+id).val(myResult);
 	
 	 calculate_total_buy_amount();
 }

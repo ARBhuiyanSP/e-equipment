@@ -110,7 +110,7 @@ function attached_file_upload($file_path){
 
     if (is_uploaded_file($_FILES['sn_prt_file']['tmp_name'])) {
         $temp_file = $_FILES['sn_prt_file']['tmp_name'];
-        $file = time() . $_FILES['sn_prt_file']['name'];
+        $file = time() . str_replace(" ", "_", $_FILES['sn_prt_file']['name']);
         // move_uploaded_file($temp_file, $file_path . $file);
         move_uploaded_file($temp_file, "uploads/file/" . $file);
     } else {
